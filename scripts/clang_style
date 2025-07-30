@@ -1,0 +1,19 @@
+AlignConsecutiveDeclarations: true
+AllowAllArgumentsOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortFunctionsOnASingleLine: true
+
+BasedOnStyle: llvm
+BinPackArguments: false
+BinPackParameters: false
+BreakBeforeBraces: Allman
+BreakInheritanceList: BeforeColon
+
+BraceWrapping:
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+
+ColumnLimit: 90
+
+PenaltyBreakAssignment: 1000
+PenaltyReturnTypeOnItsOwnLine: 1000
