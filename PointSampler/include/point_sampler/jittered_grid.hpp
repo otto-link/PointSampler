@@ -19,12 +19,12 @@ std::vector<Point<T, N>> generate_random_points_jittered_grid(
     std::size_t                           count,
     const std::array<std::pair<T, T>, N> &axis_ranges,
     const std::array<T, N>               &jitter_amount,
+    const std::array<T, N>               &stagger_ratio,
     std::optional<unsigned int>           seed = std::nullopt)
 {
   std::mt19937                      gen(seed ? *seed : std::random_device{}());
   std::uniform_real_distribution<T> uniform01(0.0, 1.0);
 
-  // Estimate grid resolution
   std::array<std::size_t, N> resolution;
   std::size_t                total_cells = 1;
 
@@ -47,7 +47,6 @@ std::vector<Point<T, N>> generate_random_points_jittered_grid(
   std::vector<Point<T, N>> points;
   points.reserve(std::min(count, total_cells));
 
-  // Prepare shuffled grid indices
   std::vector<std::array<std::size_t, N>> cell_indices;
   for (std::size_t linear = 0; linear < total_cells; ++linear)
   {
@@ -79,7 +78,15 @@ std::vector<Point<T, N>> generate_random_points_jittered_grid(
       T jitter_center = (1.0 - jitter_amount[d]) * 0.5 * cell_size;
       T jitter = uniform01(gen) * jitter_range;
 
-      p[d] = range_min + idx[d] * cell_size + jitter_center + jitter;
+      // Compute stagger offset from higher dimensions
+      T stagger_offset = 0;
+      for (std::size_t k = d + 1; k < N; ++k)
+      {
+        if (idx[k] % 2 == 1)
+          stagger_offset += stagger_ratio[d] * cell_size;
+      }
+
+      p[d] = range_min + idx[d] * cell_size + jitter_center + jitter + stagger_offset;
     }
 
     points.push_back(p);
@@ -88,7 +95,7 @@ std::vector<Point<T, N>> generate_random_points_jittered_grid(
   return points;
 }
 
-// overload for full-jitter
+// overload for full-jitter, no stagger
 template <typename T, std::size_t N>
 std::vector<Point<T, N>> generate_random_points_jittered_grid(
     std::size_t                           count,
@@ -96,10 +103,14 @@ std::vector<Point<T, N>> generate_random_points_jittered_grid(
     std::optional<unsigned int>           seed = std::nullopt)
 {
   std::array<T, N> full_jitter;
+  std::array<T, N> stagger_ratio;
   full_jitter.fill(static_cast<T>(1.0));
+  stagger_ratio.fill(static_cast<T>(0.0));
+
   return generate_random_points_jittered_grid<T, N>(count,
                                                     axis_ranges,
                                                     full_jitter,
+                                                    stagger_ratio,
                                                     seed);
 }
 
