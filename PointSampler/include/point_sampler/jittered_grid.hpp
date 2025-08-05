@@ -15,12 +15,11 @@ namespace ps
 {
 
 template <typename T, std::size_t N>
-std::vector<Point<T, N>> generate_random_points_jittered_grid(
-    std::size_t                           count,
-    const std::array<std::pair<T, T>, N> &axis_ranges,
-    const std::array<T, N>               &jitter_amount,
-    const std::array<T, N>               &stagger_ratio,
-    std::optional<unsigned int>           seed = std::nullopt)
+std::vector<Point<T, N>> jittered_grid(std::size_t                           count,
+                                       const std::array<std::pair<T, T>, N> &axis_ranges,
+                                       const std::array<T, N>     &jitter_amount,
+                                       const std::array<T, N>     &stagger_ratio,
+                                       std::optional<unsigned int> seed = std::nullopt)
 {
   std::mt19937                      gen(seed ? *seed : std::random_device{}());
   std::uniform_real_distribution<T> uniform01(0.0, 1.0);
@@ -97,21 +96,16 @@ std::vector<Point<T, N>> generate_random_points_jittered_grid(
 
 // overload for full-jitter, no stagger
 template <typename T, std::size_t N>
-std::vector<Point<T, N>> generate_random_points_jittered_grid(
-    std::size_t                           count,
-    const std::array<std::pair<T, T>, N> &axis_ranges,
-    std::optional<unsigned int>           seed = std::nullopt)
+std::vector<Point<T, N>> jittered_grid(std::size_t                           count,
+                                       const std::array<std::pair<T, T>, N> &axis_ranges,
+                                       std::optional<unsigned int> seed = std::nullopt)
 {
   std::array<T, N> full_jitter;
   std::array<T, N> stagger_ratio;
   full_jitter.fill(static_cast<T>(1.0));
   stagger_ratio.fill(static_cast<T>(0.0));
 
-  return generate_random_points_jittered_grid<T, N>(count,
-                                                    axis_ranges,
-                                                    full_jitter,
-                                                    stagger_ratio,
-                                                    seed);
+  return jittered_grid<T, N>(count, axis_ranges, full_jitter, stagger_ratio, seed);
 }
 
 } // namespace ps

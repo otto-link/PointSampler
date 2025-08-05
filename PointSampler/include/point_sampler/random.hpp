@@ -15,10 +15,9 @@ namespace ps
 {
 
 template <typename T, std::size_t N>
-std::vector<Point<T, N>> generate_random_points_white(
-    std::size_t                           count,
-    const std::array<std::pair<T, T>, N> &axis_ranges,
-    std::optional<unsigned int>           seed = std::nullopt)
+std::vector<Point<T, N>> random(std::size_t                           count,
+                                const std::array<std::pair<T, T>, N> &axis_ranges,
+                                std::optional<unsigned int>           seed = std::nullopt)
 {
   std::mt19937 gen(seed ? *seed : std::random_device{}());
 
