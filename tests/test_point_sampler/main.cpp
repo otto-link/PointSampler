@@ -68,5 +68,30 @@ int main()
     ps::save_points_to_csv("out_importance_resampling.csv", points);
   }
 
+  {
+    PSLOG->info("ps::random...");
+
+    size_t cluster_count = 10;
+    size_t points_per_cluster = 50;
+    float  spread = 0.05f;
+
+    auto cluster_centers = ps::random<float, dim>(cluster_count, ranges, seed);
+    auto points = ps::gaussian_clusters(cluster_centers,
+                                        points_per_cluster,
+                                        spread,
+                                        seed);
+    ps::save_points_to_csv("out_gaussian_clusters.csv", points);
+
+    // wrapper
+    points = ps::gaussian_clusters(cluster_count,
+                                   points_per_cluster,
+                                   ranges,
+                                   spread,
+                                   seed);
+    ps::save_points_to_csv("out_gaussian_clusters_wrapped.csv", points);
+
+    // ps::save_points_to_csv("out_gaussian_clusters.csv", cluster_centers);
+  }
+
   return 0;
 }
