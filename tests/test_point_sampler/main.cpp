@@ -23,6 +23,13 @@ int main()
   }
 
   {
+    PSLOG->info("ps::hammersley...");
+
+    auto points = ps::hammersley<float, dim>(count, ranges, seed);
+    ps::save_points_to_csv("out_hammersley.csv", points);
+  }
+
+  {
     PSLOG->info("ps::halton...");
 
     auto points = ps::halton<float, dim>(count, ranges, seed);

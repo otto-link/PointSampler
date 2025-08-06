@@ -7,6 +7,7 @@
 
 #include "point_sampler/gaussian_clusters.hpp"
 #include "point_sampler/halton.hpp"
+#include "point_sampler/hammersley.hpp"
 #include "point_sampler/importance_resampling.hpp"
 #include "point_sampler/jittered_grid.hpp"
 #include "point_sampler/random.hpp"
