@@ -122,4 +122,13 @@ void refit_points_to_range(std::vector<Point<T, N>>             &points,
   }
 }
 
+template <typename T, std::size_t N>
+void rescale_points(std::vector<Point<T, N>>             &points,
+                    const std::array<std::pair<T, T>, N> &ranges)
+{
+  for (auto &pt : points)
+    for (std::size_t d = 0; d < N; ++d)
+      pt[d] = ranges[d].first + pt[d] * (ranges[d].second - ranges[d].first);
+}
+
 } // namespace ps

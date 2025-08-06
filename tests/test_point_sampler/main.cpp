@@ -23,9 +23,16 @@ int main()
   }
 
   {
+    PSLOG->info("ps::halton...");
+
+    auto points = ps::halton<float, dim>(count, ranges, seed);
+    ps::save_points_to_csv("out_halton.csv", points);
+  }
+
+  {
     PSLOG->info("ps::jittered_grid...");
 
-    std::array<float, dim> jitter = {0.2f, 0.2f};
+    std::array<float, dim> jitter = {0.3f, 0.3f};
     std::array<float, dim> stagger = {0.5f, 0.f};
 
     auto points = ps::jittered_grid<float, dim>(count, ranges, jitter, stagger, seed);
@@ -39,20 +46,20 @@ int main()
   {
     PSLOG->info("ps::rejection_sampling...");
 
-    auto density = [](const ps::Point<float, 2> &p) -> float
+    auto density = [](const ps::Point<float, dim> &p) -> float
     {
       // Gaussian centered at origin
       return std::exp(-2.f * (p[0] * p[0] + p[1] * p[1]));
     };
 
-    auto points = ps::rejection_sampling<float, 2>(count, ranges, density, seed);
+    auto points = ps::rejection_sampling<float, dim>(count, ranges, density, seed);
     ps::save_points_to_csv("out_rejection_sampling.csv", points);
   }
 
   {
     PSLOG->info("ps::importance_resampling...");
 
-    auto density = [](const ps::Point<float, 2> &p) -> float
+    auto density = [](const ps::Point<float, dim> &p) -> float
     {
       // Gaussian centered at origin
       return std::exp(-2.f * (p[0] * p[0] + p[1] * p[1]));
@@ -60,11 +67,11 @@ int main()
 
     std::size_t oversampling_ratio = 1000;
 
-    auto points = ps::importance_resampling<float, 2>(count,
-                                                      oversampling_ratio,
-                                                      ranges,
-                                                      density,
-                                                      seed);
+    auto points = ps::importance_resampling<float, dim>(count,
+                                                        oversampling_ratio,
+                                                        ranges,
+                                                        density,
+                                                        seed);
     ps::save_points_to_csv("out_importance_resampling.csv", points);
   }
 
@@ -73,7 +80,7 @@ int main()
 
     size_t cluster_count = 10;
     size_t points_per_cluster = 50;
-    float  spread = 0.05f;
+    float  spread = 0.1f;
 
     auto cluster_centers = ps::random<float, dim>(cluster_count, ranges, seed);
     auto points = ps::gaussian_clusters(cluster_centers,
@@ -94,12 +101,12 @@ int main()
   {
     PSLOG->info("ps::relaxation_ktree...");
 
-    auto        points = ps::random<float, 2>(count, ranges, seed);
+    auto        points = ps::random<float, dim>(count, ranges, seed);
     std::size_t k_neighbors = 8;
     float       step_size = 0.01f;
     std::size_t iterations = 10;
 
-    ps::relaxation_ktree<float, 2>(points, k_neighbors, step_size, iterations);
+    ps::relaxation_ktree<float, dim>(points, k_neighbors, step_size, iterations);
     ps::save_points_to_csv("out_relaxation_ktree.csv", points);
 
     // remove pts outside the initial bounding box
