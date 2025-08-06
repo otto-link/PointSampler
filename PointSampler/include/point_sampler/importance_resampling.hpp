@@ -21,17 +21,8 @@ std::vector<Point<T, N>> importance_resampling(
   std::mt19937 gen(seed ? *seed : std::random_device{}());
 
   // Generate grid
-  size_t           count_grid = count * oversampling_ratio;
-  std::array<T, N> jitter;
-  std::array<T, N> stagger;
-  jitter.fill(static_cast<T>(0.0));
-  stagger.fill(static_cast<T>(0.0));
-
-  std::vector<Point<T, N>> grid_points = jittered_grid<T, N>(count_grid,
-                                                             axis_ranges,
-                                                             jitter,
-                                                             stagger,
-                                                             seed);
+  size_t                   count_grid = count * oversampling_ratio;
+  std::vector<Point<T, N>> grid_points = halton<T, N>(count_grid, axis_ranges, seed);
 
   // Weights
   std::vector<T> weights;
