@@ -63,4 +63,42 @@ std::vector<Point<T, N>> distance_rejection_filter(const std::vector<Point<T, N>
   return result;
 }
 
+template <typename T, std::size_t N, typename ScaleFn>
+std::vector<Point<T, N>> distance_rejection_filter_warped(
+    const std::vector<Point<T, N>> &points,
+    T                               base_min_dist,
+    ScaleFn                         scale_fn)
+{
+  if (points.empty())
+    return {};
+
+  std::vector<Point<T, N>> result;
+  result.reserve(points.size());
+  result.push_back(points.front());
+
+  for (std::size_t i = 1; i < points.size(); ++i)
+  {
+    const auto &p = points[i];
+    const T     local_min_dist = base_min_dist * scale_fn(p);
+
+    PointCloudAdaptor<T, N> adaptor(result);
+    KDTree<T, N>            index(N, adaptor);
+    index.buildIndex();
+
+    std::array<T, N> query;
+    for (std::size_t d = 0; d < N; ++d)
+      query[d] = p[d];
+
+    std::vector<nanoflann::ResultItem<unsigned int, T>> matches;
+    nanoflann::SearchParameters                         params;
+    const T radius = local_min_dist * local_min_dist;
+
+    const size_t found = index.radiusSearch(query.data(), radius, matches, params);
+    if (found == 0)
+      result.push_back(p);
+  }
+
+  return result;
+}
+
 } // namespace ps
