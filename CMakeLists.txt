@@ -50,8 +50,6 @@ endif()
 
 # --- dependencies
 
-find_package(spdlog REQUIRED)
-
 add_subdirectory(PointSampler)
 add_subdirectory(external)
 add_subdirectory(tests)

@@ -73,13 +73,6 @@ make
 | ------ | ------------------------------------------- |
 | CMake  | 3.16                                        |
 | C++    | 20                                          |
-| spdlog | Installed and available as `spdlog::spdlog` |
-
-You can install dependencies using your package manager, e.g., on Ubuntu:
-
-```bash
-sudo apt install libspdlog-dev
-```
 
 ### Run a sample
 
@@ -139,14 +132,7 @@ target_link_libraries(my_app PRIVATE point_sampler)
 ### PointSampler Requirements
 
 * **C++20** compiler
-* `spdlog` (must be available as `spdlog::spdlog` target)
 * `nanoflann` (embedded as an external)
-
-Make sure the following are available in your project:
-
-```cmake
-find_package(spdlog REQUIRED)
-```
 
 ## Where to Find Examples
 
@@ -168,7 +154,6 @@ This includes:
 ## Dependencies
 
 * [nanoflann](https://github.com/jlblancoc/nanoflann) — used for k-nearest neighbor acceleration in relaxation
-* [spdlog](https://github.com/gabime/spdlog) — optional logging (already linked if you use `point_sampler` target)
 
 ## License
 

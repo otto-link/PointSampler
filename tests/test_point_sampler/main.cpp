@@ -1,12 +1,13 @@
 /* Copyright (c) 2025 Otto Link. Distributed under the terms of the GNU General
  * Public License. The full license is in the file LICENSE, distributed with
  * this software. */
+#include <iostream>
+
 #include "point_sampler.hpp"
-#include "point_sampler/internal/logger.hpp"
 
 int main()
 {
-  PSLOG->info("testing PointSampler...");
+  std::cout << "testing PointSampler...\n";
 
   const size_t dim = 2;
   size_t       count = 1000;
@@ -16,28 +17,28 @@ int main()
                                                      std::make_pair(-2.f, 2.f)};
 
   {
-    PSLOG->info("ps::random...");
+    std::cout << "ps::random...\n";
 
     auto points = ps::random<float, dim>(count, ranges, seed);
     ps::save_points_to_csv("out_random.csv", points);
   }
 
   {
-    PSLOG->info("ps::hammersley...");
+    std::cout << "ps::hammersley...\n";
 
     auto points = ps::hammersley<float, dim>(count, ranges, seed);
     ps::save_points_to_csv("out_hammersley.csv", points);
   }
 
   {
-    PSLOG->info("ps::halton...");
+    std::cout << "ps::halton...\n";
 
     auto points = ps::halton<float, dim>(count, ranges, seed);
     ps::save_points_to_csv("out_halton.csv", points);
   }
 
   {
-    PSLOG->info("ps::jittered_grid...");
+    std::cout << "ps::jittered_grid...\n";
 
     std::array<float, dim> jitter = {0.3f, 0.3f};
     std::array<float, dim> stagger = {0.5f, 0.f};
@@ -51,7 +52,7 @@ int main()
   }
 
   {
-    PSLOG->info("ps::poisson_disk_sampling...");
+    std::cout << "ps::poisson_disk_sampling...\n";
 
     // minimum distance scaling function
     auto scale_fn = [](const ps::Point<float, dim> &p) -> float
@@ -80,7 +81,7 @@ int main()
   }
 
   {
-    PSLOG->info("ps::rejection_sampling...");
+    std::cout << "ps::rejection_sampling...\n";
 
     auto density = [](const ps::Point<float, dim> &p) -> float
     {
@@ -93,7 +94,7 @@ int main()
   }
 
   {
-    PSLOG->info("ps::importance_resampling...");
+    std::cout << "ps::importance_resampling...\n";
 
     auto density = [](const ps::Point<float, dim> &p) -> float
     {
@@ -112,7 +113,7 @@ int main()
   }
 
   {
-    PSLOG->info("ps::random...");
+    std::cout << "ps::random...\n";
 
     size_t cluster_count = 10;
     size_t points_per_cluster = 50;
@@ -135,7 +136,7 @@ int main()
   }
 
   {
-    PSLOG->info("ps::relaxation_ktree...");
+    std::cout << "ps::relaxation_ktree...\n";
 
     auto   points = ps::random<float, dim>(count, ranges, seed);
     size_t k_neighbors = 8;
@@ -155,7 +156,7 @@ int main()
   }
 
   {
-    PSLOG->info("ps::distance_rejection_filter...");
+    std::cout << "ps::distance_rejection_filter...\n";
 
     float min_dist = 0.1f;
 
