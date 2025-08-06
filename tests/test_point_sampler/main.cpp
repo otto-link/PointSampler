@@ -105,6 +105,10 @@ int main()
     // remove pts outside the initial bounding box
     ps::filter_points_in_range(points, ranges);
     ps::save_points_to_csv("out_relaxation_ktree_filtered.csv", points);
+
+    // rescale to fit in initial bounding box
+    ps::refit_points_to_range(points, ranges);
+    ps::save_points_to_csv("out_relaxation_ktree_refit.csv", points);
   }
 
   return 0;
