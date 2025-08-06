@@ -89,8 +89,21 @@ int main()
                                    spread,
                                    seed);
     ps::save_points_to_csv("out_gaussian_clusters_wrapped.csv", points);
+  }
 
-    // ps::save_points_to_csv("out_gaussian_clusters.csv", cluster_centers);
+  {
+    PSLOG->info("ps::relaxation_ktree...");
+
+    auto        points = ps::random<float, 2>(count, ranges, seed);
+    std::size_t k_neighbors = 8;
+    float       step_size = 0.01f;
+    std::size_t iterations = 10;
+
+    ps::relaxation_ktree<float, 2>(points, k_neighbors, step_size, iterations);
+    ps::save_points_to_csv("out_relaxation_ktree.csv", points);
+
+    ps::filter_points_in_range(points, ranges);
+    ps::save_points_to_csv("out_relaxation_ktree_filtered.csv", points);
   }
 
   return 0;

@@ -212,7 +212,7 @@ template <typename T, std::size_t N> Point<T, N> normalized(const Point<T, N> &a
 {
   T len = length(a);
   if (len == T(0))
-    return T(0);
+    return Point<T, N>();
   else
     return a / len;
 }

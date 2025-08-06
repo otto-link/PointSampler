@@ -46,6 +46,33 @@ bool save_points_to_csv(const std::string              &filename,
   return true;
 }
 
+template <typename T, std::size_t N>
+std::vector<Point<T, N>> filter_points_in_range(
+    const std::vector<Point<T, N>>       &points,
+    const std::array<std::pair<T, T>, N> &axis_ranges)
+{
+  std::vector<Point<T, N>> filtered;
+  filtered.reserve(points.size());
+
+  for (const auto &p : points)
+  {
+    bool inside = true;
+    for (std::size_t i = 0; i < N; ++i)
+    {
+      const auto &[min_val, max_val] = axis_ranges[i];
+      if (p[i] < min_val || p[i] > max_val)
+      {
+        inside = false;
+        break;
+      }
+    }
+    if (inside)
+      filtered.push_back(p);
+  }
+
+  return filtered;
+}
+
 // Ex.:
 //   auto separated = split_by_dimension(pts);
 //   separated[0] = {1.0f, 4.0f, 7.0f} // x values
