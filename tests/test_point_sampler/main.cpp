@@ -101,7 +101,7 @@ int main()
       return std::exp(-2.f * (p[0] * p[0] + p[1] * p[1]));
     };
 
-    std::size_t oversampling_ratio = 1000;
+    size_t oversampling_ratio = 1000;
 
     auto points = ps::importance_resampling<float, dim>(count,
                                                         oversampling_ratio,
@@ -137,10 +137,10 @@ int main()
   {
     PSLOG->info("ps::relaxation_ktree...");
 
-    auto        points = ps::random<float, dim>(count, ranges, seed);
-    std::size_t k_neighbors = 8;
-    float       step_size = 0.01f;
-    std::size_t iterations = 10;
+    auto   points = ps::random<float, dim>(count, ranges, seed);
+    size_t k_neighbors = 8;
+    float  step_size = 0.01f;
+    size_t iterations = 10;
 
     ps::relaxation_ktree<float, dim>(points, k_neighbors, step_size, iterations);
     ps::save_points_to_csv("out_relaxation_ktree.csv", points);

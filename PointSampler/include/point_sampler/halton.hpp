@@ -10,10 +10,10 @@
 namespace ps
 {
 
-template <typename T, std::size_t N>
-std::vector<Point<T, N>> halton_sequence(std::size_t count, size_t shift)
+template <typename T, size_t N>
+std::vector<Point<T, N>> halton_sequence(size_t count, size_t shift)
 {
-  auto halton = [](std::size_t index, std::size_t base) -> T
+  auto halton = [](size_t index, size_t base) -> T
   {
     T result = 0;
     T f = 1;
@@ -26,21 +26,20 @@ std::vector<Point<T, N>> halton_sequence(std::size_t count, size_t shift)
     return result;
   };
 
-  constexpr std::size_t primes[15] =
-      {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47};
-  constexpr std::size_t n_primes = 15;
+  constexpr size_t primes[15] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47};
+  constexpr size_t n_primes = 15;
 
   std::vector<Point<T, N>> points(count);
-  for (std::size_t i = 0; i < count; ++i)
+  for (size_t i = 0; i < count; ++i)
   {
-    for (std::size_t d = 0; d < N; ++d)
+    for (size_t d = 0; d < N; ++d)
       points[i][d] = halton(i + 1 + shift, primes[std::min(n_primes - 1, d)]);
   }
   return points;
 }
 
-template <typename T, std::size_t N>
-std::vector<Point<T, N>> halton(std::size_t                           count,
+template <typename T, size_t N>
+std::vector<Point<T, N>> halton(size_t                                count,
                                 const std::array<std::pair<T, T>, N> &axis_ranges,
                                 std::optional<unsigned int>           seed = std::nullopt)
 {

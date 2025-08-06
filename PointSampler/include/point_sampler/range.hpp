@@ -21,7 +21,7 @@ namespace ps
  * @param axis_ranges   Ranges for each dimension (min, max) inclusive.
  * @return std::vector<Point<T, N>> Filtered points that lie within the given ranges.
  */
-template <typename T, std::size_t N>
+template <typename T, size_t N>
 std::vector<Point<T, N>> filter_points_in_range(
     const std::vector<Point<T, N>>       &points,
     const std::array<std::pair<T, T>, N> &axis_ranges)
@@ -32,7 +32,7 @@ std::vector<Point<T, N>> filter_points_in_range(
   for (const auto &p : points)
   {
     bool inside = true;
-    for (std::size_t i = 0; i < N; ++i)
+    for (size_t i = 0; i < N; ++i)
     {
       const auto &[min_val, max_val] = axis_ranges[i];
       if (p[i] < min_val || p[i] > max_val)
@@ -72,7 +72,7 @@ std::vector<Point<T, N>> filter_points_in_range(
  * @note If a dimension has constant value (min == max), the center of the target range is
  * used.
  */
-template <typename T, std::size_t N>
+template <typename T, size_t N>
 void refit_points_to_range(std::vector<Point<T, N>>             &points,
                            const std::array<std::pair<T, T>, N> &target_ranges)
 {
@@ -82,7 +82,7 @@ void refit_points_to_range(std::vector<Point<T, N>>             &points,
   std::array<T, N> min_vals, max_vals;
 
   // Initialize min/max
-  for (std::size_t d = 0; d < N; ++d)
+  for (size_t d = 0; d < N; ++d)
   {
     min_vals[d] = points[0][d];
     max_vals[d] = points[0][d];
@@ -91,7 +91,7 @@ void refit_points_to_range(std::vector<Point<T, N>>             &points,
   // Compute bounding box
   for (const auto &p : points)
   {
-    for (std::size_t d = 0; d < N; ++d)
+    for (size_t d = 0; d < N; ++d)
     {
       min_vals[d] = std::min(min_vals[d], p[d]);
       max_vals[d] = std::max(max_vals[d], p[d]);
@@ -101,7 +101,7 @@ void refit_points_to_range(std::vector<Point<T, N>>             &points,
   // Apply linear mapping to each point
   for (auto &p : points)
   {
-    for (std::size_t d = 0; d < N; ++d)
+    for (size_t d = 0; d < N; ++d)
     {
       const T in_min = min_vals[d];
       const T in_max = max_vals[d];
@@ -122,12 +122,12 @@ void refit_points_to_range(std::vector<Point<T, N>>             &points,
   }
 }
 
-template <typename T, std::size_t N>
+template <typename T, size_t N>
 void rescale_points(std::vector<Point<T, N>>             &points,
                     const std::array<std::pair<T, T>, N> &ranges)
 {
   for (auto &pt : points)
-    for (std::size_t d = 0; d < N; ++d)
+    for (size_t d = 0; d < N; ++d)
       pt[d] = ranges[d].first + pt[d] * (ranges[d].second - ranges[d].first);
 }
 

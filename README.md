@@ -27,8 +27,8 @@ The library is designed to be generic, extensible, and dimensionality-independen
 int main()
 {
   // Generate 5 random points in 3D space
-  constexpr std::size_t dim = 3;
-  std::size_t count = 5;
+  constexpr size_t dim = 3;
+  size_t count = 5;
   unsigned int seed = 42;
 
   std::array<std::pair<float, float>, dim> ranges = {

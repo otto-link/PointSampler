@@ -32,7 +32,7 @@ namespace ps
  *     auto length = p.x() * p.x() + p.y() * p.y();
  */
 
-template <typename T, std::size_t N> struct Point
+template <typename T, size_t N> struct Point
 {
   std::array<T, N> coords;
 
@@ -44,7 +44,7 @@ template <typename T, std::size_t N> struct Point
   {
     if (v.size() != N)
       throw std::invalid_argument("Point: vector size mismatch");
-    for (std::size_t i = 0; i < N; ++i)
+    for (size_t i = 0; i < N; ++i)
       coords[i] = v[i];
   }
 
@@ -57,8 +57,8 @@ template <typename T, std::size_t N> struct Point
   }
 
   // Accessors
-  T       &operator[](std::size_t i) { return coords[i]; }
-  const T &operator[](std::size_t i) const { return coords[i]; }
+  T       &operator[](size_t i) { return coords[i]; }
+  const T &operator[](size_t i) const { return coords[i]; }
 
   // Optional 2D/3D accessors
   T &x()
@@ -107,82 +107,82 @@ template <typename T, std::size_t N> struct Point
 // ------------------------------
 // Arithmetic Operators
 // ------------------------------
-template <typename T, std::size_t N>
+template <typename T, size_t N>
 Point<T, N> operator+(const Point<T, N> &a, const Point<T, N> &b)
 {
   Point<T, N> result;
-  for (std::size_t i = 0; i < N; ++i)
+  for (size_t i = 0; i < N; ++i)
     result[i] = a[i] + b[i];
   return result;
 }
 
-template <typename T, std::size_t N>
+template <typename T, size_t N>
 Point<T, N> operator-(const Point<T, N> &a, const Point<T, N> &b)
 {
   Point<T, N> result;
-  for (std::size_t i = 0; i < N; ++i)
+  for (size_t i = 0; i < N; ++i)
     result[i] = a[i] - b[i];
   return result;
 }
 
-template <typename T, std::size_t N>
+template <typename T, size_t N>
 Point<T, N> operator*(const Point<T, N> &a, const Point<T, N> &b)
 {
   Point<T, N> result;
-  for (std::size_t i = 0; i < N; ++i)
+  for (size_t i = 0; i < N; ++i)
     result[i] = a[i] * b[i];
   return result;
 }
 
-template <typename T, std::size_t N>
+template <typename T, size_t N>
 Point<T, N> operator/(const Point<T, N> &a, const Point<T, N> &b)
 {
   Point<T, N> result;
-  for (std::size_t i = 0; i < N; ++i)
+  for (size_t i = 0; i < N; ++i)
     result[i] = a[i] / b[i];
   return result;
 }
 
 // Scalar ops
-template <typename T, std::size_t N> Point<T, N> operator+(const Point<T, N> &p, T scalar)
+template <typename T, size_t N> Point<T, N> operator+(const Point<T, N> &p, T scalar)
 {
   Point<T, N> result;
-  for (std::size_t i = 0; i < N; ++i)
+  for (size_t i = 0; i < N; ++i)
     result[i] = p[i] + scalar;
   return result;
 }
 
-template <typename T, std::size_t N> Point<T, N> operator-(const Point<T, N> &p, T scalar)
+template <typename T, size_t N> Point<T, N> operator-(const Point<T, N> &p, T scalar)
 {
   Point<T, N> result;
-  for (std::size_t i = 0; i < N; ++i)
+  for (size_t i = 0; i < N; ++i)
     result[i] = p[i] - scalar;
   return result;
 }
 
-template <typename T, std::size_t N> Point<T, N> operator*(const Point<T, N> &p, T scalar)
+template <typename T, size_t N> Point<T, N> operator*(const Point<T, N> &p, T scalar)
 {
   Point<T, N> result;
-  for (std::size_t i = 0; i < N; ++i)
+  for (size_t i = 0; i < N; ++i)
     result[i] = p[i] * scalar;
   return result;
 }
 
-template <typename T, std::size_t N> Point<T, N> operator/(const Point<T, N> &p, T scalar)
+template <typename T, size_t N> Point<T, N> operator/(const Point<T, N> &p, T scalar)
 {
   Point<T, N> result;
-  for (std::size_t i = 0; i < N; ++i)
+  for (size_t i = 0; i < N; ++i)
     result[i] = p[i] / scalar;
   return result;
 }
 
 // Reverse scalar ops
-template <typename T, std::size_t N> Point<T, N> operator*(T scalar, const Point<T, N> &p)
+template <typename T, size_t N> Point<T, N> operator*(T scalar, const Point<T, N> &p)
 {
   return p * scalar;
 }
 
-template <typename T, std::size_t N> Point<T, N> operator+(T scalar, const Point<T, N> &p)
+template <typename T, size_t N> Point<T, N> operator+(T scalar, const Point<T, N> &p)
 {
   return p + scalar;
 }
@@ -190,25 +190,25 @@ template <typename T, std::size_t N> Point<T, N> operator+(T scalar, const Point
 // ------------------------------
 // Geometric Functions
 // ------------------------------
-template <typename T, std::size_t N> T dot(const Point<T, N> &a, const Point<T, N> &b)
+template <typename T, size_t N> T dot(const Point<T, N> &a, const Point<T, N> &b)
 {
   T result = T(0);
-  for (std::size_t i = 0; i < N; ++i)
+  for (size_t i = 0; i < N; ++i)
     result += a[i] * b[i];
   return result;
 }
 
-template <typename T, std::size_t N> T length_squared(const Point<T, N> &a)
+template <typename T, size_t N> T length_squared(const Point<T, N> &a)
 {
   return dot(a, a);
 }
 
-template <typename T, std::size_t N> T length(const Point<T, N> &a)
+template <typename T, size_t N> T length(const Point<T, N> &a)
 {
   return std::sqrt(length_squared(a));
 }
 
-template <typename T, std::size_t N> Point<T, N> normalized(const Point<T, N> &a)
+template <typename T, size_t N> Point<T, N> normalized(const Point<T, N> &a)
 {
   T len = length(a);
   if (len == T(0))
@@ -217,29 +217,28 @@ template <typename T, std::size_t N> Point<T, N> normalized(const Point<T, N> &a
     return a / len;
 }
 
-template <typename T, std::size_t N>
+template <typename T, size_t N>
 T distance_squared(const Point<T, N> &a, const Point<T, N> &b)
 {
   return length_squared(a - b);
 }
 
-template <typename T, std::size_t N>
-T distance(const Point<T, N> &a, const Point<T, N> &b)
+template <typename T, size_t N> T distance(const Point<T, N> &a, const Point<T, N> &b)
 {
   return length(a - b);
 }
 
-template <typename T, std::size_t N>
+template <typename T, size_t N>
 Point<T, N> lerp(const Point<T, N> &a, const Point<T, N> &b, T t)
 {
   return a + (b - a) * t;
 }
 
-template <typename T, std::size_t N>
+template <typename T, size_t N>
 Point<T, N> clamp(const Point<T, N> &p, T min_val, T max_val)
 {
   Point<T, N> result;
-  for (std::size_t i = 0; i < N; ++i)
+  for (size_t i = 0; i < N; ++i)
     result[i] = std::min(std::max(p[i], min_val), max_val);
   return result;
 }

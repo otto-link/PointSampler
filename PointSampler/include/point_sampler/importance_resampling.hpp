@@ -10,10 +10,10 @@
 namespace ps
 {
 
-template <typename T, std::size_t N, typename DensityFn>
+template <typename T, size_t N, typename DensityFn>
 std::vector<Point<T, N>> importance_resampling(
-    std::size_t                           count,
-    std::size_t                           oversampling_ratio,
+    size_t                                count,
+    size_t                                oversampling_ratio,
     const std::array<std::pair<T, T>, N> &axis_ranges,
     DensityFn                             density_fn,
     std::optional<unsigned int>           seed = std::nullopt)
@@ -37,10 +37,10 @@ std::vector<Point<T, N>> importance_resampling(
     w /= sum;
 
   // Resample
-  std::discrete_distribution<std::size_t> dist(weights.begin(), weights.end());
-  std::vector<Point<T, N>>                samples;
+  std::discrete_distribution<size_t> dist(weights.begin(), weights.end());
+  std::vector<Point<T, N>>           samples;
   samples.reserve(count);
-  for (std::size_t i = 0; i < count; ++i)
+  for (size_t i = 0; i < count; ++i)
     samples.push_back(grid_points[dist(gen)]);
 
   return samples;

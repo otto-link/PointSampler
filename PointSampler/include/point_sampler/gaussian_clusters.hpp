@@ -10,7 +10,7 @@
 namespace ps
 {
 
-template <typename T, std::size_t N>
+template <typename T, size_t N>
 std::vector<Point<T, N>> gaussian_clusters(
     std::vector<Point<T, N>>    cluster_centers,
     size_t                      points_per_cluster,
@@ -22,13 +22,13 @@ std::vector<Point<T, N>> gaussian_clusters(
   std::vector<Point<T, N>> points;
   points.reserve(cluster_centers.size() * points_per_cluster);
 
-  for (std::size_t i = 0; i < cluster_centers.size(); ++i)
+  for (size_t i = 0; i < cluster_centers.size(); ++i)
   {
     std::normal_distribution<T> dist(0, spread);
-    for (std::size_t j = 0; j < points_per_cluster; ++j)
+    for (size_t j = 0; j < points_per_cluster; ++j)
     {
       Point<T, N> p;
-      for (std::size_t k = 0; k < N; ++k)
+      for (size_t k = 0; k < N; ++k)
         p[k] = cluster_centers[i][k] + dist(gen);
       points.push_back(p);
     }
@@ -36,7 +36,7 @@ std::vector<Point<T, N>> gaussian_clusters(
   return points;
 }
 
-template <typename T, std::size_t N>
+template <typename T, size_t N>
 std::vector<Point<T, N>> gaussian_clusters(
     size_t                                cluster_count,
     size_t                                points_per_cluster,

@@ -9,9 +9,9 @@
 namespace ps
 {
 
-template <typename T, std::size_t N, typename DensityFn>
+template <typename T, size_t N, typename DensityFn>
 std::vector<Point<T, N>> rejection_sampling(
-    std::size_t                           count,
+    size_t                                count,
     const std::array<std::pair<T, T>, N> &axis_ranges,
     DensityFn                             density_fn,
     std::optional<unsigned int>           seed = std::nullopt)
@@ -19,7 +19,7 @@ std::vector<Point<T, N>> rejection_sampling(
   std::mt19937 gen(seed ? *seed : std::random_device{}());
 
   std::array<std::uniform_real_distribution<T>, N> coord_dists;
-  for (std::size_t i = 0; i < N; ++i)
+  for (size_t i = 0; i < N; ++i)
     coord_dists[i] = std::uniform_real_distribution<T>(axis_ranges[i].first,
                                                        axis_ranges[i].second);
 
@@ -31,7 +31,7 @@ std::vector<Point<T, N>> rejection_sampling(
   while (result.size() < count)
   {
     Point<T, N> p;
-    for (std::size_t i = 0; i < N; ++i)
+    for (size_t i = 0; i < N; ++i)
       p[i] = coord_dists[i](gen);
 
     T prob = density_fn(p);

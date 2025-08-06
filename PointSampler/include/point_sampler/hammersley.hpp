@@ -10,10 +10,10 @@
 namespace ps
 {
 
-template <typename T, std::size_t N>
-std::vector<Point<T, N>> hammersley_sequence(std::size_t count, size_t shift)
+template <typename T, size_t N>
+std::vector<Point<T, N>> hammersley_sequence(size_t count, size_t shift)
 {
-  auto van_der_corput = [](std::size_t n, std::size_t base) -> T
+  auto van_der_corput = [](size_t n, size_t base) -> T
   {
     T q = 0;
     T bk = 1.0 / base;
@@ -26,22 +26,21 @@ std::vector<Point<T, N>> hammersley_sequence(std::size_t count, size_t shift)
     return q;
   };
 
-  constexpr std::size_t primes[15] =
-      {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47};
-  constexpr std::size_t n_primes = 15;
+  constexpr size_t primes[15] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47};
+  constexpr size_t n_primes = 15;
 
   std::vector<Point<T, N>> points(count);
-  for (std::size_t i = 0; i < count; ++i)
+  for (size_t i = 0; i < count; ++i)
   {
     points[i][0] = static_cast<T>(i) / static_cast<T>(count);
-    for (std::size_t d = 1; d < N; ++d)
+    for (size_t d = 1; d < N; ++d)
       points[i][d] = van_der_corput(i + shift, primes[std::min(n_primes - 1, d - 1)]);
   }
   return points;
 }
 
-template <typename T, std::size_t N>
-std::vector<Point<T, N>> hammersley(std::size_t                           count,
+template <typename T, size_t N>
+std::vector<Point<T, N>> hammersley(size_t                                count,
                                     const std::array<std::pair<T, T>, N> &axis_ranges,
                                     std::optional<unsigned int> seed = std::nullopt)
 {

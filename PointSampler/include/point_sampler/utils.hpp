@@ -12,7 +12,7 @@
 namespace ps
 {
 
-template <typename T, std::size_t N>
+template <typename T, size_t N>
 bool save_points_to_csv(const std::string              &filename,
                         const std::vector<Point<T, N>> &points,
                         bool                            write_header = true)
@@ -23,7 +23,7 @@ bool save_points_to_csv(const std::string              &filename,
 
   if (write_header)
   {
-    for (std::size_t i = 0; i < N; ++i)
+    for (size_t i = 0; i < N; ++i)
     {
       out << "x" << i;
       if (i < N - 1)
@@ -34,7 +34,7 @@ bool save_points_to_csv(const std::string              &filename,
 
   for (const auto &point : points)
   {
-    for (std::size_t i = 0; i < N; ++i)
+    for (size_t i = 0; i < N; ++i)
     {
       out << point[i];
       if (i < N - 1)
@@ -51,13 +51,13 @@ bool save_points_to_csv(const std::string              &filename,
 //   separated[0] = {1.0f, 4.0f, 7.0f} // x values
 //   separated[1] = {2.0f, 5.0f, 8.0f} // y values
 //   separated[2] = {3.0f, 6.0f, 9.0f} // z values
-template <typename T, std::size_t N>
+template <typename T, size_t N>
 std::array<std::vector<T>, N> split_by_dimension(const std::vector<Point<T, N>> &points)
 {
   std::array<std::vector<T>, N> components;
 
   for (const auto &point : points)
-    for (std::size_t i = 0; i < N; ++i)
+    for (size_t i = 0; i < N; ++i)
     {
       components[i].push_back(point[i]);
     }

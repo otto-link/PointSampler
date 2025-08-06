@@ -10,8 +10,8 @@
 namespace ps
 {
 
-template <typename T, std::size_t N>
-std::vector<Point<T, N>> random(std::size_t                           count,
+template <typename T, size_t N>
+std::vector<Point<T, N>> random(size_t                                count,
                                 const std::array<std::pair<T, T>, N> &axis_ranges,
                                 std::optional<unsigned int>           seed = std::nullopt)
 {
@@ -19,7 +19,7 @@ std::vector<Point<T, N>> random(std::size_t                           count,
 
   // Create N distributions, one per dimension
   std::array<std::uniform_real_distribution<T>, N> dists;
-  for (std::size_t i = 0; i < N; ++i)
+  for (size_t i = 0; i < N; ++i)
   {
     const auto &[min_val, max_val] = axis_ranges[i];
     if (min_val > max_val)
@@ -30,10 +30,10 @@ std::vector<Point<T, N>> random(std::size_t                           count,
   std::vector<Point<T, N>> points;
   points.reserve(count);
 
-  for (std::size_t i = 0; i < count; ++i)
+  for (size_t i = 0; i < count; ++i)
   {
     Point<T, N> p;
-    for (std::size_t j = 0; j < N; ++j)
+    for (size_t j = 0; j < N; ++j)
       p[j] = dists[j](gen);
     points.push_back(p);
   }

@@ -55,13 +55,13 @@ namespace ps
  *   - Apply the movement to each point.
  * - Repeat for `iterations` steps.
  */
-template <typename T, std::size_t N>
+template <typename T, size_t N>
 void relaxation_ktree(std::vector<Point<T, N>> &points,
-                      std::size_t               k_neighbors = 8,
+                      size_t                    k_neighbors = 8,
                       T                         step_size = T(0.1),
-                      std::size_t               iterations = 10)
+                      size_t                    iterations = 10)
 {
-  for (std::size_t iter = 0; iter < iterations; ++iter)
+  for (size_t iter = 0; iter < iterations; ++iter)
   {
     PointCloudAdaptor<T, N> adaptor(points);
     KDTree<T, N>            index(N, adaptor);
@@ -69,7 +69,7 @@ void relaxation_ktree(std::vector<Point<T, N>> &points,
 
     std::vector<Point<T, N>> new_points = points;
 
-    for (std::size_t i = 0; i < points.size(); ++i)
+    for (size_t i = 0; i < points.size(); ++i)
     {
       const auto &p = points[i];
 
@@ -80,13 +80,13 @@ void relaxation_ktree(std::vector<Point<T, N>> &points,
       result_set.init(ret_indexes.data(), out_dists_sqr.data());
 
       std::array<T, N> query;
-      for (std::size_t d = 0; d < N; ++d)
+      for (size_t d = 0; d < N; ++d)
         query[d] = p[d];
 
       index.findNeighbors(result_set, query.data(), nanoflann::SearchParameters());
 
       Point<T, N> offset{};
-      for (std::size_t j = 1; j < result_set.size(); ++j) // skip self at j=0
+      for (size_t j = 1; j < result_set.size(); ++j) // skip self at j=0
       {
         const auto &q = points[ret_indexes[j]];
         auto        delta = p - q;

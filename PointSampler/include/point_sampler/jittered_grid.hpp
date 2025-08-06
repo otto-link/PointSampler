@@ -9,8 +9,8 @@
 namespace ps
 {
 
-template <typename T, std::size_t N>
-std::vector<Point<T, N>> jittered_grid(std::size_t                           count,
+template <typename T, size_t N>
+std::vector<Point<T, N>> jittered_grid(size_t                                count,
                                        const std::array<std::pair<T, T>, N> &axis_ranges,
                                        const std::array<T, N>     &jitter_amount,
                                        const std::array<T, N>     &stagger_ratio,
@@ -19,8 +19,8 @@ std::vector<Point<T, N>> jittered_grid(std::size_t                           cou
   std::mt19937                      gen(seed ? *seed : std::random_device{}());
   std::uniform_real_distribution<T> uniform01(0.0, 1.0);
 
-  std::array<std::size_t, N> resolution;
-  std::size_t                total_cells = 1;
+  std::array<size_t, N> resolution;
+  size_t                total_cells = 1;
 
   T volume = 1;
   for (const auto &[min, max] : axis_ranges)
@@ -29,24 +29,22 @@ std::vector<Point<T, N>> jittered_grid(std::size_t                           cou
   T target_cell_volume = volume / static_cast<T>(count);
   T cell_size_estimate = std::pow(target_cell_volume, static_cast<T>(1.0) / N);
 
-  for (std::size_t i = 0; i < N; ++i)
+  for (size_t i = 0; i < N; ++i)
   {
     T range = axis_ranges[i].second - axis_ranges[i].first;
-    resolution[i] = std::max<std::size_t>(
-        1,
-        static_cast<std::size_t>(range / cell_size_estimate));
+    resolution[i] = std::max<size_t>(1, static_cast<size_t>(range / cell_size_estimate));
     total_cells *= resolution[i];
   }
 
   std::vector<Point<T, N>> points;
   points.reserve(std::min(count, total_cells));
 
-  std::vector<std::array<std::size_t, N>> cell_indices;
-  for (std::size_t linear = 0; linear < total_cells; ++linear)
+  std::vector<std::array<size_t, N>> cell_indices;
+  for (size_t linear = 0; linear < total_cells; ++linear)
   {
-    std::array<std::size_t, N> index{};
-    std::size_t                div = 1;
-    for (std::size_t i = 0; i < N; ++i)
+    std::array<size_t, N> index{};
+    size_t                div = 1;
+    for (size_t i = 0; i < N; ++i)
     {
       index[i] = (linear / div) % resolution[i];
       div *= resolution[i];
@@ -55,14 +53,14 @@ std::vector<Point<T, N>> jittered_grid(std::size_t                           cou
   }
 
   std::shuffle(cell_indices.begin(), cell_indices.end(), gen);
-  std::size_t limit = std::min(count, cell_indices.size());
+  size_t limit = std::min(count, cell_indices.size());
 
-  for (std::size_t i = 0; i < limit; ++i)
+  for (size_t i = 0; i < limit; ++i)
   {
     const auto &idx = cell_indices[i];
     Point<T, N> p;
 
-    for (std::size_t d = 0; d < N; ++d)
+    for (size_t d = 0; d < N; ++d)
     {
       T range_min = axis_ranges[d].first;
       T range_max = axis_ranges[d].second;
@@ -74,7 +72,7 @@ std::vector<Point<T, N>> jittered_grid(std::size_t                           cou
 
       // Compute stagger offset from higher dimensions
       T stagger_offset = 0;
-      for (std::size_t k = d + 1; k < N; ++k)
+      for (size_t k = d + 1; k < N; ++k)
       {
         if (idx[k] % 2 == 1)
           stagger_offset += stagger_ratio[d] * cell_size;
@@ -90,8 +88,8 @@ std::vector<Point<T, N>> jittered_grid(std::size_t                           cou
 }
 
 // overload for full-jitter, no stagger
-template <typename T, std::size_t N>
-std::vector<Point<T, N>> jittered_grid(std::size_t                           count,
+template <typename T, size_t N>
+std::vector<Point<T, N>> jittered_grid(size_t                                count,
                                        const std::array<std::pair<T, T>, N> &axis_ranges,
                                        std::optional<unsigned int> seed = std::nullopt)
 {

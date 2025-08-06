@@ -9,7 +9,7 @@
 namespace ps
 {
 
-template <typename T, std::size_t N> struct PointCloudAdaptor
+template <typename T, size_t N> struct PointCloudAdaptor
 {
   const std::vector<Point<T, N>> &pts;
 
@@ -28,7 +28,7 @@ template <typename T, std::size_t N> struct PointCloudAdaptor
   } // Not using bounding boxes
 };
 
-template <typename T, std::size_t N>
+template <typename T, size_t N>
 using KDTree = nanoflann::KDTreeSingleIndexAdaptor<
     nanoflann::L2_Simple_Adaptor<T, PointCloudAdaptor<T, N>>,
     PointCloudAdaptor<T, N>,
