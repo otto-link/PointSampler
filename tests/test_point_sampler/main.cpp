@@ -154,5 +154,16 @@ int main()
     ps::save_points_to_csv("out_relaxation_ktree_refit.csv", points);
   }
 
+  {
+    PSLOG->info("ps::distance_rejection_filter...");
+
+    float min_dist = 0.1f;
+
+    auto points = ps::random<float, dim>(count, ranges, seed);
+    points = ps::distance_rejection_filter<float, dim>(points, min_dist);
+
+    ps::save_points_to_csv("out_distance_rejection_filter.csv", points);
+  }
+
   return 0;
 }

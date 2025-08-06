@@ -5,6 +5,7 @@
 #include "point_sampler/point.hpp"
 #include "point_sampler/utils.hpp"
 
+#include "point_sampler/distance_rejection_filter.hpp"
 #include "point_sampler/gaussian_clusters.hpp"
 #include "point_sampler/halton.hpp"
 #include "point_sampler/hammersley.hpp"
