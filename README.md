@@ -8,7 +8,8 @@ The library is designed to be generic, extensible, and dimensionality-independen
 
 - ✔️ Random sampling in arbitrary dimensions  
 - ✔️ Grid-based sampling with jitter and stagger  
-- ✔️ Importance sampling via rejection or resampling  
+- ✔️ Importance sampling via rejection or resampling
+- ✔️ Poisson disc sampling (uniform and non-uniform)
 - ✔️ Point cloud filtering and normalization  
 - ✔️ Density-based spatial distribution
 - ✔️ Relaxation using k-nearest neighbors (with `nanoflann`)  
