@@ -171,4 +171,4 @@ This includes:
 
 ## License
 
-MIT License. See `LICENSE` file for details.
+This project is licensed under the GPL-3.0 license.
