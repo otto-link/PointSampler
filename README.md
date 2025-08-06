@@ -11,7 +11,7 @@ The library is designed to be generic, extensible, and dimensionality-independen
 - ✔️ Importance sampling via rejection or resampling  
 - ✔️ Point cloud filtering and normalization  
 - ✔️ Density-based spatial distribution
-- ✔️ Relaxation using k-nearest neighbors (with nanoflann)  
+- ✔️ Relaxation using k-nearest neighbors (with `nanoflann`)  
 - ✔️ Dimension-agnostic (supports any `N`)
 - ...
 
@@ -103,7 +103,7 @@ my-app/
 │   └── PointSampler/    # Contains this library
 ```
 
-### Step 1: Add PointSampler to Your Project
+### Add PointSampler to Your Project
 
 In your **top-level `CMakeLists.txt`**:
 
@@ -135,10 +135,11 @@ target_link_libraries(my_app PRIVATE point_sampler)
 
 > Don't forget to add `FetchContent_Declare` before `project()` if you're using CMake 3.14+ and need reproducible builds.
 
-### QSliderX Requirements
+### PointSampler Requirements
 
 * **C++20** compiler
 * `spdlog` (must be available as `spdlog::spdlog` target)
+* `nanoflann` (embedded as an external)
 
 Make sure the following are available in your project:
 
