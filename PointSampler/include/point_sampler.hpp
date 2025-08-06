@@ -10,6 +10,7 @@
 #include "point_sampler/hammersley.hpp"
 #include "point_sampler/importance_resampling.hpp"
 #include "point_sampler/jittered_grid.hpp"
+#include "point_sampler/poisson_disk_sampling.hpp"
 #include "point_sampler/random.hpp"
 #include "point_sampler/range.hpp"
 #include "point_sampler/rejection_sampling.hpp"

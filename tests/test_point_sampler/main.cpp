@@ -51,6 +51,35 @@ int main()
   }
 
   {
+    PSLOG->info("ps::poisson_disk_sampling...");
+
+    // minimum distance scaling function
+    auto scale_fn = [](const ps::Point<float, dim> &p) -> float
+    {
+      // scale = 1 at origin and scale = 4 far away
+      return 1.f + 3.f * (1.f - std::exp(-2.f * (p[0] * p[0] + p[1] * p[1])));
+    };
+
+    float base_min_dist = 0.05f;
+
+    auto points = ps::poisson_disk_sampling<float, dim>(count,
+                                                        ranges,
+                                                        base_min_dist,
+                                                        scale_fn,
+                                                        seed);
+    ps::save_points_to_csv("out_poisson_disk_sampling.csv", points);
+
+    // uniform, no scaling
+    base_min_dist = 0.1f;
+
+    points = ps::poisson_disk_sampling_uniform<float, dim>(count,
+                                                           ranges,
+                                                           base_min_dist,
+                                                           seed);
+    ps::save_points_to_csv("out_poisson_disk_sampling_uniform.csv", points);
+  }
+
+  {
     PSLOG->info("ps::rejection_sampling...");
 
     auto density = [](const ps::Point<float, dim> &p) -> float
