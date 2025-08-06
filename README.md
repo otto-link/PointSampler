@@ -8,9 +8,9 @@ The library is designed to be generic, extensible, and dimensionality-independen
 
 - ✔️ Random sampling in arbitrary dimensions  
 - ✔️ Grid-based sampling with jitter and stagger  
-- ✔️ Importance sampling via rejection or warping  
+- ✔️ Importance sampling via rejection or resampling  
 - ✔️ Point cloud filtering and normalization  
-- ✔️ Density-based spatial warping  
+- ✔️ Density-based spatial distribution
 - ✔️ Relaxation using k-nearest neighbors (with nanoflann)  
 - ✔️ Dimension-agnostic (supports any `N`)
 - ...
