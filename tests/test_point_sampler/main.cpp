@@ -102,6 +102,7 @@ int main()
     ps::relaxation_ktree<float, 2>(points, k_neighbors, step_size, iterations);
     ps::save_points_to_csv("out_relaxation_ktree.csv", points);
 
+    // remove pts outside the initial bounding box
     ps::filter_points_in_range(points, ranges);
     ps::save_points_to_csv("out_relaxation_ktree_filtered.csv", points);
   }
