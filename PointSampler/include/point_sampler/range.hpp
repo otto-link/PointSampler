@@ -48,6 +48,22 @@ std::vector<Point<T, N>> filter_points_in_range(
   return filtered;
 }
 
+template <typename T, std::size_t N, typename Func>
+std::vector<Point<T, N>> filter_points_function(const std::vector<Point<T, N>> &points,
+                                                Func                            fn)
+{
+  std::vector<Point<T, N>> filtered;
+  filtered.reserve(points.size());
+
+  for (const auto &p : points)
+  {
+    if (fn(p) != T(0)) // keep point if function value is not zero
+      filtered.push_back(p);
+  }
+
+  return filtered;
+}
+
 /**
  * @brief Linearly remap a set of points to fit within the specified axis-aligned ranges.
  *
