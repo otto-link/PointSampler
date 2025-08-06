@@ -15,7 +15,7 @@ The library is designed to be generic, extensible, and dimensionality-independen
 - ✔️ Dimension-agnostic (supports any `N`)
 - ...
 
-<img width="1073" height="299" alt="demo" src="https://github.com/user-attachments/assets/dda9c8e3-a4dc-44bc-b49a-7db2079bdac8" />
+<img width="880" height="733" alt="demo" src="https://github.com/user-attachments/assets/97c5714d-cdac-4a74-9a09-02a858895462" />
 
 ## Example
 
