@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['example_0',['example',['../namespaceps.html#autotoc_md0',1,'Example'],['../namespaceps.html#autotoc_md1',1,'Example'],['../namespaceps.html#autotoc_md2',1,'Example']]]
+  ['example_0',['example',['../namespaceps.html#autotoc_md0',1,'Example'],['../namespaceps.html#autotoc_md1',1,'Example'],['../namespaceps.html#autotoc_md2',1,'Example'],['../namespaceps.html#autotoc_md3',1,'Example']]]
 ];

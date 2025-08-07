@@ -20,7 +20,7 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 {\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , std\+::size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_ad1f4a1110a40bf1c6a687182db6b4b94}{distance\+\_\+rejection\+\_\+filter}} (\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&\mbox{\hyperlink{structps_1_1Point}{points}}, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{min\+\_\+dist}})
 \item 
 {\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , std\+::size\+\_\+t N, \mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{Scale\+Fn}} $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_af23d114903fd5cb3ccb19d3e64183632}{distance\+\_\+rejection\+\_\+filter\+\_\+warped}} (\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&\mbox{\hyperlink{structps_1_1Point}{points}}, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{base\+\_\+min\+\_\+dist}}, \mbox{\hyperlink{structps_1_1Point}{Scale\+Fn}} \mbox{\hyperlink{structps_1_1Point}{scale\+\_\+fn}})
-\item 
+\begin{DoxyCompactList}\small\item\em Filters points based on spatially-\/varying minimal distance constraints. \end{DoxyCompactList}\item 
 {\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a913ab9d687ee42d04488e5eb0373e23a}{gaussian\+\_\+clusters}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{structps_1_1Point}{cluster\+\_\+centers}}, \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{points\+\_\+per\+\_\+cluster}}, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{spread}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt)
 \item 
 {\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a0efaff8017d5a171ffdf0ed0201bd65d}{gaussian\+\_\+clusters}} (\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{cluster\+\_\+count}}, \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{points\+\_\+per\+\_\+cluster}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{axis\+\_\+ranges}}, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{spread}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt)
@@ -145,7 +145,45 @@ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink
 {\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , std\+::size\+\_\+t N, \mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{Scale\+Fn}} $>$ \\
 std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::distance\+\_\+rejection\+\_\+filter\+\_\+warped (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&}]{points,  }\item[{\mbox{\hyperlink{structps_1_1Point}{T}}}]{base\+\_\+min\+\_\+dist,  }\item[{\mbox{\hyperlink{structps_1_1Point}{Scale\+Fn}}}]{scale\+\_\+fn }\end{DoxyParamCaption})}
 
-\begin{Desc}
+
+
+Filters points based on spatially-\/varying minimal distance constraints. 
+
+A scale function is used to modulate the minimum allowed distance for each point. The base distance {\ttfamily base\+\_\+min\+\_\+dist} is scaled by the value returned by {\ttfamily scale\+\_\+fn(p)}, allowing for adaptive sampling densities.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Scalar type (e.\+g., float or double) \\
+\hline
+{\em N} & Dimensionality of the space \\
+\hline
+{\em Scale\+Fn} & Callable returning a scalar scale factor for a given point\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em points} & Vector of candidate points \\
+\hline
+{\em base\+\_\+min\+\_\+dist} & Base minimum allowed distance \\
+\hline
+{\em scale\+\_\+fn} & Function providing a local scale factor per point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Point$<$\+T, N$>$$>$ A filtered set of points with variable spacing
+\end{DoxyReturn}
+\hypertarget{namespaceps_autotoc_md0}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md0}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ \mbox{\hyperlink{structps_1_1Point}{scale\_fn}}\ =\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<float,\ 2>}}\&\ \mbox{\hyperlink{structps_1_1Point}{p}})\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ 0.5f\ +\ 0.5f\ *\ std::sin(\mbox{\hyperlink{structps_1_1Point}{p}}[0]\ *\ 3.1415f);\ \textcolor{comment}{//\ Varies\ between\ 0.5\ and\ 1}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::vector<Point<float,\ 2>>\ pts\ =\ \mbox{\hyperlink{structps_1_1Point}{ps::random<float,\ 2>}}(1000,\ \{\{0,1\},\{0,1\}\});}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ filtered\ =\ \mbox{\hyperlink{namespaceps_af23d114903fd5cb3ccb19d3e64183632}{ps::distance\_rejection\_filter\_warped}}(pts,\ 0.05f,\ scale\_fn);}
+
+\end{DoxyCode}
+ \begin{Desc}
 \item[Examples]\par
 \mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2distance_rejection_filter_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/distance\+\_\+rejection\+\_\+filter.\+hpp}}.\end{Desc}
 \Hypertarget{namespaceps_aecf2b150ec16bf286e6a7b462c4d5808}\label{namespaceps_aecf2b150ec16bf286e6a7b462c4d5808} 
@@ -523,7 +561,7 @@ This function computes the axis-\/aligned bounding box (AABB) of the input point
 \mbox{\texttt{ in}}  & {\em target\+\_\+ranges} & Desired output min/max per dimension.\\
 \hline
 \end{DoxyParams}
-\hypertarget{namespaceps_autotoc_md0}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md0}
+\hypertarget{namespaceps_autotoc_md1}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md1}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{std::vector<Point<float,\ 2>>\ pts\ =\ \mbox{\hyperlink{structps_1_1Point}{generate\_random\_points<float,\ 2>}}(100,\ \{\ \{}
@@ -578,7 +616,7 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of accepted points based on reje
 {\em std\+::invalid\+\_\+argument} & if any axis range is invalid (min \texorpdfstring{$>$}{>} max).\\
 \hline
 \end{DoxyExceptions}
-\hypertarget{namespaceps_autotoc_md1}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md1}
+\hypertarget{namespaceps_autotoc_md2}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md2}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{rejection__sampling_8hpp}{point\_sampler/rejection\_sampling.hpp}}"{}}}
@@ -638,7 +676,7 @@ Each point is offset based on inverse-\/distance-\/weighted repulsion from its k
 \begin{DoxyNote}{Note}
 The KD-\/tree is rebuilt on each iteration to reflect the updated positions.
 \end{DoxyNote}
-\hypertarget{namespaceps_autotoc_md2}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md2}
+\hypertarget{namespaceps_autotoc_md3}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md3}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{relaxation_8hpp}{point\_sampler/relaxation.hpp}}>}}
@@ -650,7 +688,7 @@ The KD-\/tree is rebuilt on each iteration to reflect the updated positions.
 \DoxyCodeLine{relaxation\_ktree<float,\ 2>(pts,\ 8,\ 0.1f,\ 10);}
 
 \end{DoxyCode}
-\hypertarget{namespaceps_autotoc_md3}{}\doxysubsubsubsection{\texorpdfstring{How it works\+:}{How it works:}}\label{namespaceps_autotoc_md3}
+\hypertarget{namespaceps_autotoc_md4}{}\doxysubsubsubsection{\texorpdfstring{How it works\+:}{How it works:}}\label{namespaceps_autotoc_md4}
 
 \begin{DoxyItemize}
 \item For each point\+:
