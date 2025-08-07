@@ -9,3 +9,5 @@ for F in `find ${INCLUDE_DIRS}/. -type f -iname \*.hpp`; do
     echo ${F}
     uncrustify -c scripts/uncrustify_config.cfg --replace ${F} --no-backup -q
 done
+
+./scripts/format_src.sh

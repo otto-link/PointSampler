@@ -181,9 +181,8 @@ Point<T, N> generate_random_point_around(const Point<T, N> &center,
  * possibly with a warped metric.
  *
  * This function uses Bridson's algorithm to generate evenly spaced points
- * according to a minimum
- * base distance, which can be warped using a user-defined scaling function
- * (e.g., density or metric warping).
+ * according to a minimum base distance, which can be warped using a
+ * user-defined scaling function (e.g., density or metric warping).
  *
  * @tparam T Scalar type (e.g., float or double).
  * @tparam N Dimension of the sampling space.

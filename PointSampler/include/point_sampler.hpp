@@ -3,6 +3,54 @@
    this software. */
 #pragma once
 
+/**
+ * @mainpage PointSampler
+ *
+ * @section intro_sec Introduction
+ *
+ * **PointSampler** is a lightweight, header-only C++ library for point sampling
+ * in arbitrary dimensions. It offers generic and reusable algorithms for:
+ *
+ * - Random point generation
+ * - Distance-based filtering
+ * - Utility operations on points
+ *
+ * The library is template-based and dimension-independent, making it suitable
+ * for 2D, 3D, or higher-dimensional spaces.
+ *
+ * @section usage_sec Usage Example
+ *
+ * @code{.cpp}
+ * #include <point_sampler.hpp>
+ *
+ * std::vector<Point<float, 2>> pts = ps::random<float, 2>(1000, {{0,1},{0,1}});
+ * auto filtered = ps::distance_rejection_filter(pts, 0.05f);
+ * @endcode
+ *
+ * @section modules_sec Categories
+ *
+ * - Random Sampling Functions
+ *   - @ref random.hpp
+ *   - @ref halton.hpp
+ *   - @ref hammersley.hpp
+ *   - @ref jittered_grid.hpp
+ *   - @ref poisson_disk_sampling.hpp
+ *   - @ref gaussian_cluster.hpp
+ *   - @ref importance_resampling.hpp
+ *   - @ref rejection_sampling.hpp
+ * - Filtering Functions
+ *   - @ref distance_rejection_filter.hpp
+ *   - @ref relaxation.hpp
+ * - Utility Functions
+ *   - @ref range.hpp
+ * - Point representation
+ *   - @ref point.hpp
+ *
+ * @section repo_sec Repository
+ *
+ * GitHub: https://github.com/otto-link/PointSampler
+ */
+
 #include "point_sampler/point.hpp"
 #include "point_sampler/utils.hpp"
 
