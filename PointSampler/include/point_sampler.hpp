@@ -40,6 +40,7 @@
  *   - @ref rejection_sampling.hpp
  * - Filtering Functions
  *   - @ref distance_rejection_filter.hpp
+ *   - @ref function_rejection_filter.hpp
  *   - @ref random_rejection_filter.hpp
  *   - @ref relaxation.hpp
  * - Utility Functions
@@ -56,6 +57,7 @@
 #include "point_sampler/utils.hpp"
 
 #include "point_sampler/distance_rejection_filter.hpp"
+#include "point_sampler/function_rejection_filter.hpp"
 #include "point_sampler/gaussian_clusters.hpp"
 #include "point_sampler/halton.hpp"
 #include "point_sampler/hammersley.hpp"

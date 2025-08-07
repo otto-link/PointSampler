@@ -4,7 +4,7 @@
 #pragma once
 #include <optional>
 
-#include "point_sampler/point.hpp"
+#include "point_sampler/function_rejection_filter.hpp"
 
 namespace ps
 {
@@ -72,25 +72,19 @@ std::vector<Point<T, N>> rejection_sampling(
     coord_dists[i] = std::uniform_real_distribution<T>(axis_ranges[i].first,
                                                        axis_ranges[i].second);
 
-  std::uniform_real_distribution<T> accept_dist(0.0, 1.0);
+  std::vector<Point<T, N>> candidates;
+  candidates.reserve(count * 2); // overgenerate
 
-  std::vector<Point<T, N>> result;
-  result.reserve(count);
-
-  while (result.size() < count)
+  while (candidates.size() < count * 2)
   {
     Point<T, N> p;
     for (size_t i = 0; i < N; ++i)
       p[i] = coord_dists[i](gen);
 
-    T prob = density_fn(p);
-    T threshold = accept_dist(gen);
-
-    if (prob >= threshold)
-      result.push_back(p);
+    candidates.push_back(p);
   }
 
-  return result;
+  return function_rejection_filter<T, N>(candidates, density_fn, seed);
 }
 
 } // namespace ps
