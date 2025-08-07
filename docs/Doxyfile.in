@@ -2,6 +2,10 @@ GENERATE_HTML = YES
 OUTPUT_DIRECTORY = docs
 HTML_OUTPUT = .
 
+# Enable file documentation and file index
+SHOW_FILES           = YES
+SHOW_NAMESPACES      = YES
+
 # 1. Root input folder or list of files
 INPUT = PointSampler/include
 
