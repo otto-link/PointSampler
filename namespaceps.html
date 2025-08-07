@@ -102,6 +102,10 @@ Functions</h2></td></tr>
 <tr class="memitem:af23d114903fd5cb3ccb19d3e64183632"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#af23d114903fd5cb3ccb19d3e64183632">distance_rejection_filter_warped</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, T base_min_dist, ScaleFn scale_fn)</td></tr>
 <tr class="memdesc:af23d114903fd5cb3ccb19d3e64183632"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filters points based on spatially-varying minimal distance constraints.  <br /></td></tr>
 <tr class="separator:af23d114903fd5cb3ccb19d3e64183632"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e4055582214237ee9f21369133e6194" id="r_a0e4055582214237ee9f21369133e6194"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N, typename DensityFn &gt; </td></tr>
+<tr class="memitem:a0e4055582214237ee9f21369133e6194"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a0e4055582214237ee9f21369133e6194">function_rejection_filter</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, DensityFn density_fn, std::optional&lt; unsigned int &gt; seed=std::nullopt)</td></tr>
+<tr class="memdesc:a0e4055582214237ee9f21369133e6194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filters points based on a spatial probability (density) function.  <br /></td></tr>
+<tr class="separator:a0e4055582214237ee9f21369133e6194"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a913ab9d687ee42d04488e5eb0373e23a" id="r_a913ab9d687ee42d04488e5eb0373e23a"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:a913ab9d687ee42d04488e5eb0373e23a"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a913ab9d687ee42d04488e5eb0373e23a">gaussian_clusters</a> (std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; cluster_centers, size_t points_per_cluster, T spread, std::optional&lt; unsigned int &gt; seed=std::nullopt)</td></tr>
 <tr class="memdesc:a913ab9d687ee42d04488e5eb0373e23a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates clustered points around provided cluster centers using a Gaussian distribution.  <br /></td></tr>
@@ -599,6 +603,67 @@ template&lt;typename T , size_t N&gt; </div>
 <div class="line"><span class="keyword">auto</span> filtered = ps::filter_points_in_range&lt;float, 2&gt;(pts, { {{0.f, 1.f},</div>
 <div class="line">{0.f, 1.f}} });</div>
 <div class="line"><span class="comment">// filtered now contains only { {0.5f, 0.5f} }</span></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="a0e4055582214237ee9f21369133e6194" name="a0e4055582214237ee9f21369133e6194"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e4055582214237ee9f21369133e6194">&#9670;&#160;</a></span>function_rejection_filter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t N, typename DensityFn &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; ps::function_rejection_filter </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>points</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">DensityFn&#160;</td>
+          <td class="paramname"><em>density_fn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::optional&lt; unsigned int &gt;&#160;</td>
+          <td class="paramname"><em>seed</em> = <code>std::nullopt</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Filters points based on a spatial probability (density) function. </p>
+<p>Each point is accepted with a probability given by <code>density_fn(p)</code>, which should return a value in [0, 1]. This is useful for sampling from a non-uniform spatial distribution.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Scalar type (e.g., float or double) </td></tr>
+    <tr><td class="paramname">N</td><td>Dimensionality of the space </td></tr>
+    <tr><td class="paramname">DensityFn</td><td>Callable type with signature <code>T(const <a class="el" href="structps_1_1Point.html" title="A fixed-size N-dimensional point/vector class.">Point</a>&lt;T, N&gt;&amp;)</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">points</td><td>Input candidate points </td></tr>
+    <tr><td class="paramname">density_fn</td><td>Function returning acceptance probability for each point </td></tr>
+    <tr><td class="paramname">seed</td><td>Optional random seed for reproducibility </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; of accepted points</dd></dl>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> field = [](<span class="keyword">const</span> <a class="code hl_struct" href="structps_1_1Point.html">Point&lt;float, 2&gt;</a>&amp; p) {</div>
+<div class="line">    <span class="keywordflow">return</span> 0.5f + 0.5f * std::sin(p[0] * 10.0f); <span class="comment">// Spatial density</span></div>
+<div class="line">};</div>
+<div class="line"><span class="keyword">auto</span> accepted = <a class="code hl_function" href="namespaceps.html#a0e4055582214237ee9f21369133e6194">ps::function_rejection_filter</a>(pts, field);</div>
+<div class="ttc" id="anamespaceps_html_a0e4055582214237ee9f21369133e6194"><div class="ttname"><a href="namespaceps.html#a0e4055582214237ee9f21369133e6194">ps::function_rejection_filter</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; function_rejection_filter(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, DensityFn density_fn, std::optional&lt; unsigned int &gt; seed=std::nullopt)</div><div class="ttdoc">Filters points based on a spatial probability (density) function.</div><div class="ttdef"><b>Definition</b> function_rejection_filter.hpp:36</div></div>
 </div><!-- fragment --> 
 </div>
 </div>

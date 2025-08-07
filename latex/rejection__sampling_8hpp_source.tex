@@ -8,7 +8,7 @@
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <optional>}}
 \DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{point_8hpp}{point\_sampler/point.hpp}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{function__rejection__filter_8hpp}{point\_sampler/function\_rejection\_filter.hpp}}"{}}}
 \DoxyCodeLine{00008\ }
 \DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
 \DoxyCodeLine{00010\ \{}
@@ -27,27 +27,21 @@
 \DoxyCodeLine{00072\ \ \ \ \ coord\_dists[i]\ =\ std::uniform\_real\_distribution<T>(axis\_ranges[i].first,}
 \DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ axis\_ranges[i].second);}
 \DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ \ \ std::uniform\_real\_distribution<T>\ accept\_dist(0.0,\ 1.0);}
-\DoxyCodeLine{00076\ }
-\DoxyCodeLine{00077\ \ \ std::vector<Point<T,\ N>>\ result;}
-\DoxyCodeLine{00078\ \ \ result.reserve(count);}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00080\ \ \ \textcolor{keywordflow}{while}\ (result.size()\ <\ count)}
-\DoxyCodeLine{00081\ \ \ \{}
-\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ p;}
-\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ N;\ ++i)}
-\DoxyCodeLine{00084\ \ \ \ \ \ \ p[i]\ =\ coord\_dists[i](gen);}
-\DoxyCodeLine{00085\ }
-\DoxyCodeLine{00086\ \ \ \ \ T\ prob\ =\ density\_fn(p);}
-\DoxyCodeLine{00087\ \ \ \ \ T\ threshold\ =\ accept\_dist(gen);}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{if}\ (prob\ >=\ threshold)}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ result.push\_back(p);}
-\DoxyCodeLine{00091\ \ \ \}}
-\DoxyCodeLine{00092\ }
-\DoxyCodeLine{00093\ \ \ \textcolor{keywordflow}{return}\ result;}
-\DoxyCodeLine{00094\ \}}
-\DoxyCodeLine{00095\ }
-\DoxyCodeLine{00096\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+\DoxyCodeLine{00075\ \ \ std::vector<Point<T,\ N>>\ candidates;}
+\DoxyCodeLine{00076\ \ \ candidates.reserve(count\ *\ 2);\ \textcolor{comment}{//\ overgenerate}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \textcolor{keywordflow}{while}\ (candidates.size()\ <\ count\ *\ 2)}
+\DoxyCodeLine{00079\ \ \ \{}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ p;}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ N;\ ++i)}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ p[i]\ =\ coord\_dists[i](gen);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ candidates.push\_back(p);}
+\DoxyCodeLine{00085\ \ \ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \textcolor{keywordflow}{return}\ function\_rejection\_filter<T,\ N>(candidates,\ density\_fn,\ seed);}
+\DoxyCodeLine{00088\ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \}\ \textcolor{comment}{//\ namespace\ ps}}
 
 \end{DoxyCode}

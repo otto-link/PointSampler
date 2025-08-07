@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nanoflann_5fadaptator_2ehpp_0',['nanoflann_adaptator.hpp',['../nanoflann__adaptator_8hpp.html',1,'']]]
+  ['jittered_5fgrid_2ehpp_0',['jittered_grid.hpp',['../jittered__grid_8hpp.html',1,'']]]
 ];

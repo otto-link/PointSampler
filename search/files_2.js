@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['halton_2ehpp_0',['halton.hpp',['../halton_8hpp.html',1,'']]],
-  ['hammersley_2ehpp_1',['hammersley.hpp',['../hammersley_8hpp.html',1,'']]]
+  ['gaussian_5fclusters_2ehpp_0',['gaussian_clusters.hpp',['../gaussian__clusters_8hpp.html',1,'']]]
 ];

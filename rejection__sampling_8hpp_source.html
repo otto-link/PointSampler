@@ -87,7 +87,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="point_8hpp.html">point_sampler/point.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="function__rejection__filter_8hpp.html">point_sampler/function_rejection_filter.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceps.html">ps</a></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
@@ -107,32 +107,26 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    coord_dists[i] = std::uniform_real_distribution&lt;T&gt;(axis_ranges[i].first,</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                                                       axis_ranges[i].second);</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  std::uniform_real_distribution&lt;T&gt; accept_dist(0.0, 1.0);</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>  std::vector&lt;Point&lt;T, N&gt;&gt; result;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  result.reserve(count);</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  <span class="keywordflow">while</span> (result.size() &lt; count)</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>  {</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <a class="code hl_struct" href="structps_1_1Point.html">Point&lt;T, N&gt;</a> p;</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; N; ++i)</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>      p[i] = coord_dists[i](gen);</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    T prob = density_fn(p);</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    T threshold = accept_dist(gen);</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordflow">if</span> (prob &gt;= threshold)</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>      result.push_back(p);</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>  }</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  <span class="keywordflow">return</span> result;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>}</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  std::vector&lt;Point&lt;T, N&gt;&gt; candidates;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  candidates.reserve(count * 2); <span class="comment">// overgenerate</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  <span class="keywordflow">while</span> (candidates.size() &lt; count * 2)</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <a class="code hl_struct" href="structps_1_1Point.html">Point&lt;T, N&gt;</a> p;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; N; ++i)</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>      p[i] = coord_dists[i](gen);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    candidates.push_back(p);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  }</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  <span class="keywordflow">return</span> function_rejection_filter&lt;T, N&gt;(candidates, density_fn, seed);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>}</div>
 </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>} <span class="comment">// namespace ps</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>} <span class="comment">// namespace ps</span></div>
+<div class="ttc" id="afunction__rejection__filter_8hpp_html"><div class="ttname"><a href="function__rejection__filter_8hpp.html">function_rejection_filter.hpp</a></div></div>
 <div class="ttc" id="anamespaceps_html"><div class="ttname"><a href="namespaceps.html">ps</a></div><div class="ttdef"><b>Definition</b> distance_rejection_filter.hpp:12</div></div>
 <div class="ttc" id="anamespaceps_html_a29ab0a94bbe26a22cb87bf8f44703527"><div class="ttname"><a href="namespaceps.html#a29ab0a94bbe26a22cb87bf8f44703527">ps::rejection_sampling</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; rejection_sampling(size_t count, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, DensityFn density_fn, std::optional&lt; unsigned int &gt; seed=std::nullopt)</div><div class="ttdoc">Generates random points using rejection sampling based on a user-defined density function.</div><div class="ttdef"><b>Definition</b> rejection_sampling.hpp:62</div></div>
-<div class="ttc" id="apoint_8hpp_html"><div class="ttname"><a href="point_8hpp.html">point.hpp</a></div></div>
 <div class="ttc" id="astructps_1_1Point_html"><div class="ttname"><a href="structps_1_1Point.html">ps::Point</a></div><div class="ttdoc">A fixed-size N-dimensional point/vector class.</div><div class="ttdef"><b>Definition</b> point.hpp:37</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
