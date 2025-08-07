@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nanoflann_5fadaptator_2ehpp_0',['nanoflann_adaptator.hpp',['../nanoflann__adaptator_8hpp.html',1,'']]]
+  ['latin_5fhypercube_5fsampling_2ehpp_0',['latin_hypercube_sampling.hpp',['../latin__hypercube__sampling_8hpp.html',1,'']]]
 ];

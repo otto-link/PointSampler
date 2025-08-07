@@ -41,6 +41,8 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 \begin{DoxyCompactList}\small\item\em Generates a point set on a jittered and optionally staggered grid. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_ae90df8db8e751ff4b61298114f092714}{jittered\+\_\+grid}} (size\+\_\+t count, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
 \begin{DoxyCompactList}\small\item\em Generates a jittered grid of points with full jitter and no stagger. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , std\+::size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a9ca14831de223ff62a6c3ec93e96a7c0}{latin\+\_\+hypercube\+\_\+sampling}} (std\+::size\+\_\+t sample\+\_\+count, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
+\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_af9ee1cf5d335276b7fabe6f1daddf1b0}{operator+}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&a, const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&b)
 \item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_aa369956286bc3f09dfdc146a5b2a49f1}{operator-\/}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&a, const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&b)
@@ -667,7 +669,17 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ Jittered point samples
 \DoxyCodeLine{\textcolor{keyword}{auto}\ points\ =\ ps::jittered\_grid<double,\ 3>(1000,\ bounds,\ 1234);}
 
 \end{DoxyCode}
- \Hypertarget{namespaceps_a38d89dd8b52a63eabb39ef5e425d5746}\label{namespaceps_a38d89dd8b52a63eabb39ef5e425d5746} 
+ \Hypertarget{namespaceps_a9ca14831de223ff62a6c3ec93e96a7c0}\label{namespaceps_a9ca14831de223ff62a6c3ec93e96a7c0} 
+\index{ps@{ps}!latin\_hypercube\_sampling@{latin\_hypercube\_sampling}}
+\index{latin\_hypercube\_sampling@{latin\_hypercube\_sampling}!ps@{ps}}
+\doxysubsubsection{\texorpdfstring{latin\_hypercube\_sampling()}{latin\_hypercube\_sampling()}}
+{\footnotesize\ttfamily template$<$typename T , std\+::size\+\_\+t N$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::latin\+\_\+hypercube\+\_\+sampling (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{sample\+\_\+count,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{axis\+\_\+ranges,  }\item[{std\+::optional$<$ unsigned int $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
+
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2latin_hypercube_sampling_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/latin\+\_\+hypercube\+\_\+sampling.\+hpp}}.\end{Desc}
+\Hypertarget{namespaceps_a38d89dd8b52a63eabb39ef5e425d5746}\label{namespaceps_a38d89dd8b52a63eabb39ef5e425d5746} 
 \index{ps@{ps}!length@{length}}
 \index{length@{length}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{length()}{length()}}

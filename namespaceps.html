@@ -140,6 +140,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ae90df8db8e751ff4b61298114f092714"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#ae90df8db8e751ff4b61298114f092714">jittered_grid</a> (size_t count, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, std::optional&lt; unsigned int &gt; seed=std::nullopt)</td></tr>
 <tr class="memdesc:ae90df8db8e751ff4b61298114f092714"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a jittered grid of points with full jitter and no stagger.  <br /></td></tr>
 <tr class="separator:ae90df8db8e751ff4b61298114f092714"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ca14831de223ff62a6c3ec93e96a7c0" id="r_a9ca14831de223ff62a6c3ec93e96a7c0"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
+<tr class="memitem:a9ca14831de223ff62a6c3ec93e96a7c0"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a9ca14831de223ff62a6c3ec93e96a7c0">latin_hypercube_sampling</a> (std::size_t sample_count, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, std::optional&lt; unsigned int &gt; seed=std::nullopt)</td></tr>
+<tr class="separator:a9ca14831de223ff62a6c3ec93e96a7c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9ee1cf5d335276b7fabe6f1daddf1b0" id="r_af9ee1cf5d335276b7fabe6f1daddf1b0"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:af9ee1cf5d335276b7fabe6f1daddf1b0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#af9ee1cf5d335276b7fabe6f1daddf1b0">operator+</a> (const <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &amp;a, const <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &amp;b)</td></tr>
 <tr class="separator:af9ee1cf5d335276b7fabe6f1daddf1b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1301,6 +1304,44 @@ Example</h3>
 <div class="line">1}}};</div>
 <div class="line"><span class="keyword">auto</span> points = ps::jittered_grid&lt;double, 3&gt;(1000, bounds, 1234);</div>
 </div><!-- fragment --> 
+</div>
+</div>
+<a id="a9ca14831de223ff62a6c3ec93e96a7c0" name="a9ca14831de223ff62a6c3ec93e96a7c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ca14831de223ff62a6c3ec93e96a7c0">&#9670;&#160;</a></span>latin_hypercube_sampling()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , std::size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; ps::latin_hypercube_sampling </td>
+          <td>(</td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>sample_count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>axis_ranges</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::optional&lt; unsigned int &gt;&#160;</td>
+          <td class="paramname"><em>seed</em> = <code>std::nullopt</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2latin_hypercube_sampling_8hpp-example.html#a0">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/latin_hypercube_sampling.hpp</a>.</dd>
+</dl>
+
 </div>
 </div>
 <a id="a38d89dd8b52a63eabb39ef5e425d5746" name="a38d89dd8b52a63eabb39ef5e425d5746"></a>
