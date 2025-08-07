@@ -22,9 +22,9 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 {\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , std\+::size\+\_\+t N, \mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{Scale\+Fn}} $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_af23d114903fd5cb3ccb19d3e64183632}{distance\+\_\+rejection\+\_\+filter\+\_\+warped}} (\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&\mbox{\hyperlink{structps_1_1Point}{points}}, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{base\+\_\+min\+\_\+dist}}, \mbox{\hyperlink{structps_1_1Point}{Scale\+Fn}} \mbox{\hyperlink{structps_1_1Point}{scale\+\_\+fn}})
 \begin{DoxyCompactList}\small\item\em Filters points based on spatially-\/varying minimal distance constraints. \end{DoxyCompactList}\item 
 {\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a913ab9d687ee42d04488e5eb0373e23a}{gaussian\+\_\+clusters}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{structps_1_1Point}{cluster\+\_\+centers}}, \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{points\+\_\+per\+\_\+cluster}}, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{spread}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt)
-\item 
+\begin{DoxyCompactList}\small\item\em Generates clustered points around provided cluster centers using a Gaussian distribution. \end{DoxyCompactList}\item 
 {\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a0efaff8017d5a171ffdf0ed0201bd65d}{gaussian\+\_\+clusters}} (\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{cluster\+\_\+count}}, \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{points\+\_\+per\+\_\+cluster}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{axis\+\_\+ranges}}, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{spread}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt)
-\item 
+\begin{DoxyCompactList}\small\item\em Generates clustered points around random centers uniformly sampled in a bounding box. \end{DoxyCompactList}\item 
 {\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_aa8c3b3b3367276f9a194938599d2463b}{halton\+\_\+sequence}} (\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{count}}, \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{shift}})
 \item 
 {\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a81b18395a05f0bb4d483406e79aa9524}{halton}} (\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{count}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{axis\+\_\+ranges}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt)
@@ -287,14 +287,90 @@ A vector containing only the points that lie within all specified axis ranges.
 {\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
 std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::gaussian\+\_\+clusters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{cluster\+\_\+count,  }\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{points\+\_\+per\+\_\+cluster,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{axis\+\_\+ranges,  }\item[{\mbox{\hyperlink{structps_1_1Point}{T}}}]{spread,  }\item[{std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
 
-\Hypertarget{namespaceps_a913ab9d687ee42d04488e5eb0373e23a}\label{namespaceps_a913ab9d687ee42d04488e5eb0373e23a} 
+
+
+Generates clustered points around random centers uniformly sampled in a bounding box. 
+
+Cluster centers are randomly sampled within the provided {\ttfamily axis\+\_\+ranges}, and each cluster then has {\ttfamily points\+\_\+per\+\_\+cluster} points sampled from a Gaussian distribution centered at the cluster\textquotesingle{}s location, with a specified standard deviation {\ttfamily spread}.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Scalar type (e.\+g., float or double) \\
+\hline
+{\em N} & Dimensionality of the space \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em cluster\+\_\+count} & Number of cluster centers to generate \\
+\hline
+{\em points\+\_\+per\+\_\+cluster} & Number of points per cluster \\
+\hline
+{\em axis\+\_\+ranges} & Axis-\/aligned bounding box ranges for each dimension \\
+\hline
+{\em spread} & Standard deviation of the Gaussian spread \\
+\hline
+{\em seed} & Optional random seed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of clustered points
+\end{DoxyReturn}
+\hypertarget{namespaceps_autotoc_md2}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md2}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ \mbox{\hyperlink{structps_1_1Point}{clustered}}\ =\ \mbox{\hyperlink{structps_1_1Point}{ps::gaussian\_clusters<float,\ 2>}}(}
+\DoxyCodeLine{\ \ \ \ 5,\ 100,}
+\DoxyCodeLine{\ \ \ \ \{\{\{0,1\},\ \{0,1\}\}\},}
+\DoxyCodeLine{\ \ \ \ 0.03f}
+\DoxyCodeLine{);}
+
+\end{DoxyCode}
+ \Hypertarget{namespaceps_a913ab9d687ee42d04488e5eb0373e23a}\label{namespaceps_a913ab9d687ee42d04488e5eb0373e23a} 
 \index{ps@{ps}!gaussian\_clusters@{gaussian\_clusters}}
 \index{gaussian\_clusters@{gaussian\_clusters}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{gaussian\_clusters()}{gaussian\_clusters()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
 std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::gaussian\+\_\+clusters (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$}]{cluster\+\_\+centers,  }\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{points\+\_\+per\+\_\+cluster,  }\item[{\mbox{\hyperlink{structps_1_1Point}{T}}}]{spread,  }\item[{std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
 
-\Hypertarget{namespaceps_a898bca65491a14a41bfdd50fdc6230b8}\label{namespaceps_a898bca65491a14a41bfdd50fdc6230b8} 
+
+
+Generates clustered points around provided cluster centers using a Gaussian distribution. 
+
+For each cluster center, this function generates {\ttfamily points\+\_\+per\+\_\+cluster} points where each coordinate is sampled from a normal distribution centered at the coordinate of the cluster center with standard deviation {\ttfamily spread}.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Scalar type (e.\+g., float or double) \\
+\hline
+{\em N} & Dimensionality of the space \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em cluster\+\_\+centers} & A vector of cluster center points \\
+\hline
+{\em points\+\_\+per\+\_\+cluster} & Number of points to generate per cluster \\
+\hline
+{\em spread} & Standard deviation of the Gaussian spread \\
+\hline
+{\em seed} & Optional random seed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of clustered points
+\end{DoxyReturn}
+\hypertarget{namespaceps_autotoc_md1}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md1}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<Point<float,\ 2>>\ \mbox{\hyperlink{structps_1_1Point}{centers}}\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \{0.2f,\ 0.2f\},}
+\DoxyCodeLine{\ \ \ \ \{0.8f,\ 0.8f\}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ clustered\ =\ \mbox{\hyperlink{namespaceps_a913ab9d687ee42d04488e5eb0373e23a}{ps::gaussian\_clusters}}(centers,\ 100,\ 0.05f);}
+
+\end{DoxyCode}
+ \Hypertarget{namespaceps_a898bca65491a14a41bfdd50fdc6230b8}\label{namespaceps_a898bca65491a14a41bfdd50fdc6230b8} 
 \index{ps@{ps}!generate\_random\_point\_around@{generate\_random\_point\_around}}
 \index{generate\_random\_point\_around@{generate\_random\_point\_around}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{generate\_random\_point\_around()}{generate\_random\_point\_around()}}
@@ -561,7 +637,7 @@ This function computes the axis-\/aligned bounding box (AABB) of the input point
 \mbox{\texttt{ in}}  & {\em target\+\_\+ranges} & Desired output min/max per dimension.\\
 \hline
 \end{DoxyParams}
-\hypertarget{namespaceps_autotoc_md1}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md1}
+\hypertarget{namespaceps_autotoc_md3}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md3}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{std::vector<Point<float,\ 2>>\ pts\ =\ \mbox{\hyperlink{structps_1_1Point}{generate\_random\_points<float,\ 2>}}(100,\ \{\ \{}
@@ -616,7 +692,7 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of accepted points based on reje
 {\em std\+::invalid\+\_\+argument} & if any axis range is invalid (min \texorpdfstring{$>$}{>} max).\\
 \hline
 \end{DoxyExceptions}
-\hypertarget{namespaceps_autotoc_md2}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md2}
+\hypertarget{namespaceps_autotoc_md4}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md4}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{rejection__sampling_8hpp}{point\_sampler/rejection\_sampling.hpp}}"{}}}
@@ -676,7 +752,7 @@ Each point is offset based on inverse-\/distance-\/weighted repulsion from its k
 \begin{DoxyNote}{Note}
 The KD-\/tree is rebuilt on each iteration to reflect the updated positions.
 \end{DoxyNote}
-\hypertarget{namespaceps_autotoc_md3}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md3}
+\hypertarget{namespaceps_autotoc_md5}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md5}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{relaxation_8hpp}{point\_sampler/relaxation.hpp}}>}}
@@ -688,7 +764,7 @@ The KD-\/tree is rebuilt on each iteration to reflect the updated positions.
 \DoxyCodeLine{relaxation\_ktree<float,\ 2>(pts,\ 8,\ 0.1f,\ 10);}
 
 \end{DoxyCode}
-\hypertarget{namespaceps_autotoc_md4}{}\doxysubsubsubsection{\texorpdfstring{How it works\+:}{How it works:}}\label{namespaceps_autotoc_md4}
+\hypertarget{namespaceps_autotoc_md6}{}\doxysubsubsubsection{\texorpdfstring{How it works\+:}{How it works:}}\label{namespaceps_autotoc_md6}
 
 \begin{DoxyItemize}
 \item For each point\+:

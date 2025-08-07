@@ -14,50 +14,50 @@
 \DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
 \DoxyCodeLine{00011\ \{}
 \DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00014\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a913ab9d687ee42d04488e5eb0373e23a}{gaussian\_clusters}}(}
-\DoxyCodeLine{00015\ \ \ \ \ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \ \ \ \mbox{\hyperlink{structps_1_1Point}{cluster\_centers}},}
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{points\_per\_cluster}},}
-\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{spread}},}
-\DoxyCodeLine{00018\ \ \ \ \ std::optional<unsigned\ int>\ \mbox{\hyperlink{structps_1_1Point}{seed}}\ =\ std::nullopt)}
-\DoxyCodeLine{00019\ \{}
-\DoxyCodeLine{00020\ \ \ std::mt19937\ \mbox{\hyperlink{structps_1_1Point}{gen}}(\mbox{\hyperlink{structps_1_1Point}{seed}}\ ?\ *\mbox{\hyperlink{structps_1_1Point}{seed}}\ :\ std::random\_device\{\}());}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \ \ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{structps_1_1Point}{points}};}
-\DoxyCodeLine{00023\ \ \ \mbox{\hyperlink{structps_1_1Point}{points}}.reserve(\mbox{\hyperlink{structps_1_1Point}{cluster\_centers}}.size()\ *\ \mbox{\hyperlink{structps_1_1Point}{points\_per\_cluster}});}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{cluster\_centers}}.size();\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
-\DoxyCodeLine{00026\ \ \ \{}
-\DoxyCodeLine{00027\ \ \ \ \ std::normal\_distribution<T>\ \mbox{\hyperlink{structps_1_1Point}{dist}}(0,\ \mbox{\hyperlink{structps_1_1Point}{spread}});}
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{j}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{j}}\ <\ \mbox{\hyperlink{structps_1_1Point}{points\_per\_cluster}};\ ++\mbox{\hyperlink{structps_1_1Point}{j}})}
-\DoxyCodeLine{00029\ \ \ \ \ \{}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{structps_1_1Point}{p}};}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{k}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{k}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}};\ ++\mbox{\hyperlink{structps_1_1Point}{k}})}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{p}}[\mbox{\hyperlink{structps_1_1Point}{k}}]\ =\ \mbox{\hyperlink{structps_1_1Point}{cluster\_centers}}[\mbox{\hyperlink{structps_1_1Point}{i}}][\mbox{\hyperlink{structps_1_1Point}{k}}]\ +\ \mbox{\hyperlink{structps_1_1Point}{dist}}(\mbox{\hyperlink{structps_1_1Point}{gen}});}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{points}}.push\_back(\mbox{\hyperlink{structps_1_1Point}{p}});}
-\DoxyCodeLine{00034\ \ \ \ \ \}}
-\DoxyCodeLine{00035\ \ \ \}}
-\DoxyCodeLine{00036\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point}{points}};}
-\DoxyCodeLine{00037\ \}}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00040\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a913ab9d687ee42d04488e5eb0373e23a}{gaussian\_clusters}}(}
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{cluster\_count}},}
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{points\_per\_cluster}},}
-\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ \mbox{\hyperlink{structps_1_1Point}{N}}>\ \&\mbox{\hyperlink{structps_1_1Point}{axis\_ranges}},}
-\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{spread}},}
-\DoxyCodeLine{00045\ \ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{seed}}\ =\ std::nullopt)}
-\DoxyCodeLine{00046\ \{}
-\DoxyCodeLine{00047\ \ \ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{structps_1_1Point}{cluster\_centers}}\ =\ \mbox{\hyperlink{structps_1_1Point}{random<T,\ N>}}(\mbox{\hyperlink{structps_1_1Point}{cluster\_count}},}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{axis\_ranges}},}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{seed}});}
-\DoxyCodeLine{00050\ \ \ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{structps_1_1Point}{points}}\ =\ \mbox{\hyperlink{namespaceps_a913ab9d687ee42d04488e5eb0373e23a}{gaussian\_clusters}}(\mbox{\hyperlink{structps_1_1Point}{cluster\_centers}},}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{points\_per\_cluster}},}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{spread}},}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{seed}});}
-\DoxyCodeLine{00054\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point}{points}};}
-\DoxyCodeLine{00055\ \}}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+\DoxyCodeLine{00037\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00038\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a913ab9d687ee42d04488e5eb0373e23a}{gaussian\_clusters}}(}
+\DoxyCodeLine{00039\ \ \ \ \ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \ \ \ \mbox{\hyperlink{structps_1_1Point}{cluster\_centers}},}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{points\_per\_cluster}},}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{spread}},}
+\DoxyCodeLine{00042\ \ \ \ \ std::optional<unsigned\ int>\ \mbox{\hyperlink{structps_1_1Point}{seed}}\ =\ std::nullopt)}
+\DoxyCodeLine{00043\ \{}
+\DoxyCodeLine{00044\ \ \ std::mt19937\ \mbox{\hyperlink{structps_1_1Point}{gen}}(\mbox{\hyperlink{structps_1_1Point}{seed}}\ ?\ *\mbox{\hyperlink{structps_1_1Point}{seed}}\ :\ std::random\_device\{\}());}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{structps_1_1Point}{points}};}
+\DoxyCodeLine{00047\ \ \ \mbox{\hyperlink{structps_1_1Point}{points}}.reserve(\mbox{\hyperlink{structps_1_1Point}{cluster\_centers}}.size()\ *\ \mbox{\hyperlink{structps_1_1Point}{points\_per\_cluster}});}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{cluster\_centers}}.size();\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
+\DoxyCodeLine{00050\ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ std::normal\_distribution<T>\ \mbox{\hyperlink{structps_1_1Point}{dist}}(0,\ \mbox{\hyperlink{structps_1_1Point}{spread}});}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{j}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{j}}\ <\ \mbox{\hyperlink{structps_1_1Point}{points\_per\_cluster}};\ ++\mbox{\hyperlink{structps_1_1Point}{j}})}
+\DoxyCodeLine{00053\ \ \ \ \ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{structps_1_1Point}{p}};}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{k}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{k}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}};\ ++\mbox{\hyperlink{structps_1_1Point}{k}})}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{p}}[\mbox{\hyperlink{structps_1_1Point}{k}}]\ =\ \mbox{\hyperlink{structps_1_1Point}{cluster\_centers}}[\mbox{\hyperlink{structps_1_1Point}{i}}][\mbox{\hyperlink{structps_1_1Point}{k}}]\ +\ \mbox{\hyperlink{structps_1_1Point}{dist}}(\mbox{\hyperlink{structps_1_1Point}{gen}});}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{points}}.push\_back(\mbox{\hyperlink{structps_1_1Point}{p}});}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point}{points}};}
+\DoxyCodeLine{00061\ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00088\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00089\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a913ab9d687ee42d04488e5eb0373e23a}{gaussian\_clusters}}(}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{cluster\_count}},}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{points\_per\_cluster}},}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ \mbox{\hyperlink{structps_1_1Point}{N}}>\ \&\mbox{\hyperlink{structps_1_1Point}{axis\_ranges}},}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{spread}},}
+\DoxyCodeLine{00094\ \ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{seed}}\ =\ std::nullopt)}
+\DoxyCodeLine{00095\ \{}
+\DoxyCodeLine{00096\ \ \ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{structps_1_1Point}{cluster\_centers}}\ =\ \mbox{\hyperlink{structps_1_1Point}{random<T,\ N>}}(\mbox{\hyperlink{structps_1_1Point}{cluster\_count}},}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{axis\_ranges}},}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{seed}});}
+\DoxyCodeLine{00099\ \ \ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{structps_1_1Point}{points}}\ =\ \mbox{\hyperlink{namespaceps_a913ab9d687ee42d04488e5eb0373e23a}{gaussian\_clusters}}(\mbox{\hyperlink{structps_1_1Point}{cluster\_centers}},}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{points\_per\_cluster}},}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{spread}},}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{seed}});}
+\DoxyCodeLine{00103\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point}{points}};}
+\DoxyCodeLine{00104\ \}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \}\ \textcolor{comment}{//\ namespace\ ps}}
 
 \end{DoxyCode}
