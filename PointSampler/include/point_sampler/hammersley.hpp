@@ -39,6 +39,30 @@ std::vector<Point<T, N>> hammersley_sequence(size_t count, size_t shift)
   return points;
 }
 
+/**
+ * @brief Generates a set of quasi-random points using the Hammersley sequence in N dimensions.
+ *
+ * This function generates `count` points in the unit hypercube using the Hammersley sequence,
+ * then rescales them to fit within the specified axis-aligned bounding box.
+ * An optional `seed` can be used as a starting index offset (i.e., a shift) to decorrelate
+ * multiple calls or introduce variation.
+ *
+ * @tparam T           Scalar type (e.g., float or double)
+ * @tparam N           Dimensionality of the space
+ * @param count        Number of points to generate
+ * @param axis_ranges  Axis-aligned bounding box for each dimension, as min/max pairs
+ * @param seed         Optional seed that offsets the sequence start index
+ * @return std::vector<Point<T, N>> The generated Hammersley points rescaled to the bounding box
+ *
+ * ### Example
+ * @code
+ * auto points = ps::hammersley<float, 3>(
+ *     512,
+ *     {{{-1, 1}, {-1, 1}, {0, 1}}},
+ *     7
+ * );
+ * @endcode
+ */
 template <typename T, size_t N>
 std::vector<Point<T, N>> hammersley(size_t                                count,
                                     const std::array<std::pair<T, T>, N> &axis_ranges,
