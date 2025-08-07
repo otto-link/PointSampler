@@ -1,3 +1,40 @@
 GENERATE_HTML = YES
 OUTPUT_DIRECTORY = docs
 HTML_OUTPUT = .
+
+# 1. Root input folder or list of files
+INPUT = PointSampler/include
+
+# 2. Scan subdirectories recursively
+RECURSIVE = YES
+
+# 3. Filter only C++ files
+FILE_PATTERNS = *.hpp
+
+# 4. Enable C++ parsing
+OPTIMIZE_OUTPUT_FOR_C = NO
+OPTIMIZE_OUTPUT_JAVA = NO
+EXTENSION_MAPPING = h=Cpp
+
+# 5. Extract code documentation
+EXTRACT_ALL = YES           # Also extract undocumented members (optional)
+EXTRACT_PRIVATE = YES       # Include private class members
+EXTRACT_STATIC = YES        # Include static functions
+EXTRACT_LOCAL_CLASSES = YES
+EXTRACT_ANON_NSPACES = YES
+
+# 6. Enable parsing of Doxygen-style comments
+JAVADOC_AUTOBRIEF = YES     # Treat the first line of /** */ as brief
+QT_AUTOBRIEF = YES          # Also good if using Qt-style comments
+
+# 7. Enable Markdown in comments (optional)
+MARKDOWN_SUPPORT = YES
+
+# 8. Preprocessor setup (if needed)
+ENABLE_PREPROCESSING = YES
+MACRO_EXPANSION = YES
+EXPAND_ONLY_PREDEF = NO
+
+# 9. Source browser (optional but useful)
+SOURCE_BROWSER = YES
+INLINE_SOURCES = YES
