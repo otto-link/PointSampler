@@ -13,38 +13,38 @@
 \DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
 \DoxyCodeLine{00010\ \{}
 \DoxyCodeLine{00011\ }
-\DoxyCodeLine{00038\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00039\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a9ca14831de223ff62a6c3ec93e96a7c0}{latin\_hypercube\_sampling}}(}
-\DoxyCodeLine{00040\ \ \ \ \ std::size\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sample\_count,}
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ N>\ \&axis\_ranges,}
-\DoxyCodeLine{00042\ \ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ \ \ \ \ \ \ seed\ =\ std::nullopt)}
-\DoxyCodeLine{00043\ \{}
-\DoxyCodeLine{00044\ \ \ std::mt19937\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rng(seed\ ?\ *seed\ :\ std::random\_device\{\}());}
-\DoxyCodeLine{00045\ \ \ std::uniform\_real\_distribution<T>\ jitter(0.0,\ 1.0);}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ std::vector<Point<T,\ N>>\ samples(sample\_count);}
+\DoxyCodeLine{00040\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00041\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a9ca14831de223ff62a6c3ec93e96a7c0}{latin\_hypercube\_sampling}}(}
+\DoxyCodeLine{00042\ \ \ \ \ std::size\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sample\_count,}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ N>\ \&axis\_ranges,}
+\DoxyCodeLine{00044\ \ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ \ \ \ \ \ \ seed\ =\ std::nullopt)}
+\DoxyCodeLine{00045\ \{}
+\DoxyCodeLine{00046\ \ \ std::mt19937\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rng(seed\ ?\ *seed\ :\ std::random\_device\{\}());}
+\DoxyCodeLine{00047\ \ \ std::uniform\_real\_distribution<T>\ jitter(0.0,\ 1.0);}
 \DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ dim\ =\ 0;\ dim\ <\ N;\ ++dim)}
-\DoxyCodeLine{00050\ \ \ \{}
-\DoxyCodeLine{00051\ \ \ \ \ std::vector<T>\ strata(sample\_count);}
-\DoxyCodeLine{00052\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ range\_min\ =\ axis\_ranges[dim].first;}
-\DoxyCodeLine{00053\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ range\_max\ =\ axis\_ranges[dim].second;}
-\DoxyCodeLine{00054\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ stride\ =\ (range\_max\ -\/\ range\_min)\ /\ sample\_count;}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//\ Generate\ stratified\ positions\ with\ jitter}}
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ sample\_count;\ ++i)}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ strata[i]\ =\ range\_min\ +\ (i\ +\ jitter(rng))\ *\ stride;}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \ \ \ \ std::shuffle(strata.begin(),\ strata.end(),\ rng);}
+\DoxyCodeLine{00049\ \ \ std::vector<Point<T,\ N>>\ samples(sample\_count);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ dim\ =\ 0;\ dim\ <\ N;\ ++dim)}
+\DoxyCodeLine{00052\ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ std::vector<T>\ strata(sample\_count);}
+\DoxyCodeLine{00054\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ range\_min\ =\ axis\_ranges[dim].first;}
+\DoxyCodeLine{00055\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ range\_max\ =\ axis\_ranges[dim].second;}
+\DoxyCodeLine{00056\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ stride\ =\ (range\_max\ -\/\ range\_min)\ /\ sample\_count;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ Generate\ stratified\ positions\ with\ jitter}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ sample\_count;\ ++i)}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ strata[i]\ =\ range\_min\ +\ (i\ +\ jitter(rng))\ *\ stride;}
 \DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \ \ \ \ \textcolor{comment}{//\ Assign\ values\ to\ the\ sample\ vector}}
-\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ sample\_count;\ ++i)}
-\DoxyCodeLine{00064\ \ \ \ \ \ \ samples[i][dim]\ =\ strata[i];}
-\DoxyCodeLine{00065\ \ \ \}}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \ \ \textcolor{keywordflow}{return}\ samples;}
-\DoxyCodeLine{00068\ \}}
-\DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+\DoxyCodeLine{00062\ \ \ \ \ std::shuffle(strata.begin(),\ strata.end(),\ rng);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ Assign\ values\ to\ the\ sample\ vector}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ sample\_count;\ ++i)}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ samples[i][dim]\ =\ strata[i];}
+\DoxyCodeLine{00067\ \ \ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \textcolor{keywordflow}{return}\ samples;}
+\DoxyCodeLine{00070\ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \}\ \textcolor{comment}{//\ namespace\ ps}}
 
 \end{DoxyCode}

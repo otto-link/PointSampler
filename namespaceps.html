@@ -597,7 +597,7 @@ template&lt;typename T , size_t N&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>A vector containing only the points that lie within all specified axis ranges.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">std::invalid_argumentifaxis_rangesareill-formed</td><td>(e.g., min &gt; max).</td></tr>
+    <tr><td class="paramname">std::invalid_argumentifaxis_rangesareill-formed(e.g.,min</td><td>&gt; max).</td></tr>
   </table>
   </dd>
 </dl>
@@ -662,11 +662,11 @@ template&lt;typename T , size_t N, typename DensityFn &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; of accepted points</dd></dl>
-<div class="fragment"><div class="line"><span class="keyword">auto</span> field = [](<span class="keyword">const</span> <a class="code hl_struct" href="structps_1_1Point.html">Point&lt;float, 2&gt;</a>&amp; p) {</div>
+<div class="fragment"><div class="line"> <span class="keyword">auto</span> field = [](<span class="keyword">const</span> <a class="code hl_struct" href="structps_1_1Point.html">Point&lt;float, 2&gt;</a>&amp; p) {</div>
 <div class="line">    <span class="keywordflow">return</span> 0.5f + 0.5f * std::sin(p[0] * 10.0f); <span class="comment">// Spatial density</span></div>
 <div class="line">};</div>
 <div class="line"><span class="keyword">auto</span> accepted = <a class="code hl_function" href="namespaceps.html#a0e4055582214237ee9f21369133e6194">ps::function_rejection_filter</a>(pts, field);</div>
-<div class="ttc" id="anamespaceps_html_a0e4055582214237ee9f21369133e6194"><div class="ttname"><a href="namespaceps.html#a0e4055582214237ee9f21369133e6194">ps::function_rejection_filter</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; function_rejection_filter(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, DensityFn density_fn, std::optional&lt; unsigned int &gt; seed=std::nullopt)</div><div class="ttdoc">Filters points based on a spatial probability (density) function.</div><div class="ttdef"><b>Definition</b> function_rejection_filter.hpp:36</div></div>
+<div class="ttc" id="anamespaceps_html_a0e4055582214237ee9f21369133e6194"><div class="ttname"><a href="namespaceps.html#a0e4055582214237ee9f21369133e6194">ps::function_rejection_filter</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; function_rejection_filter(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, DensityFn density_fn, std::optional&lt; unsigned int &gt; seed=std::nullopt)</div><div class="ttdoc">Filters points based on a spatial probability (density) function.</div><div class="ttdef"><b>Definition</b> function_rejection_filter.hpp:35</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -1339,8 +1339,6 @@ template&lt;typename T , std::size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2latin_hypercube_sampling_8hpp-example.html#a0">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/latin_hypercube_sampling.hpp</a>.</dd>
-</dl>
 
 </div>
 </div>
@@ -1940,7 +1938,7 @@ template&lt;typename T , size_t N&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>A vector containing <code>count</code> randomly generated points within the specified axis ranges.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">std::invalid_argumentIfanyaxisrange</td><td>has min &gt; max.</td></tr>
+    <tr><td class="paramname">std::invalid_argumentIfanyaxisrangehas</td><td>min &gt; max.</td></tr>
   </table>
   </dd>
 </dl>
@@ -2191,7 +2189,7 @@ template&lt;typename T , size_t N, typename DensityFn &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; A vector of accepted points based on rejection sampling.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">std::invalid_argumentifanyaxisrange</td><td>is invalid (min &gt; max).</td></tr>
+    <tr><td class="paramname">std::invalid_argumentifanyaxisrangeis</td><td>invalid (min &gt; max).</td></tr>
   </table>
   </dd>
 </dl>

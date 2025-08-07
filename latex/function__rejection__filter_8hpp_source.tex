@@ -14,30 +14,30 @@
 \DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
 \DoxyCodeLine{00011\ \{}
 \DoxyCodeLine{00012\ }
-\DoxyCodeLine{00035\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N,\ \textcolor{keyword}{typename}\ DensityFn>}
-\DoxyCodeLine{00036\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a0e4055582214237ee9f21369133e6194}{function\_rejection\_filter}}(}
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
-\DoxyCodeLine{00038\ \ \ \ \ DensityFn\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ density\_fn,}
-\DoxyCodeLine{00039\ \ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ seed\ =\ std::nullopt)}
-\DoxyCodeLine{00040\ \{}
-\DoxyCodeLine{00041\ \ \ std::mt19937\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gen(seed\ ?\ *seed\ :\ std::random\_device\{\}());}
-\DoxyCodeLine{00042\ \ \ std::uniform\_real\_distribution<T>\ accept\_dist(0.0,\ 1.0);}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00044\ \ \ std::vector<Point<T,\ N>>\ result;}
-\DoxyCodeLine{00045\ \ \ result.reserve(points.size());}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ :\ points)}
-\DoxyCodeLine{00048\ \ \ \{}
-\DoxyCodeLine{00049\ \ \ \ \ T\ prob\ =\ density\_fn(p);}
-\DoxyCodeLine{00050\ \ \ \ \ T\ threshold\ =\ accept\_dist(gen);}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{if}\ (prob\ >=\ threshold)}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ result.push\_back(p);}
-\DoxyCodeLine{00054\ \ \ \}}
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \ \ \textcolor{keywordflow}{return}\ result;}
-\DoxyCodeLine{00057\ \}}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+\DoxyCodeLine{00034\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N,\ \textcolor{keyword}{typename}\ DensityFn>}
+\DoxyCodeLine{00035\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a0e4055582214237ee9f21369133e6194}{function\_rejection\_filter}}(}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
+\DoxyCodeLine{00037\ \ \ \ \ DensityFn\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ density\_fn,}
+\DoxyCodeLine{00038\ \ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ seed\ =\ std::nullopt)}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \ \ std::mt19937\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gen(seed\ ?\ *seed\ :\ std::random\_device\{\}());}
+\DoxyCodeLine{00041\ \ \ std::uniform\_real\_distribution<T>\ accept\_dist(0.0,\ 1.0);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ std::vector<Point<T,\ N>>\ result;}
+\DoxyCodeLine{00044\ \ \ result.reserve(points.size());}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ :\ points)}
+\DoxyCodeLine{00047\ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ T\ prob\ =\ density\_fn(p);}
+\DoxyCodeLine{00049\ \ \ \ \ T\ threshold\ =\ accept\_dist(gen);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{if}\ (prob\ >=\ threshold)}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ result.push\_back(p);}
+\DoxyCodeLine{00053\ \ \ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00056\ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \}\ \textcolor{comment}{//\ namespace\ ps}}
 
 \end{DoxyCode}

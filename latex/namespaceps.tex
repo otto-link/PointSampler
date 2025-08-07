@@ -274,7 +274,7 @@ A vector containing only the points that lie within all specified axis ranges.
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em std\+::invalid\+\_\+argumentifaxis\+\_\+rangesareill-\/formed} & (e.\+g., min \texorpdfstring{$>$}{>} max).\\
+{\em std\+::invalid\+\_\+argumentifaxis\+\_\+rangesareill-\/formed(e.\+g.,min} & \texorpdfstring{$>$}{>} max).\\
 \hline
 \end{DoxyExceptions}
 
@@ -322,7 +322,7 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ of accepted points
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ field\ =\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<float,\ 2>}}\&\ p)\ \{}
+\DoxyCodeLine{\ \textcolor{keyword}{auto}\ field\ =\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<float,\ 2>}}\&\ p)\ \{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ 0.5f\ +\ 0.5f\ *\ std::sin(p[0]\ *\ 10.0f);\ \textcolor{comment}{//\ Spatial\ density}}
 \DoxyCodeLine{\};}
 \DoxyCodeLine{\textcolor{keyword}{auto}\ accepted\ =\ \mbox{\hyperlink{namespaceps_a0e4055582214237ee9f21369133e6194}{ps::function\_rejection\_filter}}(pts,\ field);}
@@ -676,9 +676,6 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ Jittered point samples
 {\footnotesize\ttfamily template$<$typename T , std\+::size\+\_\+t N$>$ \\
 std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::latin\+\_\+hypercube\+\_\+sampling (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{sample\+\_\+count,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{axis\+\_\+ranges,  }\item[{std\+::optional$<$ unsigned int $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
 
-\begin{Desc}
-\item[Examples]\par
-\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2latin_hypercube_sampling_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/latin\+\_\+hypercube\+\_\+sampling.\+hpp}}.\end{Desc}
 \Hypertarget{namespaceps_a38d89dd8b52a63eabb39ef5e425d5746}\label{namespaceps_a38d89dd8b52a63eabb39ef5e425d5746} 
 \index{ps@{ps}!length@{length}}
 \index{length@{length}!ps@{ps}}
@@ -887,7 +884,7 @@ A vector containing {\ttfamily count} randomly generated points within the speci
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em std\+::invalid\+\_\+argument\+Ifanyaxisrange} & has min \texorpdfstring{$>$}{>} max.\\
+{\em std\+::invalid\+\_\+argument\+Ifanyaxisrangehas} & min \texorpdfstring{$>$}{>} max.\\
 \hline
 \end{DoxyExceptions}
 \begin{DoxyNote}{Note}
@@ -1073,7 +1070,7 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of accepted points based on reje
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em std\+::invalid\+\_\+argumentifanyaxisrange} & is invalid (min \texorpdfstring{$>$}{>} max).\\
+{\em std\+::invalid\+\_\+argumentifanyaxisrangeis} & invalid (min \texorpdfstring{$>$}{>} max).\\
 \hline
 \end{DoxyExceptions}
 \hypertarget{namespaceps_autotoc_md9}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md9}
