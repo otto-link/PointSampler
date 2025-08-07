@@ -174,6 +174,26 @@ Point<T, N> generate_random_point_around(const Point<T, N> &center,
   return p;
 }
 
+/**
+ * @brief Generate a set of Poisson disk samples in N-dimensional space, possibly with a warped metric.
+ * 
+ * This function uses Bridson's algorithm to generate evenly spaced points according to a minimum 
+ * base distance, which can be warped using a user-defined scaling function (e.g., density or metric warping).
+ * 
+ * @tparam T Scalar type (e.g., float or double).
+ * @tparam N Dimension of the sampling space.
+ * @tparam ScaleFn Callable type returning a scaling factor at a given point.
+ * 
+ * @param count                 Desired number of points (will attempt to generate up to this many).
+ * @param ranges                Coordinate axis ranges (bounding box) for each of the N dimensions.
+ * @param base_min_dist         Base minimum distance between any two points (before scaling).
+ * @param scale_fn              Function that returns a distance scaling factor at a given point.
+ *                              This enables warped-space or non-uniform Poisson sampling.
+ * @param seed                  Optional RNG seed for reproducibility.
+ * @param new_points_attempts   Number of candidate points to try around each active point.
+ * 
+ * @return std::vector<Point<T, N>> A vector of sample points satisfying the scaled Poisson distance constraint.
+ */
 template <typename T, size_t N, typename ScaleFn>
 std::vector<Point<T, N>> poisson_disk_sampling(
     size_t                                count,
@@ -264,7 +284,22 @@ std::vector<Point<T, N>> poisson_disk_sampling(
   return sample_points;
 }
 
-// wrapper, uniform density
+/**
+ * @brief Generate uniformly distributed Poisson disk samples in N-dimensional space.
+ * 
+ * This is a convenience wrapper over `poisson_disk_sampling` using a constant distance scale (i.e., uniform metric).
+ * 
+ * @tparam T Scalar type (e.g., float or double).
+ * @tparam N Dimension of the sampling space.
+ * 
+ * @param count                 Desired number of points (will attempt to generate up to this many).
+ * @param ranges                Coordinate axis ranges (bounding box) for each of the N dimensions.
+ * @param base_min_dist         Minimum distance between any two points.
+ * @param seed                  Optional RNG seed for reproducibility.
+ * @param new_points_attempts   Number of candidate points to try around each active point.
+ * 
+ * @return std::vector<Point<T, N>> A vector of uniformly spaced sample points.
+ */
 template <typename T, size_t N>
 std::vector<Point<T, N>> poisson_disk_sampling_uniform(
     size_t                                count,
