@@ -34,6 +34,7 @@
  *   - @ref halton.hpp
  *   - @ref hammersley.hpp
  *   - @ref jittered_grid.hpp
+ *   - @ref latin_hypercube_sampling.hpp
  *   - @ref poisson_disk_sampling.hpp
  *   - @ref gaussian_clusters.hpp
  *   - @ref importance_resampling.hpp
@@ -62,6 +63,7 @@
 #include "point_sampler/hammersley.hpp"
 #include "point_sampler/importance_resampling.hpp"
 #include "point_sampler/jittered_grid.hpp"
+#include "point_sampler/latin_hypercube_sampling.hpp"
 #include "point_sampler/poisson_disk_sampling.hpp"
 #include "point_sampler/random.hpp"
 #include "point_sampler/random_rejection_filter.hpp"

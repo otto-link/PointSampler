@@ -38,6 +38,13 @@ int main()
   }
 
   {
+    std::cout << "ps::latin_hypercube_sampling...\n";
+
+    auto points = ps::latin_hypercube_sampling<float, dim>(count, ranges, seed);
+    ps::save_points_to_csv("out_latin_hypercube_sampling.csv", points);
+  }
+
+  {
     std::cout << "ps::jittered_grid...\n";
 
     std::array<float, dim> jitter = {0.3f, 0.3f};
