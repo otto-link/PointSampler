@@ -35,7 +35,7 @@
  *   - @ref hammersley.hpp
  *   - @ref jittered_grid.hpp
  *   - @ref poisson_disk_sampling.hpp
- *   - @ref gaussian_cluster.hpp
+ *   - @ref gaussian_clusters.hpp
  *   - @ref importance_resampling.hpp
  *   - @ref rejection_sampling.hpp
  * - Filtering Functions
