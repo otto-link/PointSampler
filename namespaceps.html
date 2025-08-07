@@ -234,9 +234,11 @@ Functions</h2></td></tr>
 <tr class="separator:aed8a3217a801c5b5706f4bcc3306bb18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a802637e81218193c0e65266c8075f002" id="r_a802637e81218193c0e65266c8075f002"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="el" href="structps_1_1Point.html">T</a> , <a class="el" href="structps_1_1Point.html">size_t</a> N&gt; </td></tr>
 <tr class="memitem:a802637e81218193c0e65266c8075f002"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structps_1_1Point.html">bool</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a802637e81218193c0e65266c8075f002">save_points_to_csv</a> (<a class="el" href="structps_1_1Point.html">const</a> std::string &amp;<a class="el" href="structps_1_1Point.html">filename</a>, <a class="el" href="structps_1_1Point.html">const</a> std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">N</a> &gt; &gt; &amp;<a class="el" href="structps_1_1Point.html">points</a>, <a class="el" href="structps_1_1Point.html">bool</a> <a class="el" href="structps_1_1Point.html">write_header</a>=<a class="el" href="structps_1_1Point.html">true</a>)</td></tr>
+<tr class="memdesc:a802637e81218193c0e65266c8075f002"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save a set of N-dimensional points to a CSV file.  <br /></td></tr>
 <tr class="separator:a802637e81218193c0e65266c8075f002"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6737277b9cc05d5f2ab248f17baea3b" id="r_af6737277b9cc05d5f2ab248f17baea3b"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="el" href="structps_1_1Point.html">T</a> , <a class="el" href="structps_1_1Point.html">size_t</a> N&gt; </td></tr>
 <tr class="memitem:af6737277b9cc05d5f2ab248f17baea3b"><td class="memTemplItemLeft" align="right" valign="top">std::array&lt; std::vector&lt; <a class="el" href="structps_1_1Point.html">T</a> &gt;, <a class="el" href="structps_1_1Point.html">N</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#af6737277b9cc05d5f2ab248f17baea3b">split_by_dimension</a> (<a class="el" href="structps_1_1Point.html">const</a> std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">N</a> &gt; &gt; &amp;<a class="el" href="structps_1_1Point.html">points</a>)</td></tr>
+<tr class="memdesc:af6737277b9cc05d5f2ab248f17baea3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rearranges a list of N-dimensional points into N separate coordinate vectors.  <br /></td></tr>
 <tr class="separator:af6737277b9cc05d5f2ab248f17baea3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
@@ -2170,6 +2172,25 @@ template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="e
       </table>
 </div><div class="memdoc">
 
+<p>Save a set of N-dimensional points to a CSV file. </p>
+<p>The output file will contain one point per line, with each coordinate separated by commas. Optionally, a header row ("x0,x1,...,xN") can be written as the first line.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Scalar type (e.g., float, double). </td></tr>
+    <tr><td class="paramname">N</td><td>Dimension of each point.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Path to the output CSV file. </td></tr>
+    <tr><td class="paramname">points</td><td>Vector of points to be saved. </td></tr>
+    <tr><td class="paramname">write_header</td><td>If true, writes a header row with column names ("x0,x1,...").</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the file was successfully written, false otherwise. </dd></dl>
+
 </div>
 </div>
 <a id="af6737277b9cc05d5f2ab248f17baea3b" name="af6737277b9cc05d5f2ab248f17baea3b"></a>
@@ -2189,6 +2210,28 @@ template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="e
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Rearranges a list of N-dimensional points into N separate coordinate vectors. </p>
+<p>This function decomposes a vector of N-dimensional points into N vectors, where each vector contains all the values from one coordinate dimension. Useful for plotting or statistical analysis.</p>
+<p>For example, given 3D points: [(1,2,3), (4,5,6), (7,8,9)], the result will be:</p><ul>
+<li>dimension 0: [1, 4, 7]</li>
+<li>dimension 1: [2, 5, 8]</li>
+<li>dimension 2: [3, 6, 9]</li>
+</ul>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Scalar type (e.g., float, double). </td></tr>
+    <tr><td class="paramname">N</td><td>Dimension of each point.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">points</td><td>Vector of N-dimensional points.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An array of N vectors, each containing the values for one coordinate axis. </dd></dl>
 
 </div>
 </div>

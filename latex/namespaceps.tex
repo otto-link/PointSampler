@@ -98,9 +98,9 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 {\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{void}} \mbox{\hyperlink{namespaceps_aed8a3217a801c5b5706f4bcc3306bb18}{relaxation\+\_\+ktree}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&\mbox{\hyperlink{structps_1_1Point}{points}}, \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{k\+\_\+neighbors}}=8, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{step\+\_\+size}}=\mbox{\hyperlink{structps_1_1Point}{T}}(0.\+1), \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{iterations}}=10)
 \begin{DoxyCompactList}\small\item\em Relax a point set using a k-\/nearest neighbor repulsion algorithm with a KD-\/tree. \end{DoxyCompactList}\item 
 {\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{bool}} \mbox{\hyperlink{namespaceps_a802637e81218193c0e65266c8075f002}{save\+\_\+points\+\_\+to\+\_\+csv}} (\mbox{\hyperlink{structps_1_1Point}{const}} std\+::string \&\mbox{\hyperlink{structps_1_1Point}{filename}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&\mbox{\hyperlink{structps_1_1Point}{points}}, \mbox{\hyperlink{structps_1_1Point}{bool}} \mbox{\hyperlink{structps_1_1Point}{write\+\_\+header}}=\mbox{\hyperlink{structps_1_1Point}{true}})
-\item 
+\begin{DoxyCompactList}\small\item\em Save a set of N-\/dimensional points to a CSV file. \end{DoxyCompactList}\item 
 {\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::array$<$ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{namespaceps_af6737277b9cc05d5f2ab248f17baea3b}{split\+\_\+by\+\_\+dimension}} (\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&\mbox{\hyperlink{structps_1_1Point}{points}})
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Rearranges a list of N-\/dimensional points into N separate coordinate vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Typedef Documentation}
@@ -1076,6 +1076,31 @@ Assumes points are in \mbox{[}0, 1\mbox{]}\texorpdfstring{$^\wedge$}{\string^}N.
 {\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
 \mbox{\hyperlink{structps_1_1Point}{bool}} ps\+::save\+\_\+points\+\_\+to\+\_\+csv (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::string \&}]{filename,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&}]{points,  }\item[{\mbox{\hyperlink{structps_1_1Point}{bool}}}]{write\+\_\+header = {\ttfamily \mbox{\hyperlink{structps_1_1Point}{true}}} }\end{DoxyParamCaption})}
 
+
+
+Save a set of N-\/dimensional points to a CSV file. 
+
+The output file will contain one point per line, with each coordinate separated by commas. Optionally, a header row ("{}x0,x1,...,x\+N"{}) can be written as the first line.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Scalar type (e.\+g., float, double). \\
+\hline
+{\em N} & Dimension of each point.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Path to the output CSV file. \\
+\hline
+{\em points} & Vector of points to be saved. \\
+\hline
+{\em write\+\_\+header} & If true, writes a header row with column names ("{}x0,x1,..."{}).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the file was successfully written, false otherwise. 
+\end{DoxyReturn}
 \Hypertarget{namespaceps_af6737277b9cc05d5f2ab248f17baea3b}\label{namespaceps_af6737277b9cc05d5f2ab248f17baea3b} 
 \index{ps@{ps}!split\_by\_dimension@{split\_by\_dimension}}
 \index{split\_by\_dimension@{split\_by\_dimension}!ps@{ps}}
@@ -1083,3 +1108,31 @@ Assumes points are in \mbox{[}0, 1\mbox{]}\texorpdfstring{$^\wedge$}{\string^}N.
 {\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
 std\+::array$<$ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ ps\+::split\+\_\+by\+\_\+dimension (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&}]{points }\end{DoxyParamCaption})}
 
+
+
+Rearranges a list of N-\/dimensional points into N separate coordinate vectors. 
+
+This function decomposes a vector of N-\/dimensional points into N vectors, where each vector contains all the values from one coordinate dimension. Useful for plotting or statistical analysis.
+
+For example, given 3D points\+: \mbox{[}(1,2,3), (4,5,6), (7,8,9)\mbox{]}, the result will be\+:
+\begin{DoxyItemize}
+\item dimension 0\+: \mbox{[}1, 4, 7\mbox{]}
+\item dimension 1\+: \mbox{[}2, 5, 8\mbox{]}
+\item dimension 2\+: \mbox{[}3, 6, 9\mbox{]}
+\end{DoxyItemize}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Scalar type (e.\+g., float, double). \\
+\hline
+{\em N} & Dimension of each point.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em points} & Vector of N-\/dimensional points.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An array of N vectors, each containing the values for one coordinate axis. 
+\end{DoxyReturn}
