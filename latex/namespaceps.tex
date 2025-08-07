@@ -32,9 +32,9 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 {\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_ae21a8c51533330ead4ebe76eed3e72b3}{hammersley\+\_\+sequence}} (\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{count}}, \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{shift}})
 \item 
 {\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_aad0cc7bc81f7cac9f0be26177b9986a6}{hammersley}} (\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{count}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{axis\+\_\+ranges}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt)
-\item 
+\begin{DoxyCompactList}\small\item\em Generates a set of quasi-\/random points using the Hammersley sequence in N dimensions. \end{DoxyCompactList}\item 
 {\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N, \mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{Density\+Fn}} $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a932640b18d76a7e336fc760e9cf5511b}{importance\+\_\+resampling}} (\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{count}}, \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{oversampling\+\_\+ratio}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{axis\+\_\+ranges}}, \mbox{\hyperlink{structps_1_1Point}{Density\+Fn}} \mbox{\hyperlink{structps_1_1Point}{density\+\_\+fn}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt)
-\item 
+\begin{DoxyCompactList}\small\item\em Generates a point set via importance resampling from a quasi-\/random oversampled grid. \end{DoxyCompactList}\item 
 {\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_ad8525c124fef24618bf574b9b7b1ece8}{jittered\+\_\+grid}} (\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{count}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{axis\+\_\+ranges}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{jitter\+\_\+amount}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{stagger\+\_\+ratio}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt)
 \item 
 {\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_ae90df8db8e751ff4b61298114f092714}{jittered\+\_\+grid}} (\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{count}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{axis\+\_\+ranges}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt)
@@ -433,7 +433,42 @@ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink
 {\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
 std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::hammersley (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{count,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{axis\+\_\+ranges,  }\item[{std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
 
-\Hypertarget{namespaceps_ae21a8c51533330ead4ebe76eed3e72b3}\label{namespaceps_ae21a8c51533330ead4ebe76eed3e72b3} 
+
+
+Generates a set of quasi-\/random points using the Hammersley sequence in N dimensions. 
+
+This function generates {\ttfamily count} points in the unit hypercube using the Hammersley sequence, then rescales them to fit within the specified axis-\/aligned bounding box. An optional {\ttfamily seed} can be used as a starting index offset (i.\+e., a shift) to decorrelate multiple calls or introduce variation.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Scalar type (e.\+g., float or double) \\
+\hline
+{\em N} & Dimensionality of the space \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em count} & Number of points to generate \\
+\hline
+{\em axis\+\_\+ranges} & Axis-\/aligned bounding box for each dimension, as min/max pairs \\
+\hline
+{\em seed} & Optional seed that offsets the sequence start index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Point$<$\+T, N$>$$>$ The generated Hammersley points rescaled to the bounding box
+\end{DoxyReturn}
+\hypertarget{namespaceps_autotoc_md4}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md4}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ \mbox{\hyperlink{structps_1_1Point}{points}}\ =\ \mbox{\hyperlink{structps_1_1Point}{ps::hammersley<float,\ 3>}}(}
+\DoxyCodeLine{\ \ \ \ 512,}
+\DoxyCodeLine{\ \ \ \ \{\{\{-\/1,\ 1\},\ \{-\/1,\ 1\},\ \{0,\ 1\}\}\},}
+\DoxyCodeLine{\ \ \ \ 7}
+\DoxyCodeLine{);}
+
+\end{DoxyCode}
+ \Hypertarget{namespaceps_ae21a8c51533330ead4ebe76eed3e72b3}\label{namespaceps_ae21a8c51533330ead4ebe76eed3e72b3} 
 \index{ps@{ps}!hammersley\_sequence@{hammersley\_sequence}}
 \index{hammersley\_sequence@{hammersley\_sequence}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{hammersley\_sequence()}{hammersley\_sequence()}}
@@ -447,7 +482,56 @@ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink
 {\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N, \mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{Density\+Fn}} $>$ \\
 std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::importance\+\_\+resampling (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{count,  }\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{oversampling\+\_\+ratio,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{axis\+\_\+ranges,  }\item[{\mbox{\hyperlink{structps_1_1Point}{Density\+Fn}}}]{density\+\_\+fn,  }\item[{std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
 
-\Hypertarget{namespaceps_aedb5908eae325f054e4f3dd6b9b223af}\label{namespaceps_aedb5908eae325f054e4f3dd6b9b223af} 
+
+
+Generates a point set via importance resampling from a quasi-\/random oversampled grid. 
+
+This function uses a Halton sequence to create an oversampled set of candidate points in the domain. Each point is assigned a weight based on the provided density function. A discrete distribution is then used to resample {\ttfamily count} points according to these weights.
+
+The higher the {\ttfamily oversampling\+\_\+ratio}, the better the approximation to the target density, at the cost of performance.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Scalar type (e.\+g., float or double) \\
+\hline
+{\em N} & Dimensionality of the space \\
+\hline
+{\em Density\+Fn} & A callable with signature {\ttfamily T(const \doxylink{structps_1_1Point}{Point}\texorpdfstring{$<$}{<}T, N\texorpdfstring{$>$}{>}\&)} returning a non-\/negative density value \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em count} & Number of points to return after resampling \\
+\hline
+{\em oversampling\+\_\+ratio} & Number of candidate points to generate as a multiple of {\ttfamily count} \\
+\hline
+{\em axis\+\_\+ranges} & Axis-\/aligned bounding box defining the domain of the points \\
+\hline
+{\em density\+\_\+fn} & Function mapping a point to a (non-\/negative) density value \\
+\hline
+{\em seed} & Optional seed to control the random number generator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Point$<$\+T, N$>$$>$ The resulting resampled point set
+\end{DoxyReturn}
+\hypertarget{namespaceps_autotoc_md5}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md5}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ \mbox{\hyperlink{structps_1_1Point}{density}}\ =\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<float,\ 2>}}\ \&\mbox{\hyperlink{structps_1_1Point}{p}})\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ std::exp(-\/10.0f\ *\ (\mbox{\hyperlink{structps_1_1Point}{p}}[0]*\mbox{\hyperlink{structps_1_1Point}{p}}[0]\ +\ \mbox{\hyperlink{structps_1_1Point}{p}}[1]*\mbox{\hyperlink{structps_1_1Point}{p}}[1]));}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ points\ =\ \mbox{\hyperlink{structps_1_1Point}{ps::importance\_resampling<float,\ 2>}}(}
+\DoxyCodeLine{\ \ \ \ 500,}
+\DoxyCodeLine{\ \ \ \ 5,}
+\DoxyCodeLine{\ \ \ \ \{\{\{-\/1,\ 1\},\ \{-\/1,\ 1\}\}\},}
+\DoxyCodeLine{\ \ \ \ density,}
+\DoxyCodeLine{\ \ \ \ 42}
+\DoxyCodeLine{);}
+
+\end{DoxyCode}
+ \Hypertarget{namespaceps_aedb5908eae325f054e4f3dd6b9b223af}\label{namespaceps_aedb5908eae325f054e4f3dd6b9b223af} 
 \index{ps@{ps}!in\_neighborhood@{in\_neighborhood}}
 \index{in\_neighborhood@{in\_neighborhood}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{in\_neighborhood()}{in\_neighborhood()}}
@@ -672,7 +756,7 @@ This function computes the axis-\/aligned bounding box (AABB) of the input point
 \mbox{\texttt{ in}}  & {\em target\+\_\+ranges} & Desired output min/max per dimension.\\
 \hline
 \end{DoxyParams}
-\hypertarget{namespaceps_autotoc_md4}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md4}
+\hypertarget{namespaceps_autotoc_md6}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md6}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{std::vector<Point<float,\ 2>>\ pts\ =\ \mbox{\hyperlink{structps_1_1Point}{generate\_random\_points<float,\ 2>}}(100,\ \{\ \{}
@@ -727,7 +811,7 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of accepted points based on reje
 {\em std\+::invalid\+\_\+argument} & if any axis range is invalid (min \texorpdfstring{$>$}{>} max).\\
 \hline
 \end{DoxyExceptions}
-\hypertarget{namespaceps_autotoc_md5}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md5}
+\hypertarget{namespaceps_autotoc_md7}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md7}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{rejection__sampling_8hpp}{point\_sampler/rejection\_sampling.hpp}}"{}}}
@@ -787,7 +871,7 @@ Each point is offset based on inverse-\/distance-\/weighted repulsion from its k
 \begin{DoxyNote}{Note}
 The KD-\/tree is rebuilt on each iteration to reflect the updated positions.
 \end{DoxyNote}
-\hypertarget{namespaceps_autotoc_md6}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md6}
+\hypertarget{namespaceps_autotoc_md8}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md8}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{relaxation_8hpp}{point\_sampler/relaxation.hpp}}>}}
@@ -799,7 +883,7 @@ The KD-\/tree is rebuilt on each iteration to reflect the updated positions.
 \DoxyCodeLine{relaxation\_ktree<float,\ 2>(pts,\ 8,\ 0.1f,\ 10);}
 
 \end{DoxyCode}
-\hypertarget{namespaceps_autotoc_md7}{}\doxysubsubsubsection{\texorpdfstring{How it works\+:}{How it works:}}\label{namespaceps_autotoc_md7}
+\hypertarget{namespaceps_autotoc_md9}{}\doxysubsubsubsection{\texorpdfstring{How it works\+:}{How it works:}}\label{namespaceps_autotoc_md9}
 
 \begin{DoxyItemize}
 \item For each point\+:

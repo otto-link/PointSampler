@@ -6,5 +6,5 @@ var searchData=
   ['hammersley_3',['hammersley',['../namespaceps.html#aad0cc7bc81f7cac9f0be26177b9986a6',1,'ps']]],
   ['hammersley_2ehpp_4',['hammersley.hpp',['../hammersley_8hpp.html',1,'']]],
   ['hammersley_5fsequence_5',['hammersley_sequence',['../namespaceps.html#ae21a8c51533330ead4ebe76eed3e72b3',1,'ps']]],
-  ['how_20it_20works_3a_6',['How it works:',['../namespaceps.html#autotoc_md7',1,'']]]
+  ['how_20it_20works_3a_6',['How it works:',['../namespaceps.html#autotoc_md9',1,'']]]
 ];
