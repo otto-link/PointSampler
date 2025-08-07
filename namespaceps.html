@@ -216,6 +216,7 @@ Functions</h2></td></tr>
 <tr class="separator:a7addf1455112b7895f8de7c475eed850"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29ab0a94bbe26a22cb87bf8f44703527" id="r_a29ab0a94bbe26a22cb87bf8f44703527"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="el" href="structps_1_1Point.html">T</a> , <a class="el" href="structps_1_1Point.html">size_t</a> N, <a class="el" href="structps_1_1Point.html">typename</a> <a class="el" href="structps_1_1Point.html">DensityFn</a> &gt; </td></tr>
 <tr class="memitem:a29ab0a94bbe26a22cb87bf8f44703527"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">N</a> &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a29ab0a94bbe26a22cb87bf8f44703527">rejection_sampling</a> (<a class="el" href="structps_1_1Point.html">size_t</a> <a class="el" href="structps_1_1Point.html">count</a>, <a class="el" href="structps_1_1Point.html">const</a> std::array&lt; std::pair&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">T</a> &gt;, <a class="el" href="structps_1_1Point.html">N</a> &gt; &amp;<a class="el" href="structps_1_1Point.html">axis_ranges</a>, <a class="el" href="structps_1_1Point.html">DensityFn</a> <a class="el" href="structps_1_1Point.html">density_fn</a>, std::optional&lt; <a class="el" href="structps_1_1Point.html">unsigned</a> <a class="el" href="structps_1_1Point.html">int</a> &gt; <a class="el" href="structps_1_1Point.html">seed</a>=std::nullopt)</td></tr>
+<tr class="memdesc:a29ab0a94bbe26a22cb87bf8f44703527"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates random points using rejection sampling based on a user-defined density function.  <br /></td></tr>
 <tr class="separator:a29ab0a94bbe26a22cb87bf8f44703527"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed8a3217a801c5b5706f4bcc3306bb18" id="r_aed8a3217a801c5b5706f4bcc3306bb18"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="el" href="structps_1_1Point.html">T</a> , <a class="el" href="structps_1_1Point.html">size_t</a> N&gt; </td></tr>
 <tr class="memitem:aed8a3217a801c5b5706f4bcc3306bb18"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structps_1_1Point.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#aed8a3217a801c5b5706f4bcc3306bb18">relaxation_ktree</a> (std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">N</a> &gt; &gt; &amp;<a class="el" href="structps_1_1Point.html">points</a>, <a class="el" href="structps_1_1Point.html">size_t</a> <a class="el" href="structps_1_1Point.html">k_neighbors</a>=8, <a class="el" href="structps_1_1Point.html">T</a> <a class="el" href="structps_1_1Point.html">step_size</a>=<a class="el" href="structps_1_1Point.html">T</a>(0.1), <a class="el" href="structps_1_1Point.html">size_t</a> <a class="el" href="structps_1_1Point.html">iterations</a>=10)</td></tr>
@@ -1672,6 +1673,51 @@ template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="e
       </table>
 </div><div class="memdoc">
 
+<p>Generates random points using rejection sampling based on a user-defined density function. </p>
+<p>This function uniformly samples candidate points within the given axis-aligned bounds and retains them based on the output of a user-provided density function. The <code>density_fn</code> should return a probability in the range [0, 1] for each point.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Numeric type (e.g., float or double). </td></tr>
+    <tr><td class="paramname">N</td><td>Number of dimensions. </td></tr>
+    <tr><td class="paramname">DensityFn</td><td>Callable with signature T(Point&lt;T, N&gt;) returning a probability in [0, 1].</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">count</td><td>Desired number of accepted points. </td></tr>
+    <tr><td class="paramname">axis_ranges</td><td>Ranges for each axis in the form of an array of (min, max) pairs. </td></tr>
+    <tr><td class="paramname">density_fn</td><td>Function that returns a probability for accepting a point. </td></tr>
+    <tr><td class="paramname">seed</td><td>Optional seed for reproducibility.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; A vector of accepted points based on rejection sampling.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>if any axis range is invalid (min &gt; max).</td></tr>
+  </table>
+  </dd>
+</dl>
+<h3><a class="anchor" id="autotoc_md1"></a>
+Example</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="rejection__sampling_8hpp.html">point_sampler/rejection_sampling.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">float</span> <a class="code hl_struct" href="structps_1_1Point.html">radial_density</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structps_1_1Point.html">Point&lt;float, 2&gt;</a>&amp; <a class="code hl_struct" href="structps_1_1Point.html">p</a>)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordtype">float</span> <a class="code hl_struct" href="structps_1_1Point.html">r2</a> = <a class="code hl_struct" href="structps_1_1Point.html">p</a>[0] * <a class="code hl_struct" href="structps_1_1Point.html">p</a>[0] + <a class="code hl_struct" href="structps_1_1Point.html">p</a>[1] * <a class="code hl_struct" href="structps_1_1Point.html">p</a>[1];</div>
+<div class="line">    <span class="keywordflow">return</span> std::exp(-<a class="code hl_struct" href="structps_1_1Point.html">r2</a>); <span class="comment">// higher near origin, drops with radius</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line">    std::array&lt;std::pair&lt;float, float&gt;, 2&gt; bounds = { { {-2.0f, 2.0f}, {-2.0f, 2.0f} } };</div>
+<div class="line">    <span class="keyword">auto</span> pts = <a class="code hl_struct" href="structps_1_1Point.html">ps::rejection_sampling&lt;float, 2&gt;</a>(1000, bounds, radial_density, 42);</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Generated &quot;</span> &lt;&lt; pts.size() &lt;&lt; <span class="stringliteral">&quot; points.\n&quot;</span>;</div>
+<div class="line">}</div>
+<div class="ttc" id="arejection__sampling_8hpp_html"><div class="ttname"><a href="rejection__sampling_8hpp.html">rejection_sampling.hpp</a></div></div>
+</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>Rejection sampling can be inefficient if <code>density_fn</code> returns low values over most of the domain, as many candidate samples will be discarded. </dd></dl>
+
 </div>
 </div>
 <a id="aed8a3217a801c5b5706f4bcc3306bb18" name="aed8a3217a801c5b5706f4bcc3306bb18"></a>
@@ -1734,7 +1780,7 @@ template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="e
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>The KD-tree is rebuilt on each iteration to reflect the updated positions.</dd></dl>
-<h3><a class="anchor" id="autotoc_md1"></a>
+<h3><a class="anchor" id="autotoc_md2"></a>
 Example</h3>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="relaxation_8hpp.html">point_sampler/relaxation.hpp</a>&gt;</span></div>
 <div class="line"> </div>
@@ -1744,7 +1790,7 @@ Example</h3>
 <div class="line"><span class="comment">// Apply 10 iterations of relaxation</span></div>
 <div class="line">relaxation_ktree&lt;float, 2&gt;(pts, 8, 0.1f, 10);</div>
 <div class="ttc" id="arelaxation_8hpp_html"><div class="ttname"><a href="relaxation_8hpp.html">relaxation.hpp</a></div></div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md2"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md3"></a>
 How it works:</h3>
 <ul>
 <li>For each point:<ul>
