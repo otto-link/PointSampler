@@ -29,7 +29,6 @@ EXTRACT_ANON_NSPACES = YES
 
 # 6. Enable parsing of Doxygen-style comments
 JAVADOC_AUTOBRIEF = YES     # Treat the first line of /** */ as brief
-QT_AUTOBRIEF = YES          # Also good if using Qt-style comments
 
 # 7. Enable Markdown in comments (optional)
 MARKDOWN_SUPPORT = YES
