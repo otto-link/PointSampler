@@ -84,7 +84,7 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 {\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a6f7ab76c5d0a395aa78b85bad488e94e}{poisson\+\_\+disk\+\_\+sampling\+\_\+uniform}} (\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{count}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{ranges}}, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{base\+\_\+min\+\_\+dist}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt, \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{new\+\_\+points\+\_\+attempts}}=30)
 \item 
 {\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{random}} (\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{count}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{axis\+\_\+ranges}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt)
-\item 
+\begin{DoxyCompactList}\small\item\em Generates a specified number of uniformly distributed random points in N-\/dimensional space. \end{DoxyCompactList}\item 
 {\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a9c8c5679d987d3023b9d3beffd81e6df}{filter\+\_\+points\+\_\+in\+\_\+range}} (\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&\mbox{\hyperlink{structps_1_1Point}{points}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{axis\+\_\+ranges}})
 \begin{DoxyCompactList}\small\item\em Filters points that lie within the given axis-\/aligned ranges. \end{DoxyCompactList}\item 
 {\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , std\+::size\+\_\+t N, \mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{Func}} $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a5350b843397a5bf2a748115108ffa21a}{filter\+\_\+points\+\_\+function}} (\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&\mbox{\hyperlink{structps_1_1Point}{points}}, \mbox{\hyperlink{structps_1_1Point}{Func}} \mbox{\hyperlink{structps_1_1Point}{fn}})
@@ -393,7 +393,65 @@ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink
 {\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
 std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::random (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{count,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{axis\+\_\+ranges,  }\item[{std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
 
-\Hypertarget{namespaceps_a2b8197901114d1c4fd6cfe19efcd3862}\label{namespaceps_a2b8197901114d1c4fd6cfe19efcd3862} 
+
+
+Generates a specified number of uniformly distributed random points in N-\/dimensional space. 
+
+This function creates {\ttfamily count} random points where each coordinate is independently sampled from a uniform distribution defined by {\ttfamily axis\+\_\+ranges} per dimension.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The numeric type for coordinates (e.\+g., float, double). \\
+\hline
+{\em N} & The dimensionality of the points.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em count} & The number of random points to generate. \\
+\hline
+{\em axis\+\_\+ranges} & An array of N pairs specifying the min and max range for each axis. \\
+\hline
+{\em seed} & Optional seed for the random number generator. If not provided, a nondeterministic random seed is used.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector containing {\ttfamily count} randomly generated points within the specified axis ranges.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If any axis range has min \texorpdfstring{$>$}{>} max.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+The points are generated independently per axis using uniform\+\_\+real\+\_\+distribution.
+\end{DoxyNote}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{random_8hpp}{point\_sampler/random.hpp}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \mbox{\hyperlink{structps_1_1Point}{main}}()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{dim}}\ =\ 3;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{count}}\ =\ 5;}
+\DoxyCodeLine{\ \ std::array<std::pair<float,\ float>,\ \mbox{\hyperlink{structps_1_1Point}{dim}}>\ \mbox{\hyperlink{structps_1_1Point}{ranges}}\ =\ \{\{\{0.f,\ 1.f\},\ \{0.f,\ 2.f\},\ \{-\/1.f,\ 1.f\}\}\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ Generate\ points\ with\ a\ fixed\ seed\ for\ reproducibility}}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ points\ =\ \mbox{\hyperlink{structps_1_1Point}{ps::random<float,\ dim>}}(count,\ ranges,\ 42);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ p\ :\ points)}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ dim;\ ++i)}
+\DoxyCodeLine{\ \ \ \ \ \ std::cout\ <<\ p[i]\ <<\ \textcolor{charliteral}{'\ '};}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{charliteral}{'\(\backslash\)n'};}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \Hypertarget{namespaceps_a2b8197901114d1c4fd6cfe19efcd3862}\label{namespaceps_a2b8197901114d1c4fd6cfe19efcd3862} 
 \index{ps@{ps}!refit\_points\_to\_range@{refit\_points\_to\_range}}
 \index{refit\_points\_to\_range@{refit\_points\_to\_range}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{refit\_points\_to\_range()}{refit\_points\_to\_range()}}

@@ -196,6 +196,7 @@ Functions</h2></td></tr>
 <tr class="separator:a6f7ab76c5d0a395aa78b85bad488e94e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10763ef2a872aa9eddb48ea341cd6f69" id="r_a10763ef2a872aa9eddb48ea341cd6f69"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="el" href="structps_1_1Point.html">T</a> , <a class="el" href="structps_1_1Point.html">size_t</a> N&gt; </td></tr>
 <tr class="memitem:a10763ef2a872aa9eddb48ea341cd6f69"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">N</a> &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">random</a> (<a class="el" href="structps_1_1Point.html">size_t</a> <a class="el" href="structps_1_1Point.html">count</a>, <a class="el" href="structps_1_1Point.html">const</a> std::array&lt; std::pair&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">T</a> &gt;, <a class="el" href="structps_1_1Point.html">N</a> &gt; &amp;<a class="el" href="structps_1_1Point.html">axis_ranges</a>, std::optional&lt; <a class="el" href="structps_1_1Point.html">unsigned</a> <a class="el" href="structps_1_1Point.html">int</a> &gt; <a class="el" href="structps_1_1Point.html">seed</a>=std::nullopt)</td></tr>
+<tr class="memdesc:a10763ef2a872aa9eddb48ea341cd6f69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a specified number of uniformly distributed random points in N-dimensional space.  <br /></td></tr>
 <tr class="separator:a10763ef2a872aa9eddb48ea341cd6f69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c8c5679d987d3023b9d3beffd81e6df" id="r_a9c8c5679d987d3023b9d3beffd81e6df"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="el" href="structps_1_1Point.html">T</a> , <a class="el" href="structps_1_1Point.html">size_t</a> N&gt; </td></tr>
 <tr class="memitem:a9c8c5679d987d3023b9d3beffd81e6df"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">N</a> &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a9c8c5679d987d3023b9d3beffd81e6df">filter_points_in_range</a> (<a class="el" href="structps_1_1Point.html">const</a> std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">N</a> &gt; &gt; &amp;<a class="el" href="structps_1_1Point.html">points</a>, <a class="el" href="structps_1_1Point.html">const</a> std::array&lt; std::pair&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">T</a> &gt;, <a class="el" href="structps_1_1Point.html">N</a> &gt; &amp;<a class="el" href="structps_1_1Point.html">axis_ranges</a>)</td></tr>
@@ -1492,6 +1493,55 @@ template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="e
       </table>
 </div><div class="memdoc">
 
+<p>Generates a specified number of uniformly distributed random points in N-dimensional space. </p>
+<p>This function creates <code>count</code> random points where each coordinate is independently sampled from a uniform distribution defined by <code>axis_ranges</code> per dimension.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The numeric type for coordinates (e.g., float, double). </td></tr>
+    <tr><td class="paramname">N</td><td>The dimensionality of the points.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">count</td><td>The number of random points to generate. </td></tr>
+    <tr><td class="paramname">axis_ranges</td><td>An array of N pairs specifying the min and max range for each axis. </td></tr>
+    <tr><td class="paramname">seed</td><td>Optional seed for the random number generator. If not provided, a nondeterministic random seed is used.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector containing <code>count</code> randomly generated points within the specified axis ranges.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>If any axis range has min &gt; max.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>The points are generated independently per axis using uniform_real_distribution.</dd></dl>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="random_8hpp.html">point_sampler/random.hpp</a>&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> <a class="code hl_struct" href="structps_1_1Point.html">main</a>()</div>
+<div class="line">{</div>
+<div class="line">  <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> <a class="code hl_struct" href="structps_1_1Point.html">dim</a> = 3;</div>
+<div class="line">  <span class="keywordtype">size_t</span> <a class="code hl_struct" href="structps_1_1Point.html">count</a> = 5;</div>
+<div class="line">  std::array&lt;std::pair&lt;float, float&gt;, <a class="code hl_struct" href="structps_1_1Point.html">dim</a>&gt; <a class="code hl_struct" href="structps_1_1Point.html">ranges</a> = {{{0.f, 1.f}, {0.f, 2.f}, {-1.f, 1.f}}};</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Generate points with a fixed seed for reproducibility</span></div>
+<div class="line">  <span class="keyword">auto</span> points = <a class="code hl_struct" href="structps_1_1Point.html">ps::random&lt;float, dim&gt;</a>(count, ranges, 42);</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; p : points)</div>
+<div class="line">  {</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; dim; ++i)</div>
+<div class="line">      std::cout &lt;&lt; p[i] &lt;&lt; <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line">    std::cout &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+<div class="ttc" id="arandom_8hpp_html"><div class="ttname"><a href="random_8hpp.html">random.hpp</a></div></div>
+<div class="ttc" id="astructps_1_1Point_html"><div class="ttname"><a href="structps_1_1Point.html">ps::Point</a></div><div class="ttdoc">A fixed-size N-dimensional point/vector class.</div><div class="ttdef"><b>Definition</b> point.hpp:36</div></div>
+</div><!-- fragment --> 
 </div>
 </div>
 <a id="a2b8197901114d1c4fd6cfe19efcd3862" name="a2b8197901114d1c4fd6cfe19efcd3862"></a>
@@ -1544,7 +1594,6 @@ Example</h3>
 <div class="line">{0.f, 1.f}, {0.f, 1.f} } }, 42);</div>
 <div class="line"><span class="comment">// Refit to a new range: [10, 20] × [50, 100]</span></div>
 <div class="line">refit_points_to_range&lt;float, 2&gt;(pts, { { {10.f, 20.f}, {50.f, 100.f} } });</div>
-<div class="ttc" id="astructps_1_1Point_html"><div class="ttname"><a href="structps_1_1Point.html">ps::Point</a></div><div class="ttdoc">A fixed-size N-dimensional point/vector class.</div><div class="ttdef"><b>Definition</b> point.hpp:36</div></div>
 </div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>If a dimension has constant value (min == max), the center of the target range is used. </dd></dl>
 
 </div>
