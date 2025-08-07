@@ -9,6 +9,34 @@
 namespace ps
 {
 
+/**
+ * @brief Generates a point set on a jittered and optionally staggered grid.
+ *
+ * This function divides the domain into a grid and places one point in each selected cell.
+ * Each point is jittered within its cell, and staggered offsets may be applied depending
+ * on the index of higher-dimensional axes. The result is a semi-regular sampling pattern with randomness.
+ *
+ * Jittering prevents aliasing, and staggering introduces a controlled shift between alternating cells
+ * to improve uniformity and avoid alignment artifacts.
+ *
+ * @tparam T            Scalar type (e.g., float or double)
+ * @tparam N            Dimensionality of the space
+ * @param count         Number of output points (best effort, may be capped by total available cells)
+ * @param axis_ranges   Axis-aligned bounding box defining the sampling domain
+ * @param jitter_amount Per-dimension jitter factor ∈ [0, 1]. A value of 1.0 means full jitter in the cell.
+ * @param stagger_ratio Per-dimension stagger ratio, indicating how much to offset points based on higher dimension parity
+ * @param seed          Optional seed for deterministic jittering and shuffling
+ * @return std::vector<Point<T, N>> Sampled points
+ *
+ * ### Example
+ * @code
+ * std::array<std::pair<float, float>, 2> bounds = {{{0.0f, 1.0f}, {0.0f, 1.0f}}};
+ * std::array<float, 2> jitter = {0.8f, 0.8f};
+ * std::array<float, 2> stagger = {0.2f, 0.0f};
+ *
+ * auto samples = ps::jittered_grid<float, 2>(256, bounds, jitter, stagger, 42);
+ * @endcode
+ */
 template <typename T, size_t N>
 std::vector<Point<T, N>> jittered_grid(size_t                                count,
                                        const std::array<std::pair<T, T>, N> &axis_ranges,
@@ -87,7 +115,25 @@ std::vector<Point<T, N>> jittered_grid(size_t                                cou
   return points;
 }
 
-// overload for full-jitter, no stagger
+/**
+ * @brief Generates a jittered grid of points with full jitter and no stagger.
+ *
+ * This overload defaults to jittering each dimension fully within its cell and applies no staggering.
+ * It is equivalent to calling the full version with `jitter_amount` filled with 1.0 and `stagger_ratio` filled with 0.0.
+ *
+ * @tparam T          Scalar type (e.g., float or double)
+ * @tparam N          Dimensionality of the space
+ * @param count       Number of points to generate
+ * @param axis_ranges Axis-aligned bounding box defining the sampling domain
+ * @param seed        Optional seed for deterministic jittering
+ * @return std::vector<Point<T, N>> Jittered point samples
+ *
+ * ### Example
+ * @code
+ * std::array<std::pair<double, double>, 3> bounds = {{{0, 1}, {0, 1}, {0, 1}}};
+ * auto points = ps::jittered_grid<double, 3>(1000, bounds, 1234);
+ * @endcode
+ */
 template <typename T, size_t N>
 std::vector<Point<T, N>> jittered_grid(size_t                                count,
                                        const std::array<std::pair<T, T>, N> &axis_ranges,
