@@ -26,7 +26,7 @@ namespace ps
  * @return             A vector containing only the points that lie within all
  *                     specified axis ranges.
  *
- * @throws std::invalid_argumentifaxis_ranges are ill-formed (e.g., min > max).
+ * @throws std::invalid_argumentifaxis_rangesareill-formed (e.g., min > max).
  *
  * @code std::vector<Point<float, 2>> pts = { {0.5f, 0.5f}, {2.f, 3.f}, {-1.f,
  * 0.f} };

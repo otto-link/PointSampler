@@ -30,7 +30,7 @@ namespace ps
  * @return             A vector containing `count` randomly generated points
  *                     within the specified axis ranges.
  *
- * @throws std::invalid_argumentIfany axis range has min > max.
+ * @throws std::invalid_argumentIfanyaxisrange has min > max.
  *
  * @note The points are generated independently per axis using
  * uniform_real_distribution.

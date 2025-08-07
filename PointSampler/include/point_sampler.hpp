@@ -40,6 +40,7 @@
  *   - @ref rejection_sampling.hpp
  * - Filtering Functions
  *   - @ref distance_rejection_filter.hpp
+ *   - @ref random_rejection_filter.hpp
  *   - @ref relaxation.hpp
  * - Utility Functions
  *   - @ref range.hpp
@@ -62,6 +63,7 @@
 #include "point_sampler/jittered_grid.hpp"
 #include "point_sampler/poisson_disk_sampling.hpp"
 #include "point_sampler/random.hpp"
+#include "point_sampler/random_rejection_filter.hpp"
 #include "point_sampler/range.hpp"
 #include "point_sampler/rejection_sampling.hpp"
 #include "point_sampler/relaxation.hpp"

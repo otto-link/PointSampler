@@ -170,7 +170,6 @@ int main()
     std::cout << "ps::distance_rejection_filter_warped...\n";
 
     float min_dist = 0.05f;
-    count *= 5;
 
     auto scale_function = [](const ps::Point<float, 2> &p) -> float
     {
@@ -178,12 +177,23 @@ int main()
       return 1.f + 1.f * std::sin(4.0f * x) * std::cos(4.0f * y);
     };
 
-    auto points = ps::random<float, dim>(count, ranges, seed);
+    auto points = ps::random<float, dim>(5 * count, ranges, seed);
     points = ps::distance_rejection_filter_warped<float, dim>(points,
                                                               min_dist,
                                                               scale_function);
 
     ps::save_points_to_csv("out_distance_rejection_filter_warped.csv", points);
+  }
+
+  {
+    std::cout << "ps::random_rejection_filter_warped...\n";
+
+    float keep_fraction = 0.5f;
+
+    auto points = ps::random<float, dim>(count, ranges, seed);
+    points = ps::random_rejection_filter<float, dim>(points, keep_fraction);
+
+    ps::save_points_to_csv("out_random_rejection_filter.csv", points);
   }
 
   return 0;
