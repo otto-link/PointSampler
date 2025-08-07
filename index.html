@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PointSampler library (C++): Main Page</title>
+<title>PointSampler library (C++): PointSampler</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -88,10 +88,59 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">PointSampler library (C++) Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">PointSampler </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><h1><a class="anchor" id="intro_sec"></a>
+Introduction</h1>
+<p><b>PointSampler</b> is a lightweight, header-only C++ library for point sampling in arbitrary dimensions. It offers generic and reusable algorithms for:</p>
+<ul>
+<li>Random point generation</li>
+<li>Distance-based filtering</li>
+<li>Utility operations on points</li>
+</ul>
+<p>The library is template-based and dimension-independent, making it suitable for 2D, 3D, or higher-dimensional spaces.</p>
+<h1><a class="anchor" id="usage_sec"></a>
+Usage Example</h1>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="point__sampler_8hpp.html">point_sampler.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line">std::vector&lt;Point&lt;float, 2&gt;&gt; pts = ps::random&lt;float, 2&gt;(1000, {{0,1},{0,1}});</div>
+<div class="line"><span class="keyword">auto</span> filtered = <a class="code hl_function" href="namespaceps.html#ad1f4a1110a40bf1c6a687182db6b4b94">ps::distance_rejection_filter</a>(pts, 0.05f);</div>
+<div class="ttc" id="anamespaceps_html_ad1f4a1110a40bf1c6a687182db6b4b94"><div class="ttname"><a href="namespaceps.html#ad1f4a1110a40bf1c6a687182db6b4b94">ps::distance_rejection_filter</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; distance_rejection_filter(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, T min_dist)</div><div class="ttdef"><b>Definition</b> distance_rejection_filter.hpp:31</div></div>
+<div class="ttc" id="apoint__sampler_8hpp_html"><div class="ttname"><a href="point__sampler_8hpp.html">point_sampler.hpp</a></div></div>
+</div><!-- fragment --><h1><a class="anchor" id="modules_sec"></a>
+Categories</h1>
+<ul>
+<li>Random Sampling Functions<ul>
+<li><a class="el" href="random_8hpp.html">random.hpp</a></li>
+<li><a class="el" href="halton_8hpp.html">halton.hpp</a></li>
+<li><a class="el" href="hammersley_8hpp.html">hammersley.hpp</a></li>
+<li><a class="el" href="jittered__grid_8hpp.html">jittered_grid.hpp</a></li>
+<li><a class="el" href="poisson__disk__sampling_8hpp.html">poisson_disk_sampling.hpp</a></li>
+<li>gaussian_cluster.hpp</li>
+<li><a class="el" href="importance__resampling_8hpp.html">importance_resampling.hpp</a></li>
+<li><a class="el" href="rejection__sampling_8hpp.html">rejection_sampling.hpp</a></li>
+</ul>
+</li>
+<li>Filtering Functions<ul>
+<li><a class="el" href="distance__rejection__filter_8hpp.html">distance_rejection_filter.hpp</a></li>
+<li><a class="el" href="relaxation_8hpp.html">relaxation.hpp</a></li>
+</ul>
+</li>
+<li>Utility Functions<ul>
+<li><a class="el" href="range_8hpp.html">range.hpp</a></li>
+</ul>
+</li>
+<li>Point representation<ul>
+<li><a class="el" href="point_8hpp.html">point.hpp</a></li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="repo_sec"></a>
+Repository</h1>
+<p>GitHub: <a href="https://github.com/otto-link/PointSampler">https://github.com/otto-link/PointSampler</a> </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

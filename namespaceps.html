@@ -602,7 +602,7 @@ template&lt;typename T , size_t N&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>A vector containing only the points that lie within all specified axis ranges.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">std::invalid_argumentif</td><td>axis_ranges are ill-formed (e.g., min &gt; max).</td></tr>
+    <tr><td class="paramname">std::invalid_argumentifaxis_ranges</td><td>are ill-formed (e.g., min &gt; max).</td></tr>
   </table>
   </dd>
 </dl>
@@ -1846,7 +1846,7 @@ template&lt;typename T , size_t N&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>A vector containing <code>count</code> randomly generated points within the specified axis ranges.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">std::invalid_argumentIf</td><td>any axis range has min &gt; max.</td></tr>
+    <tr><td class="paramname">std::invalid_argumentIfany</td><td>axis range has min &gt; max.</td></tr>
   </table>
   </dd>
 </dl>
@@ -1993,7 +1993,7 @@ template&lt;typename T , size_t N, typename DensityFn &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; A vector of accepted points based on rejection sampling.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">std::invalid_argumentif</td><td>any axis range is invalid (min &gt; max).</td></tr>
+    <tr><td class="paramname">std::invalid_argumentifany</td><td>axis range is invalid (min &gt; max).</td></tr>
   </table>
   </dd>
 </dl>

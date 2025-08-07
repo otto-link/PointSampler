@@ -8,5 +8,6 @@ var searchData=
   ['rejection_5fsampling_2ehpp_5',['rejection_sampling.hpp',['../rejection__sampling_8hpp.html',1,'']]],
   ['relaxation_2ehpp_6',['relaxation.hpp',['../relaxation_8hpp.html',1,'']]],
   ['relaxation_5fktree_7',['relaxation_ktree',['../namespaceps.html#aed8a3217a801c5b5706f4bcc3306bb18',1,'ps']]],
-  ['rescale_5fpoints_8',['rescale_points',['../namespaceps.html#a7addf1455112b7895f8de7c475eed850',1,'ps']]]
+  ['repository_8',['Repository',['../index.html#repo_sec',1,'']]],
+  ['rescale_5fpoints_9',['rescale_points',['../namespaceps.html#a7addf1455112b7895f8de7c475eed850',1,'ps']]]
 ];

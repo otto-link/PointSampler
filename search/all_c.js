@@ -5,9 +5,10 @@ var searchData=
   ['point_5fsampler_2ehpp_2',['point_sampler.hpp',['../point__sampler_8hpp.html',1,'']]],
   ['point_5fto_5fgrid_3',['point_to_grid',['../structps_1_1GridND.html#ab64bb87b538321af8b8f219022cf08d5',1,'ps::GridND']]],
   ['pointcloudadaptor_4',['pointcloudadaptor',['../structps_1_1PointCloudAdaptor.html',1,'ps::PointCloudAdaptor&lt; T, N &gt;'],['../structps_1_1PointCloudAdaptor.html#acbd72d60ac355bf20db1f248545e961c',1,'ps::PointCloudAdaptor::PointCloudAdaptor()']]],
-  ['poisson_5fdisk_5fsampling_5',['poisson_disk_sampling',['../namespaceps.html#a5b1e932ba8a20e05cd8c113179aa77c8',1,'ps']]],
-  ['poisson_5fdisk_5fsampling_2ehpp_6',['poisson_disk_sampling.hpp',['../poisson__disk__sampling_8hpp.html',1,'']]],
-  ['poisson_5fdisk_5fsampling_5funiform_7',['poisson_disk_sampling_uniform',['../namespaceps.html#a6f7ab76c5d0a395aa78b85bad488e94e',1,'ps']]],
-  ['ps_8',['ps',['../namespaceps.html',1,'']]],
-  ['pts_9',['pts',['../structps_1_1PointCloudAdaptor.html#ad9019fcb2d338f1843242b8eb3f49e8b',1,'ps::PointCloudAdaptor']]]
+  ['pointsampler_5',['PointSampler',['../index.html',1,'']]],
+  ['poisson_5fdisk_5fsampling_6',['poisson_disk_sampling',['../namespaceps.html#a5b1e932ba8a20e05cd8c113179aa77c8',1,'ps']]],
+  ['poisson_5fdisk_5fsampling_2ehpp_7',['poisson_disk_sampling.hpp',['../poisson__disk__sampling_8hpp.html',1,'']]],
+  ['poisson_5fdisk_5fsampling_5funiform_8',['poisson_disk_sampling_uniform',['../namespaceps.html#a6f7ab76c5d0a395aa78b85bad488e94e',1,'ps']]],
+  ['ps_9',['ps',['../namespaceps.html',1,'']]],
+  ['pts_10',['pts',['../structps_1_1PointCloudAdaptor.html#ad9019fcb2d338f1843242b8eb3f49e8b',1,'ps::PointCloudAdaptor']]]
 ];
