@@ -1,0 +1,39 @@
+\doxysection{Point\+Sampler/include/point\+\_\+sampler/range.hpp File Reference}
+\hypertarget{range_8hpp}{}\label{range_8hpp}\index{PointSampler/include/point\_sampler/range.hpp@{PointSampler/include/point\_sampler/range.hpp}}
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}point\+\_\+sampler/point.\+hpp"{}}\newline
+Include dependency graph for range.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{range_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{range_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceps}{ps}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a9c8c5679d987d3023b9d3beffd81e6df}{ps\+::filter\+\_\+points\+\_\+in\+\_\+range}} (\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&\mbox{\hyperlink{structps_1_1Point}{points}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{axis\+\_\+ranges}})
+\begin{DoxyCompactList}\small\item\em Filters points that lie within the given axis-\/aligned ranges. \end{DoxyCompactList}\item 
+{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , std\+::size\+\_\+t N, \mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{Func}} $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a5350b843397a5bf2a748115108ffa21a}{ps\+::filter\+\_\+points\+\_\+function}} (\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&\mbox{\hyperlink{structps_1_1Point}{points}}, \mbox{\hyperlink{structps_1_1Point}{Func}} \mbox{\hyperlink{structps_1_1Point}{fn}})
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{void}} \mbox{\hyperlink{namespaceps_a2b8197901114d1c4fd6cfe19efcd3862}{ps\+::refit\+\_\+points\+\_\+to\+\_\+range}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&\mbox{\hyperlink{structps_1_1Point}{points}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{target\+\_\+ranges}})
+\begin{DoxyCompactList}\small\item\em Linearly remap a set of points to fit within the specified axis-\/aligned ranges. \end{DoxyCompactList}\item 
+{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{void}} \mbox{\hyperlink{namespaceps_a7addf1455112b7895f8de7c475eed850}{ps\+::rescale\+\_\+points}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&\mbox{\hyperlink{structps_1_1Point}{points}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{ranges}})
+\end{DoxyCompactItemize}

@@ -1,0 +1,25 @@
+<map id="PointSampler/include/point_sampler/importance_resampling.hpp" name="PointSampler/include/point_sampler/importance_resampling.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="140,5,337,60"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="125,196,200,221"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,62,164,83,145,109,140,127,141,147,152,183,147,184,136,147,135,127,140,107,160,79,186,58"/>
+<area shape="rect" id="Node000003" href="$jittered__grid_8hpp.html" title=" " alt="" coords="155,108,322,148"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="241,60,241,94,236,94,236,60"/>
+<area shape="rect" id="Node000004" href="$point_8hpp.html" title=" " alt="" coords="247,196,427,221"/>
+<area shape="poly" id="edge12_Node000001_Node000004" title=" " alt="" coords="289,58,315,79,336,107,343,126,346,146,345,182,339,182,340,146,337,127,331,109,311,83,286,62"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="222,150,186,188,182,184,218,146"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="264,146,313,185,310,189,261,150"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="5,269,91,295"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="291,224,105,270,104,264,290,219"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="115,269,171,295"/>
+<area shape="poly" id="edge6_Node000004_Node000006" title=" " alt="" coords="307,224,184,268,182,263,305,219"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="195,269,258,295"/>
+<area shape="poly" id="edge7_Node000004_Node000007" title=" " alt="" coords="321,224,258,264,255,259,318,219"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="282,269,393,295"/>
+<area shape="poly" id="edge8_Node000004_Node000008" title=" " alt="" coords="340,222,340,256,335,256,335,222"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="417,269,492,295"/>
+<area shape="poly" id="edge9_Node000004_Node000009" title=" " alt="" coords="358,219,425,260,422,264,355,224"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="517,269,603,295"/>
+<area shape="poly" id="edge10_Node000004_Node000010" title=" " alt="" coords="374,219,512,263,510,268,372,224"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="627,269,690,295"/>
+<area shape="poly" id="edge11_Node000004_Node000011" title=" " alt="" coords="396,219,614,266,613,272,395,224"/>
+</map>

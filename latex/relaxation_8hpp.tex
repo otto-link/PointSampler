@@ -1,0 +1,32 @@
+\doxysection{Point\+Sampler/include/point\+\_\+sampler/relaxation.hpp File Reference}
+\hypertarget{relaxation_8hpp}{}\label{relaxation_8hpp}\index{PointSampler/include/point\_sampler/relaxation.hpp@{PointSampler/include/point\_sampler/relaxation.hpp}}
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$optional$>$}\newline
+{\ttfamily \#include "{}point\+\_\+sampler/internal/nanoflann\+\_\+adaptator.\+hpp"{}}\newline
+{\ttfamily \#include "{}point\+\_\+sampler/point.\+hpp"{}}\newline
+Include dependency graph for relaxation.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{relaxation_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=243pt]{relaxation_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceps}{ps}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{void}} \mbox{\hyperlink{namespaceps_aed8a3217a801c5b5706f4bcc3306bb18}{ps\+::relaxation\+\_\+ktree}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&\mbox{\hyperlink{structps_1_1Point}{points}}, \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{k\+\_\+neighbors}}=8, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{step\+\_\+size}}=\mbox{\hyperlink{structps_1_1Point}{T}}(0.\+1), \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{iterations}}=10)
+\begin{DoxyCompactList}\small\item\em Relax a point set using a k-\/nearest neighbor repulsion algorithm with a KD-\/tree. \end{DoxyCompactList}\end{DoxyCompactItemize}

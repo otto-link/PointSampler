@@ -1,0 +1,27 @@
+<map id="PointSampler/include/point_sampler/gaussian_clusters.hpp" name="PointSampler/include/point_sampler/gaussian_clusters.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="111,5,292,60"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="40,181,115,207"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,62,116,83,93,109,82,139,79,168,73,168,77,137,88,107,113,79,142,58"/>
+<area shape="rect" id="Node000003" href="$point_8hpp.html" title=" " alt="" coords="247,181,427,207"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="257,58,288,79,314,106,329,137,337,167,332,168,324,139,310,110,284,83,254,62"/>
+<area shape="rect" id="Node000011" href="$random_8hpp.html" title=" " alt="" coords="103,108,300,133"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="204,60,204,94,199,94,199,60"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,255,91,280"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="291,209,105,255,104,250,290,204"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="115,255,171,280"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="307,209,184,254,182,249,305,204"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="195,255,258,280"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="321,209,258,249,255,245,318,204"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="282,255,393,280"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="340,207,340,241,335,241,335,207"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="417,255,492,280"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="358,204,425,245,422,250,355,209"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="517,255,603,280"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="374,204,512,248,510,253,372,209"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="627,255,690,280"/>
+<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="396,204,614,252,613,257,395,209"/>
+<area shape="poly" id="edge11_Node000011_Node000002" title=" " alt="" coords="183,136,111,177,108,172,180,131"/>
+<area shape="poly" id="edge13_Node000011_Node000003" title=" " alt="" coords="224,131,304,173,302,177,222,136"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="151,181,223,207"/>
+<area shape="poly" id="edge12_Node000011_Node000012" title=" " alt="" coords="202,134,194,168,189,167,196,133"/>
+</map>

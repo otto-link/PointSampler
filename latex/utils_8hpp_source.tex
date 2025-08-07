@@ -1,0 +1,74 @@
+\doxysection{utils.\+hpp}
+\hypertarget{utils_8hpp_source}{}\label{utils_8hpp_source}\index{PointSampler/include/point\_sampler/utils.hpp@{PointSampler/include/point\_sampler/utils.hpp}}
+\mbox{\hyperlink{utils_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00001}00001\ \textcolor{comment}{/*\ Copyright\ (c)\ 2025\ Otto\ Link.\ Distributed\ under\ the\ terms\ of\ the\ GNU\ General}}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Public\ License.\ The\ full\ license\ is\ in\ the\ file\ LICENSE,\ distributed\ with}}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00003}00003\ \textcolor{comment}{\ *\ this\ software.\ */}}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{point_8hpp}{point\_sampler/point.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00012}00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00015}00015\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00016}\mbox{\hyperlink{namespaceps_a802637e81218193c0e65266c8075f002}{00016}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceps_a802637e81218193c0e65266c8075f002}{save\_points\_to\_csv}}(\textcolor{keyword}{const}\ std::string\ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\mbox{\hyperlink{structps_1_1Point}{filename}},}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&\mbox{\hyperlink{structps_1_1Point}{points}},}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{write\_header}}\ =\ \textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00019}00019\ \{}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00020}00020\ \ \ std::ofstream\ \mbox{\hyperlink{structps_1_1Point}{out}}(\mbox{\hyperlink{structps_1_1Point}{filename}});}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00021}00021\ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{structps_1_1Point}{out}}.is\_open())}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00024}00024\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structps_1_1Point}{write\_header}})}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00025}00025\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}};\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00027}00027\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00028}00028\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{out}}\ <<\ \textcolor{stringliteral}{"{}x"{}}\ <<\ \mbox{\hyperlink{structps_1_1Point}{i}};}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00029}00029\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}}\ -\/\ 1)}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{out}}\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00031}00031\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00032}00032\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{out}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00033}00033\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00035}00035\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&\mbox{\hyperlink{structps_1_1Point}{point}}\ :\ \mbox{\hyperlink{structps_1_1Point}{points}})}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00036}00036\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}};\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00038}00038\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00039}00039\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{out}}\ <<\ \mbox{\hyperlink{structps_1_1Point}{point}}[\mbox{\hyperlink{structps_1_1Point}{i}}];}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00040}00040\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}}\ -\/\ 1)}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{out}}\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00042}00042\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{out}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00044}00044\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00046}00046\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00047}00047\ \}}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00049}00049\ \textcolor{comment}{//\ Ex.:}}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00050}00050\ \textcolor{comment}{//\ \ \ auto\ separated\ =\ split\_by\_dimension(pts);}}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00051}00051\ \textcolor{comment}{//\ \ \ separated[0]\ =\ \{1.0f,\ 4.0f,\ 7.0f\}\ //\ x\ values}}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00052}00052\ \textcolor{comment}{//\ \ \ separated[1]\ =\ \{2.0f,\ 5.0f,\ 8.0f\}\ //\ y\ values}}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00053}00053\ \textcolor{comment}{//\ \ \ separated[2]\ =\ \{3.0f,\ 6.0f,\ 9.0f\}\ //\ z\ values}}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00054}00054\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00055}\mbox{\hyperlink{namespaceps_af6737277b9cc05d5f2ab248f17baea3b}{00055}}\ std::array<std::vector<T>,\ \mbox{\hyperlink{structps_1_1Point}{N}}>\ \mbox{\hyperlink{namespaceps_af6737277b9cc05d5f2ab248f17baea3b}{split\_by\_dimension}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&\mbox{\hyperlink{structps_1_1Point}{points}})}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00056}00056\ \{}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00057}00057\ \ \ std::array<std::vector<T>,\ \mbox{\hyperlink{structps_1_1Point}{N}}>\ \mbox{\hyperlink{structps_1_1Point}{components}};}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00059}00059\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&\mbox{\hyperlink{structps_1_1Point}{point}}\ :\ \mbox{\hyperlink{structps_1_1Point}{points}})}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00060}00060\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}};\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00061}00061\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00062}00062\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{components}}[\mbox{\hyperlink{structps_1_1Point}{i}}].push\_back(\mbox{\hyperlink{structps_1_1Point}{point}}[\mbox{\hyperlink{structps_1_1Point}{i}}]);}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00063}00063\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00065}00065\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point}{components}};}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00066}00066\ \}}
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{utils_8hpp_source_l00068}00068\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+
+\end{DoxyCode}

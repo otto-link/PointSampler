@@ -1,0 +1,55 @@
+\doxysection{importance\+\_\+resampling.\+hpp}
+\hypertarget{importance__resampling_8hpp_source}{}\label{importance__resampling_8hpp_source}\index{PointSampler/include/point\_sampler/importance\_resampling.hpp@{PointSampler/include/point\_sampler/importance\_resampling.hpp}}
+\mbox{\hyperlink{importance__resampling_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00001}00001\ \textcolor{comment}{/*\ Copyright\ (c)\ 2025\ Otto\ Link.\ Distributed\ under\ the\ terms\ of\ the\ GNU\ General}}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Public\ License.\ The\ full\ license\ is\ in\ the\ file\ LICENSE,\ distributed\ with}}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00003}00003\ \textcolor{comment}{\ *\ this\ software.\ */}}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{jittered__grid_8hpp}{point\_sampler/jittered\_grid.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{point_8hpp}{point\_sampler/point.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00010}00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00011}00011\ \{}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00013}00013\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N,\ \textcolor{keyword}{typename}\ DensityFn>}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00014}\mbox{\hyperlink{namespaceps_a932640b18d76a7e336fc760e9cf5511b}{00014}}\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a932640b18d76a7e336fc760e9cf5511b}{importance\_resampling}}(}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00015}00015\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{count}},}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00016}00016\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{oversampling\_ratio}},}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00017}00017\ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ \mbox{\hyperlink{structps_1_1Point}{N}}>\ \&\mbox{\hyperlink{structps_1_1Point}{axis\_ranges}},}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00018}00018\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{DensityFn}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{density\_fn}},}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00019}00019\ \ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{seed}}\ =\ std::nullopt)}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00020}00020\ \{}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00021}00021\ \ \ std::mt19937\ \mbox{\hyperlink{structps_1_1Point}{gen}}(\mbox{\hyperlink{structps_1_1Point}{seed}}\ ?\ *\mbox{\hyperlink{structps_1_1Point}{seed}}\ :\ std::random\_device\{\}());}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00023}00023\ \ \ \textcolor{comment}{//\ Generate\ grid}}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00024}00024\ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{count\_grid}}\ =\ \mbox{\hyperlink{structps_1_1Point}{count}}\ *\ \mbox{\hyperlink{structps_1_1Point}{oversampling\_ratio}};}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00025}00025\ \ \ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{structps_1_1Point}{grid\_points}}\ =\ \mbox{\hyperlink{structps_1_1Point}{halton<T,\ N>}}(\mbox{\hyperlink{structps_1_1Point}{count\_grid}},\ \mbox{\hyperlink{structps_1_1Point}{axis\_ranges}},\ \mbox{\hyperlink{structps_1_1Point}{seed}});}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00027}00027\ \ \ \textcolor{comment}{//\ Weights}}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00028}00028\ \ \ std::vector<T>\ \mbox{\hyperlink{structps_1_1Point}{weights}};}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00029}00029\ \ \ \mbox{\hyperlink{structps_1_1Point}{weights}}.reserve(\mbox{\hyperlink{structps_1_1Point}{count\_grid}});}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00031}00031\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&\mbox{\hyperlink{structps_1_1Point}{p}}\ :\ \mbox{\hyperlink{structps_1_1Point}{grid\_points}})}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00032}00032\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{weights}}.push\_back(\mbox{\hyperlink{structps_1_1Point}{density\_fn}}(\mbox{\hyperlink{structps_1_1Point}{p}}));}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00034}00034\ \ \ \textcolor{comment}{//\ Normalize\ weights}}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00035}00035\ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{sum}}\ =\ std::accumulate(\mbox{\hyperlink{structps_1_1Point}{weights}}.begin(),\ \mbox{\hyperlink{structps_1_1Point}{weights}}.end(),\ \mbox{\hyperlink{structps_1_1Point}{T}}(0));}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00036}00036\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&w\ :\ \mbox{\hyperlink{structps_1_1Point}{weights}})}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00037}00037\ \ \ \ \ w\ /=\ \mbox{\hyperlink{structps_1_1Point}{sum}};}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00039}00039\ \ \ \textcolor{comment}{//\ Resample}}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00040}00040\ \ \ std::discrete\_distribution<size\_t>\ \mbox{\hyperlink{structps_1_1Point}{dist}}(\mbox{\hyperlink{structps_1_1Point}{weights}}.begin(),\ \mbox{\hyperlink{structps_1_1Point}{weights}}.end());}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00041}00041\ \ \ std::vector<Point<T,\ N>>\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{samples}};}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00042}00042\ \ \ \mbox{\hyperlink{structps_1_1Point}{samples}}.reserve(\mbox{\hyperlink{structps_1_1Point}{count}});}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00043}00043\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{count}};\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00044}00044\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{samples}}.push\_back(\mbox{\hyperlink{structps_1_1Point}{grid\_points}}[\mbox{\hyperlink{structps_1_1Point}{dist}}(\mbox{\hyperlink{structps_1_1Point}{gen}})]);}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00046}00046\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point}{samples}};}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00047}00047\ \}}
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{importance__resampling_8hpp_source_l00049}00049\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+
+\end{DoxyCode}

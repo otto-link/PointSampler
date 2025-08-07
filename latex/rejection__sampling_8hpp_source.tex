@@ -1,0 +1,53 @@
+\doxysection{rejection\+\_\+sampling.\+hpp}
+\hypertarget{rejection__sampling_8hpp_source}{}\label{rejection__sampling_8hpp_source}\index{PointSampler/include/point\_sampler/rejection\_sampling.hpp@{PointSampler/include/point\_sampler/rejection\_sampling.hpp}}
+\mbox{\hyperlink{rejection__sampling_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00001}00001\ \textcolor{comment}{/*\ Copyright\ (c)\ 2025\ Otto\ Link.\ Distributed\ under\ the\ terms\ of\ the\ GNU\ General}}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Public\ License.\ The\ full\ license\ is\ in\ the\ file\ LICENSE,\ distributed\ with}}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00003}00003\ \textcolor{comment}{\ *\ this\ software.\ */}}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{point_8hpp}{point\_sampler/point.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00009}00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00010}00010\ \{}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00012}00012\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N,\ \textcolor{keyword}{typename}\ DensityFn>}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00013}\mbox{\hyperlink{namespaceps_a29ab0a94bbe26a22cb87bf8f44703527}{00013}}\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a29ab0a94bbe26a22cb87bf8f44703527}{rejection\_sampling}}(}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00014}00014\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{count}},}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00015}00015\ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ \mbox{\hyperlink{structps_1_1Point}{N}}>\ \&\mbox{\hyperlink{structps_1_1Point}{axis\_ranges}},}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00016}00016\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{DensityFn}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{density\_fn}},}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00017}00017\ \ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{seed}}\ =\ std::nullopt)}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00018}00018\ \{}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00019}00019\ \ \ std::mt19937\ \mbox{\hyperlink{structps_1_1Point}{gen}}(\mbox{\hyperlink{structps_1_1Point}{seed}}\ ?\ *\mbox{\hyperlink{structps_1_1Point}{seed}}\ :\ std::random\_device\{\}());}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00021}00021\ \ \ std::array<std::uniform\_real\_distribution<T>,\ \mbox{\hyperlink{structps_1_1Point}{N}}>\ \mbox{\hyperlink{structps_1_1Point}{coord\_dists}};}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00022}00022\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}};\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00023}00023\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{coord\_dists}}[\mbox{\hyperlink{structps_1_1Point}{i}}]\ =\ std::uniform\_real\_distribution<T>(\mbox{\hyperlink{structps_1_1Point}{axis\_ranges}}[\mbox{\hyperlink{structps_1_1Point}{i}}].\mbox{\hyperlink{structps_1_1Point}{first}},}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{axis\_ranges}}[\mbox{\hyperlink{structps_1_1Point}{i}}].\mbox{\hyperlink{structps_1_1Point}{second}});}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00026}00026\ \ \ std::uniform\_real\_distribution<T>\ \mbox{\hyperlink{structps_1_1Point}{accept\_dist}}(0.0,\ 1.0);}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00028}00028\ \ \ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{structps_1_1Point}{result}};}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00029}00029\ \ \ \mbox{\hyperlink{structps_1_1Point}{result}}.reserve(\mbox{\hyperlink{structps_1_1Point}{count}});}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00031}00031\ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{structps_1_1Point}{result}}.size()\ <\ \mbox{\hyperlink{structps_1_1Point}{count}})}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00032}00032\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00033}00033\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{structps_1_1Point}{p}};}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}};\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00035}00035\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{p}}[\mbox{\hyperlink{structps_1_1Point}{i}}]\ =\ \mbox{\hyperlink{structps_1_1Point}{coord\_dists}}[\mbox{\hyperlink{structps_1_1Point}{i}}](\mbox{\hyperlink{structps_1_1Point}{gen}});}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00037}00037\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{prob}}\ =\ \mbox{\hyperlink{structps_1_1Point}{density\_fn}}(\mbox{\hyperlink{structps_1_1Point}{p}});}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00038}00038\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{threshold}}\ =\ \mbox{\hyperlink{structps_1_1Point}{accept\_dist}}(\mbox{\hyperlink{structps_1_1Point}{gen}});}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00040}00040\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structps_1_1Point}{prob}}\ >=\ \mbox{\hyperlink{structps_1_1Point}{threshold}})}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00041}00041\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{result}}.push\_back(\mbox{\hyperlink{structps_1_1Point}{p}});}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00042}00042\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00044}00044\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point}{result}};}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00045}00045\ \}}
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{rejection__sampling_8hpp_source_l00047}00047\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+
+\end{DoxyCode}

@@ -1,0 +1,94 @@
+\doxysection{distance\+\_\+rejection\+\_\+filter.\+hpp}
+\hypertarget{distance__rejection__filter_8hpp_source}{}\label{distance__rejection__filter_8hpp_source}\index{PointSampler/include/point\_sampler/distance\_rejection\_filter.hpp@{PointSampler/include/point\_sampler/distance\_rejection\_filter.hpp}}
+\mbox{\hyperlink{distance__rejection__filter_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00001}00001\ \textcolor{comment}{/*\ Copyright\ (c)\ 2025\ Otto\ Link.\ Distributed\ under\ the\ terms\ of\ the\ GNU\ General}}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Public\ License.\ The\ full\ license\ is\ in\ the\ file\ LICENSE,\ distributed\ with}}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00003}00003\ \textcolor{comment}{\ *\ this\ software.\ */}}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{nanoflann__adaptator_8hpp}{point\_sampler/internal/nanoflann\_adaptator.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{point_8hpp}{point\_sampler/point.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00011}\mbox{\hyperlink{namespaceps}{00011}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00012}00012\ \{}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00030}00030\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00031}\mbox{\hyperlink{namespaceps_ad1f4a1110a40bf1c6a687182db6b4b94}{00031}}\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_ad1f4a1110a40bf1c6a687182db6b4b94}{distance\_rejection\_filter}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&\mbox{\hyperlink{structps_1_1Point}{points}},}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{min\_dist}})}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00033}00033\ \{}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00034}00034\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structps_1_1Point}{points}}.empty())}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00037}00037\ \ \ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{structps_1_1Point}{result}};}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00038}00038\ \ \ \mbox{\hyperlink{structps_1_1Point}{result}}.reserve(\mbox{\hyperlink{structps_1_1Point}{points}}.size());}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00039}00039\ \ \ \mbox{\hyperlink{structps_1_1Point}{result}}.push\_back(\mbox{\hyperlink{structps_1_1Point}{points}}.front());}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00041}00041\ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 1;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{points}}.size();\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00042}00042\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00043}00043\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&\mbox{\hyperlink{structps_1_1Point}{p}}\ =\ \mbox{\hyperlink{structps_1_1Point}{points}}[\mbox{\hyperlink{structps_1_1Point}{i}}];}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00045}00045\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{PointCloudAdaptor<T,\ N>}}\ \mbox{\hyperlink{structps_1_1Point}{adaptor}}(\mbox{\hyperlink{structps_1_1Point}{result}});}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00046}00046\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{KDTree<T,\ N>}}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{index}}(\mbox{\hyperlink{structps_1_1Point}{N}},\ \mbox{\hyperlink{structps_1_1Point}{adaptor}});}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00047}00047\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{index}}.buildIndex();}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00049}00049\ \ \ \ \ std::array<T,\ N>\ \mbox{\hyperlink{structps_1_1Point}{query}};}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00050}00050\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ \mbox{\hyperlink{structps_1_1Point}{d}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{d}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}};\ ++\mbox{\hyperlink{structps_1_1Point}{d}})}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00051}00051\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{query}}[\mbox{\hyperlink{structps_1_1Point}{d}}]\ =\ \mbox{\hyperlink{structps_1_1Point}{p}}[\mbox{\hyperlink{structps_1_1Point}{d}}];}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00053}00053\ \ \ \ \ std::vector<nanoflann::ResultItem<unsigned\ int,\ T>>\ \mbox{\hyperlink{structps_1_1Point}{matches}};}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00054}00054\ \ \ \ \ nanoflann::SearchParameters\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{params}};}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00055}00055\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{T}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{radius}}\ =\ \mbox{\hyperlink{structps_1_1Point}{min\_dist}}\ *\ \mbox{\hyperlink{structps_1_1Point}{min\_dist}};}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00057}00057\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{found}}\ =\ \mbox{\hyperlink{structps_1_1Point}{index}}.radiusSearch(\mbox{\hyperlink{structps_1_1Point}{query}}.data(),\ \mbox{\hyperlink{structps_1_1Point}{radius}},\ \mbox{\hyperlink{structps_1_1Point}{matches}},\ \mbox{\hyperlink{structps_1_1Point}{params}});}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00059}00059\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structps_1_1Point}{found}}\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00060}00060\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{result}}.push\_back(\mbox{\hyperlink{structps_1_1Point}{p}});}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00061}00061\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00063}00063\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point}{result}};}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00064}00064\ \}}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00066}00066\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N,\ \textcolor{keyword}{typename}\ ScaleFn>}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00067}\mbox{\hyperlink{namespaceps_af23d114903fd5cb3ccb19d3e64183632}{00067}}\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_af23d114903fd5cb3ccb19d3e64183632}{distance\_rejection\_filter\_warped}}(}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00068}00068\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&\mbox{\hyperlink{structps_1_1Point}{points}},}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00069}00069\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{base\_min\_dist}},}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00070}00070\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{ScaleFn}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{scale\_fn}})}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00071}00071\ \{}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00072}00072\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structps_1_1Point}{points}}.empty())}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00073}00073\ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00075}00075\ \ \ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{structps_1_1Point}{result}};}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00076}00076\ \ \ \mbox{\hyperlink{structps_1_1Point}{result}}.reserve(\mbox{\hyperlink{structps_1_1Point}{points}}.size());}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00077}00077\ \ \ \mbox{\hyperlink{structps_1_1Point}{result}}.push\_back(\mbox{\hyperlink{structps_1_1Point}{points}}.front());}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00079}00079\ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 1;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{points}}.size();\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00080}00080\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00081}00081\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&\mbox{\hyperlink{structps_1_1Point}{p}}\ =\ \mbox{\hyperlink{structps_1_1Point}{points}}[\mbox{\hyperlink{structps_1_1Point}{i}}];}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00082}00082\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{T}}\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{local\_min\_dist}}\ =\ \mbox{\hyperlink{structps_1_1Point}{base\_min\_dist}}\ *\ \mbox{\hyperlink{structps_1_1Point}{scale\_fn}}(\mbox{\hyperlink{structps_1_1Point}{p}});}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00084}00084\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{PointCloudAdaptor<T,\ N>}}\ \mbox{\hyperlink{structps_1_1Point}{adaptor}}(\mbox{\hyperlink{structps_1_1Point}{result}});}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00085}00085\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{KDTree<T,\ N>}}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{index}}(\mbox{\hyperlink{structps_1_1Point}{N}},\ \mbox{\hyperlink{structps_1_1Point}{adaptor}});}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00086}00086\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{index}}.buildIndex();}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00088}00088\ \ \ \ \ std::array<T,\ N>\ \mbox{\hyperlink{structps_1_1Point}{query}};}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00089}00089\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ \mbox{\hyperlink{structps_1_1Point}{d}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{d}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}};\ ++\mbox{\hyperlink{structps_1_1Point}{d}})}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00090}00090\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{query}}[\mbox{\hyperlink{structps_1_1Point}{d}}]\ =\ \mbox{\hyperlink{structps_1_1Point}{p}}[\mbox{\hyperlink{structps_1_1Point}{d}}];}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00092}00092\ \ \ \ \ std::vector<nanoflann::ResultItem<unsigned\ int,\ T>>\ \mbox{\hyperlink{structps_1_1Point}{matches}};}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00093}00093\ \ \ \ \ nanoflann::SearchParameters\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{params}};}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00094}00094\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{radius}}\ =\ \mbox{\hyperlink{structps_1_1Point}{local\_min\_dist}}\ *\ \mbox{\hyperlink{structps_1_1Point}{local\_min\_dist}};}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00096}00096\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{found}}\ =\ \mbox{\hyperlink{structps_1_1Point}{index}}.radiusSearch(\mbox{\hyperlink{structps_1_1Point}{query}}.data(),\ \mbox{\hyperlink{structps_1_1Point}{radius}},\ \mbox{\hyperlink{structps_1_1Point}{matches}},\ \mbox{\hyperlink{structps_1_1Point}{params}});}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00097}00097\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structps_1_1Point}{found}}\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00098}00098\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{result}}.push\_back(\mbox{\hyperlink{structps_1_1Point}{p}});}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00099}00099\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00101}00101\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point}{result}};}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00102}00102\ \}}
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{distance__rejection__filter_8hpp_source_l00104}00104\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+
+\end{DoxyCode}

@@ -1,0 +1,67 @@
+\doxysection{relaxation.\+hpp}
+\hypertarget{relaxation_8hpp_source}{}\label{relaxation_8hpp_source}\index{PointSampler/include/point\_sampler/relaxation.hpp@{PointSampler/include/point\_sampler/relaxation.hpp}}
+\mbox{\hyperlink{relaxation_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00001}00001\ \textcolor{comment}{/*\ Copyright\ (c)\ 2025\ Otto\ Link.\ Distributed\ under\ the\ terms\ of\ the\ GNU\ General}}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00002}00002\ \textcolor{comment}{\ *\ Public\ License.\ The\ full\ license\ is\ in\ the\ file\ LICENSE,\ distributed\ with}}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00003}00003\ \textcolor{comment}{\ *\ this\ software.\ */}}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00004}00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{nanoflann__adaptator_8hpp}{point\_sampler/internal/nanoflann\_adaptator.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{point_8hpp}{point\_sampler/point.hpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00011}00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00012}00012\ \{}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00058}00058\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00059}\mbox{\hyperlink{namespaceps_aed8a3217a801c5b5706f4bcc3306bb18}{00059}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceps_aed8a3217a801c5b5706f4bcc3306bb18}{relaxation\_ktree}}(std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&\mbox{\hyperlink{structps_1_1Point}{points}},}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{k\_neighbors}}\ =\ 8,}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{step\_size}}\ =\ \mbox{\hyperlink{structps_1_1Point}{T}}(0.1),}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{iterations}}\ =\ 10)}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00063}00063\ \{}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00064}00064\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{iter}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{iter}}\ <\ \mbox{\hyperlink{structps_1_1Point}{iterations}};\ ++\mbox{\hyperlink{structps_1_1Point}{iter}})}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00065}00065\ \ \ \{}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00066}00066\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{PointCloudAdaptor<T,\ N>}}\ \mbox{\hyperlink{structps_1_1Point}{adaptor}}(\mbox{\hyperlink{structps_1_1Point}{points}});}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00067}00067\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{KDTree<T,\ N>}}\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{index}}(\mbox{\hyperlink{structps_1_1Point}{N}},\ \mbox{\hyperlink{structps_1_1Point}{adaptor}});}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00068}00068\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{index}}.buildIndex();}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00070}00070\ \ \ \ \ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{structps_1_1Point}{new\_points}}\ =\ \mbox{\hyperlink{structps_1_1Point}{points}};}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00072}00072\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{points}}.size();\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00073}00073\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00074}00074\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&\mbox{\hyperlink{structps_1_1Point}{p}}\ =\ \mbox{\hyperlink{structps_1_1Point}{points}}[\mbox{\hyperlink{structps_1_1Point}{i}}];}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00076}00076\ \ \ \ \ \ \ std::vector<size\_t>\ \mbox{\hyperlink{structps_1_1Point}{ret\_indexes}}(\mbox{\hyperlink{structps_1_1Point}{k\_neighbors}}\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00077}00077\ \ \ \ \ \ \ std::vector<T>\ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{out\_dists\_sqr}}(\mbox{\hyperlink{structps_1_1Point}{k\_neighbors}}\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00079}00079\ \ \ \ \ \ \ nanoflann::KNNResultSet<T>\ \mbox{\hyperlink{structps_1_1Point}{result\_set}}(\mbox{\hyperlink{structps_1_1Point}{k\_neighbors}}\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00080}00080\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{result\_set}}.init(\mbox{\hyperlink{structps_1_1Point}{ret\_indexes}}.data(),\ \mbox{\hyperlink{structps_1_1Point}{out\_dists\_sqr}}.data());}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00082}00082\ \ \ \ \ \ \ std::array<T,\ N>\ \mbox{\hyperlink{structps_1_1Point}{query}};}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00083}00083\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{d}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{d}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}};\ ++\mbox{\hyperlink{structps_1_1Point}{d}})}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{query}}[\mbox{\hyperlink{structps_1_1Point}{d}}]\ =\ \mbox{\hyperlink{structps_1_1Point}{p}}[\mbox{\hyperlink{structps_1_1Point}{d}}];}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00086}00086\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{index}}.findNeighbors(\mbox{\hyperlink{structps_1_1Point}{result\_set}},\ \mbox{\hyperlink{structps_1_1Point}{query}}.data(),\ nanoflann::SearchParameters());}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00088}00088\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{structps_1_1Point}{offset}}\{\};}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00089}00089\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{j}}\ =\ 1;\ \mbox{\hyperlink{structps_1_1Point}{j}}\ <\ \mbox{\hyperlink{structps_1_1Point}{result\_set}}.size();\ ++\mbox{\hyperlink{structps_1_1Point}{j}})\ \textcolor{comment}{//\ skip\ self\ at\ j=0}}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00090}00090\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&\mbox{\hyperlink{structps_1_1Point}{q}}\ =\ \mbox{\hyperlink{structps_1_1Point}{points}}[\mbox{\hyperlink{structps_1_1Point}{ret\_indexes}}[\mbox{\hyperlink{structps_1_1Point}{j}}]];}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{delta}}\ =\ \mbox{\hyperlink{structps_1_1Point}{p}}\ -\/\ \mbox{\hyperlink{structps_1_1Point}{q}};}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{dist\_sq}}\ =\ \mbox{\hyperlink{namespaceps_a7c3e161560ad3000aa4e2218291b169c}{length\_squared}}(\mbox{\hyperlink{structps_1_1Point}{delta}})\ +\ \mbox{\hyperlink{structps_1_1Point}{T}}(1\mbox{\hyperlink{structps_1_1Point}{e}}-\/6);\ \textcolor{comment}{//\ avoid\ div\ by\ 0}}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{offset}}\ =\ \mbox{\hyperlink{structps_1_1Point}{offset}}\ +\ \mbox{\hyperlink{structps_1_1Point}{delta}}\ /\ \mbox{\hyperlink{structps_1_1Point}{dist\_sq}};}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00096}00096\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00098}00098\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{new\_points}}[\mbox{\hyperlink{structps_1_1Point}{i}}]\ =\ \mbox{\hyperlink{structps_1_1Point}{p}}\ +\ \mbox{\hyperlink{namespaceps_a7de6090e2c8291401816be9bc6cda914}{normalized}}(\mbox{\hyperlink{structps_1_1Point}{offset}})\ *\ \mbox{\hyperlink{structps_1_1Point}{step\_size}};}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00099}00099\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00101}00101\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{points}}\ =\ std::move(\mbox{\hyperlink{structps_1_1Point}{new\_points}});}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00102}00102\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00103}00103\ \}}
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{relaxation_8hpp_source_l00105}00105\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+
+\end{DoxyCode}
