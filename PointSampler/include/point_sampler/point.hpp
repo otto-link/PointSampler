@@ -1,6 +1,6 @@
 /* Copyright (c) 2025 Otto Link. Distributed under the terms of the GNU General
- * Public License. The full license is in the file LICENSE, distributed with
- * this software. */
+   Public License. The full license is in the file LICENSE, distributed with
+   this software. */
 #pragma once
 #include <algorithm>
 #include <array>
@@ -16,12 +16,13 @@ namespace ps
 /**
  * @brief A fixed-size N-dimensional point/vector class.
  *
- * Represents a geometric or algebraic point in N-dimensional space with coordinates of
- * type T. Supports element-wise arithmetic operations, scalar math, and basic geometric
- * functions such as dot product, length, normalization, and distance.
+ * Represents a geometric or algebraic point in N-dimensional space with
+ * coordinates of type T. Supports element-wise arithmetic operations, scalar
+ * math, and basic geometric functions such as dot product, length,
+ * normalization, and distance.
  *
- * Designed for use in procedural generation, geometry processing, simulation, and
- * graphics.
+ * Designed for use in procedural generation, geometry processing, simulation,
+ * and graphics.
  *
  * - Compatible with STL containers and algorithms
  * - Zero-allocation, fast and cache-friendly (uses std::array<T, N>)

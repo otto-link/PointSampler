@@ -1,6 +1,6 @@
 /* Copyright (c) 2025 Otto Link. Distributed under the terms of the GNU General
- * Public License. The full license is in the file LICENSE, distributed with
- * this software. */
+   Public License. The full license is in the file LICENSE, distributed with
+   this software. */
 #pragma once
 #include <optional>
 #include <random>
@@ -11,24 +11,29 @@ namespace ps
 {
 
 /**
- * @brief Generates a specified number of uniformly distributed random points in N-dimensional space.
+ * @brief Generates a specified number of uniformly distributed random points in
+ * N-dimensional space.
  *
- * This function creates `count` random points where each coordinate is independently
- * sampled from a uniform distribution defined by `axis_ranges` per dimension.
+ * This function creates `count` random points where each coordinate is
+ * independently sampled from a uniform distribution defined by `axis_ranges`
+ * per dimension.
  *
  * @tparam T The numeric type for coordinates (e.g., float, double).
  * @tparam N The dimensionality of the points.
  *
- * @param count       The number of random points to generate.
- * @param axis_ranges An array of N pairs specifying the min and max range for each axis.
- * @param seed        Optional seed for the random number generator. If not provided,
- *                    a nondeterministic random seed is used.
+ * @param  count       The number of random points to generate.
+ * @param  axis_ranges An array of N pairs specifying the min and max range for
+ *                     each axis.
+ * @param  seed        Optional seed for the random number generator. If not
+ *                     provided, a nondeterministic random seed is used.
  *
- * @return A vector containing `count` randomly generated points within the specified axis ranges.
+ * @return             A vector containing `count` randomly generated points
+ *                     within the specified axis ranges.
  *
- * @throws std::invalid_argument If any axis range has min > max.
+ * @throws std::invalid_argumentIf any axis range has min > max.
  *
- * @note The points are generated independently per axis using uniform_real_distribution.
+ * @note The points are generated independently per axis using
+ * uniform_real_distribution.
  *
  * @code{.cpp}
  * #include <iostream>
@@ -38,15 +43,15 @@ namespace ps
  * {
  *   constexpr size_t dim = 3;
  *   size_t count = 5;
- *   std::array<std::pair<float, float>, dim> ranges = {{{0.f, 1.f}, {0.f, 2.f}, {-1.f, 1.f}}};
+ *   std::array<std::pair<float, float>, dim> ranges = {{{0.f, 1.f}, {0.f, 2.f},
+ * {-1.f, 1.f}}};
  *
- *   // Generate points with a fixed seed for reproducibility
- *   auto points = ps::random<float, dim>(count, ranges, 42);
+ *   // Generate points with a fixed seed for reproducibility auto points =
+ * ps::random<float, dim>(count, ranges, 42);
  *
  *   for (const auto& p : points)
  *   {
- *     for (size_t i = 0; i < dim; ++i)
- *       std::cout << p[i] << ' ';
+ *     for (size_t i = 0; i < dim; ++i) std::cout << p[i] << ' ';
  *     std::cout << '\n';
  *   }
  *

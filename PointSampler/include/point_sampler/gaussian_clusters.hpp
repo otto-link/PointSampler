@@ -1,6 +1,6 @@
 /* Copyright (c) 2025 Otto Link. Distributed under the terms of the GNU General
- * Public License. The full license is in the file LICENSE, distributed with
- * this software. */
+   Public License. The full license is in the file LICENSE, distributed with
+   this software. */
 #pragma once
 #include <optional>
 
@@ -11,23 +11,24 @@ namespace ps
 {
 
 /**
- * @brief Generates clustered points around provided cluster centers using a Gaussian distribution.
+ * @brief Generates clustered points around provided cluster centers using a
+ * Gaussian distribution.
  *
- * For each cluster center, this function generates `points_per_cluster` points where
- * each coordinate is sampled from a normal distribution centered at the coordinate
- * of the cluster center with standard deviation `spread`.
+ * For each cluster center, this function generates `points_per_cluster` points
+ * where each coordinate is sampled from a normal distribution centered at the
+ * coordinate of the cluster center with standard deviation `spread`.
  *
  * @tparam T       Scalar type (e.g., float or double)
  * @tparam N       Dimensionality of the space
- * @param cluster_centers     A vector of cluster center points
- * @param points_per_cluster  Number of points to generate per cluster
- * @param spread              Standard deviation of the Gaussian spread
- * @param seed                Optional random seed
- * @return std::vector<Point<T, N>> A vector of clustered points
+ * @param  cluster_centers    A vector of cluster center points
+ * @param  points_per_cluster Number of points to generate per cluster
+ * @param  spread             Standard deviation of the Gaussian spread
+ * @param  seed               Optional random seed
+ * @return                    std::vector<Point<T, N>> A vector of clustered
+ *                            points
  *
  * ### Example
- * @code
- * std::vector<Point<float, 2>> centers = {
+ * @code std::vector<Point<float, 2>> centers = {
  *     {0.2f, 0.2f},
  *     {0.8f, 0.8f}
  * };
@@ -61,27 +62,29 @@ std::vector<Point<T, N>> gaussian_clusters(
 }
 
 /**
- * @brief Generates clustered points around random centers uniformly sampled in a bounding box.
+ * @brief Generates clustered points around random centers uniformly sampled in
+ * a bounding box.
  *
- * Cluster centers are randomly sampled within the provided `axis_ranges`, and each cluster
- * then has `points_per_cluster` points sampled from a Gaussian distribution centered
- * at the cluster's location, with a specified standard deviation `spread`.
+ * Cluster centers are randomly sampled within the provided `axis_ranges`, and
+ * each cluster then has `points_per_cluster` points sampled from a Gaussian
+ * distribution centered at the cluster's location, with a specified standard
+ * deviation `spread`.
  *
  * @tparam T       Scalar type (e.g., float or double)
  * @tparam N       Dimensionality of the space
- * @param cluster_count        Number of cluster centers to generate
- * @param points_per_cluster   Number of points per cluster
- * @param axis_ranges          Axis-aligned bounding box ranges for each dimension
- * @param spread               Standard deviation of the Gaussian spread
- * @param seed                 Optional random seed
- * @return std::vector<Point<T, N>> A vector of clustered points
+ * @param  cluster_count      Number of cluster centers to generate
+ * @param  points_per_cluster Number of points per cluster
+ * @param  axis_ranges        Axis-aligned bounding box ranges for each
+ *                            dimension
+ * @param  spread             Standard deviation of the Gaussian spread
+ * @param  seed               Optional random seed
+ * @return                    std::vector<Point<T, N>> A vector of clustered
+ *                            points
  *
  * ### Example
- * @code
- * auto clustered = ps::gaussian_clusters<float, 2>(
+ * @code auto clustered = ps::gaussian_clusters<float, 2>(
  *     5, 100,
- *     {{{0,1}, {0,1}}},
- *     0.03f
+ *     {{{0,1}, {0,1}}}, 0.03f
  * );
  * @endcode
  */
