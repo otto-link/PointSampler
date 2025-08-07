@@ -126,12 +126,15 @@ Functions</h2></td></tr>
 <tr class="separator:aad0cc7bc81f7cac9f0be26177b9986a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a932640b18d76a7e336fc760e9cf5511b" id="r_a932640b18d76a7e336fc760e9cf5511b"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="el" href="structps_1_1Point.html">T</a> , <a class="el" href="structps_1_1Point.html">size_t</a> N, <a class="el" href="structps_1_1Point.html">typename</a> <a class="el" href="structps_1_1Point.html">DensityFn</a> &gt; </td></tr>
 <tr class="memitem:a932640b18d76a7e336fc760e9cf5511b"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">N</a> &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a932640b18d76a7e336fc760e9cf5511b">importance_resampling</a> (<a class="el" href="structps_1_1Point.html">size_t</a> <a class="el" href="structps_1_1Point.html">count</a>, <a class="el" href="structps_1_1Point.html">size_t</a> <a class="el" href="structps_1_1Point.html">oversampling_ratio</a>, <a class="el" href="structps_1_1Point.html">const</a> std::array&lt; std::pair&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">T</a> &gt;, <a class="el" href="structps_1_1Point.html">N</a> &gt; &amp;<a class="el" href="structps_1_1Point.html">axis_ranges</a>, <a class="el" href="structps_1_1Point.html">DensityFn</a> <a class="el" href="structps_1_1Point.html">density_fn</a>, std::optional&lt; <a class="el" href="structps_1_1Point.html">unsigned</a> <a class="el" href="structps_1_1Point.html">int</a> &gt; <a class="el" href="structps_1_1Point.html">seed</a>=std::nullopt)</td></tr>
+<tr class="memdesc:a932640b18d76a7e336fc760e9cf5511b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a point set via importance resampling from a quasi-random oversampled grid.  <br /></td></tr>
 <tr class="separator:a932640b18d76a7e336fc760e9cf5511b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8525c124fef24618bf574b9b7b1ece8" id="r_ad8525c124fef24618bf574b9b7b1ece8"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="el" href="structps_1_1Point.html">T</a> , <a class="el" href="structps_1_1Point.html">size_t</a> N&gt; </td></tr>
 <tr class="memitem:ad8525c124fef24618bf574b9b7b1ece8"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">N</a> &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#ad8525c124fef24618bf574b9b7b1ece8">jittered_grid</a> (<a class="el" href="structps_1_1Point.html">size_t</a> <a class="el" href="structps_1_1Point.html">count</a>, <a class="el" href="structps_1_1Point.html">const</a> std::array&lt; std::pair&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">T</a> &gt;, <a class="el" href="structps_1_1Point.html">N</a> &gt; &amp;<a class="el" href="structps_1_1Point.html">axis_ranges</a>, <a class="el" href="structps_1_1Point.html">const</a> std::array&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">N</a> &gt; &amp;<a class="el" href="structps_1_1Point.html">jitter_amount</a>, <a class="el" href="structps_1_1Point.html">const</a> std::array&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">N</a> &gt; &amp;<a class="el" href="structps_1_1Point.html">stagger_ratio</a>, std::optional&lt; <a class="el" href="structps_1_1Point.html">unsigned</a> <a class="el" href="structps_1_1Point.html">int</a> &gt; <a class="el" href="structps_1_1Point.html">seed</a>=std::nullopt)</td></tr>
+<tr class="memdesc:ad8525c124fef24618bf574b9b7b1ece8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a point set on a jittered and optionally staggered grid.  <br /></td></tr>
 <tr class="separator:ad8525c124fef24618bf574b9b7b1ece8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae90df8db8e751ff4b61298114f092714" id="r_ae90df8db8e751ff4b61298114f092714"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="el" href="structps_1_1Point.html">T</a> , <a class="el" href="structps_1_1Point.html">size_t</a> N&gt; </td></tr>
 <tr class="memitem:ae90df8db8e751ff4b61298114f092714"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">N</a> &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#ae90df8db8e751ff4b61298114f092714">jittered_grid</a> (<a class="el" href="structps_1_1Point.html">size_t</a> <a class="el" href="structps_1_1Point.html">count</a>, <a class="el" href="structps_1_1Point.html">const</a> std::array&lt; std::pair&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">T</a> &gt;, <a class="el" href="structps_1_1Point.html">N</a> &gt; &amp;<a class="el" href="structps_1_1Point.html">axis_ranges</a>, std::optional&lt; <a class="el" href="structps_1_1Point.html">unsigned</a> <a class="el" href="structps_1_1Point.html">int</a> &gt; <a class="el" href="structps_1_1Point.html">seed</a>=std::nullopt)</td></tr>
+<tr class="memdesc:ae90df8db8e751ff4b61298114f092714"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a jittered grid of points with full jitter and no stagger.  <br /></td></tr>
 <tr class="separator:ae90df8db8e751ff4b61298114f092714"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9ee1cf5d335276b7fabe6f1daddf1b0" id="r_af9ee1cf5d335276b7fabe6f1daddf1b0"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="el" href="structps_1_1Point.html">T</a> , <a class="el" href="structps_1_1Point.html">size_t</a> N&gt; </td></tr>
 <tr class="memitem:af9ee1cf5d335276b7fabe6f1daddf1b0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structps_1_1Point.html">Point</a>&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">N</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#af9ee1cf5d335276b7fabe6f1daddf1b0">operator+</a> (<a class="el" href="structps_1_1Point.html">const</a> <a class="el" href="structps_1_1Point.html">Point</a>&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">N</a> &gt; &amp;<a class="el" href="structps_1_1Point.html">a</a>, <a class="el" href="structps_1_1Point.html">const</a> <a class="el" href="structps_1_1Point.html">Point</a>&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">N</a> &gt; &amp;<a class="el" href="structps_1_1Point.html">b</a>)</td></tr>
@@ -1005,6 +1008,42 @@ template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="e
       </table>
 </div><div class="memdoc">
 
+<p>Generates a point set via importance resampling from a quasi-random oversampled grid. </p>
+<p>This function uses a Halton sequence to create an oversampled set of candidate points in the domain. Each point is assigned a weight based on the provided density function. A discrete distribution is then used to resample <code>count</code> points according to these weights.</p>
+<p>The higher the <code>oversampling_ratio</code>, the better the approximation to the target density, at the cost of performance.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Scalar type (e.g., float or double) </td></tr>
+    <tr><td class="paramname">N</td><td>Dimensionality of the space </td></tr>
+    <tr><td class="paramname">DensityFn</td><td>A callable with signature <code>T(const <a class="el" href="structps_1_1Point.html" title="A fixed-size N-dimensional point/vector class.">Point</a>&lt;T, N&gt;&amp;)</code> returning a non-negative density value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">count</td><td>Number of points to return after resampling </td></tr>
+    <tr><td class="paramname">oversampling_ratio</td><td>Number of candidate points to generate as a multiple of <code>count</code> </td></tr>
+    <tr><td class="paramname">axis_ranges</td><td>Axis-aligned bounding box defining the domain of the points </td></tr>
+    <tr><td class="paramname">density_fn</td><td>Function mapping a point to a (non-negative) density value </td></tr>
+    <tr><td class="paramname">seed</td><td>Optional seed to control the random number generator </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; The resulting resampled point set</dd></dl>
+<h3><a class="anchor" id="autotoc_md5"></a>
+Example</h3>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> <a class="code hl_struct" href="structps_1_1Point.html">density</a> = [](<span class="keyword">const</span> <a class="code hl_struct" href="structps_1_1Point.html">Point&lt;float, 2&gt;</a> &amp;<a class="code hl_struct" href="structps_1_1Point.html">p</a>) {</div>
+<div class="line">    <span class="keywordflow">return</span> std::exp(-10.0f * (<a class="code hl_struct" href="structps_1_1Point.html">p</a>[0]*<a class="code hl_struct" href="structps_1_1Point.html">p</a>[0] + <a class="code hl_struct" href="structps_1_1Point.html">p</a>[1]*<a class="code hl_struct" href="structps_1_1Point.html">p</a>[1]));</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">auto</span> points = <a class="code hl_struct" href="structps_1_1Point.html">ps::importance_resampling&lt;float, 2&gt;</a>(</div>
+<div class="line">    500,</div>
+<div class="line">    5,</div>
+<div class="line">    {{{-1, 1}, {-1, 1}}},</div>
+<div class="line">    density,</div>
+<div class="line">    42</div>
+<div class="line">);</div>
+</div><!-- fragment --> 
 </div>
 </div>
 <a id="aedb5908eae325f054e4f3dd6b9b223af" name="aedb5908eae325f054e4f3dd6b9b223af"></a>
@@ -1101,6 +1140,35 @@ template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="e
       </table>
 </div><div class="memdoc">
 
+<p>Generates a point set on a jittered and optionally staggered grid. </p>
+<p>This function divides the domain into a grid and places one point in each selected cell. Each point is jittered within its cell, and staggered offsets may be applied depending on the index of higher-dimensional axes. The result is a semi-regular sampling pattern with randomness.</p>
+<p>Jittering prevents aliasing, and staggering introduces a controlled shift between alternating cells to improve uniformity and avoid alignment artifacts.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Scalar type (e.g., float or double) </td></tr>
+    <tr><td class="paramname">N</td><td>Dimensionality of the space </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">count</td><td>Number of output points (best effort, may be capped by total available cells) </td></tr>
+    <tr><td class="paramname">axis_ranges</td><td>Axis-aligned bounding box defining the sampling domain </td></tr>
+    <tr><td class="paramname">jitter_amount</td><td>Per-dimension jitter factor ∈ [0, 1]. A value of 1.0 means full jitter in the cell. </td></tr>
+    <tr><td class="paramname">stagger_ratio</td><td>Per-dimension stagger ratio, indicating how much to offset points based on higher dimension parity </td></tr>
+    <tr><td class="paramname">seed</td><td>Optional seed for deterministic jittering and shuffling </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; Sampled points</dd></dl>
+<h3><a class="anchor" id="autotoc_md6"></a>
+Example</h3>
+<div class="fragment"><div class="line">std::array&lt;std::pair&lt;float, float&gt;, 2&gt; <a class="code hl_struct" href="structps_1_1Point.html">bounds</a> = {{{0.0f, 1.0f}, {0.0f, 1.0f}}};</div>
+<div class="line">std::array&lt;float, 2&gt; jitter = {0.8f, 0.8f};</div>
+<div class="line">std::array&lt;float, 2&gt; stagger = {0.2f, 0.0f};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">auto</span> samples = <a class="code hl_struct" href="structps_1_1Point.html">ps::jittered_grid&lt;float, 2&gt;</a>(256, bounds, jitter, stagger, 42);</div>
+</div><!-- fragment --> 
 </div>
 </div>
 <a id="ae90df8db8e751ff4b61298114f092714" name="ae90df8db8e751ff4b61298114f092714"></a>
@@ -1137,6 +1205,29 @@ template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="e
       </table>
 </div><div class="memdoc">
 
+<p>Generates a jittered grid of points with full jitter and no stagger. </p>
+<p>This overload defaults to jittering each dimension fully within its cell and applies no staggering. It is equivalent to calling the full version with <code>jitter_amount</code> filled with 1.0 and <code>stagger_ratio</code> filled with 0.0.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Scalar type (e.g., float or double) </td></tr>
+    <tr><td class="paramname">N</td><td>Dimensionality of the space </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">count</td><td>Number of points to generate </td></tr>
+    <tr><td class="paramname">axis_ranges</td><td>Axis-aligned bounding box defining the sampling domain </td></tr>
+    <tr><td class="paramname">seed</td><td>Optional seed for deterministic jittering </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; Jittered point samples</dd></dl>
+<h3><a class="anchor" id="autotoc_md7"></a>
+Example</h3>
+<div class="fragment"><div class="line">std::array&lt;std::pair&lt;double, double&gt;, 3&gt; <a class="code hl_struct" href="structps_1_1Point.html">bounds</a> = {{{0, 1}, {0, 1}, {0, 1}}};</div>
+<div class="line"><span class="keyword">auto</span> points = <a class="code hl_struct" href="structps_1_1Point.html">ps::jittered_grid&lt;double, 3&gt;</a>(1000, bounds, 1234);</div>
+</div><!-- fragment --> 
 </div>
 </div>
 <a id="a38d89dd8b52a63eabb39ef5e425d5746" name="a38d89dd8b52a63eabb39ef5e425d5746"></a>
@@ -1765,7 +1856,7 @@ template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="e
   </table>
   </dd>
 </dl>
-<h3><a class="anchor" id="autotoc_md5"></a>
+<h3><a class="anchor" id="autotoc_md8"></a>
 Example</h3>
 <div class="fragment"><div class="line">std::vector&lt;Point&lt;float, 2&gt;&gt; pts = <a class="code hl_struct" href="structps_1_1Point.html">generate_random_points&lt;float, 2&gt;</a>(100, { {</div>
 <div class="line">{0.f, 1.f}, {0.f, 1.f} } }, 42);</div>
@@ -1841,7 +1932,7 @@ template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="e
   </table>
   </dd>
 </dl>
-<h3><a class="anchor" id="autotoc_md6"></a>
+<h3><a class="anchor" id="autotoc_md9"></a>
 Example</h3>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="rejection__sampling_8hpp.html">point_sampler/rejection_sampling.hpp</a>&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
@@ -1922,7 +2013,7 @@ template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="e
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>The KD-tree is rebuilt on each iteration to reflect the updated positions.</dd></dl>
-<h3><a class="anchor" id="autotoc_md7"></a>
+<h3><a class="anchor" id="autotoc_md10"></a>
 Example</h3>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="relaxation_8hpp.html">point_sampler/relaxation.hpp</a>&gt;</span></div>
 <div class="line"> </div>
@@ -1932,7 +2023,7 @@ Example</h3>
 <div class="line"><span class="comment">// Apply 10 iterations of relaxation</span></div>
 <div class="line">relaxation_ktree&lt;float, 2&gt;(pts, 8, 0.1f, 10);</div>
 <div class="ttc" id="arelaxation_8hpp_html"><div class="ttname"><a href="relaxation_8hpp.html">relaxation.hpp</a></div></div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md8"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md11"></a>
 How it works:</h3>
 <ul>
 <li>For each point:<ul>

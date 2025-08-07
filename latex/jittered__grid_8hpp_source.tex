@@ -13,98 +13,97 @@
 \DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
 \DoxyCodeLine{00010\ \{}
 \DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00013\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_ad8525c124fef24618bf574b9b7b1ece8}{jittered\_grid}}(\textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{count}},}
-\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ \mbox{\hyperlink{structps_1_1Point}{N}}>\ \&\mbox{\hyperlink{structps_1_1Point}{axis\_ranges}},}
-\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::array<T,\ N>\ \ \ \ \ \&\mbox{\hyperlink{structps_1_1Point}{jitter\_amount}},}
-\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::array<T,\ N>\ \ \ \ \ \&\mbox{\hyperlink{structps_1_1Point}{stagger\_ratio}},}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<unsigned\ int>\ \mbox{\hyperlink{structps_1_1Point}{seed}}\ =\ std::nullopt)}
-\DoxyCodeLine{00018\ \{}
-\DoxyCodeLine{00019\ \ \ std::mt19937\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{gen}}(\mbox{\hyperlink{structps_1_1Point}{seed}}\ ?\ *\mbox{\hyperlink{structps_1_1Point}{seed}}\ :\ std::random\_device\{\}());}
-\DoxyCodeLine{00020\ \ \ std::uniform\_real\_distribution<T>\ \mbox{\hyperlink{structps_1_1Point}{uniform01}}(0.0,\ 1.0);}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \ \ std::array<size\_t,\ N>\ \mbox{\hyperlink{structps_1_1Point}{resolution}};}
-\DoxyCodeLine{00023\ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{total\_cells}}\ =\ 1;}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{volume}}\ =\ 1;}
-\DoxyCodeLine{00026\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&[\mbox{\hyperlink{structps_1_1Point}{min}},\ \mbox{\hyperlink{structps_1_1Point}{max}}]\ :\ \mbox{\hyperlink{structps_1_1Point}{axis\_ranges}})}
-\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{volume}}\ *=\ (\mbox{\hyperlink{structps_1_1Point}{max}}\ -\/\ \mbox{\hyperlink{structps_1_1Point}{min}});}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{target\_cell\_volume}}\ =\ \mbox{\hyperlink{structps_1_1Point}{volume}}\ /\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{structps_1_1Point}{T}}\textcolor{keyword}{>}(\mbox{\hyperlink{structps_1_1Point}{count}});}
-\DoxyCodeLine{00030\ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{cell\_size\_estimate}}\ =\ std::pow(\mbox{\hyperlink{structps_1_1Point}{target\_cell\_volume}},\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{structps_1_1Point}{T}}\textcolor{keyword}{>}(1.0)\ /\ \mbox{\hyperlink{structps_1_1Point}{N}});}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}};\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
-\DoxyCodeLine{00033\ \ \ \{}
-\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{range}}\ =\ \mbox{\hyperlink{structps_1_1Point}{axis\_ranges}}[\mbox{\hyperlink{structps_1_1Point}{i}}].second\ -\/\ \mbox{\hyperlink{structps_1_1Point}{axis\_ranges}}[\mbox{\hyperlink{structps_1_1Point}{i}}].first;}
-\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{resolution}}[\mbox{\hyperlink{structps_1_1Point}{i}}]\ =\ std::max<size\_t>(1,\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(\mbox{\hyperlink{structps_1_1Point}{range}}\ /\ \mbox{\hyperlink{structps_1_1Point}{cell\_size\_estimate}}));}
-\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{total\_cells}}\ *=\ \mbox{\hyperlink{structps_1_1Point}{resolution}}[\mbox{\hyperlink{structps_1_1Point}{i}}];}
-\DoxyCodeLine{00037\ \ \ \}}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \ \ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{structps_1_1Point}{points}};}
-\DoxyCodeLine{00040\ \ \ \mbox{\hyperlink{structps_1_1Point}{points}}.reserve(std::min(\mbox{\hyperlink{structps_1_1Point}{count}},\ \mbox{\hyperlink{structps_1_1Point}{total\_cells}}));}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \ \ std::vector<std::array<size\_t,\ N>>\ \mbox{\hyperlink{structps_1_1Point}{cell\_indices}};}
-\DoxyCodeLine{00043\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{linear}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{linear}}\ <\ \mbox{\hyperlink{structps_1_1Point}{total\_cells}};\ ++\mbox{\hyperlink{structps_1_1Point}{linear}})}
-\DoxyCodeLine{00044\ \ \ \{}
-\DoxyCodeLine{00045\ \ \ \ \ std::array<size\_t,\ N>\ \mbox{\hyperlink{structps_1_1Point}{index}}\{\};}
-\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{div}}\ =\ 1;}
-\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}};\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
-\DoxyCodeLine{00048\ \ \ \ \ \{}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{index}}[\mbox{\hyperlink{structps_1_1Point}{i}}]\ =\ (\mbox{\hyperlink{structps_1_1Point}{linear}}\ /\ \mbox{\hyperlink{structps_1_1Point}{div}})\ \%\ \mbox{\hyperlink{structps_1_1Point}{resolution}}[\mbox{\hyperlink{structps_1_1Point}{i}}];}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{div}}\ *=\ \mbox{\hyperlink{structps_1_1Point}{resolution}}[\mbox{\hyperlink{structps_1_1Point}{i}}];}
-\DoxyCodeLine{00051\ \ \ \ \ \}}
-\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{cell\_indices}}.push\_back(\mbox{\hyperlink{structps_1_1Point}{index}});}
-\DoxyCodeLine{00053\ \ \ \}}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \ \ std::shuffle(\mbox{\hyperlink{structps_1_1Point}{cell\_indices}}.begin(),\ \mbox{\hyperlink{structps_1_1Point}{cell\_indices}}.end(),\ \mbox{\hyperlink{structps_1_1Point}{gen}});}
-\DoxyCodeLine{00056\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{limit}}\ =\ std::min(\mbox{\hyperlink{structps_1_1Point}{count}},\ \mbox{\hyperlink{structps_1_1Point}{cell\_indices}}.size());}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{limit}};\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
-\DoxyCodeLine{00059\ \ \ \{}
-\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&\mbox{\hyperlink{structps_1_1Point}{idx}}\ =\ \mbox{\hyperlink{structps_1_1Point}{cell\_indices}}[\mbox{\hyperlink{structps_1_1Point}{i}}];}
-\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{structps_1_1Point}{p}};}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{d}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{d}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}};\ ++\mbox{\hyperlink{structps_1_1Point}{d}})}
-\DoxyCodeLine{00064\ \ \ \ \ \{}
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{range\_min}}\ =\ \mbox{\hyperlink{structps_1_1Point}{axis\_ranges}}[\mbox{\hyperlink{structps_1_1Point}{d}}].first;}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{range\_max}}\ =\ \mbox{\hyperlink{structps_1_1Point}{axis\_ranges}}[\mbox{\hyperlink{structps_1_1Point}{d}}].second;}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ cell\_size\ =\ (\mbox{\hyperlink{structps_1_1Point}{range\_max}}\ -\/\ \mbox{\hyperlink{structps_1_1Point}{range\_min}})\ /\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{structps_1_1Point}{T}}\textcolor{keyword}{>}(\mbox{\hyperlink{structps_1_1Point}{resolution}}[\mbox{\hyperlink{structps_1_1Point}{d}}]);}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{jitter\_range}}\ =\ \mbox{\hyperlink{structps_1_1Point}{jitter\_amount}}[\mbox{\hyperlink{structps_1_1Point}{d}}]\ *\ cell\_size;}
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{jitter\_center}}\ =\ (1.0\ -\/\ \mbox{\hyperlink{structps_1_1Point}{jitter\_amount}}[\mbox{\hyperlink{structps_1_1Point}{d}}])\ *\ 0.5\ *\ cell\_size;}
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{jitter}}\ =\ \mbox{\hyperlink{structps_1_1Point}{uniform01}}(\mbox{\hyperlink{structps_1_1Point}{gen}})\ *\ \mbox{\hyperlink{structps_1_1Point}{jitter\_range}};}
-\DoxyCodeLine{00072\ }
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \textcolor{comment}{//\ Compute\ stagger\ offset\ from\ higher\ dimensions}}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{stagger\_offset}}\ =\ 0;}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{k}}\ =\ \mbox{\hyperlink{structps_1_1Point}{d}}\ +\ 1;\ \mbox{\hyperlink{structps_1_1Point}{k}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}};\ ++\mbox{\hyperlink{structps_1_1Point}{k}})}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structps_1_1Point}{idx}}[\mbox{\hyperlink{structps_1_1Point}{k}}]\ \%\ 2\ ==\ 1)}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{stagger\_offset}}\ +=\ \mbox{\hyperlink{structps_1_1Point}{stagger\_ratio}}[\mbox{\hyperlink{structps_1_1Point}{d}}]\ *\ cell\_size;}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{p}}[\mbox{\hyperlink{structps_1_1Point}{d}}]\ =\ \mbox{\hyperlink{structps_1_1Point}{range\_min}}\ +\ \mbox{\hyperlink{structps_1_1Point}{idx}}[\mbox{\hyperlink{structps_1_1Point}{d}}]\ *\ cell\_size\ +\ \mbox{\hyperlink{structps_1_1Point}{jitter\_center}}\ +\ \mbox{\hyperlink{structps_1_1Point}{jitter}}\ +\ \mbox{\hyperlink{structps_1_1Point}{stagger\_offset}};}
-\DoxyCodeLine{00082\ \ \ \ \ \}}
-\DoxyCodeLine{00083\ }
-\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{points}}.push\_back(\mbox{\hyperlink{structps_1_1Point}{p}});}
-\DoxyCodeLine{00085\ \ \ \}}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point}{points}};}
-\DoxyCodeLine{00088\ \}}
-\DoxyCodeLine{00089\ }
-\DoxyCodeLine{00090\ \textcolor{comment}{//\ overload\ for\ full-\/jitter,\ no\ stagger}}
-\DoxyCodeLine{00091\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00092\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_ad8525c124fef24618bf574b9b7b1ece8}{jittered\_grid}}(\textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{count}},}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ \mbox{\hyperlink{structps_1_1Point}{N}}>\ \&\mbox{\hyperlink{structps_1_1Point}{axis\_ranges}},}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<unsigned\ int>\ \mbox{\hyperlink{structps_1_1Point}{seed}}\ =\ std::nullopt)}
-\DoxyCodeLine{00095\ \{}
-\DoxyCodeLine{00096\ \ \ std::array<T,\ N>\ \mbox{\hyperlink{structps_1_1Point}{full\_jitter}};}
-\DoxyCodeLine{00097\ \ \ std::array<T,\ N>\ \mbox{\hyperlink{structps_1_1Point}{stagger\_ratio}};}
-\DoxyCodeLine{00098\ \ \ \mbox{\hyperlink{structps_1_1Point}{full\_jitter}}.fill(\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{structps_1_1Point}{T}}\textcolor{keyword}{>}(1.0));}
-\DoxyCodeLine{00099\ \ \ \mbox{\hyperlink{structps_1_1Point}{stagger\_ratio}}.fill(\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{structps_1_1Point}{T}}\textcolor{keyword}{>}(0.0));}
+\DoxyCodeLine{00040\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00041\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_ad8525c124fef24618bf574b9b7b1ece8}{jittered\_grid}}(\textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{count}},}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ \mbox{\hyperlink{structps_1_1Point}{N}}>\ \&\mbox{\hyperlink{structps_1_1Point}{axis\_ranges}},}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::array<T,\ N>\ \ \ \ \ \&\mbox{\hyperlink{structps_1_1Point}{jitter\_amount}},}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::array<T,\ N>\ \ \ \ \ \&\mbox{\hyperlink{structps_1_1Point}{stagger\_ratio}},}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<unsigned\ int>\ \mbox{\hyperlink{structps_1_1Point}{seed}}\ =\ std::nullopt)}
+\DoxyCodeLine{00046\ \{}
+\DoxyCodeLine{00047\ \ \ std::mt19937\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{gen}}(\mbox{\hyperlink{structps_1_1Point}{seed}}\ ?\ *\mbox{\hyperlink{structps_1_1Point}{seed}}\ :\ std::random\_device\{\}());}
+\DoxyCodeLine{00048\ \ \ std::uniform\_real\_distribution<T>\ \mbox{\hyperlink{structps_1_1Point}{uniform01}}(0.0,\ 1.0);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ std::array<size\_t,\ N>\ \mbox{\hyperlink{structps_1_1Point}{resolution}};}
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{total\_cells}}\ =\ 1;}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{volume}}\ =\ 1;}
+\DoxyCodeLine{00054\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&[\mbox{\hyperlink{structps_1_1Point}{min}},\ \mbox{\hyperlink{structps_1_1Point}{max}}]\ :\ \mbox{\hyperlink{structps_1_1Point}{axis\_ranges}})}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{volume}}\ *=\ (\mbox{\hyperlink{structps_1_1Point}{max}}\ -\/\ \mbox{\hyperlink{structps_1_1Point}{min}});}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{target\_cell\_volume}}\ =\ \mbox{\hyperlink{structps_1_1Point}{volume}}\ /\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{structps_1_1Point}{T}}\textcolor{keyword}{>}(\mbox{\hyperlink{structps_1_1Point}{count}});}
+\DoxyCodeLine{00058\ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{cell\_size\_estimate}}\ =\ std::pow(\mbox{\hyperlink{structps_1_1Point}{target\_cell\_volume}},\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{structps_1_1Point}{T}}\textcolor{keyword}{>}(1.0)\ /\ \mbox{\hyperlink{structps_1_1Point}{N}});}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}};\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
+\DoxyCodeLine{00061\ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{range}}\ =\ \mbox{\hyperlink{structps_1_1Point}{axis\_ranges}}[\mbox{\hyperlink{structps_1_1Point}{i}}].second\ -\/\ \mbox{\hyperlink{structps_1_1Point}{axis\_ranges}}[\mbox{\hyperlink{structps_1_1Point}{i}}].first;}
+\DoxyCodeLine{00063\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{resolution}}[\mbox{\hyperlink{structps_1_1Point}{i}}]\ =\ std::max<size\_t>(1,\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(\mbox{\hyperlink{structps_1_1Point}{range}}\ /\ \mbox{\hyperlink{structps_1_1Point}{cell\_size\_estimate}}));}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{total\_cells}}\ *=\ \mbox{\hyperlink{structps_1_1Point}{resolution}}[\mbox{\hyperlink{structps_1_1Point}{i}}];}
+\DoxyCodeLine{00065\ \ \ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{structps_1_1Point}{points}};}
+\DoxyCodeLine{00068\ \ \ \mbox{\hyperlink{structps_1_1Point}{points}}.reserve(std::min(\mbox{\hyperlink{structps_1_1Point}{count}},\ \mbox{\hyperlink{structps_1_1Point}{total\_cells}}));}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ std::vector<std::array<size\_t,\ N>>\ \mbox{\hyperlink{structps_1_1Point}{cell\_indices}};}
+\DoxyCodeLine{00071\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{linear}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{linear}}\ <\ \mbox{\hyperlink{structps_1_1Point}{total\_cells}};\ ++\mbox{\hyperlink{structps_1_1Point}{linear}})}
+\DoxyCodeLine{00072\ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ std::array<size\_t,\ N>\ \mbox{\hyperlink{structps_1_1Point}{index}}\{\};}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{div}}\ =\ 1;}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}};\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
+\DoxyCodeLine{00076\ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{index}}[\mbox{\hyperlink{structps_1_1Point}{i}}]\ =\ (\mbox{\hyperlink{structps_1_1Point}{linear}}\ /\ \mbox{\hyperlink{structps_1_1Point}{div}})\ \%\ \mbox{\hyperlink{structps_1_1Point}{resolution}}[\mbox{\hyperlink{structps_1_1Point}{i}}];}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{div}}\ *=\ \mbox{\hyperlink{structps_1_1Point}{resolution}}[\mbox{\hyperlink{structps_1_1Point}{i}}];}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{cell\_indices}}.push\_back(\mbox{\hyperlink{structps_1_1Point}{index}});}
+\DoxyCodeLine{00081\ \ \ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ std::shuffle(\mbox{\hyperlink{structps_1_1Point}{cell\_indices}}.begin(),\ \mbox{\hyperlink{structps_1_1Point}{cell\_indices}}.end(),\ \mbox{\hyperlink{structps_1_1Point}{gen}});}
+\DoxyCodeLine{00084\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{limit}}\ =\ std::min(\mbox{\hyperlink{structps_1_1Point}{count}},\ \mbox{\hyperlink{structps_1_1Point}{cell\_indices}}.size());}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{limit}};\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
+\DoxyCodeLine{00087\ \ \ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&\mbox{\hyperlink{structps_1_1Point}{idx}}\ =\ \mbox{\hyperlink{structps_1_1Point}{cell\_indices}}[\mbox{\hyperlink{structps_1_1Point}{i}}];}
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{structps_1_1Point}{p}};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{d}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{d}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}};\ ++\mbox{\hyperlink{structps_1_1Point}{d}})}
+\DoxyCodeLine{00092\ \ \ \ \ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{range\_min}}\ =\ \mbox{\hyperlink{structps_1_1Point}{axis\_ranges}}[\mbox{\hyperlink{structps_1_1Point}{d}}].first;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{range\_max}}\ =\ \mbox{\hyperlink{structps_1_1Point}{axis\_ranges}}[\mbox{\hyperlink{structps_1_1Point}{d}}].second;}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ cell\_size\ =\ (\mbox{\hyperlink{structps_1_1Point}{range\_max}}\ -\/\ \mbox{\hyperlink{structps_1_1Point}{range\_min}})\ /\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{structps_1_1Point}{T}}\textcolor{keyword}{>}(\mbox{\hyperlink{structps_1_1Point}{resolution}}[\mbox{\hyperlink{structps_1_1Point}{d}}]);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{jitter\_range}}\ =\ \mbox{\hyperlink{structps_1_1Point}{jitter\_amount}}[\mbox{\hyperlink{structps_1_1Point}{d}}]\ *\ cell\_size;}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{jitter\_center}}\ =\ (1.0\ -\/\ \mbox{\hyperlink{structps_1_1Point}{jitter\_amount}}[\mbox{\hyperlink{structps_1_1Point}{d}}])\ *\ 0.5\ *\ cell\_size;}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{jitter}}\ =\ \mbox{\hyperlink{structps_1_1Point}{uniform01}}(\mbox{\hyperlink{structps_1_1Point}{gen}})\ *\ \mbox{\hyperlink{structps_1_1Point}{jitter\_range}};}
 \DoxyCodeLine{00100\ }
-\DoxyCodeLine{00101\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point}{jittered\_grid<T,\ N>}}(\mbox{\hyperlink{structps_1_1Point}{count}},\ \mbox{\hyperlink{structps_1_1Point}{axis\_ranges}},\ \mbox{\hyperlink{structps_1_1Point}{full\_jitter}},\ \mbox{\hyperlink{structps_1_1Point}{stagger\_ratio}},\ \mbox{\hyperlink{structps_1_1Point}{seed}});}
-\DoxyCodeLine{00102\ \}}
-\DoxyCodeLine{00103\ }
-\DoxyCodeLine{00104\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \textcolor{comment}{//\ Compute\ stagger\ offset\ from\ higher\ dimensions}}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{stagger\_offset}}\ =\ 0;}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{k}}\ =\ \mbox{\hyperlink{structps_1_1Point}{d}}\ +\ 1;\ \mbox{\hyperlink{structps_1_1Point}{k}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}};\ ++\mbox{\hyperlink{structps_1_1Point}{k}})}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structps_1_1Point}{idx}}[\mbox{\hyperlink{structps_1_1Point}{k}}]\ \%\ 2\ ==\ 1)}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{stagger\_offset}}\ +=\ \mbox{\hyperlink{structps_1_1Point}{stagger\_ratio}}[\mbox{\hyperlink{structps_1_1Point}{d}}]\ *\ cell\_size;}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{p}}[\mbox{\hyperlink{structps_1_1Point}{d}}]\ =\ \mbox{\hyperlink{structps_1_1Point}{range\_min}}\ +\ \mbox{\hyperlink{structps_1_1Point}{idx}}[\mbox{\hyperlink{structps_1_1Point}{d}}]\ *\ cell\_size\ +\ \mbox{\hyperlink{structps_1_1Point}{jitter\_center}}\ +\ \mbox{\hyperlink{structps_1_1Point}{jitter}}\ +\ \mbox{\hyperlink{structps_1_1Point}{stagger\_offset}};}
+\DoxyCodeLine{00110\ \ \ \ \ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{points}}.push\_back(\mbox{\hyperlink{structps_1_1Point}{p}});}
+\DoxyCodeLine{00113\ \ \ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point}{points}};}
+\DoxyCodeLine{00116\ \}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00137\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00138\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_ad8525c124fef24618bf574b9b7b1ece8}{jittered\_grid}}(\textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{count}},}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ \mbox{\hyperlink{structps_1_1Point}{N}}>\ \&\mbox{\hyperlink{structps_1_1Point}{axis\_ranges}},}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<unsigned\ int>\ \mbox{\hyperlink{structps_1_1Point}{seed}}\ =\ std::nullopt)}
+\DoxyCodeLine{00141\ \{}
+\DoxyCodeLine{00142\ \ \ std::array<T,\ N>\ \mbox{\hyperlink{structps_1_1Point}{full\_jitter}};}
+\DoxyCodeLine{00143\ \ \ std::array<T,\ N>\ \mbox{\hyperlink{structps_1_1Point}{stagger\_ratio}};}
+\DoxyCodeLine{00144\ \ \ \mbox{\hyperlink{structps_1_1Point}{full\_jitter}}.fill(\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{structps_1_1Point}{T}}\textcolor{keyword}{>}(1.0));}
+\DoxyCodeLine{00145\ \ \ \mbox{\hyperlink{structps_1_1Point}{stagger\_ratio}}.fill(\textcolor{keyword}{static\_cast<}\mbox{\hyperlink{structps_1_1Point}{T}}\textcolor{keyword}{>}(0.0));}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point}{jittered\_grid<T,\ N>}}(\mbox{\hyperlink{structps_1_1Point}{count}},\ \mbox{\hyperlink{structps_1_1Point}{axis\_ranges}},\ \mbox{\hyperlink{structps_1_1Point}{full\_jitter}},\ \mbox{\hyperlink{structps_1_1Point}{stagger\_ratio}},\ \mbox{\hyperlink{structps_1_1Point}{seed}});}
+\DoxyCodeLine{00148\ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \}\ \textcolor{comment}{//\ namespace\ ps}}
 
 \end{DoxyCode}
