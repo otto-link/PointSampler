@@ -200,10 +200,11 @@ Functions</h2></td></tr>
 <tr class="separator:a10763ef2a872aa9eddb48ea341cd6f69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c8c5679d987d3023b9d3beffd81e6df" id="r_a9c8c5679d987d3023b9d3beffd81e6df"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="el" href="structps_1_1Point.html">T</a> , <a class="el" href="structps_1_1Point.html">size_t</a> N&gt; </td></tr>
 <tr class="memitem:a9c8c5679d987d3023b9d3beffd81e6df"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">N</a> &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a9c8c5679d987d3023b9d3beffd81e6df">filter_points_in_range</a> (<a class="el" href="structps_1_1Point.html">const</a> std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">N</a> &gt; &gt; &amp;<a class="el" href="structps_1_1Point.html">points</a>, <a class="el" href="structps_1_1Point.html">const</a> std::array&lt; std::pair&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">T</a> &gt;, <a class="el" href="structps_1_1Point.html">N</a> &gt; &amp;<a class="el" href="structps_1_1Point.html">axis_ranges</a>)</td></tr>
-<tr class="memdesc:a9c8c5679d987d3023b9d3beffd81e6df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filters points that lie within the given axis-aligned ranges.  <br /></td></tr>
+<tr class="memdesc:a9c8c5679d987d3023b9d3beffd81e6df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filters points that lie within the specified axis-aligned bounding box.  <br /></td></tr>
 <tr class="separator:a9c8c5679d987d3023b9d3beffd81e6df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5350b843397a5bf2a748115108ffa21a" id="r_a5350b843397a5bf2a748115108ffa21a"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="el" href="structps_1_1Point.html">T</a> , std::size_t N, <a class="el" href="structps_1_1Point.html">typename</a> <a class="el" href="structps_1_1Point.html">Func</a> &gt; </td></tr>
 <tr class="memitem:a5350b843397a5bf2a748115108ffa21a"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">N</a> &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a5350b843397a5bf2a748115108ffa21a">filter_points_function</a> (<a class="el" href="structps_1_1Point.html">const</a> std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">N</a> &gt; &gt; &amp;<a class="el" href="structps_1_1Point.html">points</a>, <a class="el" href="structps_1_1Point.html">Func</a> <a class="el" href="structps_1_1Point.html">fn</a>)</td></tr>
+<tr class="memdesc:a5350b843397a5bf2a748115108ffa21a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filters points using a user-provided function.  <br /></td></tr>
 <tr class="separator:a5350b843397a5bf2a748115108ffa21a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b8197901114d1c4fd6cfe19efcd3862" id="r_a2b8197901114d1c4fd6cfe19efcd3862"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="el" href="structps_1_1Point.html">T</a> , <a class="el" href="structps_1_1Point.html">size_t</a> N&gt; </td></tr>
 <tr class="memitem:a2b8197901114d1c4fd6cfe19efcd3862"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structps_1_1Point.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a2b8197901114d1c4fd6cfe19efcd3862">refit_points_to_range</a> (std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">N</a> &gt; &gt; &amp;<a class="el" href="structps_1_1Point.html">points</a>, <a class="el" href="structps_1_1Point.html">const</a> std::array&lt; std::pair&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">T</a> &gt;, <a class="el" href="structps_1_1Point.html">N</a> &gt; &amp;<a class="el" href="structps_1_1Point.html">target_ranges</a>)</td></tr>
@@ -211,6 +212,7 @@ Functions</h2></td></tr>
 <tr class="separator:a2b8197901114d1c4fd6cfe19efcd3862"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7addf1455112b7895f8de7c475eed850" id="r_a7addf1455112b7895f8de7c475eed850"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="el" href="structps_1_1Point.html">T</a> , <a class="el" href="structps_1_1Point.html">size_t</a> N&gt; </td></tr>
 <tr class="memitem:a7addf1455112b7895f8de7c475eed850"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structps_1_1Point.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a7addf1455112b7895f8de7c475eed850">rescale_points</a> (std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">N</a> &gt; &gt; &amp;<a class="el" href="structps_1_1Point.html">points</a>, <a class="el" href="structps_1_1Point.html">const</a> std::array&lt; std::pair&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">T</a> &gt;, <a class="el" href="structps_1_1Point.html">N</a> &gt; &amp;<a class="el" href="structps_1_1Point.html">ranges</a>)</td></tr>
+<tr class="memdesc:a7addf1455112b7895f8de7c475eed850"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rescales normalized points (in [0, 1]) to specified axis-aligned ranges.  <br /></td></tr>
 <tr class="separator:a7addf1455112b7895f8de7c475eed850"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29ab0a94bbe26a22cb87bf8f44703527" id="r_a29ab0a94bbe26a22cb87bf8f44703527"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="el" href="structps_1_1Point.html">T</a> , <a class="el" href="structps_1_1Point.html">size_t</a> N, <a class="el" href="structps_1_1Point.html">typename</a> <a class="el" href="structps_1_1Point.html">DensityFn</a> &gt; </td></tr>
 <tr class="memitem:a29ab0a94bbe26a22cb87bf8f44703527"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">N</a> &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a29ab0a94bbe26a22cb87bf8f44703527">rejection_sampling</a> (<a class="el" href="structps_1_1Point.html">size_t</a> <a class="el" href="structps_1_1Point.html">count</a>, <a class="el" href="structps_1_1Point.html">const</a> std::array&lt; std::pair&lt; <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">T</a> &gt;, <a class="el" href="structps_1_1Point.html">N</a> &gt; &amp;<a class="el" href="structps_1_1Point.html">axis_ranges</a>, <a class="el" href="structps_1_1Point.html">DensityFn</a> <a class="el" href="structps_1_1Point.html">density_fn</a>, std::optional&lt; <a class="el" href="structps_1_1Point.html">unsigned</a> <a class="el" href="structps_1_1Point.html">int</a> &gt; <a class="el" href="structps_1_1Point.html">seed</a>=std::nullopt)</td></tr>
@@ -468,6 +470,30 @@ template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="e
       </table>
 </div><div class="memdoc">
 
+<p>Filters points using a user-provided function. </p>
+<p>Keeps only the points for which the provided function <code>fn(p)</code> does not return zero. This can be used to apply custom masks, implicit surface functions, etc.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Numeric type for coordinates. </td></tr>
+    <tr><td class="paramname">N</td><td>Number of dimensions. </td></tr>
+    <tr><td class="paramname">Func</td><td>Callable that takes a Point&lt;T, N&gt; and returns a value convertible to T.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">points</td><td>Vector of input points. </td></tr>
+    <tr><td class="paramname">fn</td><td>Unary function that returns a non-zero value if the point should be kept.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of filtered points.</dd></dl>
+<div class="fragment"><div class="line">std::vector&lt;Point&lt;float, 2&gt;&gt; pts = { {0.f, 0.f}, {1.f, 1.f}, {2.f, 2.f} };</div>
+<div class="line"><span class="keyword">auto</span> filtered = <a class="code hl_struct" href="structps_1_1Point.html">ps::filter_points_function&lt;float, 2&gt;</a>(pts,</div>
+<div class="line">    [](<span class="keyword">const</span> Point&lt;float, 2&gt; &amp;p) { <span class="keywordflow">return</span> (p[0] + p[1] &lt; 2.5f) ? 1.f : 0.f; });</div>
+<div class="line"><span class="comment">// Keeps only { {0.f, 0.f}, {1.f, 1.f} }</span></div>
+<div class="ttc" id="astructps_1_1Point_html"><div class="ttname"><a href="structps_1_1Point.html">ps::Point</a></div><div class="ttdoc">A fixed-size N-dimensional point/vector class.</div><div class="ttdef"><b>Definition</b> point.hpp:36</div></div>
+</div><!-- fragment --> 
 </div>
 </div>
 <a id="a9c8c5679d987d3023b9d3beffd81e6df" name="a9c8c5679d987d3023b9d3beffd81e6df"></a>
@@ -498,23 +524,32 @@ template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="e
       </table>
 </div><div class="memdoc">
 
-<p>Filters points that lie within the given axis-aligned ranges. </p>
+<p>Filters points that lie within the specified axis-aligned bounding box. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td>Type of coordinates. </td></tr>
-    <tr><td class="paramname">N</td><td>Number of dimensions. </td></tr>
+    <tr><td class="paramname">T</td><td>Numeric type for coordinates (e.g., float or double). </td></tr>
+    <tr><td class="paramname">N</td><td>Number of dimensions.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">points</td><td>Input points. </td></tr>
-    <tr><td class="paramname">axis_ranges</td><td>Ranges for each dimension (min, max) inclusive. </td></tr>
+    <tr><td class="paramname">points</td><td>Vector of input points to filter. </td></tr>
+    <tr><td class="paramname">axis_ranges</td><td>Axis-aligned bounding box ranges for each dimension (inclusive).</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; Filtered points that lie within the given ranges. </dd></dl>
-
+<dl class="section return"><dt>Returns</dt><dd>A vector containing only the points that lie within all specified axis ranges.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>if axis_ranges are ill-formed (e.g., min &gt; max).</td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line">std::vector&lt;Point&lt;float, 2&gt;&gt; pts = { {0.5f, 0.5f}, {2.f, 3.f}, {-1.f, 0.f} };</div>
+<div class="line"><span class="keyword">auto</span> filtered = <a class="code hl_struct" href="structps_1_1Point.html">ps::filter_points_in_range&lt;float, 2&gt;</a>(pts, { {{0.f, 1.f}, {0.f, 1.f}} });</div>
+<div class="line"><span class="comment">// filtered now contains only { {0.5f, 0.5f} }</span></div>
+</div><!-- fragment --> 
 </div>
 </div>
 <a id="a0efaff8017d5a171ffdf0ed0201bd65d" name="a0efaff8017d5a171ffdf0ed0201bd65d"></a>
@@ -1540,7 +1575,6 @@ template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="e
 <div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="arandom_8hpp_html"><div class="ttname"><a href="random_8hpp.html">random.hpp</a></div></div>
-<div class="ttc" id="astructps_1_1Point_html"><div class="ttname"><a href="structps_1_1Point.html">ps::Point</a></div><div class="ttdoc">A fixed-size N-dimensional point/vector class.</div><div class="ttdef"><b>Definition</b> point.hpp:36</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -1753,6 +1787,27 @@ template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="e
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Rescales normalized points (in [0, 1]) to specified axis-aligned ranges. </p>
+<p>Each coordinate in every point is mapped from [0, 1] to a new range defined per axis. This is useful after generating normalized samples (e.g., Poisson disk, jittered grid).</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Numeric type (e.g., float, double). </td></tr>
+    <tr><td class="paramname">N</td><td>Number of dimensions.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">points</td><td>Vector of normalized points to be modified in-place. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ranges</td><td>Target value ranges for each dimension.</td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line">std::vector&lt;Point&lt;float, 2&gt;&gt; pts = { {0.f, 0.f}, {1.f, 1.f}, {0.5f, 0.5f} };</div>
+<div class="line"><a class="code hl_struct" href="structps_1_1Point.html">ps::rescale_points&lt;float, 2&gt;</a>(pts, { { {10.f, 20.f}, {100.f, 200.f} } });</div>
+<div class="line"><span class="comment">// pts is now { {10.f, 100.f}, {20.f, 200.f}, {15.f, 150.f} }</span></div>
+</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>Assumes points are in [0, 1]^N. Does not check bounds. </dd></dl>
 
 </div>
 </div>
