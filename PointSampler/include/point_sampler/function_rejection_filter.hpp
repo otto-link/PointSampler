@@ -13,20 +13,19 @@ namespace ps
 /**
  * @brief Filters points based on a spatial probability (density) function.
  *
- * Each point is accepted with a probability given by `density_fn(p)`, which should
- * return a value in [0, 1]. This is useful for sampling from a non-uniform spatial
- * distribution.
+ * Each point is accepted with a probability given by `density_fn(p)`, which
+ * should return a value in [0, 1]. This is useful for sampling from a
+ * non-uniform spatial distribution.
  *
  * @tparam T         Scalar type (e.g., float or double)
  * @tparam N         Dimensionality of the space
  * @tparam DensityFn Callable type with signature `T(const Point<T, N>&)`
- * @param points     Input candidate points
- * @param density_fn Function returning acceptance probability for each point
- * @param seed       Optional random seed for reproducibility
- * @return std::vector<Point<T, N>> of accepted points
+ * @param  points     Input candidate points
+ * @param  density_fn Function returning acceptance probability for each point
+ * @param  seed       Optional random seed for reproducibility
+ * @return            std::vector<Point<T, N>> of accepted points
  *
- * @code
- * auto field = [](const Point<float, 2>& p) {
+ * @code auto field = [](const Point<float, 2>& p) {
  *     return 0.5f + 0.5f * std::sin(p[0] * 10.0f); // Spatial density
  * };
  * auto accepted = ps::function_rejection_filter(pts, field);

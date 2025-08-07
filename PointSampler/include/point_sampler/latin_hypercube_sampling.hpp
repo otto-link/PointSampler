@@ -14,9 +14,9 @@ namespace ps
  *
  * This function produces `sample_count` evenly stratified samples across each
  * dimension defined in `axis_ranges`. Each dimension is divided into equal
- * intervals (strata), and one point is randomly selected from each stratum
- * with added jitter. The strata are randomly permuted across dimensions to
- * avoid correlation.
+ * intervals (strata), and one point is randomly selected from each stratum with
+ * added jitter. The strata are randomly permuted across dimensions to avoid
+ * correlation.
  *
  * This method ensures uniform coverage of the space while maintaining
  * randomness, making it useful in Monte Carlo integration, surrogate modeling,
@@ -25,15 +25,17 @@ namespace ps
  * @tparam T Scalar type (e.g., float or double)
  * @tparam N Dimensionality of the space
  *
- * @param sample_count Number of points to generate
- * @param axis_ranges  Array of N (min, max) pairs defining the domain in each dimension
- * @param seed         Optional seed for reproducible randomness
+ * @param  sample_count Number of points to generate
+ * @param  axis_ranges  Array of N (min, max) pairs defining the domain in each
+ *                      dimension
+ * @param  seed         Optional seed for reproducible randomness
  *
- * @return std::vector<Point<T, N>> of LHS-sampled points
+ * @return              std::vector<Point<T, N>> of LHS-sampled points
  *
- * @example
- * std::array<std::pair<float, float>, 2> range = {{{0.0f, 1.0f}, {0.0f, 1.0f}}};
- * std::vector<Point<float, 2>> points = latin_hypercube_sampling<float, 2>(1000, range);
+ * @example std::array<std::pair<float, float>, 2> range = {{{0.0f, 1.0f},
+ * {0.0f, 1.0f}}};
+ * std::vector<Point<float, 2>> points = latin_hypercube_sampling<float,
+ * 2>(1000, range);
  */
 template <typename T, std::size_t N>
 std::vector<Point<T, N>> latin_hypercube_sampling(
