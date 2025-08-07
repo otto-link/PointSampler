@@ -2,7 +2,7 @@ name: Deploy Doxygen Documentation
 
 on:
   push:
-    branches: [main]
+    branches: [doc]
 
 jobs:
   doxygen:
