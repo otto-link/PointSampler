@@ -13,13 +13,23 @@ namespace ps
 {
 
 /**
- * @brief Filters points that lie within the given axis-aligned ranges.
+ * @brief Filters points that lie within the specified axis-aligned bounding box.
  *
- * @tparam T Type of coordinates.
- * @tparam N Number of dimensions.
- * @param points        Input points.
- * @param axis_ranges   Ranges for each dimension (min, max) inclusive.
- * @return std::vector<Point<T, N>> Filtered points that lie within the given ranges.
+ * @tparam T           Numeric type for coordinates (e.g., float or double).
+ * @tparam N           Number of dimensions.
+ *
+ * @param points       Vector of input points to filter.
+ * @param axis_ranges  Axis-aligned bounding box ranges for each dimension (inclusive).
+ *
+ * @return A vector containing only the points that lie within all specified axis ranges.
+ *
+ * @throws std::invalid_argument if axis_ranges are ill-formed (e.g., min > max).
+ *
+ * @code
+ * std::vector<Point<float, 2>> pts = { {0.5f, 0.5f}, {2.f, 3.f}, {-1.f, 0.f} };
+ * auto filtered = ps::filter_points_in_range<float, 2>(pts, { {{0.f, 1.f}, {0.f, 1.f}} });
+ * // filtered now contains only { {0.5f, 0.5f} }
+ * @endcode
  */
 template <typename T, size_t N>
 std::vector<Point<T, N>> filter_points_in_range(
@@ -48,6 +58,28 @@ std::vector<Point<T, N>> filter_points_in_range(
   return filtered;
 }
 
+/**
+ * @brief Filters points using a user-provided function.
+ *
+ * Keeps only the points for which the provided function `fn(p)` does not return zero.
+ * This can be used to apply custom masks, implicit surface functions, etc.
+ *
+ * @tparam T   Numeric type for coordinates.
+ * @tparam N   Number of dimensions.
+ * @tparam Func Callable that takes a Point<T, N> and returns a value convertible to T.
+ *
+ * @param points Vector of input points.
+ * @param fn     Unary function that returns a non-zero value if the point should be kept.
+ *
+ * @return A vector of filtered points.
+ *
+ * @code
+ * std::vector<Point<float, 2>> pts = { {0.f, 0.f}, {1.f, 1.f}, {2.f, 2.f} };
+ * auto filtered = ps::filter_points_function<float, 2>(pts,
+ *     [](const Point<float, 2> &p) { return (p[0] + p[1] < 2.5f) ? 1.f : 0.f; });
+ * // Keeps only { {0.f, 0.f}, {1.f, 1.f} }
+ * @endcode
+ */
 template <typename T, std::size_t N, typename Func>
 std::vector<Point<T, N>> filter_points_function(const std::vector<Point<T, N>> &points,
                                                 Func                            fn)
@@ -138,6 +170,26 @@ void refit_points_to_range(std::vector<Point<T, N>>             &points,
   }
 }
 
+/**
+ * @brief Rescales normalized points (in [0, 1]) to specified axis-aligned ranges.
+ *
+ * Each coordinate in every point is mapped from [0, 1] to a new range defined per axis.
+ * This is useful after generating normalized samples (e.g., Poisson disk, jittered grid).
+ *
+ * @tparam T            Numeric type (e.g., float, double).
+ * @tparam N            Number of dimensions.
+ *
+ * @param[in,out] points Vector of normalized points to be modified in-place.
+ * @param[in] ranges     Target value ranges for each dimension.
+ *
+ * @code
+ * std::vector<Point<float, 2>> pts = { {0.f, 0.f}, {1.f, 1.f}, {0.5f, 0.5f} };
+ * ps::rescale_points<float, 2>(pts, { { {10.f, 20.f}, {100.f, 200.f} } });
+ * // pts is now { {10.f, 100.f}, {20.f, 200.f}, {15.f, 150.f} }
+ * @endcode
+ *
+ * @note Assumes points are in [0, 1]^N. Does not check bounds.
+ */
 template <typename T, size_t N>
 void rescale_points(std::vector<Point<T, N>>             &points,
                     const std::array<std::pair<T, T>, N> &ranges)
