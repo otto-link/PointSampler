@@ -28,15 +28,6 @@ std\+::array$<$ \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}, \mbox{\hyperl
 \end{DoxyCompactItemize}
 
 
-\doxysubsection{Detailed Description}
-\subsubsection*{template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$\newline
-struct ps\+::\+Grid\+ND$<$ T, N $>$}
-
-
-Definition at line \mbox{\hyperlink{poisson__disk__sampling_8hpp_source_l00013}{13}} of file \mbox{\hyperlink{poisson__disk__sampling_8hpp_source}{poisson\+\_\+disk\+\_\+sampling.\+hpp}}.
-
-
-
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{structps_1_1GridND_a4761ff40e7e3246e0af2fe5e428803d2}\label{structps_1_1GridND_a4761ff40e7e3246e0af2fe5e428803d2} 
 \index{ps::GridND$<$ T, N $>$@{ps::GridND$<$ T, N $>$}!GridND@{GridND}}
@@ -47,21 +38,6 @@ Definition at line \mbox{\hyperlink{poisson__disk__sampling_8hpp_source_l00013}{
 
 
 
-Definition at line \mbox{\hyperlink{poisson__disk__sampling_8hpp_source_l00019}{19}} of file \mbox{\hyperlink{poisson__disk__sampling_8hpp_source}{poisson\+\_\+disk\+\_\+sampling.\+hpp}}.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{00020\ \ \ \ \ \ \ :\ \mbox{\hyperlink{structps_1_1GridND_a1da56d23d70f08bbd3306bb5867ccd6b}{cells}}(1),\ \mbox{\hyperlink{structps_1_1GridND_a3311bce88db1888a7e1bead887fe1d2d}{grid\_size}}(size),\ \mbox{\hyperlink{structps_1_1GridND_abe54270f01915da587698baa0ce15ff0}{cell\_size}}(cell\_size\_)}
-\DoxyCodeLine{00021\ \ \ \{}
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ total\ =\ 1;}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ s\ :\ size)}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ total\ *=\ s;}
-\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{structps_1_1GridND_a1da56d23d70f08bbd3306bb5867ccd6b}{cells}}.resize(total);}
-\DoxyCodeLine{00026\ \ \ \}}
-
-\end{DoxyCode}
-
-
 \doxysubsection{Member Function Documentation}
 \Hypertarget{structps_1_1GridND_a743e3ac47f394f1e2748c40313b1e2fa}\label{structps_1_1GridND_a743e3ac47f394f1e2748c40313b1e2fa} 
 \index{ps::GridND$<$ T, N $>$@{ps::GridND$<$ T, N $>$}!linear\_index@{linear\_index}}
@@ -70,24 +46,6 @@ Definition at line \mbox{\hyperlink{poisson__disk__sampling_8hpp_source_l00019}{
 {\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
 \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1GridND}{ps\+::\+Grid\+ND}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$\+::linear\+\_\+index (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{idx }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-
-
-Definition at line \mbox{\hyperlink{poisson__disk__sampling_8hpp_source_l00045}{45}} of file \mbox{\hyperlink{poisson__disk__sampling_8hpp_source}{poisson\+\_\+disk\+\_\+sampling.\+hpp}}.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{00046\ \ \ \{}
-\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ lin\_idx\ =\ 0;}
-\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ stride\ =\ 1;}
-\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ N;\ ++i)}
-\DoxyCodeLine{00050\ \ \ \ \ \{}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ lin\_idx\ +=\ idx[i]\ *\ stride;}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ stride\ *=\ \mbox{\hyperlink{structps_1_1GridND_a3311bce88db1888a7e1bead887fe1d2d}{grid\_size}}[i];}
-\DoxyCodeLine{00053\ \ \ \ \ \}}
-\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{return}\ lin\_idx;}
-\DoxyCodeLine{00055\ \ \ \}}
-
-\end{DoxyCode}
 \Hypertarget{structps_1_1GridND_ac0571790eb209b072f10160db7a53c66}\label{structps_1_1GridND_ac0571790eb209b072f10160db7a53c66} 
 \index{ps::GridND$<$ T, N $>$@{ps::GridND$<$ T, N $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
 \index{operator\mbox{[}\mbox{]}@{operator[]}!ps::GridND$<$ T, N $>$@{ps::GridND$<$ T, N $>$}}
@@ -95,17 +53,6 @@ Definition at line \mbox{\hyperlink{poisson__disk__sampling_8hpp_source_l00045}{
 {\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
 std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \& \mbox{\hyperlink{structps_1_1GridND}{ps\+::\+Grid\+ND}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{idx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-
-
-Definition at line \mbox{\hyperlink{poisson__disk__sampling_8hpp_source_l00062}{62}} of file \mbox{\hyperlink{poisson__disk__sampling_8hpp_source}{poisson\+\_\+disk\+\_\+sampling.\+hpp}}.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{00063\ \ \ \{}
-\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1GridND_a1da56d23d70f08bbd3306bb5867ccd6b}{cells}}[\mbox{\hyperlink{structps_1_1GridND_a743e3ac47f394f1e2748c40313b1e2fa}{linear\_index}}(idx)];}
-\DoxyCodeLine{00065\ \ \ \}}
-
-\end{DoxyCode}
 \Hypertarget{structps_1_1GridND_ab6617bbf616166841eb277874d224ca7}\label{structps_1_1GridND_ab6617bbf616166841eb277874d224ca7} 
 \index{ps::GridND$<$ T, N $>$@{ps::GridND$<$ T, N $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
 \index{operator\mbox{[}\mbox{]}@{operator[]}!ps::GridND$<$ T, N $>$@{ps::GridND$<$ T, N $>$}}
@@ -113,17 +60,6 @@ Definition at line \mbox{\hyperlink{poisson__disk__sampling_8hpp_source_l00062}{
 {\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
 std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{structps_1_1GridND}{ps\+::\+Grid\+ND}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{idx }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-
-
-Definition at line \mbox{\hyperlink{poisson__disk__sampling_8hpp_source_l00057}{57}} of file \mbox{\hyperlink{poisson__disk__sampling_8hpp_source}{poisson\+\_\+disk\+\_\+sampling.\+hpp}}.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{00058\ \ \ \{}
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1GridND_a1da56d23d70f08bbd3306bb5867ccd6b}{cells}}[\mbox{\hyperlink{structps_1_1GridND_a743e3ac47f394f1e2748c40313b1e2fa}{linear\_index}}(idx)];}
-\DoxyCodeLine{00060\ \ \ \}}
-
-\end{DoxyCode}
 \Hypertarget{structps_1_1GridND_ab64bb87b538321af8b8f219022cf08d5}\label{structps_1_1GridND_ab64bb87b538321af8b8f219022cf08d5} 
 \index{ps::GridND$<$ T, N $>$@{ps::GridND$<$ T, N $>$}!point\_to\_grid@{point\_to\_grid}}
 \index{point\_to\_grid@{point\_to\_grid}!ps::GridND$<$ T, N $>$@{ps::GridND$<$ T, N $>$}}
@@ -131,26 +67,6 @@ Definition at line \mbox{\hyperlink{poisson__disk__sampling_8hpp_source_l00057}{
 {\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
 std\+::array$<$ \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{structps_1_1GridND}{ps\+::\+Grid\+ND}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$\+::point\+\_\+to\+\_\+grid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{p,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{ranges }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-
-
-Definition at line \mbox{\hyperlink{poisson__disk__sampling_8hpp_source_l00029}{29}} of file \mbox{\hyperlink{poisson__disk__sampling_8hpp_source}{poisson\+\_\+disk\+\_\+sampling.\+hpp}}.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{00031\ \ \ \{}
-\DoxyCodeLine{00032\ \ \ \ \ std::array<size\_t,\ N>\ idx\{\};}
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ N;\ ++i)}
-\DoxyCodeLine{00034\ \ \ \ \ \{}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ T\ clamped\ =\ std::min(std::max(p[i],\ ranges[i].first),\ ranges[i].second);}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ T\ pos\ =\ (clamped\ -\/\ ranges[i].first)\ /\ \mbox{\hyperlink{structps_1_1GridND_abe54270f01915da587698baa0ce15ff0}{cell\_size}};}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ idx[i]\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(std::floor(pos));}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (idx[i]\ >=\ \mbox{\hyperlink{structps_1_1GridND_a3311bce88db1888a7e1bead887fe1d2d}{grid\_size}}[i])}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ idx[i]\ =\ \mbox{\hyperlink{structps_1_1GridND_a3311bce88db1888a7e1bead887fe1d2d}{grid\_size}}[i]\ -\/\ 1;}
-\DoxyCodeLine{00040\ \ \ \ \ \}}
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{return}\ idx;}
-\DoxyCodeLine{00042\ \ \ \}}
-
-\end{DoxyCode}
 
 
 \doxysubsection{Member Data Documentation}
@@ -161,20 +77,12 @@ Definition at line \mbox{\hyperlink{poisson__disk__sampling_8hpp_source_l00029}{
 {\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
 \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1GridND}{ps\+::\+Grid\+ND}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$\+::cell\+\_\+size}
 
-
-
-Definition at line \mbox{\hyperlink{poisson__disk__sampling_8hpp_source_l00017}{17}} of file \mbox{\hyperlink{poisson__disk__sampling_8hpp_source}{poisson\+\_\+disk\+\_\+sampling.\+hpp}}.
-
 \Hypertarget{structps_1_1GridND_a1da56d23d70f08bbd3306bb5867ccd6b}\label{structps_1_1GridND_a1da56d23d70f08bbd3306bb5867ccd6b} 
 \index{ps::GridND$<$ T, N $>$@{ps::GridND$<$ T, N $>$}!cells@{cells}}
 \index{cells@{cells}!ps::GridND$<$ T, N $>$@{ps::GridND$<$ T, N $>$}}
 \doxysubsubsection{\texorpdfstring{cells}{cells}}
 {\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
 std\+::vector$<$std\+::optional$<$\mbox{\hyperlink{structps_1_1Point}{Point}}$<$\mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}}$>$ $>$ $>$ \mbox{\hyperlink{structps_1_1GridND}{ps\+::\+Grid\+ND}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$\+::cells}
-
-
-
-Definition at line \mbox{\hyperlink{poisson__disk__sampling_8hpp_source_l00015}{15}} of file \mbox{\hyperlink{poisson__disk__sampling_8hpp_source}{poisson\+\_\+disk\+\_\+sampling.\+hpp}}.
 
 \Hypertarget{structps_1_1GridND_a3311bce88db1888a7e1bead887fe1d2d}\label{structps_1_1GridND_a3311bce88db1888a7e1bead887fe1d2d} 
 \index{ps::GridND$<$ T, N $>$@{ps::GridND$<$ T, N $>$}!grid\_size@{grid\_size}}
@@ -183,15 +91,6 @@ Definition at line \mbox{\hyperlink{poisson__disk__sampling_8hpp_source_l00015}{
 {\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
 std\+::array$<$\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}, \mbox{\hyperlink{structps_1_1Point}{N}}$>$ \mbox{\hyperlink{structps_1_1GridND}{ps\+::\+Grid\+ND}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$\+::grid\+\_\+size \{\}}
 
-
-
-Definition at line \mbox{\hyperlink{poisson__disk__sampling_8hpp_source_l00016}{16}} of file \mbox{\hyperlink{poisson__disk__sampling_8hpp_source}{poisson\+\_\+disk\+\_\+sampling.\+hpp}}.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{00016\ \{\};}
-
-\end{DoxyCode}
 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}

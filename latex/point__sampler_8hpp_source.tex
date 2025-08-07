@@ -2,23 +2,23 @@
 \hypertarget{point__sampler_8hpp_source}{}\label{point__sampler_8hpp_source}\index{PointSampler/include/point\_sampler.hpp@{PointSampler/include/point\_sampler.hpp}}
 \mbox{\hyperlink{point__sampler_8hpp}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{point__sampler_8hpp_source_l00001}00001\ \textcolor{comment}{/*\ Copyright\ (c)\ 2025\ Otto\ Link.\ Distributed\ under\ the\ terms\ of\ the\ GNU\ General\ Public}}
-\DoxyCodeLine{\Hypertarget{point__sampler_8hpp_source_l00002}00002\ \textcolor{comment}{\ \ \ License.\ The\ full\ license\ is\ in\ the\ file\ LICENSE,\ distributed\ with\ this\ software.\ */}}
-\DoxyCodeLine{\Hypertarget{point__sampler_8hpp_source_l00003}00003\ \textcolor{preprocessor}{\#pragma\ once}}
-\DoxyCodeLine{\Hypertarget{point__sampler_8hpp_source_l00004}00004\ }
-\DoxyCodeLine{\Hypertarget{point__sampler_8hpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{point_8hpp}{point\_sampler/point.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{point__sampler_8hpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils_8hpp}{point\_sampler/utils.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{point__sampler_8hpp_source_l00007}00007\ }
-\DoxyCodeLine{\Hypertarget{point__sampler_8hpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{distance__rejection__filter_8hpp}{point\_sampler/distance\_rejection\_filter.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{point__sampler_8hpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gaussian__clusters_8hpp}{point\_sampler/gaussian\_clusters.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{point__sampler_8hpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{halton_8hpp}{point\_sampler/halton.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{point__sampler_8hpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{hammersley_8hpp}{point\_sampler/hammersley.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{point__sampler_8hpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{importance__resampling_8hpp}{point\_sampler/importance\_resampling.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{point__sampler_8hpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{jittered__grid_8hpp}{point\_sampler/jittered\_grid.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{point__sampler_8hpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{poisson__disk__sampling_8hpp}{point\_sampler/poisson\_disk\_sampling.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{point__sampler_8hpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{random_8hpp}{point\_sampler/random.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{point__sampler_8hpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{range_8hpp}{point\_sampler/range.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{point__sampler_8hpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{rejection__sampling_8hpp}{point\_sampler/rejection\_sampling.hpp}}"{}}}
-\DoxyCodeLine{\Hypertarget{point__sampler_8hpp_source_l00018}00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{relaxation_8hpp}{point\_sampler/relaxation.hpp}}"{}}}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*\ Copyright\ (c)\ 2025\ Otto\ Link.\ Distributed\ under\ the\ terms\ of\ the\ GNU\ General\ Public}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ License.\ The\ full\ license\ is\ in\ the\ file\ LICENSE,\ distributed\ with\ this\ software.\ */}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{point_8hpp}{point\_sampler/point.hpp}}"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{utils_8hpp}{point\_sampler/utils.hpp}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{distance__rejection__filter_8hpp}{point\_sampler/distance\_rejection\_filter.hpp}}"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gaussian__clusters_8hpp}{point\_sampler/gaussian\_clusters.hpp}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{halton_8hpp}{point\_sampler/halton.hpp}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{hammersley_8hpp}{point\_sampler/hammersley.hpp}}"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{importance__resampling_8hpp}{point\_sampler/importance\_resampling.hpp}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{jittered__grid_8hpp}{point\_sampler/jittered\_grid.hpp}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{poisson__disk__sampling_8hpp}{point\_sampler/poisson\_disk\_sampling.hpp}}"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{random_8hpp}{point\_sampler/random.hpp}}"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{range_8hpp}{point\_sampler/range.hpp}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{rejection__sampling_8hpp}{point\_sampler/rejection\_sampling.hpp}}"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{relaxation_8hpp}{point\_sampler/relaxation.hpp}}"{}}}
 
 \end{DoxyCode}

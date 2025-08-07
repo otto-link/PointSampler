@@ -105,11 +105,7 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:abe54270f01915da587698baa0ce15ff0" id="r_abe54270f01915da587698baa0ce15ff0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structps_1_1Point.html">T</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structps_1_1GridND.html#abe54270f01915da587698baa0ce15ff0">cell_size</a></td></tr>
 <tr class="separator:abe54270f01915da587698baa0ce15ff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="el" href="structps_1_1Point.html">T</a>, <a class="el" href="structps_1_1Point.html">size_t</a> N&gt;<br />
-struct ps::GridND&lt; T, N &gt;</div>
-<p class="definition">Definition at line <a class="el" href="poisson__disk__sampling_8hpp_source.html#l00013">13</a> of file <a class="el" href="poisson__disk__sampling_8hpp_source.html">poisson_disk_sampling.hpp</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4761ff40e7e3246e0af2fe5e428803d2" name="a4761ff40e7e3246e0af2fe5e428803d2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4761ff40e7e3246e0af2fe5e428803d2">&#9670;&#160;</a></span>GridND()</h2>
 
@@ -146,18 +142,6 @@ template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="e
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="poisson__disk__sampling_8hpp_source.html#l00019">19</a> of file <a class="el" href="poisson__disk__sampling_8hpp_source.html">poisson_disk_sampling.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   20</span>      : <a class="code hl_variable" href="structps_1_1GridND.html#a1da56d23d70f08bbd3306bb5867ccd6b">cells</a>(1), <a class="code hl_variable" href="structps_1_1GridND.html#a3311bce88db1888a7e1bead887fe1d2d">grid_size</a>(size), <a class="code hl_variable" href="structps_1_1GridND.html#abe54270f01915da587698baa0ce15ff0">cell_size</a>(cell_size_)</div>
-<div class="line"><span class="lineno">   21</span>  {</div>
-<div class="line"><span class="lineno">   22</span>    <span class="keywordtype">size_t</span> total = 1;</div>
-<div class="line"><span class="lineno">   23</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> s : size)</div>
-<div class="line"><span class="lineno">   24</span>      total *= s;</div>
-<div class="line"><span class="lineno">   25</span>    <a class="code hl_variable" href="structps_1_1GridND.html#a1da56d23d70f08bbd3306bb5867ccd6b">cells</a>.resize(total);</div>
-<div class="line"><span class="lineno">   26</span>  }</div>
-<div class="ttc" id="astructps_1_1GridND_html_a1da56d23d70f08bbd3306bb5867ccd6b"><div class="ttname"><a href="structps_1_1GridND.html#a1da56d23d70f08bbd3306bb5867ccd6b">ps::GridND::cells</a></div><div class="ttdeci">std::vector&lt; std::optional&lt; Point&lt; T, N &gt; &gt; &gt; cells</div><div class="ttdef"><b>Definition</b> <a href="poisson__disk__sampling_8hpp_source.html#l00015">poisson_disk_sampling.hpp:15</a></div></div>
-<div class="ttc" id="astructps_1_1GridND_html_a3311bce88db1888a7e1bead887fe1d2d"><div class="ttname"><a href="structps_1_1GridND.html#a3311bce88db1888a7e1bead887fe1d2d">ps::GridND::grid_size</a></div><div class="ttdeci">std::array&lt; size_t, N &gt; grid_size</div><div class="ttdef"><b>Definition</b> <a href="poisson__disk__sampling_8hpp_source.html#l00016">poisson_disk_sampling.hpp:16</a></div></div>
-<div class="ttc" id="astructps_1_1GridND_html_abe54270f01915da587698baa0ce15ff0"><div class="ttname"><a href="structps_1_1GridND.html#abe54270f01915da587698baa0ce15ff0">ps::GridND::cell_size</a></div><div class="ttdeci">T cell_size</div><div class="ttdef"><b>Definition</b> <a href="poisson__disk__sampling_8hpp_source.html#l00017">poisson_disk_sampling.hpp:17</a></div></div>
-</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -187,18 +171,6 @@ template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="e
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="poisson__disk__sampling_8hpp_source.html#l00045">45</a> of file <a class="el" href="poisson__disk__sampling_8hpp_source.html">poisson_disk_sampling.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   46</span>  {</div>
-<div class="line"><span class="lineno">   47</span>    <span class="keywordtype">size_t</span> lin_idx = 0;</div>
-<div class="line"><span class="lineno">   48</span>    <span class="keywordtype">size_t</span> stride = 1;</div>
-<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; N; ++i)</div>
-<div class="line"><span class="lineno">   50</span>    {</div>
-<div class="line"><span class="lineno">   51</span>      lin_idx += idx[i] * stride;</div>
-<div class="line"><span class="lineno">   52</span>      stride *= <a class="code hl_variable" href="structps_1_1GridND.html#a3311bce88db1888a7e1bead887fe1d2d">grid_size</a>[i];</div>
-<div class="line"><span class="lineno">   53</span>    }</div>
-<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">return</span> lin_idx;</div>
-<div class="line"><span class="lineno">   55</span>  }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="ac0571790eb209b072f10160db7a53c66" name="ac0571790eb209b072f10160db7a53c66"></a>
@@ -227,12 +199,6 @@ template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="e
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="poisson__disk__sampling_8hpp_source.html#l00062">62</a> of file <a class="el" href="poisson__disk__sampling_8hpp_source.html">poisson_disk_sampling.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   63</span>  {</div>
-<div class="line"><span class="lineno">   64</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="structps_1_1GridND.html#a1da56d23d70f08bbd3306bb5867ccd6b">cells</a>[<a class="code hl_function" href="structps_1_1GridND.html#a743e3ac47f394f1e2748c40313b1e2fa">linear_index</a>(idx)];</div>
-<div class="line"><span class="lineno">   65</span>  }</div>
-<div class="ttc" id="astructps_1_1GridND_html_a743e3ac47f394f1e2748c40313b1e2fa"><div class="ttname"><a href="structps_1_1GridND.html#a743e3ac47f394f1e2748c40313b1e2fa">ps::GridND::linear_index</a></div><div class="ttdeci">size_t linear_index(const std::array&lt; size_t, N &gt; &amp;idx) const</div><div class="ttdef"><b>Definition</b> <a href="poisson__disk__sampling_8hpp_source.html#l00045">poisson_disk_sampling.hpp:45</a></div></div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="ab6617bbf616166841eb277874d224ca7" name="ab6617bbf616166841eb277874d224ca7"></a>
@@ -261,11 +227,6 @@ template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="e
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="poisson__disk__sampling_8hpp_source.html#l00057">57</a> of file <a class="el" href="poisson__disk__sampling_8hpp_source.html">poisson_disk_sampling.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   58</span>  {</div>
-<div class="line"><span class="lineno">   59</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="structps_1_1GridND.html#a1da56d23d70f08bbd3306bb5867ccd6b">cells</a>[<a class="code hl_function" href="structps_1_1GridND.html#a743e3ac47f394f1e2748c40313b1e2fa">linear_index</a>(idx)];</div>
-<div class="line"><span class="lineno">   60</span>  }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="ab64bb87b538321af8b8f219022cf08d5" name="ab64bb87b538321af8b8f219022cf08d5"></a>
@@ -304,20 +265,6 @@ template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="e
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="poisson__disk__sampling_8hpp_source.html#l00029">29</a> of file <a class="el" href="poisson__disk__sampling_8hpp_source.html">poisson_disk_sampling.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   31</span>  {</div>
-<div class="line"><span class="lineno">   32</span>    std::array&lt;size_t, N&gt; idx{};</div>
-<div class="line"><span class="lineno">   33</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; N; ++i)</div>
-<div class="line"><span class="lineno">   34</span>    {</div>
-<div class="line"><span class="lineno">   35</span>      T clamped = std::min(std::max(p[i], ranges[i].first), ranges[i].second);</div>
-<div class="line"><span class="lineno">   36</span>      T pos = (clamped - ranges[i].first) / <a class="code hl_variable" href="structps_1_1GridND.html#abe54270f01915da587698baa0ce15ff0">cell_size</a>;</div>
-<div class="line"><span class="lineno">   37</span>      idx[i] = <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(std::floor(pos));</div>
-<div class="line"><span class="lineno">   38</span>      <span class="keywordflow">if</span> (idx[i] &gt;= <a class="code hl_variable" href="structps_1_1GridND.html#a3311bce88db1888a7e1bead887fe1d2d">grid_size</a>[i])</div>
-<div class="line"><span class="lineno">   39</span>        idx[i] = <a class="code hl_variable" href="structps_1_1GridND.html#a3311bce88db1888a7e1bead887fe1d2d">grid_size</a>[i] - 1;</div>
-<div class="line"><span class="lineno">   40</span>    }</div>
-<div class="line"><span class="lineno">   41</span>    <span class="keywordflow">return</span> idx;</div>
-<div class="line"><span class="lineno">   42</span>  }</div>
-</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -335,8 +282,6 @@ template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="e
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="poisson__disk__sampling_8hpp_source.html#l00017">17</a> of file <a class="el" href="poisson__disk__sampling_8hpp_source.html">poisson_disk_sampling.hpp</a>.</p>
-
 </div>
 </div>
 <a id="a1da56d23d70f08bbd3306bb5867ccd6b" name="a1da56d23d70f08bbd3306bb5867ccd6b"></a>
@@ -352,8 +297,6 @@ template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="e
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="poisson__disk__sampling_8hpp_source.html#l00015">15</a> of file <a class="el" href="poisson__disk__sampling_8hpp_source.html">poisson_disk_sampling.hpp</a>.</p>
 
 </div>
 </div>
@@ -371,9 +314,6 @@ template&lt;<a class="el" href="structps_1_1Point.html">typename</a> <a class="e
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="poisson__disk__sampling_8hpp_source.html#l00016">16</a> of file <a class="el" href="poisson__disk__sampling_8hpp_source.html">poisson_disk_sampling.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   16</span>{};</div>
-</div><!-- fragment -->
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>

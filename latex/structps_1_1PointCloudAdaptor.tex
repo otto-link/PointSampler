@@ -22,15 +22,6 @@
 \end{DoxyCompactItemize}
 
 
-\doxysubsection{Detailed Description}
-\subsubsection*{template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$\newline
-struct ps\+::\+Point\+Cloud\+Adaptor$<$ T, N $>$}
-
-
-Definition at line \mbox{\hyperlink{nanoflann__adaptator_8hpp_source_l00012}{12}} of file \mbox{\hyperlink{nanoflann__adaptator_8hpp_source}{nanoflann\+\_\+adaptator.\+hpp}}.
-
-
-
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{structps_1_1PointCloudAdaptor_acbd72d60ac355bf20db1f248545e961c}\label{structps_1_1PointCloudAdaptor_acbd72d60ac355bf20db1f248545e961c} 
 \index{ps::PointCloudAdaptor$<$ T, N $>$@{ps::PointCloudAdaptor$<$ T, N $>$}!PointCloudAdaptor@{PointCloudAdaptor}}
@@ -39,15 +30,6 @@ Definition at line \mbox{\hyperlink{nanoflann__adaptator_8hpp_source_l00012}{12}
 {\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
 \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{ps\+::\+Point\+Cloud\+Adaptor}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$\+::\+Point\+Cloud\+Adaptor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&}]{points }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
-
-
-Definition at line \mbox{\hyperlink{nanoflann__adaptator_8hpp_source_l00016}{16}} of file \mbox{\hyperlink{nanoflann__adaptator_8hpp_source}{nanoflann\+\_\+adaptator.\+hpp}}.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{00016\ :\ \mbox{\hyperlink{structps_1_1PointCloudAdaptor_ad9019fcb2d338f1843242b8eb3f49e8b}{pts}}(points)\ \{\}}
-
-\end{DoxyCode}
 
 
 \doxysubsection{Member Function Documentation}
@@ -59,17 +41,6 @@ Definition at line \mbox{\hyperlink{nanoflann__adaptator_8hpp_source_l00016}{16}
 template$<$\mbox{\hyperlink{structps_1_1Point}{class}} \mbox{\hyperlink{structps_1_1Point}{BBOX}} $>$ \\
 \mbox{\hyperlink{structps_1_1Point}{bool}} \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{ps\+::\+Point\+Cloud\+Adaptor}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$\+::kdtree\+\_\+get\+\_\+bbox (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{BBOX}} \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-
-
-Definition at line \mbox{\hyperlink{nanoflann__adaptator_8hpp_source_l00025}{25}} of file \mbox{\hyperlink{nanoflann__adaptator_8hpp_source}{nanoflann\+\_\+adaptator.\+hpp}}.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{00026\ \ \ \{}
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00028\ \ \ \}\ \textcolor{comment}{//\ Not\ using\ bounding\ boxes}}
-
-\end{DoxyCode}
 \Hypertarget{structps_1_1PointCloudAdaptor_a07b777a53ba058f277aa604acf672e65}\label{structps_1_1PointCloudAdaptor_a07b777a53ba058f277aa604acf672e65} 
 \index{ps::PointCloudAdaptor$<$ T, N $>$@{ps::PointCloudAdaptor$<$ T, N $>$}!kdtree\_get\_point\_count@{kdtree\_get\_point\_count}}
 \index{kdtree\_get\_point\_count@{kdtree\_get\_point\_count}!ps::PointCloudAdaptor$<$ T, N $>$@{ps::PointCloudAdaptor$<$ T, N $>$}}
@@ -77,15 +48,6 @@ Definition at line \mbox{\hyperlink{nanoflann__adaptator_8hpp_source_l00025}{25}
 {\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
 \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{ps\+::\+Point\+Cloud\+Adaptor}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$\+::kdtree\+\_\+get\+\_\+point\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
-
-
-Definition at line \mbox{\hyperlink{nanoflann__adaptator_8hpp_source_l00018}{18}} of file \mbox{\hyperlink{nanoflann__adaptator_8hpp_source}{nanoflann\+\_\+adaptator.\+hpp}}.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{00018\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1PointCloudAdaptor_ad9019fcb2d338f1843242b8eb3f49e8b}{pts}}.size();\ \}}
-
-\end{DoxyCode}
 \Hypertarget{structps_1_1PointCloudAdaptor_a98372605c52a9e1cfd1479ded1894f1d}\label{structps_1_1PointCloudAdaptor_a98372605c52a9e1cfd1479ded1894f1d} 
 \index{ps::PointCloudAdaptor$<$ T, N $>$@{ps::PointCloudAdaptor$<$ T, N $>$}!kdtree\_get\_pt@{kdtree\_get\_pt}}
 \index{kdtree\_get\_pt@{kdtree\_get\_pt}!ps::PointCloudAdaptor$<$ T, N $>$@{ps::PointCloudAdaptor$<$ T, N $>$}}
@@ -95,17 +57,6 @@ Definition at line \mbox{\hyperlink{nanoflann__adaptator_8hpp_source_l00018}{18}
 
 
 
-Definition at line \mbox{\hyperlink{nanoflann__adaptator_8hpp_source_l00020}{20}} of file \mbox{\hyperlink{nanoflann__adaptator_8hpp_source}{nanoflann\+\_\+adaptator.\+hpp}}.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{00021\ \ \ \{}
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1PointCloudAdaptor_ad9019fcb2d338f1843242b8eb3f49e8b}{pts}}[idx][dim];}
-\DoxyCodeLine{00023\ \ \ \}}
-
-\end{DoxyCode}
-
-
 \doxysubsection{Member Data Documentation}
 \Hypertarget{structps_1_1PointCloudAdaptor_ad9019fcb2d338f1843242b8eb3f49e8b}\label{structps_1_1PointCloudAdaptor_ad9019fcb2d338f1843242b8eb3f49e8b} 
 \index{ps::PointCloudAdaptor$<$ T, N $>$@{ps::PointCloudAdaptor$<$ T, N $>$}!pts@{pts}}
@@ -113,10 +64,6 @@ Definition at line \mbox{\hyperlink{nanoflann__adaptator_8hpp_source_l00020}{20}
 \doxysubsubsection{\texorpdfstring{pts}{pts}}
 {\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
 \mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$\mbox{\hyperlink{structps_1_1Point}{Point}}$<$\mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}}$>$ $>$\& \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{ps\+::\+Point\+Cloud\+Adaptor}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$\+::pts}
-
-
-
-Definition at line \mbox{\hyperlink{nanoflann__adaptator_8hpp_source_l00014}{14}} of file \mbox{\hyperlink{nanoflann__adaptator_8hpp_source}{nanoflann\+\_\+adaptator.\+hpp}}.
 
 
 
