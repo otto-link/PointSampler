@@ -38,6 +38,30 @@ std::vector<Point<T, N>> halton_sequence(size_t count, size_t shift)
   return points;
 }
 
+/**
+ * @brief Generates a set of quasi-random points using the Halton sequence in N dimensions.
+ *
+ * This function generates `count` points in the unit hypercube using the Halton sequence,
+ * then rescales them to fit within the specified axis-aligned bounding box.
+ * An optional `seed` is used as a starting index offset (i.e., a shift) in the sequence
+ * to decorrelate multiple calls.
+ *
+ * @tparam T           Scalar type (e.g., float or double)
+ * @tparam N           Dimensionality of the space
+ * @param count        Number of points to generate
+ * @param axis_ranges  Axis-aligned bounding box for each dimension, as min/max pairs
+ * @param seed         Optional seed that offsets the sequence start index
+ * @return std::vector<Point<T, N>> The generated Halton points rescaled to the bounding box
+ *
+ * ### Example
+ * @code
+ * auto points = ps::halton<float, 2>(
+ *     1000,
+ *     {{{0, 1}, {0, 1}}},
+ *     42
+ * );
+ * @endcode
+ */
 template <typename T, size_t N>
 std::vector<Point<T, N>> halton(size_t                                count,
                                 const std::array<std::pair<T, T>, N> &axis_ranges,
