@@ -4,6 +4,8 @@
 
 The library is designed to be generic, extensible, and dimensionality-independent via `std::array` and C++ templates.
 
+Documentation is available here: [otto-link.github.io/PointSampler](https://otto-link.github.io/PointSampler/).
+
 ## Features
 
 - ✔️ Random sampling in arbitrary dimensions  
