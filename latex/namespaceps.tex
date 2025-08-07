@@ -80,9 +80,9 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 {\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{namespaceps_a898bca65491a14a41bfdd50fdc6230b8}{generate\+\_\+random\+\_\+point\+\_\+around}} (\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{center}}, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{base\+\_\+min\+\_\+dist}}, std\+::mt19937 \&\mbox{\hyperlink{structps_1_1Point}{gen}}, std\+::function$<$ \mbox{\hyperlink{structps_1_1Point}{T}}(\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&)$>$ \mbox{\hyperlink{structps_1_1Point}{scale\+\_\+fn}})
 \item 
 {\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N, \mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{Scale\+Fn}} $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a5b1e932ba8a20e05cd8c113179aa77c8}{poisson\+\_\+disk\+\_\+sampling}} (\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{count}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{ranges}}, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{base\+\_\+min\+\_\+dist}}, \mbox{\hyperlink{structps_1_1Point}{Scale\+Fn}} \mbox{\hyperlink{structps_1_1Point}{scale\+\_\+fn}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt, \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{new\+\_\+points\+\_\+attempts}}=30)
-\item 
+\begin{DoxyCompactList}\small\item\em Generate a set of Poisson disk samples in N-\/dimensional space, possibly with a warped metric. \end{DoxyCompactList}\item 
 {\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a6f7ab76c5d0a395aa78b85bad488e94e}{poisson\+\_\+disk\+\_\+sampling\+\_\+uniform}} (\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{count}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{ranges}}, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{base\+\_\+min\+\_\+dist}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt, \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{new\+\_\+points\+\_\+attempts}}=30)
-\item 
+\begin{DoxyCompactList}\small\item\em Generate uniformly distributed Poisson disk samples in N-\/dimensional space. \end{DoxyCompactList}\item 
 {\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{random}} (\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{count}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{axis\+\_\+ranges}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt)
 \begin{DoxyCompactList}\small\item\em Generates a specified number of uniformly distributed random points in N-\/dimensional space. \end{DoxyCompactList}\item 
 {\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a9c8c5679d987d3023b9d3beffd81e6df}{filter\+\_\+points\+\_\+in\+\_\+range}} (\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&\mbox{\hyperlink{structps_1_1Point}{points}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{axis\+\_\+ranges}})
@@ -730,6 +730,39 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ Jittered point samples
 {\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N, \mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{Scale\+Fn}} $>$ \\
 std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::poisson\+\_\+disk\+\_\+sampling (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{count,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{ranges,  }\item[{\mbox{\hyperlink{structps_1_1Point}{T}}}]{base\+\_\+min\+\_\+dist,  }\item[{\mbox{\hyperlink{structps_1_1Point}{Scale\+Fn}}}]{scale\+\_\+fn,  }\item[{std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$}]{seed = {\ttfamily std\+:\+:nullopt},  }\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{new\+\_\+points\+\_\+attempts = {\ttfamily 30} }\end{DoxyParamCaption})}
 
+
+
+Generate a set of Poisson disk samples in N-\/dimensional space, possibly with a warped metric. 
+
+This function uses Bridson\textquotesingle{}s algorithm to generate evenly spaced points according to a minimum base distance, which can be warped using a user-\/defined scaling function (e.\+g., density or metric warping).
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Scalar type (e.\+g., float or double). \\
+\hline
+{\em N} & Dimension of the sampling space. \\
+\hline
+{\em Scale\+Fn} & Callable type returning a scaling factor at a given point.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em count} & Desired number of points (will attempt to generate up to this many). \\
+\hline
+{\em ranges} & Coordinate axis ranges (bounding box) for each of the N dimensions. \\
+\hline
+{\em base\+\_\+min\+\_\+dist} & Base minimum distance between any two points (before scaling). \\
+\hline
+{\em scale\+\_\+fn} & Function that returns a distance scaling factor at a given point. This enables warped-\/space or non-\/uniform Poisson sampling. \\
+\hline
+{\em seed} & Optional RNG seed for reproducibility. \\
+\hline
+{\em new\+\_\+points\+\_\+attempts} & Number of candidate points to try around each active point.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of sample points satisfying the scaled Poisson distance constraint. 
+\end{DoxyReturn}
 \Hypertarget{namespaceps_a6f7ab76c5d0a395aa78b85bad488e94e}\label{namespaceps_a6f7ab76c5d0a395aa78b85bad488e94e} 
 \index{ps@{ps}!poisson\_disk\_sampling\_uniform@{poisson\_disk\_sampling\_uniform}}
 \index{poisson\_disk\_sampling\_uniform@{poisson\_disk\_sampling\_uniform}!ps@{ps}}
@@ -737,6 +770,35 @@ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink
 {\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
 std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::poisson\+\_\+disk\+\_\+sampling\+\_\+uniform (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{count,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{ranges,  }\item[{\mbox{\hyperlink{structps_1_1Point}{T}}}]{base\+\_\+min\+\_\+dist,  }\item[{std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$}]{seed = {\ttfamily std\+:\+:nullopt},  }\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{new\+\_\+points\+\_\+attempts = {\ttfamily 30} }\end{DoxyParamCaption})}
 
+
+
+Generate uniformly distributed Poisson disk samples in N-\/dimensional space. 
+
+This is a convenience wrapper over {\ttfamily poisson\+\_\+disk\+\_\+sampling} using a constant distance scale (i.\+e., uniform metric).
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Scalar type (e.\+g., float or double). \\
+\hline
+{\em N} & Dimension of the sampling space.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em count} & Desired number of points (will attempt to generate up to this many). \\
+\hline
+{\em ranges} & Coordinate axis ranges (bounding box) for each of the N dimensions. \\
+\hline
+{\em base\+\_\+min\+\_\+dist} & Minimum distance between any two points. \\
+\hline
+{\em seed} & Optional RNG seed for reproducibility. \\
+\hline
+{\em new\+\_\+points\+\_\+attempts} & Number of candidate points to try around each active point.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of uniformly spaced sample points. 
+\end{DoxyReturn}
 \Hypertarget{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}\label{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69} 
 \index{ps@{ps}!random@{random}}
 \index{random@{random}!ps@{ps}}
