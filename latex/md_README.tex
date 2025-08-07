@@ -1,0 +1,169 @@
+\chapter{Point\+Sampler}
+\hypertarget{md_README}{}\label{md_README}\index{PointSampler@{PointSampler}}
+\label{md_README_autotoc_md0}%
+\Hypertarget{md_README_autotoc_md0}%
+ {\ttfamily Point\+Sampler} is a lightweight C++ header-\/only library for generating and manipulating points in arbitrary dimensions (1D, 2D, 3D, ... N-\/dimensional). It includes utilities for random sampling, jittered grids, importance sampling, density warping, and spatial relaxation.
+
+The library is designed to be generic, extensible, and dimensionality-\/independent via {\ttfamily std\+::array} and C++ templates.\hypertarget{md_README_autotoc_md1}{}\doxysection{\texorpdfstring{Features}{Features}}\label{md_README_autotoc_md1}
+
+\begin{DoxyItemize}
+\item ✔️ Random sampling in arbitrary dimensions ~\newline
+
+\item ✔️ Grid-\/based sampling with jitter and stagger ~\newline
+
+\item ✔️ Importance sampling via rejection or resampling
+\item ✔️ Poisson disc sampling (uniform and non-\/uniform)
+\item ✔️ Point cloud filtering and normalization ~\newline
+
+\item ✔️ Density-\/based spatial distribution
+\item ✔️ Relaxation using k-\/nearest neighbors (with {\ttfamily nanoflann}) ~\newline
+
+\item ✔️ Dimension-\/agnostic (supports any {\ttfamily N})
+\item ...
+\end{DoxyItemize}
+
+\hypertarget{md_README_autotoc_md2}{}\doxysection{\texorpdfstring{Example}{Example}}\label{md_README_autotoc_md2}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}point\_sampler.hpp"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ main()}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ Generate\ 5\ random\ points\ in\ 3D\ space}}
+\DoxyCodeLine{\ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ dim\ =\ 3;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{size\_t}\ count\ =\ 5;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ seed\ =\ 42;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ std::array<std::pair<float,\ float>,\ dim>\ ranges\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ std::make\_pair(-\/1.f,\ 1.f),}
+\DoxyCodeLine{\ \ \ \ \ \ std::make\_pair(-\/2.f,\ 2.f),}
+\DoxyCodeLine{\ \ \ \ \ \ std::make\_pair(0.f,\ 1.f)}
+\DoxyCodeLine{\ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ std::vector<ps::Point<float,\ dim>>\ points\ =\ ps::random<float,\ dim>(count,\ ranges,\ seed);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&point\ :\ points)}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}("{}}\ <<\ point[0]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ point[1]\ <<\ \textcolor{stringliteral}{"{},\ "{}}\ <<\ point[2]\ <<\ \textcolor{stringliteral}{"{})\(\backslash\)n"{}};}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md3}{}\doxysection{\texorpdfstring{Build Instructions (for Developers)}{Build Instructions (for Developers)}}\label{md_README_autotoc_md3}
+To build the {\ttfamily Point\+Sampler} library locally, follow the steps below.\hypertarget{md_README_autotoc_md4}{}\doxysubsection{\texorpdfstring{Clone the repository}{Clone the repository}}\label{md_README_autotoc_md4}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ clone\ https://github.com/otto-\/link/PointSampler.git}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md5}{}\doxysubsection{\texorpdfstring{Configure and build with CMake}{Configure and build with CMake}}\label{md_README_autotoc_md5}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd\ PointSampler}
+\DoxyCodeLine{mkdir\ build\ \&\&\ cd\ build}
+\DoxyCodeLine{cmake\ ..}
+\DoxyCodeLine{make}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md6}{}\doxysubsection{\texorpdfstring{CMake Requirements}{CMake Requirements}}\label{md_README_autotoc_md6}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Tool   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Minimum Version    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Tool   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Minimum Version    }\\\cline{1-2}
+\endhead
+CMake   &3.\+16    \\\cline{1-2}
+C++   &20   \\\cline{1-2}
+\end{longtabu}
+\hypertarget{md_README_autotoc_md7}{}\doxysubsection{\texorpdfstring{Run a sample}{Run a sample}}\label{md_README_autotoc_md7}
+The project includes a test executable\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{./bin/test\_point\_sampler}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md8}{}\doxysection{\texorpdfstring{Integrating Point\+Sampler with CMake}{Integrating PointSampler with CMake}}\label{md_README_autotoc_md8}
+This guide shows how to integrate it into your own CMake project.\hypertarget{md_README_autotoc_md9}{}\doxysubsection{\texorpdfstring{Project Structure (\+Assumption)}{Project Structure (Assumption)}}\label{md_README_autotoc_md9}
+Your library lives in a subdirectory, e.\+g.\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{my-\/app/}
+\DoxyCodeLine{├──\ CMakeLists.txt}
+\DoxyCodeLine{├──\ external/}
+\DoxyCodeLine{│\ \ \ └──\ PointSampler/\ \ \ \ \#\ Contains\ this\ library}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md10}{}\doxysubsection{\texorpdfstring{Add Point\+Sampler to Your Project}{Add PointSampler to Your Project}}\label{md_README_autotoc_md10}
+In your {\bfseries{top-\/level {\ttfamily CMake\+Lists.\+txt}}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\#\ Add\ the\ PointSampler\ directory}
+\DoxyCodeLine{add\_subdirectory(external/PointSampler)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\ Link\ to\ your\ target}
+\DoxyCodeLine{target\_link\_libraries(my\_app\ PRIVATE\ point\_sampler)}
+
+\end{DoxyCode}
+\hypertarget{md_README_autotoc_md11}{}\doxysubsection{\texorpdfstring{Optional\+: Use as External Project}{Optional: Use as External Project}}\label{md_README_autotoc_md11}
+If you\textquotesingle{}re not vendoring the source, you can also use {\bfseries{Fetch\+Content}}\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{include(FetchContent)}
+\DoxyCodeLine{}
+\DoxyCodeLine{FetchContent\_Declare(}
+\DoxyCodeLine{\ \ \ \ PointSampler}
+\DoxyCodeLine{\ \ \ \ GIT\_REPOSITORY\ https://github.com/otto-\/link/PointSampler.git}
+\DoxyCodeLine{\ \ \ \ GIT\_TAG\ \ \ \ \ \ \ \ main}
+\DoxyCodeLine{)}
+\DoxyCodeLine{}
+\DoxyCodeLine{FetchContent\_MakeAvailable(PointSampler)}
+\DoxyCodeLine{}
+\DoxyCodeLine{target\_link\_libraries(my\_app\ PRIVATE\ point\_sampler)}
+
+\end{DoxyCode}
+
+
+\begin{quote}
+Don\textquotesingle{}t forget to add {\ttfamily Fetch\+Content\+\_\+\+Declare} before {\ttfamily project()} if you\textquotesingle{}re using CMake 3.\+14+ and need reproducible builds. \end{quote}
+\hypertarget{md_README_autotoc_md12}{}\doxysubsection{\texorpdfstring{Point\+Sampler Requirements}{PointSampler Requirements}}\label{md_README_autotoc_md12}
+
+\begin{DoxyItemize}
+\item {\bfseries{C++20}} compiler
+\item {\ttfamily nanoflann} (embedded as an external)
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md13}{}\doxysection{\texorpdfstring{Where to Find Examples}{Where to Find Examples}}\label{md_README_autotoc_md13}
+More comprehensive examples and usage for all key functions are available in\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{tests/test\_point\_sampler/main.cpp}
+
+\end{DoxyCode}
+
+
+This includes\+:
+
+
+\begin{DoxyItemize}
+\item Grid-\/based sampling with jitter and stagger
+\item Importance resampling with density functions
+\item Relaxation using nearest neighbors
+\item Spatial warping via coordinate transforms
+\item Filtering and range normalization
+\item ...
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md14}{}\doxysection{\texorpdfstring{Dependencies}{Dependencies}}\label{md_README_autotoc_md14}
+
+\begin{DoxyItemize}
+\item \href{https://github.com/jlblancoc/nanoflann}{\texttt{ nanoflann}} — used for k-\/nearest neighbor acceleration in relaxation
+\end{DoxyItemize}\hypertarget{md_README_autotoc_md15}{}\doxysection{\texorpdfstring{License}{License}}\label{md_README_autotoc_md15}
+This project is licensed under the GPL-\/3.\+0 license. 
