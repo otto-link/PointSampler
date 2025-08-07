@@ -208,6 +208,14 @@ Functions</h2></td></tr>
 <tr class="memitem:a10763ef2a872aa9eddb48ea341cd6f69"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">random</a> (size_t count, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, std::optional&lt; unsigned int &gt; seed=std::nullopt)</td></tr>
 <tr class="memdesc:a10763ef2a872aa9eddb48ea341cd6f69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a specified number of uniformly distributed random points in N-dimensional space.  <br /></td></tr>
 <tr class="separator:a10763ef2a872aa9eddb48ea341cd6f69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab818126518017939773c8a43bd92fc42" id="r_ab818126518017939773c8a43bd92fc42"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
+<tr class="memitem:ab818126518017939773c8a43bd92fc42"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#ab818126518017939773c8a43bd92fc42">random_rejection_filter</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, std::size_t target_count)</td></tr>
+<tr class="memdesc:ab818126518017939773c8a43bd92fc42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Randomly retains a fixed number of points from the input set.  <br /></td></tr>
+<tr class="separator:ab818126518017939773c8a43bd92fc42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66183362443c104da098224df9bcd2a1" id="r_a66183362443c104da098224df9bcd2a1"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
+<tr class="memitem:a66183362443c104da098224df9bcd2a1"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a66183362443c104da098224df9bcd2a1">random_rejection_filter</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, float keep_fraction)</td></tr>
+<tr class="memdesc:a66183362443c104da098224df9bcd2a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Randomly retains a fraction of the input points.  <br /></td></tr>
+<tr class="separator:a66183362443c104da098224df9bcd2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c8c5679d987d3023b9d3beffd81e6df" id="r_a9c8c5679d987d3023b9d3beffd81e6df"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:a9c8c5679d987d3023b9d3beffd81e6df"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a9c8c5679d987d3023b9d3beffd81e6df">filter_points_in_range</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges)</td></tr>
 <tr class="memdesc:a9c8c5679d987d3023b9d3beffd81e6df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filters points that lie within the specified axis-aligned bounding box.  <br /></td></tr>
@@ -582,7 +590,7 @@ template&lt;typename T , size_t N&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>A vector containing only the points that lie within all specified axis ranges.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">std::invalid_argumentifaxis_ranges</td><td>are ill-formed (e.g., min &gt; max).</td></tr>
+    <tr><td class="paramname">std::invalid_argumentifaxis_rangesareill-formed</td><td>(e.g., min &gt; max).</td></tr>
   </table>
   </dd>
 </dl>
@@ -1826,7 +1834,7 @@ template&lt;typename T , size_t N&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>A vector containing <code>count</code> randomly generated points within the specified axis ranges.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">std::invalid_argumentIfany</td><td>axis range has min &gt; max.</td></tr>
+    <tr><td class="paramname">std::invalid_argumentIfanyaxisrange</td><td>has min &gt; max.</td></tr>
   </table>
   </dd>
 </dl>
@@ -1853,6 +1861,110 @@ template&lt;typename T , size_t N&gt; </div>
 <div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="arandom_8hpp_html"><div class="ttname"><a href="random_8hpp.html">random.hpp</a></div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="a66183362443c104da098224df9bcd2a1" name="a66183362443c104da098224df9bcd2a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66183362443c104da098224df9bcd2a1">&#9670;&#160;</a></span>random_rejection_filter() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , std::size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; ps::random_rejection_filter </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>points</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>keep_fraction</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Randomly retains a fraction of the input points. </p>
+<p>This is a convenience overload of <code>random_rejection_filter</code> that accepts a floating-point <code>keep_fraction</code> instead of an absolute count. Internally, it computes the number of points to retain and calls the count-based version.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Scalar type (e.g., float or double) </td></tr>
+    <tr><td class="paramname">N</td><td>Dimensionality of the space </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">points</td><td>Input vector of points </td></tr>
+    <tr><td class="paramname">keep_fraction</td><td>Fraction of points to retain (between 0.0 and 1.0) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; containing <code>keep_fraction * points.size()</code> randomly selected points</dd></dl>
+<div class="fragment"><div class="line"> std::vector&lt;Point&lt;double, 3&gt;&gt; cloud = ps::random&lt;double, 3&gt;(10000,</div>
+<div class="line">{{-1,1},{-1,1},{-1,1}});</div>
+<div class="line"><span class="keyword">auto</span> sparse = <a class="code hl_function" href="namespaceps.html#ab818126518017939773c8a43bd92fc42">ps::random_rejection_filter</a>(cloud, 0.25); <span class="comment">// Keep 25% of the</span></div>
+<div class="line">points</div>
+<div class="ttc" id="anamespaceps_html_ab818126518017939773c8a43bd92fc42"><div class="ttname"><a href="namespaceps.html#ab818126518017939773c8a43bd92fc42">ps::random_rejection_filter</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; random_rejection_filter(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, std::size_t target_count)</div><div class="ttdoc">Randomly retains a fixed number of points from the input set.</div><div class="ttdef"><b>Definition</b> random_rejection_filter.hpp:35</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="ab818126518017939773c8a43bd92fc42" name="ab818126518017939773c8a43bd92fc42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab818126518017939773c8a43bd92fc42">&#9670;&#160;</a></span>random_rejection_filter() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , std::size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; ps::random_rejection_filter </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>points</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>target_count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Randomly retains a fixed number of points from the input set. </p>
+<p>This function returns a subset of the input points of size <code>target_count</code>, selected uniformly at random without replacement. If <code>target_count</code> is greater than or equal to the number of input points, the full input is returned.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Scalar type (e.g., float or double) </td></tr>
+    <tr><td class="paramname">N</td><td>Dimensionality of the space </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">points</td><td>Input vector of points </td></tr>
+    <tr><td class="paramname">target_count</td><td>Desired number of points in the output (≤ points.size()) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; containing <code>target_count</code> randomly selected points</dd></dl>
+<div class="fragment"><div class="line"> std::vector&lt;Point&lt;float, 2&gt;&gt; pts = ps::random&lt;float, 2&gt;(1000,</div>
+<div class="line">{{0,1},{0,1}});</div>
+<div class="line"><span class="keyword">auto</span> reduced = <a class="code hl_function" href="namespaceps.html#ab818126518017939773c8a43bd92fc42">ps::random_rejection_filter</a>(pts, 300); <span class="comment">// Keep 300 points</span></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -1973,7 +2085,7 @@ template&lt;typename T , size_t N, typename DensityFn &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; A vector of accepted points based on rejection sampling.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">std::invalid_argumentifany</td><td>axis range is invalid (min &gt; max).</td></tr>
+    <tr><td class="paramname">std::invalid_argumentifanyaxisrange</td><td>is invalid (min &gt; max).</td></tr>
   </table>
   </dd>
 </dl>

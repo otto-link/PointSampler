@@ -85,6 +85,10 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 \begin{DoxyCompactList}\small\item\em Generate uniformly distributed Poisson disk samples in N-\/dimensional space. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{random}} (size\+\_\+t count, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
 \begin{DoxyCompactList}\small\item\em Generates a specified number of uniformly distributed random points in N-\/dimensional space. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , std\+::size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_ab818126518017939773c8a43bd92fc42}{random\+\_\+rejection\+\_\+filter}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, std\+::size\+\_\+t target\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Randomly retains a fixed number of points from the input set. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , std\+::size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a66183362443c104da098224df9bcd2a1}{random\+\_\+rejection\+\_\+filter}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, float keep\+\_\+fraction)
+\begin{DoxyCompactList}\small\item\em Randomly retains a fraction of the input points. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a9c8c5679d987d3023b9d3beffd81e6df}{filter\+\_\+points\+\_\+in\+\_\+range}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges)
 \begin{DoxyCompactList}\small\item\em Filters points that lie within the specified axis-\/aligned bounding box. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , std\+::size\+\_\+t N, typename Func $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a5350b843397a5bf2a748115108ffa21a}{filter\+\_\+points\+\_\+function}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, Func fn)
@@ -266,7 +270,7 @@ A vector containing only the points that lie within all specified axis ranges.
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em std\+::invalid\+\_\+argumentifaxis\+\_\+ranges} & are ill-\/formed (e.\+g., min \texorpdfstring{$>$}{>} max).\\
+{\em std\+::invalid\+\_\+argumentifaxis\+\_\+rangesareill-\/formed} & (e.\+g., min \texorpdfstring{$>$}{>} max).\\
 \hline
 \end{DoxyExceptions}
 
@@ -827,7 +831,7 @@ A vector containing {\ttfamily count} randomly generated points within the speci
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em std\+::invalid\+\_\+argument\+Ifany} & axis range has min \texorpdfstring{$>$}{>} max.\\
+{\em std\+::invalid\+\_\+argument\+Ifanyaxisrange} & has min \texorpdfstring{$>$}{>} max.\\
 \hline
 \end{DoxyExceptions}
 \begin{DoxyNote}{Note}
@@ -856,6 +860,81 @@ The points are generated independently per axis using uniform\+\_\+real\+\_\+dis
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ 0;}
 \DoxyCodeLine{\}}
+
+\end{DoxyCode}
+ \Hypertarget{namespaceps_a66183362443c104da098224df9bcd2a1}\label{namespaceps_a66183362443c104da098224df9bcd2a1} 
+\index{ps@{ps}!random\_rejection\_filter@{random\_rejection\_filter}}
+\index{random\_rejection\_filter@{random\_rejection\_filter}!ps@{ps}}
+\doxysubsubsection{\texorpdfstring{random\_rejection\_filter()}{random\_rejection\_filter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T , std\+::size\+\_\+t N$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::random\+\_\+rejection\+\_\+filter (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{float}]{keep\+\_\+fraction }\end{DoxyParamCaption})}
+
+
+
+Randomly retains a fraction of the input points. 
+
+This is a convenience overload of {\ttfamily random\+\_\+rejection\+\_\+filter} that accepts a floating-\/point {\ttfamily keep\+\_\+fraction} instead of an absolute count. Internally, it computes the number of points to retain and calls the count-\/based version.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Scalar type (e.\+g., float or double) \\
+\hline
+{\em N} & Dimensionality of the space \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em points} & Input vector of points \\
+\hline
+{\em keep\+\_\+fraction} & Fraction of points to retain (between 0.\+0 and 1.\+0) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Point$<$\+T, N$>$$>$ containing {\ttfamily keep\+\_\+fraction \texorpdfstring{$\ast$}{*} points.\+size()} randomly selected points
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ std::vector<Point<double,\ 3>>\ cloud\ =\ ps::random<double,\ 3>(10000,}
+\DoxyCodeLine{\{\{-\/1,1\},\{-\/1,1\},\{-\/1,1\}\});}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ sparse\ =\ \mbox{\hyperlink{namespaceps_ab818126518017939773c8a43bd92fc42}{ps::random\_rejection\_filter}}(cloud,\ 0.25);\ \textcolor{comment}{//\ Keep\ 25\%\ of\ the}}
+\DoxyCodeLine{points}
+
+\end{DoxyCode}
+ \Hypertarget{namespaceps_ab818126518017939773c8a43bd92fc42}\label{namespaceps_ab818126518017939773c8a43bd92fc42} 
+\index{ps@{ps}!random\_rejection\_filter@{random\_rejection\_filter}}
+\index{random\_rejection\_filter@{random\_rejection\_filter}!ps@{ps}}
+\doxysubsubsection{\texorpdfstring{random\_rejection\_filter()}{random\_rejection\_filter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , std\+::size\+\_\+t N$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::random\+\_\+rejection\+\_\+filter (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{std\+::size\+\_\+t}]{target\+\_\+count }\end{DoxyParamCaption})}
+
+
+
+Randomly retains a fixed number of points from the input set. 
+
+This function returns a subset of the input points of size {\ttfamily target\+\_\+count}, selected uniformly at random without replacement. If {\ttfamily target\+\_\+count} is greater than or equal to the number of input points, the full input is returned.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Scalar type (e.\+g., float or double) \\
+\hline
+{\em N} & Dimensionality of the space \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em points} & Input vector of points \\
+\hline
+{\em target\+\_\+count} & Desired number of points in the output (≤ points.\+size()) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Point$<$\+T, N$>$$>$ containing {\ttfamily target\+\_\+count} randomly selected points
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ std::vector<Point<float,\ 2>>\ pts\ =\ ps::random<float,\ 2>(1000,}
+\DoxyCodeLine{\{\{0,1\},\{0,1\}\});}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ reduced\ =\ \mbox{\hyperlink{namespaceps_ab818126518017939773c8a43bd92fc42}{ps::random\_rejection\_filter}}(pts,\ 300);\ \textcolor{comment}{//\ Keep\ 300\ points}}
 
 \end{DoxyCode}
  \Hypertarget{namespaceps_a2b8197901114d1c4fd6cfe19efcd3862}\label{namespaceps_a2b8197901114d1c4fd6cfe19efcd3862} 
@@ -938,7 +1017,7 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of accepted points based on reje
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em std\+::invalid\+\_\+argumentifany} & axis range is invalid (min \texorpdfstring{$>$}{>} max).\\
+{\em std\+::invalid\+\_\+argumentifanyaxisrange} & is invalid (min \texorpdfstring{$>$}{>} max).\\
 \hline
 \end{DoxyExceptions}
 \hypertarget{namespaceps_autotoc_md9}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md9}

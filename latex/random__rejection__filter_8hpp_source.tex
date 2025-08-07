@@ -1,0 +1,56 @@
+\doxysection{random\+\_\+rejection\+\_\+filter.\+hpp}
+\hypertarget{random__rejection__filter_8hpp_source}{}\label{random__rejection__filter_8hpp_source}\index{PointSampler/include/point\_sampler/random\_rejection\_filter.hpp@{PointSampler/include/point\_sampler/random\_rejection\_filter.hpp}}
+\mbox{\hyperlink{random__rejection__filter_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*\ Copyright\ (c)\ 2025\ Otto\ Link.\ Distributed\ under\ the\ terms\ of\ the\ GNU\ General}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ Public\ License.\ The\ full\ license\ is\ in\ the\ file\ LICENSE,\ distributed\ with}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ this\ software.\ */}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{nanoflann__adaptator_8hpp}{point\_sampler/internal/nanoflann\_adaptator.hpp}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{point_8hpp}{point\_sampler/point.hpp}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00035\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_ab818126518017939773c8a43bd92fc42}{random\_rejection\_filter}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ target\_count)}
+\DoxyCodeLine{00037\ \{}
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordflow}{if}\ (target\_count\ >=\ points.size())}
+\DoxyCodeLine{00039\ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{return}\ points;\ \textcolor{comment}{//\ nothing\ to\ remove}}
+\DoxyCodeLine{00041\ \ \ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ std::vector<std::size\_t>\ indices(points.size());}
+\DoxyCodeLine{00044\ \ \ std::iota(indices.begin(),\ indices.end(),\ 0);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ std::random\_device\ rd;}
+\DoxyCodeLine{00047\ \ \ std::mt19937\ \ \ \ \ \ \ gen(rd());}
+\DoxyCodeLine{00048\ \ \ std::shuffle(indices.begin(),\ indices.end(),\ gen);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \textcolor{comment}{//\ Take\ the\ first\ \`{}target\_count`\ shuffled\ indices}}
+\DoxyCodeLine{00051\ \ \ std::vector<Point<T,\ N>>\ result;}
+\DoxyCodeLine{00052\ \ \ result.reserve(target\_count);}
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ target\_count;\ ++i)}
+\DoxyCodeLine{00054\ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ result.push\_back(points[indices[i]]);}
+\DoxyCodeLine{00056\ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00059\ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00081\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00082\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_ab818126518017939773c8a43bd92fc42}{random\_rejection\_filter}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ keep\_fraction)}
+\DoxyCodeLine{00084\ \{}
+\DoxyCodeLine{00085\ \ \ assert(keep\_fraction\ >=\ 0.0\ \&\&\ keep\_fraction\ <=\ 1.0);}
+\DoxyCodeLine{00086\ \ \ std::size\_t\ target\_count\ =\ \textcolor{keyword}{static\_cast<}std::size\_t\textcolor{keyword}{>}(keep\_fraction\ *\ points.size());}
+\DoxyCodeLine{00087\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_ab818126518017939773c8a43bd92fc42}{random\_rejection\_filter}}(points,\ target\_count);}
+\DoxyCodeLine{00088\ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+
+\end{DoxyCode}
