@@ -63,6 +63,32 @@ std::vector<Point<T, N>> distance_rejection_filter(const std::vector<Point<T, N>
   return result;
 }
 
+/**
+ * @brief Filters points based on spatially-varying minimal distance constraints.
+ *
+ * A scale function is used to modulate the minimum allowed distance for each
+ * point. The base distance `base_min_dist` is scaled by the value returned
+ * by `scale_fn(p)`, allowing for adaptive sampling densities.
+ *
+ * @tparam T        Scalar type (e.g., float or double)
+ * @tparam N        Dimensionality of the space
+ * @tparam ScaleFn  Callable returning a scalar scale factor for a given point
+ *
+ * @param points           Vector of candidate points
+ * @param base_min_dist    Base minimum allowed distance
+ * @param scale_fn         Function providing a local scale factor per point
+ * @return std::vector<Point<T, N>> A filtered set of points with variable spacing
+ *
+ * ### Example
+ * @code
+ * auto scale_fn = [](const Point<float, 2>& p) {
+ *     return 0.5f + 0.5f * std::sin(p[0] * 3.1415f); // Varies between 0.5 and 1
+ * };
+ *
+ * std::vector<Point<float, 2>> pts = ps::random<float, 2>(1000, {{0,1},{0,1}});
+ * auto filtered = ps::distance_rejection_filter_warped(pts, 0.05f, scale_fn);
+ * @endcode
+ */
 template <typename T, std::size_t N, typename ScaleFn>
 std::vector<Point<T, N>> distance_rejection_filter_warped(
     const std::vector<Point<T, N>> &points,
