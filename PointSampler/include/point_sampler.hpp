@@ -42,9 +42,8 @@
  *   - @ref distance_rejection_filter.hpp
  *   - @ref function_rejection_filter.hpp
  *   - @ref random_rejection_filter.hpp
- *   - @ref relaxation.hpp
- * - Utility Functions
  *   - @ref range.hpp
+ *   - @ref relaxation.hpp
  * - Point representation
  *   - @ref point.hpp
  *
