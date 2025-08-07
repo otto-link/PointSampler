@@ -42,18 +42,18 @@
 \DoxyCodeLine{00038\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point}{points}};}
 \DoxyCodeLine{00039\ \}}
 \DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00042\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a81b18395a05f0bb4d483406e79aa9524}{halton}}(\textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{count}},}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ \mbox{\hyperlink{structps_1_1Point}{N}}>\ \&\mbox{\hyperlink{structps_1_1Point}{axis\_ranges}},}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{seed}}\ =\ std::nullopt)}
-\DoxyCodeLine{00045\ \{}
-\DoxyCodeLine{00046\ \ \ \textcolor{comment}{//\ seed-\/like\ effect...}}
-\DoxyCodeLine{00047\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{shift}}\ =\ \mbox{\hyperlink{structps_1_1Point}{seed}}\ ?\ *\mbox{\hyperlink{structps_1_1Point}{seed}}\ :\ 0;}
-\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{auto}\ \ \ \mbox{\hyperlink{structps_1_1Point}{points}}\ =\ \mbox{\hyperlink{structps_1_1Point}{halton\_sequence<T,\ N>}}(\mbox{\hyperlink{structps_1_1Point}{count}},\ \mbox{\hyperlink{structps_1_1Point}{shift}});}
-\DoxyCodeLine{00049\ \ \ \mbox{\hyperlink{namespaceps_a7addf1455112b7895f8de7c475eed850}{rescale\_points}}(\mbox{\hyperlink{structps_1_1Point}{points}},\ \mbox{\hyperlink{structps_1_1Point}{axis\_ranges}});}
-\DoxyCodeLine{00050\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point}{points}};}
-\DoxyCodeLine{00051\ \}}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+\DoxyCodeLine{00065\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00066\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a81b18395a05f0bb4d483406e79aa9524}{halton}}(\textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{count}},}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ \mbox{\hyperlink{structps_1_1Point}{N}}>\ \&\mbox{\hyperlink{structps_1_1Point}{axis\_ranges}},}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{seed}}\ =\ std::nullopt)}
+\DoxyCodeLine{00069\ \{}
+\DoxyCodeLine{00070\ \ \ \textcolor{comment}{//\ seed-\/like\ effect...}}
+\DoxyCodeLine{00071\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{shift}}\ =\ \mbox{\hyperlink{structps_1_1Point}{seed}}\ ?\ *\mbox{\hyperlink{structps_1_1Point}{seed}}\ :\ 0;}
+\DoxyCodeLine{00072\ \ \ \textcolor{keyword}{auto}\ \ \ \mbox{\hyperlink{structps_1_1Point}{points}}\ =\ \mbox{\hyperlink{structps_1_1Point}{halton\_sequence<T,\ N>}}(\mbox{\hyperlink{structps_1_1Point}{count}},\ \mbox{\hyperlink{structps_1_1Point}{shift}});}
+\DoxyCodeLine{00073\ \ \ \mbox{\hyperlink{namespaceps_a7addf1455112b7895f8de7c475eed850}{rescale\_points}}(\mbox{\hyperlink{structps_1_1Point}{points}},\ \mbox{\hyperlink{structps_1_1Point}{axis\_ranges}});}
+\DoxyCodeLine{00074\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point}{points}};}
+\DoxyCodeLine{00075\ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \}\ \textcolor{comment}{//\ namespace\ ps}}
 
 \end{DoxyCode}
