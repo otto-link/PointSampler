@@ -1,3 +1,5 @@
+PROJECT_NAME           = "PointSampler library (C++)"
+
 GENERATE_HTML = YES
 OUTPUT_DIRECTORY = docs
 HTML_OUTPUT = .
@@ -8,6 +10,8 @@ SHOW_NAMESPACES      = YES
 
 # 1. Root input folder or list of files
 INPUT = PointSampler/include
+
+
 
 # 2. Scan subdirectories recursively
 RECURSIVE = YES
@@ -26,6 +30,8 @@ EXTRACT_PRIVATE = YES       # Include private class members
 EXTRACT_STATIC = YES        # Include static functions
 EXTRACT_LOCAL_CLASSES = YES
 EXTRACT_ANON_NSPACES = YES
+ALWAYS_DETAILED_SEC    = YES
+GENERATE_TREEVIEW      = YES
 
 # 6. Enable parsing of Doxygen-style comments
 JAVADOC_AUTOBRIEF = YES     # Treat the first line of /** */ as brief
