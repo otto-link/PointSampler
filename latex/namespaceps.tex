@@ -43,6 +43,8 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 \begin{DoxyCompactList}\small\item\em Generates a jittered grid of points with full jitter and no stagger. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , std\+::size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a9ca14831de223ff62a6c3ec93e96a7c0}{latin\+\_\+hypercube\+\_\+sampling}} (std\+::size\+\_\+t sample\+\_\+count, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
 \item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{namespaceps_a97febccfaf65fb7b96c6ae09df0a9c7e}{first\+\_\+neighbor\+\_\+distance}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points)
+\begin{DoxyCompactList}\small\item\em Computes the squared distance to the nearest neighbor for each point. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_af9ee1cf5d335276b7fabe6f1daddf1b0}{operator+}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&a, const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&b)
 \item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_aa369956286bc3f09dfdc146a5b2a49f1}{operator-\/}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&a, const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&b)
@@ -286,6 +288,57 @@ A vector containing only the points that lie within all specified axis ranges.
 \DoxyCodeLine{\textcolor{keyword}{auto}\ filtered\ =\ ps::filter\_points\_in\_range<float,\ 2>(pts,\ \{\ \{\{0.f,\ 1.f\},}
 \DoxyCodeLine{\{0.f,\ 1.f\}\}\ \});}
 \DoxyCodeLine{\textcolor{comment}{//\ filtered\ now\ contains\ only\ \{\ \{0.5f,\ 0.5f\}\ \}}}
+
+\end{DoxyCode}
+ \Hypertarget{namespaceps_a97febccfaf65fb7b96c6ae09df0a9c7e}\label{namespaceps_a97febccfaf65fb7b96c6ae09df0a9c7e} 
+\index{ps@{ps}!first\_neighbor\_distance@{first\_neighbor\_distance}}
+\index{first\_neighbor\_distance@{first\_neighbor\_distance}!ps@{ps}}
+\doxysubsubsection{\texorpdfstring{first\_neighbor\_distance()}{first\_neighbor\_distance()}}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+std\+::vector$<$ T $>$ ps\+::first\+\_\+neighbor\+\_\+distance (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points }\end{DoxyParamCaption})}
+
+
+
+Computes the squared distance to the nearest neighbor for each point. 
+
+This function builds a KD-\/tree from a given set of N-\/dimensional points and computes, for each point, the squared distance to its closest neighbor.
+
+The KD-\/tree search uses {\ttfamily nanoflann} for efficient nearest neighbor queries.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Scalar type (e.\+g., float, double). \\
+\hline
+{\em N} & Dimension of each point.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em points} & Vector of N-\/dimensional points. Note\+:\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} This vector is passed by non-\/const reference because the KD-\/tree adaptor may require mutable access, but the function does not modify the contents.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector containing the squared distances to the first neighbor for each point, in the same order as the input points.
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{comment}{//\ Example\ usage:}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{using\ }Point3f\ =\ \mbox{\hyperlink{structps_1_1Point}{Point<float,\ 3>}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::vector<Point3f>\ points\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \{0.0f,\ 0.0f,\ 0.0f\},}
+\DoxyCodeLine{\ \ \ \ \{1.0f,\ 0.0f,\ 0.0f\},}
+\DoxyCodeLine{\ \ \ \ \{0.0f,\ 1.0f,\ 0.0f\},}
+\DoxyCodeLine{\ \ \ \ \{1.0f,\ 1.0f,\ 0.0f\}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::vector<float>\ distances\_sq\ =\ \mbox{\hyperlink{namespaceps_a97febccfaf65fb7b96c6ae09df0a9c7e}{first\_neighbor\_distance}}(points);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ distances\_sq[i]\ contains\ the\ squared\ distance\ to\ the\ closest\ neighbor\ of}}
+\DoxyCodeLine{points[i].}
 
 \end{DoxyCode}
  \Hypertarget{namespaceps_a0e4055582214237ee9f21369133e6194}\label{namespaceps_a0e4055582214237ee9f21369133e6194} 
