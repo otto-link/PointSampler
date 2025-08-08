@@ -18,7 +18,7 @@ Documentation is available here: [otto-link.github.io/PointSampler](https://otto
 - ✔️ Dimension-agnostic (supports any `N`)
 - ...
 
-<img width="873" height="725" alt="demo" src="https://github.com/user-attachments/assets/a1ab498f-7dba-4d8d-9644-b0240a2d1f09" />
+<img width="1010" height="696" alt="demo" src="https://github.com/user-attachments/assets/2dd1b550-a20f-44f1-a3b6-427f76b619ef" />
 
 ## Example
 
