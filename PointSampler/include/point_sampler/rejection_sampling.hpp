@@ -33,7 +33,7 @@ namespace ps
  * @return             std::vector<Point<T, N>> A vector of accepted points
  *                     based on rejection sampling.
  *
- * @throws std::invalid_argumentifanyaxisrangeisinvalid (min > max).
+ * @throws std::invalid_argumentifanyaxisrangeisinvalid(min>max).
  *
  * ### Example
  * @code

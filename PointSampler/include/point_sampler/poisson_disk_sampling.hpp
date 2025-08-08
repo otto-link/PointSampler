@@ -204,6 +204,14 @@ Point<T, N> generate_random_point_around(const Point<T, N> &center,
  * @return                     std::vector<Point<T, N>> A vector of sample
  *                             points satisfying the scaled Poisson distance
  *                             constraint.
+ *
+ * @example auto ranges = std::array<std::pair<float, float>, 2>{{ {0.f, 1.f},
+ * {0.f, 1.f} }};
+ * auto scale_fn = [](const Point<float, 2> &p) -> float {
+ *     return 1.0f + 0.5f * std::sin(p[0] * 6.2831f);  // Vary distance with x
+ * };
+ * auto points = poisson_disk_sampling<float, 2>(
+ *     100, ranges, 0.05f, scale_fn, 42);
  */
 template <typename T, size_t N, typename ScaleFn>
 std::vector<Point<T, N>> poisson_disk_sampling(
@@ -316,6 +324,11 @@ std::vector<Point<T, N>> poisson_disk_sampling(
  *
  * @return                     std::vector<Point<T, N>> A vector of uniformly
  *                             spaced sample points.
+ *
+ * @example auto ranges = std::array<std::pair<float, float>, 2>{{ {0.f, 1.f},
+ * {0.f, 1.f} }};
+ * auto points = poisson_disk_sampling_uniform<float, 2>(
+ *     200, ranges, 0.03f, 1234);
  */
 template <typename T, size_t N>
 std::vector<Point<T, N>> poisson_disk_sampling_uniform(
