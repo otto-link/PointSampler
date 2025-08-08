@@ -45,6 +45,8 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 \item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{namespaceps_a97febccfaf65fb7b96c6ae09df0a9c7e}{first\+\_\+neighbor\+\_\+distance}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points)
 \begin{DoxyCompactList}\small\item\em Computes the squared distance to the nearest neighbor for each point. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ std\+::vector$<$ size\+\_\+t $>$ $>$ \mbox{\hyperlink{namespaceps_ac29744e12116f882d8a620a3fd02d72d}{nearest\+\_\+neighbors\+\_\+indices}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, size\+\_\+t k\+\_\+neighbors=8)
+\begin{DoxyCompactList}\small\item\em Finds the nearest neighbors for each point in a set. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_af9ee1cf5d335276b7fabe6f1daddf1b0}{operator+}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&a, const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&b)
 \item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_aa369956286bc3f09dfdc146a5b2a49f1}{operator-\/}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&a, const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&b)
@@ -759,6 +761,56 @@ T ps\+::length\+\_\+squared (\begin{DoxyParamCaption}\item[{const \mbox{\hyperli
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::merge\+\_\+by\+\_\+dimension (\begin{DoxyParamCaption}\item[{const std\+::array$<$ std\+::vector$<$ T $>$, N $>$ \&}]{components }\end{DoxyParamCaption})}
 
+\Hypertarget{namespaceps_ac29744e12116f882d8a620a3fd02d72d}\label{namespaceps_ac29744e12116f882d8a620a3fd02d72d} 
+\index{ps@{ps}!nearest\_neighbors\_indices@{nearest\_neighbors\_indices}}
+\index{nearest\_neighbors\_indices@{nearest\_neighbors\_indices}!ps@{ps}}
+\doxysubsubsection{\texorpdfstring{nearest\_neighbors\_indices()}{nearest\_neighbors\_indices()}}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+std\+::vector$<$ std\+::vector$<$ size\+\_\+t $>$ $>$ ps\+::nearest\+\_\+neighbors\+\_\+indices (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{size\+\_\+t}]{k\+\_\+neighbors = {\ttfamily 8} }\end{DoxyParamCaption})}
+
+
+
+Finds the nearest neighbors for each point in a set. 
+
+This function uses a KD-\/tree to search for the k nearest neighbors of each point in the input set, returning their indices. The search excludes the query point itself.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Scalar type (e.\+g., float, double). \\
+\hline
+{\em N} & Dimension of each point.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em points} & Vector of N-\/dimensional points. \\
+\hline
+{\em k\+\_\+neighbors} & Number of nearest neighbors to return for each point.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector where each element is a vector of indices representing the nearest neighbors of the corresponding point in {\ttfamily points}.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The KD-\/tree is rebuilt internally for the search.
+\end{DoxyNote}
+\begin{DoxyParagraph}{Example}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ std::vector<Point<float,\ 3>>\ points\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \{0.0f,\ 0.0f,\ 0.0f\},}
+\DoxyCodeLine{\ \ \ \ \{1.0f,\ 0.0f,\ 0.0f\},}
+\DoxyCodeLine{\ \ \ \ \{0.0f,\ 1.0f,\ 0.0f\},}
+\DoxyCodeLine{\ \ \ \ \{1.0f,\ 1.0f,\ 0.0f\}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ neighbors\ =\ \mbox{\hyperlink{namespaceps_ac29744e12116f882d8a620a3fd02d72d}{nearest\_neighbors\_indices}}(points,\ 2);}
+\DoxyCodeLine{\textcolor{comment}{//\ neighbors[0]\ might\ contain\ \{1,\ 2\}}}
+\DoxyCodeLine{\textcolor{comment}{//\ neighbors[1]\ might\ contain\ \{0,\ 3\}}}
+
+\end{DoxyCode}
+ 
+\end{DoxyParagraph}
 \Hypertarget{namespaceps_a7de6090e2c8291401816be9bc6cda914}\label{namespaceps_a7de6090e2c8291401816be9bc6cda914} 
 \index{ps@{ps}!normalized@{normalized}}
 \index{normalized@{normalized}!ps@{ps}}

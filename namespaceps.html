@@ -147,6 +147,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a97febccfaf65fb7b96c6ae09df0a9c7e"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a97febccfaf65fb7b96c6ae09df0a9c7e">first_neighbor_distance</a> (std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points)</td></tr>
 <tr class="memdesc:a97febccfaf65fb7b96c6ae09df0a9c7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the squared distance to the nearest neighbor for each point.  <br /></td></tr>
 <tr class="separator:a97febccfaf65fb7b96c6ae09df0a9c7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac29744e12116f882d8a620a3fd02d72d" id="r_ac29744e12116f882d8a620a3fd02d72d"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
+<tr class="memitem:ac29744e12116f882d8a620a3fd02d72d"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; size_t &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#ac29744e12116f882d8a620a3fd02d72d">nearest_neighbors_indices</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, size_t k_neighbors=8)</td></tr>
+<tr class="memdesc:ac29744e12116f882d8a620a3fd02d72d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the nearest neighbors for each point in a set.  <br /></td></tr>
+<tr class="separator:ac29744e12116f882d8a620a3fd02d72d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9ee1cf5d335276b7fabe6f1daddf1b0" id="r_af9ee1cf5d335276b7fabe6f1daddf1b0"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:af9ee1cf5d335276b7fabe6f1daddf1b0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#af9ee1cf5d335276b7fabe6f1daddf1b0">operator+</a> (const <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &amp;a, const <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &amp;b)</td></tr>
 <tr class="separator:af9ee1cf5d335276b7fabe6f1daddf1b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1496,6 +1500,67 @@ template&lt;typename T , size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac29744e12116f882d8a620a3fd02d72d" name="ac29744e12116f882d8a620a3fd02d72d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac29744e12116f882d8a620a3fd02d72d">&#9670;&#160;</a></span>nearest_neighbors_indices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::vector&lt; size_t &gt; &gt; ps::nearest_neighbors_indices </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>points</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>k_neighbors</em> = <code>8</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Finds the nearest neighbors for each point in a set. </p>
+<p>This function uses a KD-tree to search for the k nearest neighbors of each point in the input set, returning their indices. The search excludes the query point itself.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Scalar type (e.g., float, double). </td></tr>
+    <tr><td class="paramname">N</td><td>Dimension of each point.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">points</td><td>Vector of N-dimensional points. </td></tr>
+    <tr><td class="paramname">k_neighbors</td><td>Number of nearest neighbors to return for each point.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector where each element is a vector of indices representing the nearest neighbors of the corresponding point in <code>points</code>.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The KD-tree is rebuilt internally for the search.</dd></dl>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"> std::vector&lt;Point&lt;float, 3&gt;&gt; points = {</div>
+<div class="line">    {0.0f, 0.0f, 0.0f},</div>
+<div class="line">    {1.0f, 0.0f, 0.0f},</div>
+<div class="line">    {0.0f, 1.0f, 0.0f},</div>
+<div class="line">    {1.0f, 1.0f, 0.0f}</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">auto</span> neighbors = <a class="code hl_function" href="namespaceps.html#ac29744e12116f882d8a620a3fd02d72d">nearest_neighbors_indices</a>(points, 2);</div>
+<div class="line"><span class="comment">// neighbors[0] might contain {1, 2}</span></div>
+<div class="line"><span class="comment">// neighbors[1] might contain {0, 3}</span></div>
+<div class="ttc" id="anamespaceps_html_ac29744e12116f882d8a620a3fd02d72d"><div class="ttname"><a href="namespaceps.html#ac29744e12116f882d8a620a3fd02d72d">ps::nearest_neighbors_indices</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; size_t &gt; &gt; nearest_neighbors_indices(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, size_t k_neighbors=8)</div><div class="ttdoc">Finds the nearest neighbors for each point in a set.</div><div class="ttdef"><b>Definition</b> metrics.hpp:129</div></div>
+</div><!-- fragment --> </dd></dl>
 
 </div>
 </div>
