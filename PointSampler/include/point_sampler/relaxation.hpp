@@ -89,16 +89,13 @@ void relaxation_ktree(std::vector<Point<T, N>> &points,
       index.findNeighbors(result_set, query.data(), nanoflann::SearchParameters());
 
       Point<T, N> offset{};
-      for (size_t j = 1; j < result_set.size(); ++j) // skip
-                                                     // self
-                                                     // at j=0
+      // skip self at j=0
+      for (size_t j = 1; j < result_set.size(); ++j)
       {
         const auto &q = points[ret_indexes[j]];
         auto        delta = p - q;
-        T           dist_sq = length_squared(delta) + T(1e-6); // avoid
-                                                               // div
-                                                               // by
-                                                               // 0
+        // avoid div by 0
+        T dist_sq = length_squared(delta) + T(1e-6);
 
         offset = offset + delta / dist_sq;
       }

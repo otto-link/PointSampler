@@ -203,5 +203,19 @@ int main()
     ps::save_points_to_csv("out_random_rejection_filter.csv", points);
   }
 
+  {
+    std::cout << "ps::first_neighbor_distance...\n";
+
+    auto               points = ps::random<float, dim>(50, ranges, seed);
+    std::vector<float> dist_sq = ps::first_neighbor_distance(points);
+
+    ps::save_points_to_csv("metrics_first_neighbor_distance.csv", points);
+
+    // trick to save the vector as csv
+    std::array<std::vector<float>, 1> array = {dist_sq};
+    auto                              p_dummy = ps::merge_by_dimension(array);
+    ps::save_points_to_csv("metrics_first_neighbor_distance_dist_sq.csv", p_dummy);
+  }
+
   return 0;
 }
