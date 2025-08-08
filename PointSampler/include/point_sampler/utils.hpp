@@ -65,7 +65,8 @@ bool save_points_to_csv(const std::string              &filename,
 }
 
 /**
- * @brief Reconstructs a list of N-dimensional points from N separate coordinate vectors.
+ * @brief Reconstructs a list of N-dimensional points from N separate coordinate
+ * vectors.
  *
  * This function takes N vectors—each representing one coordinate axis—and
  * combines them into a single vector of N-dimensional points. It is the inverse
@@ -83,16 +84,16 @@ bool save_points_to_csv(const std::string              &filename,
  * @tparam T Scalar type (e.g., float, double).
  * @tparam N Dimension of each point.
  *
- * @param components An array of N vectors, each containing values for one coordinate
- * axis.
+ * @param  components An array of N vectors, each containing values for one
+ *                    coordinate axis.
  *
- * @return A vector of N-dimensional points reconstructed from the coordinate vectors.
+ * @return            A vector of N-dimensional points reconstructed from the
+ *                    coordinate vectors.
  *
- * @throws std::invalid_argument if the coordinate vectors do not all have the same
- * length.
+ * @throws std::invalid_argumentif the coordinate vectors do not all have the
+ *                    same length.
  *
- * @example
- * std::array<std::vector<float>, 3> components = {{
+ * @example std::array<std::vector<float>, 3> components = {{
  *     {1.0f, 4.0f, 7.0f},  // x
  *     {2.0f, 5.0f, 8.0f},  // y
  *     {3.0f, 6.0f, 9.0f}   // z
