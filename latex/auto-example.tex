@@ -1,0 +1,39 @@
+\doxysection{auto}
+\hypertarget{auto-example}{}\label{auto-example}Generate a set of Poisson disk samples in N-\/dimensional space, possibly with a warped metric.
+
+Generate a set of Poisson disk samples in N-\/dimensional space, possibly with a warped metric.\+This function uses Bridson\textquotesingle{}s algorithm to generate evenly spaced points according to a minimum base distance, which can be warped using a user-\/defined scaling function (e.\+g., density or metric warping).
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Scalar type (e.\+g., float or double). \\
+\hline
+{\em N} & Dimension of the sampling space. \\
+\hline
+{\em Scale\+Fn} & Callable type returning a scaling factor at a given point.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em count} & Desired number of points (will attempt to generate up to this many). \\
+\hline
+{\em ranges} & Coordinate axis ranges (bounding box) for each of the N dimensions. \\
+\hline
+{\em base\+\_\+min\+\_\+dist} & Base minimum distance between any two points (before scaling). \\
+\hline
+{\em scale\+\_\+fn} & Function that returns a distance scaling factor at a given point. This enables warped-\/space or non-\/uniform Poisson sampling. \\
+\hline
+{\em seed} & Optional RNG seed for reproducibility. \\
+\hline
+{\em new\+\_\+points\+\_\+attempts} & Number of candidate points to try around each active point.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of sample points satisfying the scaled Poisson distance constraint.
+\end{DoxyReturn}
+ranges = std\+::array\texorpdfstring{$<$}{<}std\+::pair$<$float, float$>$, 2\texorpdfstring{$>$}{>}\{\{ \{0.\+f, 1.\+f\}, \{0.\+f, 1.\+f\} \}\}; auto scale\+\_\+fn = \mbox{[}\mbox{]}(const Point$<$float, 2$>$ \&p) -\/\texorpdfstring{$>$}{>} float \{ return 1.\+0f + 0.\+5f \texorpdfstring{$\ast$}{*} std\+::sin(p\mbox{[}0\mbox{]} \texorpdfstring{$\ast$}{*} 6.\+2831f); // Vary distance with x \}; auto points = poisson\+\_\+disk\+\_\+sampling$<$float, 2$>$( 100, ranges, 0.\+05f, scale\+\_\+fn, 42);
+
+
+\begin{DoxyCodeInclude}{0}
+
+\end{DoxyCodeInclude}
+ 

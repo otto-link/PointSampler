@@ -180,114 +180,114 @@
 \DoxyCodeLine{00176\ \ \ \textcolor{keywordflow}{return}\ p;}
 \DoxyCodeLine{00177\ \}}
 \DoxyCodeLine{00178\ }
-\DoxyCodeLine{00208\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N,\ \textcolor{keyword}{typename}\ ScaleFn>}
-\DoxyCodeLine{00209\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a5b1e932ba8a20e05cd8c113179aa77c8}{poisson\_disk\_sampling}}(}
-\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ count,}
-\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ N>\ \&ranges,}
-\DoxyCodeLine{00212\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ base\_min\_dist,}
-\DoxyCodeLine{00213\ \ \ \ \ ScaleFn\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ scale\_fn,}
-\DoxyCodeLine{00214\ \ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ \ \ \ \ \ \ seed\ =\ std::nullopt,}
-\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ new\_points\_attempts\ =\ 30)}
-\DoxyCodeLine{00216\ \{}
-\DoxyCodeLine{00217\ \ \ \textcolor{keywordflow}{if}\ (count\ ==\ 0)}
-\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
-\DoxyCodeLine{00219\ }
-\DoxyCodeLine{00220\ \ \ std::mt19937\ gen(seed\ ?\ *seed\ :\ std::random\_device\{\}());}
-\DoxyCodeLine{00221\ }
-\DoxyCodeLine{00222\ \ \ T\ cell\_size\ =\ base\_min\_dist\ /\ std::sqrt(\textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(N));}
-\DoxyCodeLine{00223\ }
-\DoxyCodeLine{00224\ \ \ \textcolor{comment}{//\ Compute\ grid\ size\ per\ axis}}
-\DoxyCodeLine{00225\ \ \ std::array<size\_t,\ N>\ grid\_size\{\};}
-\DoxyCodeLine{00226\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ N;\ ++i)}
-\DoxyCodeLine{00227\ \ \ \{}
-\DoxyCodeLine{00228\ \ \ \ \ T\ axis\_len\ =\ ranges[i].second\ -\/\ ranges[i].first;}
-\DoxyCodeLine{00229\ \ \ \ \ grid\_size[i]\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(std::ceil(axis\_len\ /\ cell\_size));}
-\DoxyCodeLine{00230\ \ \ \}}
+\DoxyCodeLine{00216\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N,\ \textcolor{keyword}{typename}\ ScaleFn>}
+\DoxyCodeLine{00217\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a5b1e932ba8a20e05cd8c113179aa77c8}{poisson\_disk\_sampling}}(}
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ count,}
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ N>\ \&ranges,}
+\DoxyCodeLine{00220\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ base\_min\_dist,}
+\DoxyCodeLine{00221\ \ \ \ \ ScaleFn\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ scale\_fn,}
+\DoxyCodeLine{00222\ \ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ \ \ \ \ \ \ seed\ =\ std::nullopt,}
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ new\_points\_attempts\ =\ 30)}
+\DoxyCodeLine{00224\ \{}
+\DoxyCodeLine{00225\ \ \ \textcolor{keywordflow}{if}\ (count\ ==\ 0)}
+\DoxyCodeLine{00226\ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ std::mt19937\ gen(seed\ ?\ *seed\ :\ std::random\_device\{\}());}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ \ \ T\ cell\_size\ =\ base\_min\_dist\ /\ std::sqrt(\textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(N));}
 \DoxyCodeLine{00231\ }
-\DoxyCodeLine{00232\ \ \ \mbox{\hyperlink{structps_1_1GridND}{GridND<T,\ N>}}\ grid(grid\_size,\ cell\_size);}
-\DoxyCodeLine{00233\ }
-\DoxyCodeLine{00234\ \ \ std::vector<Point<T,\ N>>\ sample\_points;}
-\DoxyCodeLine{00235\ \ \ sample\_points.reserve(count);}
-\DoxyCodeLine{00236\ }
-\DoxyCodeLine{00237\ \ \ std::vector<Point<T,\ N>>\ process\_list;}
-\DoxyCodeLine{00238\ \ \ process\_list.reserve(count);}
+\DoxyCodeLine{00232\ \ \ \textcolor{comment}{//\ Compute\ grid\ size\ per\ axis}}
+\DoxyCodeLine{00233\ \ \ std::array<size\_t,\ N>\ grid\_size\{\};}
+\DoxyCodeLine{00234\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ N;\ ++i)}
+\DoxyCodeLine{00235\ \ \ \{}
+\DoxyCodeLine{00236\ \ \ \ \ T\ axis\_len\ =\ ranges[i].second\ -\/\ ranges[i].first;}
+\DoxyCodeLine{00237\ \ \ \ \ grid\_size[i]\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(std::ceil(axis\_len\ /\ cell\_size));}
+\DoxyCodeLine{00238\ \ \ \}}
 \DoxyCodeLine{00239\ }
-\DoxyCodeLine{00240\ \ \ \textcolor{comment}{//\ Generate\ first\ point\ randomly\ inside\ ranges}}
-\DoxyCodeLine{00241\ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ first\_point;}
-\DoxyCodeLine{00242\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ N;\ ++i)}
-\DoxyCodeLine{00243\ \ \ \{}
-\DoxyCodeLine{00244\ \ \ \ \ std::uniform\_real\_distribution<T>\ dist\_axis(ranges[i].first,\ ranges[i].second);}
-\DoxyCodeLine{00245\ \ \ \ \ first\_point[i]\ =\ dist\_axis(gen);}
-\DoxyCodeLine{00246\ \ \ \}}
+\DoxyCodeLine{00240\ \ \ \mbox{\hyperlink{structps_1_1GridND}{GridND<T,\ N>}}\ grid(grid\_size,\ cell\_size);}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \ \ std::vector<Point<T,\ N>>\ sample\_points;}
+\DoxyCodeLine{00243\ \ \ sample\_points.reserve(count);}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ std::vector<Point<T,\ N>>\ process\_list;}
+\DoxyCodeLine{00246\ \ \ process\_list.reserve(count);}
 \DoxyCodeLine{00247\ }
-\DoxyCodeLine{00248\ \ \ sample\_points.push\_back(first\_point);}
-\DoxyCodeLine{00249\ \ \ process\_list.push\_back(first\_point);}
-\DoxyCodeLine{00250\ }
-\DoxyCodeLine{00251\ \ \ grid[grid.\mbox{\hyperlink{structps_1_1GridND_ab64bb87b538321af8b8f219022cf08d5}{point\_to\_grid}}(first\_point,\ ranges)]\ =\ first\_point;}
-\DoxyCodeLine{00252\ }
-\DoxyCodeLine{00253\ \ \ \textcolor{keywordflow}{while}\ (!process\_list.empty()\ \&\&\ sample\_points.size()\ <\ count)}
-\DoxyCodeLine{00254\ \ \ \{}
-\DoxyCodeLine{00255\ \ \ \ \ \textcolor{comment}{//\ Pop\ a\ random\ element\ from\ process\_list}}
-\DoxyCodeLine{00256\ \ \ \ \ std::uniform\_int\_distribution<size\_t>\ dist\_idx(0,\ process\_list.size()\ -\/\ 1);}
-\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ idx\ =\ dist\_idx(gen);}
-\DoxyCodeLine{00258\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ point\ =\ process\_list[idx];}
-\DoxyCodeLine{00259\ }
-\DoxyCodeLine{00260\ \ \ \ \ \textcolor{comment}{//\ Remove\ from\ process\_list\ (swap-\/pop)}}
-\DoxyCodeLine{00261\ \ \ \ \ process\_list[idx]\ =\ process\_list.back();}
-\DoxyCodeLine{00262\ \ \ \ \ process\_list.pop\_back();}
-\DoxyCodeLine{00263\ }
-\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ new\_points\_attempts\ \&\&\ sample\_points.size()\ <\ count;\ ++i)}
-\DoxyCodeLine{00265\ \ \ \ \ \{}
-\DoxyCodeLine{00266\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ new\_point\ =\ generate\_random\_point\_around<T,\ N>(point,}
-\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ base\_min\_dist,}
-\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gen,}
-\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ scale\_fn);}
-\DoxyCodeLine{00270\ }
-\DoxyCodeLine{00271\ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ bounds}}
-\DoxyCodeLine{00272\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ in\_bounds\ =\ \textcolor{keyword}{true};}
-\DoxyCodeLine{00273\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
-\DoxyCodeLine{00274\ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_point[d]\ <\ ranges[d].first\ ||\ new\_point[d]\ >\ ranges[d].second)}
-\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ in\_bounds\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
-\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00280\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00281\ }
-\DoxyCodeLine{00282\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!in\_bounds)}
-\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{00284\ }
-\DoxyCodeLine{00285\ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ neighbors\ with\ scaled\ distance}}
-\DoxyCodeLine{00286\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{namespaceps_aedb5908eae325f054e4f3dd6b9b223af}{in\_neighborhood}}(grid,\ new\_point,\ base\_min\_dist,\ ranges,\ scale\_fn))}
-\DoxyCodeLine{00287\ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ sample\_points.push\_back(new\_point);}
-\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ process\_list.push\_back(new\_point);}
-\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ grid[grid.\mbox{\hyperlink{structps_1_1GridND_ab64bb87b538321af8b8f219022cf08d5}{point\_to\_grid}}(new\_point,\ ranges)]\ =\ new\_point;}
-\DoxyCodeLine{00291\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00292\ \ \ \ \ \}}
-\DoxyCodeLine{00293\ \ \ \}}
-\DoxyCodeLine{00294\ }
-\DoxyCodeLine{00295\ \ \ \textcolor{keywordflow}{return}\ sample\_points;}
-\DoxyCodeLine{00296\ \}}
-\DoxyCodeLine{00297\ }
-\DoxyCodeLine{00320\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00321\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a6f7ab76c5d0a395aa78b85bad488e94e}{poisson\_disk\_sampling\_uniform}}(}
-\DoxyCodeLine{00322\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ count,}
-\DoxyCodeLine{00323\ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ N>\ \&ranges,}
-\DoxyCodeLine{00324\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ base\_min\_dist,}
-\DoxyCodeLine{00325\ \ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ \ \ \ \ \ \ seed\ =\ std::nullopt,}
-\DoxyCodeLine{00326\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ new\_points\_attempts\ =\ 30)}
-\DoxyCodeLine{00327\ \{}
-\DoxyCodeLine{00328\ \ \ \textcolor{keyword}{auto}\ scale\_fn\ =\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{ps::Point<T,\ N>}}\ \&\ \textcolor{comment}{/*p*/})\ -\/>\ \textcolor{keywordtype}{float}\ \{\ \textcolor{keywordflow}{return}\ 1.f;\ \};}
-\DoxyCodeLine{00329\ }
-\DoxyCodeLine{00330\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a5b1e932ba8a20e05cd8c113179aa77c8}{poisson\_disk\_sampling}}(count,}
-\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ranges,}
-\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ base\_min\_dist,}
-\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ scale\_fn,}
-\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ seed,}
-\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ new\_points\_attempts);}
-\DoxyCodeLine{00336\ \}}
-\DoxyCodeLine{00337\ }
-\DoxyCodeLine{00338\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+\DoxyCodeLine{00248\ \ \ \textcolor{comment}{//\ Generate\ first\ point\ randomly\ inside\ ranges}}
+\DoxyCodeLine{00249\ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ first\_point;}
+\DoxyCodeLine{00250\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ N;\ ++i)}
+\DoxyCodeLine{00251\ \ \ \{}
+\DoxyCodeLine{00252\ \ \ \ \ std::uniform\_real\_distribution<T>\ dist\_axis(ranges[i].first,\ ranges[i].second);}
+\DoxyCodeLine{00253\ \ \ \ \ first\_point[i]\ =\ dist\_axis(gen);}
+\DoxyCodeLine{00254\ \ \ \}}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \ \ sample\_points.push\_back(first\_point);}
+\DoxyCodeLine{00257\ \ \ process\_list.push\_back(first\_point);}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \ \ grid[grid.\mbox{\hyperlink{structps_1_1GridND_ab64bb87b538321af8b8f219022cf08d5}{point\_to\_grid}}(first\_point,\ ranges)]\ =\ first\_point;}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \ \ \textcolor{keywordflow}{while}\ (!process\_list.empty()\ \&\&\ sample\_points.size()\ <\ count)}
+\DoxyCodeLine{00262\ \ \ \{}
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{comment}{//\ Pop\ a\ random\ element\ from\ process\_list}}
+\DoxyCodeLine{00264\ \ \ \ \ std::uniform\_int\_distribution<size\_t>\ dist\_idx(0,\ process\_list.size()\ -\/\ 1);}
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ idx\ =\ dist\_idx(gen);}
+\DoxyCodeLine{00266\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ point\ =\ process\_list[idx];}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \ \ \ \ \textcolor{comment}{//\ Remove\ from\ process\_list\ (swap-\/pop)}}
+\DoxyCodeLine{00269\ \ \ \ \ process\_list[idx]\ =\ process\_list.back();}
+\DoxyCodeLine{00270\ \ \ \ \ process\_list.pop\_back();}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ new\_points\_attempts\ \&\&\ sample\_points.size()\ <\ count;\ ++i)}
+\DoxyCodeLine{00273\ \ \ \ \ \{}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ new\_point\ =\ generate\_random\_point\_around<T,\ N>(point,}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ base\_min\_dist,}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gen,}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ scale\_fn);}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ bounds}}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ in\_bounds\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (new\_point[d]\ <\ ranges[d].first\ ||\ new\_point[d]\ >\ ranges[d].second)}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ in\_bounds\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!in\_bounds)}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ neighbors\ with\ scaled\ distance}}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{namespaceps_aedb5908eae325f054e4f3dd6b9b223af}{in\_neighborhood}}(grid,\ new\_point,\ base\_min\_dist,\ ranges,\ scale\_fn))}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ sample\_points.push\_back(new\_point);}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ process\_list.push\_back(new\_point);}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ grid[grid.\mbox{\hyperlink{structps_1_1GridND_ab64bb87b538321af8b8f219022cf08d5}{point\_to\_grid}}(new\_point,\ ranges)]\ =\ new\_point;}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00300\ \ \ \ \ \}}
+\DoxyCodeLine{00301\ \ \ \}}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \ \ \textcolor{keywordflow}{return}\ sample\_points;}
+\DoxyCodeLine{00304\ \}}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00333\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00334\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a6f7ab76c5d0a395aa78b85bad488e94e}{poisson\_disk\_sampling\_uniform}}(}
+\DoxyCodeLine{00335\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ count,}
+\DoxyCodeLine{00336\ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ N>\ \&ranges,}
+\DoxyCodeLine{00337\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ base\_min\_dist,}
+\DoxyCodeLine{00338\ \ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ \ \ \ \ \ \ seed\ =\ std::nullopt,}
+\DoxyCodeLine{00339\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ new\_points\_attempts\ =\ 30)}
+\DoxyCodeLine{00340\ \{}
+\DoxyCodeLine{00341\ \ \ \textcolor{keyword}{auto}\ scale\_fn\ =\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{ps::Point<T,\ N>}}\ \&\ \textcolor{comment}{/*p*/})\ -\/>\ \textcolor{keywordtype}{float}\ \{\ \textcolor{keywordflow}{return}\ 1.f;\ \};}
+\DoxyCodeLine{00342\ }
+\DoxyCodeLine{00343\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a5b1e932ba8a20e05cd8c113179aa77c8}{poisson\_disk\_sampling}}(count,}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ranges,}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ base\_min\_dist,}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ scale\_fn,}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ seed,}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ new\_points\_attempts);}
+\DoxyCodeLine{00349\ \}}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ \}\ \textcolor{comment}{//\ namespace\ ps}}
 
 \end{DoxyCode}
