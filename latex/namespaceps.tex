@@ -12,104 +12,104 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 \doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{using}} \mbox{\hyperlink{namespaceps_ac9ecfd54020ea95c133d1fc99cf4f75a}{KDTree}} = nanoflann\+::\+KDTree\+Single\+Index\+Adaptor$<$ nanoflann\+::\+L2\+\_\+\+Simple\+\_\+\+Adaptor$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$, \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\using \mbox{\hyperlink{namespaceps_ac9ecfd54020ea95c133d1fc99cf4f75a}{KDTree}} = nanoflann\+::\+KDTree\+Single\+Index\+Adaptor$<$ nanoflann\+::\+L2\+\_\+\+Simple\+\_\+\+Adaptor$<$ T, \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}$<$ T, N $>$ $>$, \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}$<$ T, N $>$, N $>$
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , std\+::size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_ad1f4a1110a40bf1c6a687182db6b4b94}{distance\+\_\+rejection\+\_\+filter}} (\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&\mbox{\hyperlink{structps_1_1Point}{points}}, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{min\+\_\+dist}})
+{\footnotesize template$<$typename T , std\+::size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_ad1f4a1110a40bf1c6a687182db6b4b94}{distance\+\_\+rejection\+\_\+filter}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, T min\+\_\+dist)
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , std\+::size\+\_\+t N, \mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{Scale\+Fn}} $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_af23d114903fd5cb3ccb19d3e64183632}{distance\+\_\+rejection\+\_\+filter\+\_\+warped}} (\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&\mbox{\hyperlink{structps_1_1Point}{points}}, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{base\+\_\+min\+\_\+dist}}, \mbox{\hyperlink{structps_1_1Point}{Scale\+Fn}} \mbox{\hyperlink{structps_1_1Point}{scale\+\_\+fn}})
+{\footnotesize template$<$typename T , std\+::size\+\_\+t N, typename Scale\+Fn $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_af23d114903fd5cb3ccb19d3e64183632}{distance\+\_\+rejection\+\_\+filter\+\_\+warped}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, T base\+\_\+min\+\_\+dist, Scale\+Fn scale\+\_\+fn)
 \begin{DoxyCompactList}\small\item\em Filters points based on spatially-\/varying minimal distance constraints. \end{DoxyCompactList}\item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N, \mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{Density\+Fn}} $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a0e4055582214237ee9f21369133e6194}{function\+\_\+rejection\+\_\+filter}} (\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&\mbox{\hyperlink{structps_1_1Point}{points}}, \mbox{\hyperlink{structps_1_1Point}{Density\+Fn}} \mbox{\hyperlink{structps_1_1Point}{density\+\_\+fn}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt)
+{\footnotesize template$<$typename T , size\+\_\+t N, typename Density\+Fn $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a0e4055582214237ee9f21369133e6194}{function\+\_\+rejection\+\_\+filter}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, Density\+Fn density\+\_\+fn, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
 \begin{DoxyCompactList}\small\item\em Filters points based on a spatial probability (density) function. \end{DoxyCompactList}\item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a913ab9d687ee42d04488e5eb0373e23a}{gaussian\+\_\+clusters}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{structps_1_1Point}{cluster\+\_\+centers}}, \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{points\+\_\+per\+\_\+cluster}}, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{spread}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt)
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a913ab9d687ee42d04488e5eb0373e23a}{gaussian\+\_\+clusters}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ cluster\+\_\+centers, size\+\_\+t points\+\_\+per\+\_\+cluster, T spread, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
 \begin{DoxyCompactList}\small\item\em Generates clustered points around provided cluster centers using a Gaussian distribution. \end{DoxyCompactList}\item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a0efaff8017d5a171ffdf0ed0201bd65d}{gaussian\+\_\+clusters}} (\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{cluster\+\_\+count}}, \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{points\+\_\+per\+\_\+cluster}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{axis\+\_\+ranges}}, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{spread}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt)
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a0efaff8017d5a171ffdf0ed0201bd65d}{gaussian\+\_\+clusters}} (size\+\_\+t cluster\+\_\+count, size\+\_\+t points\+\_\+per\+\_\+cluster, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, T spread, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
 \begin{DoxyCompactList}\small\item\em Generates clustered points around random centers uniformly sampled in a bounding box. \end{DoxyCompactList}\item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_aa8c3b3b3367276f9a194938599d2463b}{halton\+\_\+sequence}} (\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{count}}, \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{shift}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_aa8c3b3b3367276f9a194938599d2463b}{halton\+\_\+sequence}} (size\+\_\+t count, size\+\_\+t shift)
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a81b18395a05f0bb4d483406e79aa9524}{halton}} (\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{count}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{axis\+\_\+ranges}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt)
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a81b18395a05f0bb4d483406e79aa9524}{halton}} (size\+\_\+t count, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
 \begin{DoxyCompactList}\small\item\em Generates a set of quasi-\/random points using the Halton sequence in N dimensions. \end{DoxyCompactList}\item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_ae21a8c51533330ead4ebe76eed3e72b3}{hammersley\+\_\+sequence}} (\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{count}}, \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{shift}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_ae21a8c51533330ead4ebe76eed3e72b3}{hammersley\+\_\+sequence}} (size\+\_\+t count, size\+\_\+t shift)
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_aad0cc7bc81f7cac9f0be26177b9986a6}{hammersley}} (\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{count}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{axis\+\_\+ranges}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt)
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_aad0cc7bc81f7cac9f0be26177b9986a6}{hammersley}} (size\+\_\+t count, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
 \begin{DoxyCompactList}\small\item\em Generates a set of quasi-\/random points using the Hammersley sequence in N dimensions. \end{DoxyCompactList}\item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N, \mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{Density\+Fn}} $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a932640b18d76a7e336fc760e9cf5511b}{importance\+\_\+resampling}} (\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{count}}, \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{oversampling\+\_\+ratio}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{axis\+\_\+ranges}}, \mbox{\hyperlink{structps_1_1Point}{Density\+Fn}} \mbox{\hyperlink{structps_1_1Point}{density\+\_\+fn}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt)
+{\footnotesize template$<$typename T , size\+\_\+t N, typename Density\+Fn $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a932640b18d76a7e336fc760e9cf5511b}{importance\+\_\+resampling}} (size\+\_\+t count, size\+\_\+t oversampling\+\_\+ratio, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, Density\+Fn density\+\_\+fn, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
 \begin{DoxyCompactList}\small\item\em Generates a point set via importance resampling from a quasi-\/random oversampled grid. \end{DoxyCompactList}\item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_ad8525c124fef24618bf574b9b7b1ece8}{jittered\+\_\+grid}} (\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{count}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{axis\+\_\+ranges}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{jitter\+\_\+amount}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{stagger\+\_\+ratio}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt)
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_ad8525c124fef24618bf574b9b7b1ece8}{jittered\+\_\+grid}} (size\+\_\+t count, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, const std\+::array$<$ T, N $>$ \&jitter\+\_\+amount, const std\+::array$<$ T, N $>$ \&stagger\+\_\+ratio, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
 \begin{DoxyCompactList}\small\item\em Generates a point set on a jittered and optionally staggered grid. \end{DoxyCompactList}\item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_ae90df8db8e751ff4b61298114f092714}{jittered\+\_\+grid}} (\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{count}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{axis\+\_\+ranges}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt)
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_ae90df8db8e751ff4b61298114f092714}{jittered\+\_\+grid}} (size\+\_\+t count, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
 \begin{DoxyCompactList}\small\item\em Generates a jittered grid of points with full jitter and no stagger. \end{DoxyCompactList}\item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , std\+::size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a9ca14831de223ff62a6c3ec93e96a7c0}{latin\+\_\+hypercube\+\_\+sampling}} (std\+::size\+\_\+t \mbox{\hyperlink{structps_1_1Point}{sample\+\_\+count}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{axis\+\_\+ranges}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt)
+{\footnotesize template$<$typename T , std\+::size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a9ca14831de223ff62a6c3ec93e96a7c0}{latin\+\_\+hypercube\+\_\+sampling}} (std\+::size\+\_\+t sample\+\_\+count, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{namespaceps_af9ee1cf5d335276b7fabe6f1daddf1b0}{operator+}} (\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{a}}, \mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{b}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_af9ee1cf5d335276b7fabe6f1daddf1b0}{operator+}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&a, const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&b)
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{namespaceps_aa369956286bc3f09dfdc146a5b2a49f1}{operator-\/}} (\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{a}}, \mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{b}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_aa369956286bc3f09dfdc146a5b2a49f1}{operator-\/}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&a, const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&b)
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{namespaceps_a6fd3a6df3727a04f9baba3b8b87a903b}{operator\texorpdfstring{$\ast$}{*}}} (\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{a}}, \mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{b}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_a6fd3a6df3727a04f9baba3b8b87a903b}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&a, const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&b)
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{namespaceps_a585704d3f738c5eb899810fc9308a60e}{operator/}} (\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{a}}, \mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{b}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_a585704d3f738c5eb899810fc9308a60e}{operator/}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&a, const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&b)
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{namespaceps_a366ef094d65da865384b6fb77aac5d5f}{operator+}} (\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{p}}, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{scalar}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_a366ef094d65da865384b6fb77aac5d5f}{operator+}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&p, T scalar)
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{namespaceps_a79196b5b8a95ad9d3bc2ad698425944f}{operator-\/}} (\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{p}}, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{scalar}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_a79196b5b8a95ad9d3bc2ad698425944f}{operator-\/}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&p, T scalar)
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{namespaceps_acd4dc781f43ba8a50daa139682846d4b}{operator\texorpdfstring{$\ast$}{*}}} (\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{p}}, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{scalar}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_acd4dc781f43ba8a50daa139682846d4b}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&p, T scalar)
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{namespaceps_a6663b4f1e9c5ee48e2bf6e1896430580}{operator/}} (\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{p}}, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{scalar}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_a6663b4f1e9c5ee48e2bf6e1896430580}{operator/}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&p, T scalar)
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{namespaceps_abfd6fe71db1c4df607bfdace9dffb5b4}{operator\texorpdfstring{$\ast$}{*}}} (\mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{scalar}}, \mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{p}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_abfd6fe71db1c4df607bfdace9dffb5b4}{operator\texorpdfstring{$\ast$}{*}}} (T scalar, const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&p)
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{namespaceps_afe774cb61bde6358f8a7024c42db9804}{operator+}} (\mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{scalar}}, \mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{p}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_afe774cb61bde6358f8a7024c42db9804}{operator+}} (T scalar, const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&p)
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{namespaceps_ace7642868199df621df9139e5179767b}{dot}} (\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{a}}, \mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{b}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\T \mbox{\hyperlink{namespaceps_ace7642868199df621df9139e5179767b}{dot}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&a, const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&b)
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{namespaceps_a7c3e161560ad3000aa4e2218291b169c}{length\+\_\+squared}} (\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{a}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\T \mbox{\hyperlink{namespaceps_a7c3e161560ad3000aa4e2218291b169c}{length\+\_\+squared}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&a)
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{namespaceps_a38d89dd8b52a63eabb39ef5e425d5746}{length}} (\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{a}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\T \mbox{\hyperlink{namespaceps_a38d89dd8b52a63eabb39ef5e425d5746}{length}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&a)
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{namespaceps_a7de6090e2c8291401816be9bc6cda914}{normalized}} (\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{a}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_a7de6090e2c8291401816be9bc6cda914}{normalized}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&a)
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{namespaceps_aecf2b150ec16bf286e6a7b462c4d5808}{distance\+\_\+squared}} (\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{a}}, \mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{b}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\T \mbox{\hyperlink{namespaceps_aecf2b150ec16bf286e6a7b462c4d5808}{distance\+\_\+squared}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&a, const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&b)
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{namespaceps_ac0b74f22d427d199ab0df8f6942d3b11}{distance}} (\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{a}}, \mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{b}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\T \mbox{\hyperlink{namespaceps_ac0b74f22d427d199ab0df8f6942d3b11}{distance}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&a, const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&b)
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{namespaceps_a79914e9fc2dd02bacd38e9bd32e21baa}{lerp}} (\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{a}}, \mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{b}}, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{t}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_a79914e9fc2dd02bacd38e9bd32e21baa}{lerp}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&a, const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&b, T t)
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{namespaceps_adb0bd4806c7e79eddef0e1263740ae28}{clamp}} (\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{p}}, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{min\+\_\+val}}, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{max\+\_\+val}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_adb0bd4806c7e79eddef0e1263740ae28}{clamp}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&p, T min\+\_\+val, T max\+\_\+val)
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N, \mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{Scale\+Fn}} $>$ }\\\mbox{\hyperlink{structps_1_1Point}{bool}} \mbox{\hyperlink{namespaceps_aedb5908eae325f054e4f3dd6b9b223af}{in\+\_\+neighborhood}} (\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1GridND}{Grid\+ND}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{grid}}, \mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{p}}, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{base\+\_\+min\+\_\+dist}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{ranges}}, \mbox{\hyperlink{structps_1_1Point}{Scale\+Fn}} \mbox{\hyperlink{structps_1_1Point}{scale\+\_\+fn}})
+{\footnotesize template$<$typename T , size\+\_\+t N, typename Scale\+Fn $>$ }\\bool \mbox{\hyperlink{namespaceps_aedb5908eae325f054e4f3dd6b9b223af}{in\+\_\+neighborhood}} (const \mbox{\hyperlink{structps_1_1GridND}{Grid\+ND}}$<$ T, N $>$ \&grid, const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&p, T base\+\_\+min\+\_\+dist, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&ranges, Scale\+Fn scale\+\_\+fn)
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{namespaceps_a898bca65491a14a41bfdd50fdc6230b8}{generate\+\_\+random\+\_\+point\+\_\+around}} (\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{center}}, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{base\+\_\+min\+\_\+dist}}, std\+::mt19937 \&\mbox{\hyperlink{structps_1_1Point}{gen}}, std\+::function$<$ \mbox{\hyperlink{structps_1_1Point}{T}}(\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&)$>$ \mbox{\hyperlink{structps_1_1Point}{scale\+\_\+fn}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_a898bca65491a14a41bfdd50fdc6230b8}{generate\+\_\+random\+\_\+point\+\_\+around}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&center, T base\+\_\+min\+\_\+dist, std\+::mt19937 \&gen, std\+::function$<$ T(const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&)$>$ scale\+\_\+fn)
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N, \mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{Scale\+Fn}} $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a5b1e932ba8a20e05cd8c113179aa77c8}{poisson\+\_\+disk\+\_\+sampling}} (\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{count}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{ranges}}, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{base\+\_\+min\+\_\+dist}}, \mbox{\hyperlink{structps_1_1Point}{Scale\+Fn}} \mbox{\hyperlink{structps_1_1Point}{scale\+\_\+fn}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt, \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{new\+\_\+points\+\_\+attempts}}=30)
+{\footnotesize template$<$typename T , size\+\_\+t N, typename Scale\+Fn $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a5b1e932ba8a20e05cd8c113179aa77c8}{poisson\+\_\+disk\+\_\+sampling}} (size\+\_\+t count, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&ranges, T base\+\_\+min\+\_\+dist, Scale\+Fn scale\+\_\+fn, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt, size\+\_\+t new\+\_\+points\+\_\+attempts=30)
 \begin{DoxyCompactList}\small\item\em Generate a set of Poisson disk samples in N-\/dimensional space, possibly with a warped metric. \end{DoxyCompactList}\item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a6f7ab76c5d0a395aa78b85bad488e94e}{poisson\+\_\+disk\+\_\+sampling\+\_\+uniform}} (\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{count}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{ranges}}, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{base\+\_\+min\+\_\+dist}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt, \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{new\+\_\+points\+\_\+attempts}}=30)
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a6f7ab76c5d0a395aa78b85bad488e94e}{poisson\+\_\+disk\+\_\+sampling\+\_\+uniform}} (size\+\_\+t count, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&ranges, T base\+\_\+min\+\_\+dist, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt, size\+\_\+t new\+\_\+points\+\_\+attempts=30)
 \begin{DoxyCompactList}\small\item\em Generate uniformly distributed Poisson disk samples in N-\/dimensional space. \end{DoxyCompactList}\item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{random}} (\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{count}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{axis\+\_\+ranges}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt)
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{random}} (size\+\_\+t count, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
 \begin{DoxyCompactList}\small\item\em Generates a specified number of uniformly distributed random points in N-\/dimensional space. \end{DoxyCompactList}\item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , std\+::size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_ab818126518017939773c8a43bd92fc42}{random\+\_\+rejection\+\_\+filter}} (\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&\mbox{\hyperlink{structps_1_1Point}{points}}, std\+::size\+\_\+t \mbox{\hyperlink{structps_1_1Point}{target\+\_\+count}})
+{\footnotesize template$<$typename T , std\+::size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_ab818126518017939773c8a43bd92fc42}{random\+\_\+rejection\+\_\+filter}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, std\+::size\+\_\+t target\+\_\+count)
 \begin{DoxyCompactList}\small\item\em Randomly retains a fixed number of points from the input set. \end{DoxyCompactList}\item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , std\+::size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a66183362443c104da098224df9bcd2a1}{random\+\_\+rejection\+\_\+filter}} (\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&\mbox{\hyperlink{structps_1_1Point}{points}}, \mbox{\hyperlink{structps_1_1Point}{float}} \mbox{\hyperlink{structps_1_1Point}{keep\+\_\+fraction}})
+{\footnotesize template$<$typename T , std\+::size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a66183362443c104da098224df9bcd2a1}{random\+\_\+rejection\+\_\+filter}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, float keep\+\_\+fraction)
 \begin{DoxyCompactList}\small\item\em Randomly retains a fraction of the input points. \end{DoxyCompactList}\item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a9c8c5679d987d3023b9d3beffd81e6df}{filter\+\_\+points\+\_\+in\+\_\+range}} (\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&\mbox{\hyperlink{structps_1_1Point}{points}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{axis\+\_\+ranges}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a9c8c5679d987d3023b9d3beffd81e6df}{filter\+\_\+points\+\_\+in\+\_\+range}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges)
 \begin{DoxyCompactList}\small\item\em Filters points that lie within the specified axis-\/aligned bounding box. \end{DoxyCompactList}\item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , std\+::size\+\_\+t N, \mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{Func}} $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a5350b843397a5bf2a748115108ffa21a}{filter\+\_\+points\+\_\+function}} (\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&\mbox{\hyperlink{structps_1_1Point}{points}}, \mbox{\hyperlink{structps_1_1Point}{Func}} \mbox{\hyperlink{structps_1_1Point}{fn}})
+{\footnotesize template$<$typename T , std\+::size\+\_\+t N, typename Func $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a5350b843397a5bf2a748115108ffa21a}{filter\+\_\+points\+\_\+function}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, Func fn)
 \begin{DoxyCompactList}\small\item\em Filters points using a user-\/provided function. \end{DoxyCompactList}\item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{void}} \mbox{\hyperlink{namespaceps_a2b8197901114d1c4fd6cfe19efcd3862}{refit\+\_\+points\+\_\+to\+\_\+range}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&\mbox{\hyperlink{structps_1_1Point}{points}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{target\+\_\+ranges}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\void \mbox{\hyperlink{namespaceps_a2b8197901114d1c4fd6cfe19efcd3862}{refit\+\_\+points\+\_\+to\+\_\+range}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&target\+\_\+ranges)
 \begin{DoxyCompactList}\small\item\em Linearly remap a set of points to fit within the specified axis-\/aligned ranges. \end{DoxyCompactList}\item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{void}} \mbox{\hyperlink{namespaceps_a7addf1455112b7895f8de7c475eed850}{rescale\+\_\+points}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&\mbox{\hyperlink{structps_1_1Point}{points}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{ranges}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\void \mbox{\hyperlink{namespaceps_a7addf1455112b7895f8de7c475eed850}{rescale\+\_\+points}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&ranges)
 \begin{DoxyCompactList}\small\item\em Rescales normalized points (in \mbox{[}0, 1\mbox{]}) to specified axis-\/aligned ranges. \end{DoxyCompactList}\item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N, \mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{Density\+Fn}} $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a29ab0a94bbe26a22cb87bf8f44703527}{rejection\+\_\+sampling}} (\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{count}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{axis\+\_\+ranges}}, \mbox{\hyperlink{structps_1_1Point}{Density\+Fn}} \mbox{\hyperlink{structps_1_1Point}{density\+\_\+fn}}, std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$ \mbox{\hyperlink{structps_1_1Point}{seed}}=std\+::nullopt)
+{\footnotesize template$<$typename T , size\+\_\+t N, typename Density\+Fn $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a29ab0a94bbe26a22cb87bf8f44703527}{rejection\+\_\+sampling}} (size\+\_\+t count, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, Density\+Fn density\+\_\+fn, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
 \begin{DoxyCompactList}\small\item\em Generates random points using rejection sampling based on a user-\/defined density function. \end{DoxyCompactList}\item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{void}} \mbox{\hyperlink{namespaceps_aed8a3217a801c5b5706f4bcc3306bb18}{relaxation\+\_\+ktree}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&\mbox{\hyperlink{structps_1_1Point}{points}}, \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{k\+\_\+neighbors}}=8, \mbox{\hyperlink{structps_1_1Point}{T}} \mbox{\hyperlink{structps_1_1Point}{step\+\_\+size}}=\mbox{\hyperlink{structps_1_1Point}{T}}(0.\+1), \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} \mbox{\hyperlink{structps_1_1Point}{iterations}}=10)
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\void \mbox{\hyperlink{namespaceps_aed8a3217a801c5b5706f4bcc3306bb18}{relaxation\+\_\+ktree}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, size\+\_\+t k\+\_\+neighbors=8, T step\+\_\+size=T(0.\+1), size\+\_\+t iterations=10)
 \begin{DoxyCompactList}\small\item\em Relax a point set using a k-\/nearest neighbor repulsion algorithm with a KD-\/tree. \end{DoxyCompactList}\item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{bool}} \mbox{\hyperlink{namespaceps_a802637e81218193c0e65266c8075f002}{save\+\_\+points\+\_\+to\+\_\+csv}} (\mbox{\hyperlink{structps_1_1Point}{const}} std\+::string \&\mbox{\hyperlink{structps_1_1Point}{filename}}, \mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&\mbox{\hyperlink{structps_1_1Point}{points}}, \mbox{\hyperlink{structps_1_1Point}{bool}} \mbox{\hyperlink{structps_1_1Point}{write\+\_\+header}}=\mbox{\hyperlink{structps_1_1Point}{true}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\bool \mbox{\hyperlink{namespaceps_a802637e81218193c0e65266c8075f002}{save\+\_\+points\+\_\+to\+\_\+csv}} (const std\+::string \&filename, const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, bool write\+\_\+header=true)
 \begin{DoxyCompactList}\small\item\em Save a set of N-\/dimensional points to a CSV file. \end{DoxyCompactList}\item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a677f90d97b1dcfeaa2ecc299ee37f5bf}{merge\+\_\+by\+\_\+dimension}} (\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&\mbox{\hyperlink{structps_1_1Point}{components}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a677f90d97b1dcfeaa2ecc299ee37f5bf}{merge\+\_\+by\+\_\+dimension}} (const std\+::array$<$ std\+::vector$<$ T $>$, N $>$ \&components)
 \item 
-{\footnotesize template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ }\\std\+::array$<$ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{namespaceps_af6737277b9cc05d5f2ab248f17baea3b}{split\+\_\+by\+\_\+dimension}} (\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&\mbox{\hyperlink{structps_1_1Point}{points}})
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::array$<$ std\+::vector$<$ T $>$, N $>$ \mbox{\hyperlink{namespaceps_af6737277b9cc05d5f2ab248f17baea3b}{split\+\_\+by\+\_\+dimension}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points)
 \begin{DoxyCompactList}\small\item\em Rearranges a list of N-\/dimensional points into N separate coordinate vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -118,8 +118,8 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 \index{ps@{ps}!KDTree@{KDTree}}
 \index{KDTree@{KDTree}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{KDTree}{KDTree}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-\mbox{\hyperlink{structps_1_1Point}{using}} \mbox{\hyperlink{namespaceps_ac9ecfd54020ea95c133d1fc99cf4f75a}{ps\+::\+KDTree}} = \mbox{\hyperlink{structps_1_1Point}{typedef}} nanoflann\+::\+KDTree\+Single\+Index\+Adaptor$<$ nanoflann\+::\+L2\+\_\+\+Simple\+\_\+\+Adaptor$<$\mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}$<$\mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}}$>$ $>$, \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}$<$\mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}}$>$, \mbox{\hyperlink{structps_1_1Point}{N}}$>$}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+using \mbox{\hyperlink{namespaceps_ac9ecfd54020ea95c133d1fc99cf4f75a}{ps\+::\+KDTree}} = typedef nanoflann\+::\+KDTree\+Single\+Index\+Adaptor$<$ nanoflann\+::\+L2\+\_\+\+Simple\+\_\+\+Adaptor$<$T, \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}$<$T, N$>$ $>$, \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}$<$T, N$>$, N$>$}
 
 
 
@@ -128,29 +128,29 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 \index{ps@{ps}!clamp@{clamp}}
 \index{clamp@{clamp}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{clamp()}{clamp()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ ps\+::clamp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{p,  }\item[{\mbox{\hyperlink{structps_1_1Point}{T}}}]{min\+\_\+val,  }\item[{\mbox{\hyperlink{structps_1_1Point}{T}}}]{max\+\_\+val }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ ps\+::clamp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{p,  }\item[{T}]{min\+\_\+val,  }\item[{T}]{max\+\_\+val }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceps_ac0b74f22d427d199ab0df8f6942d3b11}\label{namespaceps_ac0b74f22d427d199ab0df8f6942d3b11} 
 \index{ps@{ps}!distance@{distance}}
 \index{distance@{distance}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{distance()}{distance()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-\mbox{\hyperlink{structps_1_1Point}{T}} ps\+::distance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{a,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{b }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+T ps\+::distance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{a,  }\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{b }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceps_ad1f4a1110a40bf1c6a687182db6b4b94}\label{namespaceps_ad1f4a1110a40bf1c6a687182db6b4b94} 
 \index{ps@{ps}!distance\_rejection\_filter@{distance\_rejection\_filter}}
 \index{distance\_rejection\_filter@{distance\_rejection\_filter}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{distance\_rejection\_filter()}{distance\_rejection\_filter()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , std\+::size\+\_\+t N$>$ \\
-std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::distance\+\_\+rejection\+\_\+filter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&}]{points,  }\item[{\mbox{\hyperlink{structps_1_1Point}{T}}}]{min\+\_\+dist }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , std\+::size\+\_\+t N$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::distance\+\_\+rejection\+\_\+filter (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{T}]{min\+\_\+dist }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceps_af23d114903fd5cb3ccb19d3e64183632}\label{namespaceps_af23d114903fd5cb3ccb19d3e64183632} 
 \index{ps@{ps}!distance\_rejection\_filter\_warped@{distance\_rejection\_filter\_warped}}
 \index{distance\_rejection\_filter\_warped@{distance\_rejection\_filter\_warped}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{distance\_rejection\_filter\_warped()}{distance\_rejection\_filter\_warped()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , std\+::size\+\_\+t N, \mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{Scale\+Fn}} $>$ \\
-std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::distance\+\_\+rejection\+\_\+filter\+\_\+warped (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&}]{points,  }\item[{\mbox{\hyperlink{structps_1_1Point}{T}}}]{base\+\_\+min\+\_\+dist,  }\item[{\mbox{\hyperlink{structps_1_1Point}{Scale\+Fn}}}]{scale\+\_\+fn }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , std\+::size\+\_\+t N, typename Scale\+Fn $>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::distance\+\_\+rejection\+\_\+filter\+\_\+warped (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{T}]{base\+\_\+min\+\_\+dist,  }\item[{Scale\+Fn}]{scale\+\_\+fn }\end{DoxyParamCaption})}
 
 
 
@@ -182,12 +182,12 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ A filtered set of points with variable sp
 \hypertarget{namespaceps_autotoc_md0}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md0}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structps_1_1Point}{scale\_fn}}\ =\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<float,\ 2>}}\&\ \mbox{\hyperlink{structps_1_1Point}{p}})\ \{}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ 0.5f\ +\ 0.5f\ *\ std::sin(\mbox{\hyperlink{structps_1_1Point}{p}}[0]\ *\ 3.1415f);\ \textcolor{comment}{//\ Varies\ between\ 0.5\ and}}
+\DoxyCodeLine{\ \textcolor{keyword}{auto}\ scale\_fn\ =\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<float,\ 2>}}\&\ p)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ 0.5f\ +\ 0.5f\ *\ std::sin(p[0]\ *\ 3.1415f);\ \textcolor{comment}{//\ Varies\ between\ 0.5\ and}}
 \DoxyCodeLine{1}
 \DoxyCodeLine{\};}
 \DoxyCodeLine{}
-\DoxyCodeLine{std::vector<Point<float,\ 2>>\ pts\ =\ \mbox{\hyperlink{structps_1_1Point}{ps::random<float,\ 2>}}(1000,\ \{\{0,1\},\{0,1\}\});}
+\DoxyCodeLine{std::vector<Point<float,\ 2>>\ pts\ =\ ps::random<float,\ 2>(1000,\ \{\{0,1\},\{0,1\}\});}
 \DoxyCodeLine{\textcolor{keyword}{auto}\ filtered\ =\ \mbox{\hyperlink{namespaceps_af23d114903fd5cb3ccb19d3e64183632}{ps::distance\_rejection\_filter\_warped}}(pts,\ 0.05f,\ scale\_fn);}
 
 \end{DoxyCode}
@@ -195,22 +195,22 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ A filtered set of points with variable sp
 \index{ps@{ps}!distance\_squared@{distance\_squared}}
 \index{distance\_squared@{distance\_squared}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{distance\_squared()}{distance\_squared()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-\mbox{\hyperlink{structps_1_1Point}{T}} ps\+::distance\+\_\+squared (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{a,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{b }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+T ps\+::distance\+\_\+squared (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{a,  }\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{b }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceps_ace7642868199df621df9139e5179767b}\label{namespaceps_ace7642868199df621df9139e5179767b} 
 \index{ps@{ps}!dot@{dot}}
 \index{dot@{dot}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{dot()}{dot()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-\mbox{\hyperlink{structps_1_1Point}{T}} ps\+::dot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{a,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{b }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+T ps\+::dot (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{a,  }\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{b }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceps_a5350b843397a5bf2a748115108ffa21a}\label{namespaceps_a5350b843397a5bf2a748115108ffa21a} 
 \index{ps@{ps}!filter\_points\_function@{filter\_points\_function}}
 \index{filter\_points\_function@{filter\_points\_function}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{filter\_points\_function()}{filter\_points\_function()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , std\+::size\+\_\+t N, \mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{Func}} $>$ \\
-std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::filter\+\_\+points\+\_\+function (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&}]{points,  }\item[{\mbox{\hyperlink{structps_1_1Point}{Func}}}]{fn }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , std\+::size\+\_\+t N, typename Func $>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::filter\+\_\+points\+\_\+function (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{Func}]{fn }\end{DoxyParamCaption})}
 
 
 
@@ -241,7 +241,7 @@ A vector of filtered points.
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ std::vector<Point<float,\ 2>>\ pts\ =\ \{\ \{0.f,\ 0.f\},\ \{1.f,\ 1.f\},\ \{2.f,\ 2.f\}}
 \DoxyCodeLine{\};}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ filtered\ =\ \mbox{\hyperlink{structps_1_1Point}{ps::filter\_points\_function<float,\ 2>}}(pts,\ [](\textcolor{keyword}{const}}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ filtered\ =\ ps::filter\_points\_function<float,\ 2>(pts,\ [](\textcolor{keyword}{const}}
 \DoxyCodeLine{Point<float,\ 2>\ \&p)\ \{\ \textcolor{keywordflow}{return}\ (p[0]\ +\ p[1]\ <\ 2.5f)\ ?\ 1.f\ :\ 0.f;\ \});}
 \DoxyCodeLine{\textcolor{comment}{//\ Keeps\ only\ \{\ \{0.f,\ 0.f\},\ \{1.f,\ 1.f\}\ \}}}
 
@@ -250,8 +250,8 @@ A vector of filtered points.
 \index{ps@{ps}!filter\_points\_in\_range@{filter\_points\_in\_range}}
 \index{filter\_points\_in\_range@{filter\_points\_in\_range}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{filter\_points\_in\_range()}{filter\_points\_in\_range()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::filter\+\_\+points\+\_\+in\+\_\+range (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&}]{points,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{axis\+\_\+ranges }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::filter\+\_\+points\+\_\+in\+\_\+range (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{axis\+\_\+ranges }\end{DoxyParamCaption})}
 
 
 
@@ -283,7 +283,7 @@ A vector containing only the points that lie within all specified axis ranges.
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ std::vector<Point<float,\ 2>>\ pts\ =\ \{\ \{0.5f,\ 0.5f\},\ \{2.f,\ 3.f\},\ \{-\/1.f,}
 \DoxyCodeLine{0.f\}\ \};}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ filtered\ =\ \mbox{\hyperlink{structps_1_1Point}{ps::filter\_points\_in\_range<float,\ 2>}}(pts,\ \{\ \{\{0.f,\ 1.f\},}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ filtered\ =\ ps::filter\_points\_in\_range<float,\ 2>(pts,\ \{\ \{\{0.f,\ 1.f\},}
 \DoxyCodeLine{\{0.f,\ 1.f\}\}\ \});}
 \DoxyCodeLine{\textcolor{comment}{//\ filtered\ now\ contains\ only\ \{\ \{0.5f,\ 0.5f\}\ \}}}
 
@@ -292,8 +292,8 @@ A vector containing only the points that lie within all specified axis ranges.
 \index{ps@{ps}!function\_rejection\_filter@{function\_rejection\_filter}}
 \index{function\_rejection\_filter@{function\_rejection\_filter}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{function\_rejection\_filter()}{function\_rejection\_filter()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N, \mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{Density\+Fn}} $>$ \\
-std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::function\+\_\+rejection\+\_\+filter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&}]{points,  }\item[{\mbox{\hyperlink{structps_1_1Point}{Density\+Fn}}}]{density\+\_\+fn,  }\item[{std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N, typename Density\+Fn $>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::function\+\_\+rejection\+\_\+filter (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{Density\+Fn}]{density\+\_\+fn,  }\item[{std\+::optional$<$ unsigned int $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
 
 
 
@@ -324,8 +324,8 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ of accepted points
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structps_1_1Point}{field}}\ =\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<float,\ 2>}}\&\ \mbox{\hyperlink{structps_1_1Point}{p}})\ \{}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ 0.5f\ +\ 0.5f\ *\ std::sin(\mbox{\hyperlink{structps_1_1Point}{p}}[0]\ *\ 10.0f);\ \textcolor{comment}{//\ Spatial\ density}}
+\DoxyCodeLine{\ \textcolor{keyword}{auto}\ field\ =\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<float,\ 2>}}\&\ p)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ 0.5f\ +\ 0.5f\ *\ std::sin(p[0]\ *\ 10.0f);\ \textcolor{comment}{//\ Spatial\ density}}
 \DoxyCodeLine{\};}
 \DoxyCodeLine{\textcolor{keyword}{auto}\ accepted\ =\ \mbox{\hyperlink{namespaceps_a0e4055582214237ee9f21369133e6194}{ps::function\_rejection\_filter}}(pts,\ field);}
 
@@ -334,8 +334,8 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ of accepted points
 \index{ps@{ps}!gaussian\_clusters@{gaussian\_clusters}}
 \index{gaussian\_clusters@{gaussian\_clusters}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{gaussian\_clusters()}{gaussian\_clusters()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::gaussian\+\_\+clusters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{cluster\+\_\+count,  }\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{points\+\_\+per\+\_\+cluster,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{axis\+\_\+ranges,  }\item[{\mbox{\hyperlink{structps_1_1Point}{T}}}]{spread,  }\item[{std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::gaussian\+\_\+clusters (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{cluster\+\_\+count,  }\item[{size\+\_\+t}]{points\+\_\+per\+\_\+cluster,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{axis\+\_\+ranges,  }\item[{T}]{spread,  }\item[{std\+::optional$<$ unsigned int $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
 
 
 
@@ -369,7 +369,7 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of clustered points
 \hypertarget{namespaceps_autotoc_md2}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md2}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structps_1_1Point}{clustered}}\ =\ \mbox{\hyperlink{structps_1_1Point}{ps::gaussian\_clusters<float,\ 2>}}(}
+\DoxyCodeLine{\ \textcolor{keyword}{auto}\ clustered\ =\ ps::gaussian\_clusters<float,\ 2>(}
 \DoxyCodeLine{\ \ \ \ 5,\ 100,}
 \DoxyCodeLine{\ \ \ \ \{\{\{0,1\},\ \{0,1\}\}\},\ 0.03f}
 \DoxyCodeLine{);}
@@ -379,8 +379,8 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of clustered points
 \index{ps@{ps}!gaussian\_clusters@{gaussian\_clusters}}
 \index{gaussian\_clusters@{gaussian\_clusters}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{gaussian\_clusters()}{gaussian\_clusters()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::gaussian\+\_\+clusters (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$}]{cluster\+\_\+centers,  }\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{points\+\_\+per\+\_\+cluster,  }\item[{\mbox{\hyperlink{structps_1_1Point}{T}}}]{spread,  }\item[{std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::gaussian\+\_\+clusters (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$}]{cluster\+\_\+centers,  }\item[{size\+\_\+t}]{points\+\_\+per\+\_\+cluster,  }\item[{T}]{spread,  }\item[{std\+::optional$<$ unsigned int $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
 
 
 
@@ -412,7 +412,7 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of clustered points
 \hypertarget{namespaceps_autotoc_md1}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md1}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ std::vector<Point<float,\ 2>>\ \mbox{\hyperlink{structps_1_1Point}{centers}}\ =\ \{}
+\DoxyCodeLine{\ std::vector<Point<float,\ 2>>\ centers\ =\ \{}
 \DoxyCodeLine{\ \ \ \ \{0.2f,\ 0.2f\},}
 \DoxyCodeLine{\ \ \ \ \{0.8f,\ 0.8f\}}
 \DoxyCodeLine{\};}
@@ -423,15 +423,15 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of clustered points
 \index{ps@{ps}!generate\_random\_point\_around@{generate\_random\_point\_around}}
 \index{generate\_random\_point\_around@{generate\_random\_point\_around}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{generate\_random\_point\_around()}{generate\_random\_point\_around()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ ps\+::generate\+\_\+random\+\_\+point\+\_\+around (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{center,  }\item[{\mbox{\hyperlink{structps_1_1Point}{T}}}]{base\+\_\+min\+\_\+dist,  }\item[{std\+::mt19937 \&}]{gen,  }\item[{std\+::function$<$ \mbox{\hyperlink{structps_1_1Point}{T}}(\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&)$>$}]{scale\+\_\+fn }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ ps\+::generate\+\_\+random\+\_\+point\+\_\+around (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{center,  }\item[{T}]{base\+\_\+min\+\_\+dist,  }\item[{std\+::mt19937 \&}]{gen,  }\item[{std\+::function$<$ T(const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&)$>$}]{scale\+\_\+fn }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceps_a81b18395a05f0bb4d483406e79aa9524}\label{namespaceps_a81b18395a05f0bb4d483406e79aa9524} 
 \index{ps@{ps}!halton@{halton}}
 \index{halton@{halton}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{halton()}{halton()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::halton (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{count,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{axis\+\_\+ranges,  }\item[{std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::halton (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{axis\+\_\+ranges,  }\item[{std\+::optional$<$ unsigned int $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
 
 
 
@@ -461,7 +461,7 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ The generated Halton points rescaled to t
 \hypertarget{namespaceps_autotoc_md3}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md3}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structps_1_1Point}{points}}\ =\ \mbox{\hyperlink{structps_1_1Point}{ps::halton<float,\ 2>}}(}
+\DoxyCodeLine{\ \textcolor{keyword}{auto}\ points\ =\ ps::halton<float,\ 2>(}
 \DoxyCodeLine{\ \ \ \ 1000,}
 \DoxyCodeLine{\ \ \ \ \{\{\{0,\ 1\},\ \{0,\ 1\}\}\},\ 42}
 \DoxyCodeLine{);}
@@ -471,15 +471,15 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ The generated Halton points rescaled to t
 \index{ps@{ps}!halton\_sequence@{halton\_sequence}}
 \index{halton\_sequence@{halton\_sequence}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{halton\_sequence()}{halton\_sequence()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::halton\+\_\+sequence (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{count,  }\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{shift }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::halton\+\_\+sequence (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count,  }\item[{size\+\_\+t}]{shift }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceps_aad0cc7bc81f7cac9f0be26177b9986a6}\label{namespaceps_aad0cc7bc81f7cac9f0be26177b9986a6} 
 \index{ps@{ps}!hammersley@{hammersley}}
 \index{hammersley@{hammersley}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{hammersley()}{hammersley()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::hammersley (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{count,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{axis\+\_\+ranges,  }\item[{std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::hammersley (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{axis\+\_\+ranges,  }\item[{std\+::optional$<$ unsigned int $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
 
 
 
@@ -509,7 +509,7 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ The generated Hammersley points rescaled 
 \hypertarget{namespaceps_autotoc_md4}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md4}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structps_1_1Point}{points}}\ =\ \mbox{\hyperlink{structps_1_1Point}{ps::hammersley<float,\ 3>}}(}
+\DoxyCodeLine{\ \textcolor{keyword}{auto}\ points\ =\ ps::hammersley<float,\ 3>(}
 \DoxyCodeLine{\ \ \ \ 512,}
 \DoxyCodeLine{\ \ \ \ \{\{\{-\/1,\ 1\},\ \{-\/1,\ 1\},\ \{0,\ 1\}\}\},\ 7}
 \DoxyCodeLine{);}
@@ -519,15 +519,15 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ The generated Hammersley points rescaled 
 \index{ps@{ps}!hammersley\_sequence@{hammersley\_sequence}}
 \index{hammersley\_sequence@{hammersley\_sequence}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{hammersley\_sequence()}{hammersley\_sequence()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::hammersley\+\_\+sequence (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{count,  }\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{shift }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::hammersley\+\_\+sequence (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count,  }\item[{size\+\_\+t}]{shift }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceps_a932640b18d76a7e336fc760e9cf5511b}\label{namespaceps_a932640b18d76a7e336fc760e9cf5511b} 
 \index{ps@{ps}!importance\_resampling@{importance\_resampling}}
 \index{importance\_resampling@{importance\_resampling}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{importance\_resampling()}{importance\_resampling()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N, \mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{Density\+Fn}} $>$ \\
-std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::importance\+\_\+resampling (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{count,  }\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{oversampling\+\_\+ratio,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{axis\+\_\+ranges,  }\item[{\mbox{\hyperlink{structps_1_1Point}{Density\+Fn}}}]{density\+\_\+fn,  }\item[{std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N, typename Density\+Fn $>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::importance\+\_\+resampling (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count,  }\item[{size\+\_\+t}]{oversampling\+\_\+ratio,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{axis\+\_\+ranges,  }\item[{Density\+Fn}]{density\+\_\+fn,  }\item[{std\+::optional$<$ unsigned int $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
 
 
 
@@ -565,11 +565,11 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ The resulting resampled point set
 \hypertarget{namespaceps_autotoc_md5}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md5}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{structps_1_1Point}{density}}\ =\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<float,\ 2>}}\ \&\mbox{\hyperlink{structps_1_1Point}{p}})\ \{}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ std::exp(-\/10.0f\ *\ (\mbox{\hyperlink{structps_1_1Point}{p}}[0]*\mbox{\hyperlink{structps_1_1Point}{p}}[0]\ +\ \mbox{\hyperlink{structps_1_1Point}{p}}[1]*\mbox{\hyperlink{structps_1_1Point}{p}}[1]));}
+\DoxyCodeLine{\ \textcolor{keyword}{auto}\ density\ =\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<float,\ 2>}}\ \&p)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ std::exp(-\/10.0f\ *\ (p[0]*p[0]\ +\ p[1]*p[1]));}
 \DoxyCodeLine{\};}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ points\ =\ \mbox{\hyperlink{structps_1_1Point}{ps::importance\_resampling<float,\ 2>}}(}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ points\ =\ ps::importance\_resampling<float,\ 2>(}
 \DoxyCodeLine{\ \ \ \ 500,\ 5,}
 \DoxyCodeLine{\ \ \ \ \{\{\{-\/1,\ 1\},\ \{-\/1,\ 1\}\}\},\ density,\ 42}
 \DoxyCodeLine{);}
@@ -579,15 +579,15 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ The resulting resampled point set
 \index{ps@{ps}!in\_neighborhood@{in\_neighborhood}}
 \index{in\_neighborhood@{in\_neighborhood}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{in\_neighborhood()}{in\_neighborhood()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N, \mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{Scale\+Fn}} $>$ \\
-\mbox{\hyperlink{structps_1_1Point}{bool}} ps\+::in\+\_\+neighborhood (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1GridND}{Grid\+ND}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{grid,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{p,  }\item[{\mbox{\hyperlink{structps_1_1Point}{T}}}]{base\+\_\+min\+\_\+dist,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{ranges,  }\item[{\mbox{\hyperlink{structps_1_1Point}{Scale\+Fn}}}]{scale\+\_\+fn }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N, typename Scale\+Fn $>$ \\
+bool ps\+::in\+\_\+neighborhood (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1GridND}{Grid\+ND}}$<$ T, N $>$ \&}]{grid,  }\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{p,  }\item[{T}]{base\+\_\+min\+\_\+dist,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{ranges,  }\item[{Scale\+Fn}]{scale\+\_\+fn }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceps_ad8525c124fef24618bf574b9b7b1ece8}\label{namespaceps_ad8525c124fef24618bf574b9b7b1ece8} 
 \index{ps@{ps}!jittered\_grid@{jittered\_grid}}
 \index{jittered\_grid@{jittered\_grid}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{jittered\_grid()}{jittered\_grid()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::jittered\+\_\+grid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{count,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{axis\+\_\+ranges,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{jitter\+\_\+amount,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{stagger\+\_\+ratio,  }\item[{std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::jittered\+\_\+grid (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{axis\+\_\+ranges,  }\item[{const std\+::array$<$ T, N $>$ \&}]{jitter\+\_\+amount,  }\item[{const std\+::array$<$ T, N $>$ \&}]{stagger\+\_\+ratio,  }\item[{std\+::optional$<$ unsigned int $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
 
 
 
@@ -623,20 +623,20 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ Sampled points
 \hypertarget{namespaceps_autotoc_md6}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md6}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ std::array<std::pair<float,\ float>,\ 2>\ \mbox{\hyperlink{structps_1_1Point}{bounds}}\ =\ \{\{\{0.0f,\ 1.0f\},\ \{0.0f,}
+\DoxyCodeLine{\ std::array<std::pair<float,\ float>,\ 2>\ bounds\ =\ \{\{\{0.0f,\ 1.0f\},\ \{0.0f,}
 \DoxyCodeLine{1.0f\}\}\};}
 \DoxyCodeLine{std::array<float,\ 2>\ jitter\ =\ \{0.8f,\ 0.8f\};}
 \DoxyCodeLine{std::array<float,\ 2>\ stagger\ =\ \{0.2f,\ 0.0f\};}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ samples\ =\ \mbox{\hyperlink{structps_1_1Point}{ps::jittered\_grid<float,\ 2>}}(256,\ bounds,\ jitter,\ stagger,\ 42);}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ samples\ =\ ps::jittered\_grid<float,\ 2>(256,\ bounds,\ jitter,\ stagger,\ 42);}
 
 \end{DoxyCode}
  \Hypertarget{namespaceps_ae90df8db8e751ff4b61298114f092714}\label{namespaceps_ae90df8db8e751ff4b61298114f092714} 
 \index{ps@{ps}!jittered\_grid@{jittered\_grid}}
 \index{jittered\_grid@{jittered\_grid}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{jittered\_grid()}{jittered\_grid()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::jittered\+\_\+grid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{count,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{axis\+\_\+ranges,  }\item[{std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::jittered\+\_\+grid (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{axis\+\_\+ranges,  }\item[{std\+::optional$<$ unsigned int $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
 
 
 
@@ -666,132 +666,129 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ Jittered point samples
 \hypertarget{namespaceps_autotoc_md7}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md7}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ std::array<std::pair<double,\ double>,\ 3>\ \mbox{\hyperlink{structps_1_1Point}{bounds}}\ =\ \{\{\{0,\ 1\},\ \{0,\ 1\},\ \{0,}
+\DoxyCodeLine{\ std::array<std::pair<double,\ double>,\ 3>\ bounds\ =\ \{\{\{0,\ 1\},\ \{0,\ 1\},\ \{0,}
 \DoxyCodeLine{1\}\}\};}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ points\ =\ \mbox{\hyperlink{structps_1_1Point}{ps::jittered\_grid<double,\ 3>}}(1000,\ bounds,\ 1234);}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ points\ =\ ps::jittered\_grid<double,\ 3>(1000,\ bounds,\ 1234);}
 
 \end{DoxyCode}
  \Hypertarget{namespaceps_a9ca14831de223ff62a6c3ec93e96a7c0}\label{namespaceps_a9ca14831de223ff62a6c3ec93e96a7c0} 
 \index{ps@{ps}!latin\_hypercube\_sampling@{latin\_hypercube\_sampling}}
 \index{latin\_hypercube\_sampling@{latin\_hypercube\_sampling}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{latin\_hypercube\_sampling()}{latin\_hypercube\_sampling()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , std\+::size\+\_\+t N$>$ \\
-std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::latin\+\_\+hypercube\+\_\+sampling (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{sample\+\_\+count,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{axis\+\_\+ranges,  }\item[{std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , std\+::size\+\_\+t N$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::latin\+\_\+hypercube\+\_\+sampling (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{sample\+\_\+count,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{axis\+\_\+ranges,  }\item[{std\+::optional$<$ unsigned int $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceps_a38d89dd8b52a63eabb39ef5e425d5746}\label{namespaceps_a38d89dd8b52a63eabb39ef5e425d5746} 
 \index{ps@{ps}!length@{length}}
 \index{length@{length}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{length()}{length()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-\mbox{\hyperlink{structps_1_1Point}{T}} ps\+::length (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{a }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+T ps\+::length (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{a }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceps_a7c3e161560ad3000aa4e2218291b169c}\label{namespaceps_a7c3e161560ad3000aa4e2218291b169c} 
 \index{ps@{ps}!length\_squared@{length\_squared}}
 \index{length\_squared@{length\_squared}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{length\_squared()}{length\_squared()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-\mbox{\hyperlink{structps_1_1Point}{T}} ps\+::length\+\_\+squared (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{a }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+T ps\+::length\+\_\+squared (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{a }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceps_a79914e9fc2dd02bacd38e9bd32e21baa}\label{namespaceps_a79914e9fc2dd02bacd38e9bd32e21baa} 
 \index{ps@{ps}!lerp@{lerp}}
 \index{lerp@{lerp}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{lerp()}{lerp()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ ps\+::lerp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{a,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{b,  }\item[{\mbox{\hyperlink{structps_1_1Point}{T}}}]{t }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ ps\+::lerp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{a,  }\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{b,  }\item[{T}]{t }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceps_a677f90d97b1dcfeaa2ecc299ee37f5bf}\label{namespaceps_a677f90d97b1dcfeaa2ecc299ee37f5bf} 
 \index{ps@{ps}!merge\_by\_dimension@{merge\_by\_dimension}}
 \index{merge\_by\_dimension@{merge\_by\_dimension}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{merge\_by\_dimension()}{merge\_by\_dimension()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::merge\+\_\+by\+\_\+dimension (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{components }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::merge\+\_\+by\+\_\+dimension (\begin{DoxyParamCaption}\item[{const std\+::array$<$ std\+::vector$<$ T $>$, N $>$ \&}]{components }\end{DoxyParamCaption})}
 
-\begin{Desc}
-\item[Examples]\par
-\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2utils_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/utils.\+hpp}}.\end{Desc}
 \Hypertarget{namespaceps_a7de6090e2c8291401816be9bc6cda914}\label{namespaceps_a7de6090e2c8291401816be9bc6cda914} 
 \index{ps@{ps}!normalized@{normalized}}
 \index{normalized@{normalized}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{normalized()}{normalized()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ ps\+::normalized (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{a }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ ps\+::normalized (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{a }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceps_a6fd3a6df3727a04f9baba3b8b87a903b}\label{namespaceps_a6fd3a6df3727a04f9baba3b8b87a903b} 
 \index{ps@{ps}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
 \index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{structps_1_1Point}{ps\+::operator}}\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{a,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{b }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ ps\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{a,  }\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{b }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceps_acd4dc781f43ba8a50daa139682846d4b}\label{namespaceps_acd4dc781f43ba8a50daa139682846d4b} 
 \index{ps@{ps}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
 \index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{structps_1_1Point}{ps\+::operator}}\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{p,  }\item[{\mbox{\hyperlink{structps_1_1Point}{T}}}]{scalar }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ ps\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{p,  }\item[{T}]{scalar }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceps_abfd6fe71db1c4df607bfdace9dffb5b4}\label{namespaceps_abfd6fe71db1c4df607bfdace9dffb5b4} 
 \index{ps@{ps}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
 \index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{structps_1_1Point}{ps\+::operator}}\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{T}}}]{scalar,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{p }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ ps\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{T}]{scalar,  }\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{p }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceps_af9ee1cf5d335276b7fabe6f1daddf1b0}\label{namespaceps_af9ee1cf5d335276b7fabe6f1daddf1b0} 
 \index{ps@{ps}!operator+@{operator+}}
 \index{operator+@{operator+}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{structps_1_1Point}{ps\+::operator}}+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{a,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{b }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ ps\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{a,  }\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{b }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceps_a366ef094d65da865384b6fb77aac5d5f}\label{namespaceps_a366ef094d65da865384b6fb77aac5d5f} 
 \index{ps@{ps}!operator+@{operator+}}
 \index{operator+@{operator+}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{structps_1_1Point}{ps\+::operator}}+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{p,  }\item[{\mbox{\hyperlink{structps_1_1Point}{T}}}]{scalar }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ ps\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{p,  }\item[{T}]{scalar }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceps_afe774cb61bde6358f8a7024c42db9804}\label{namespaceps_afe774cb61bde6358f8a7024c42db9804} 
 \index{ps@{ps}!operator+@{operator+}}
 \index{operator+@{operator+}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{operator+()}{operator+()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{structps_1_1Point}{ps\+::operator}}+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{T}}}]{scalar,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{p }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ ps\+::operator+ (\begin{DoxyParamCaption}\item[{T}]{scalar,  }\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{p }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceps_aa369956286bc3f09dfdc146a5b2a49f1}\label{namespaceps_aa369956286bc3f09dfdc146a5b2a49f1} 
 \index{ps@{ps}!operator-\/@{operator-\/}}
 \index{operator-\/@{operator-\/}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{structps_1_1Point}{ps\+::operator}}-\/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{a,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{b }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ ps\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{a,  }\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{b }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceps_a79196b5b8a95ad9d3bc2ad698425944f}\label{namespaceps_a79196b5b8a95ad9d3bc2ad698425944f} 
 \index{ps@{ps}!operator-\/@{operator-\/}}
 \index{operator-\/@{operator-\/}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{structps_1_1Point}{ps\+::operator}}-\/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{p,  }\item[{\mbox{\hyperlink{structps_1_1Point}{T}}}]{scalar }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ ps\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{p,  }\item[{T}]{scalar }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceps_a585704d3f738c5eb899810fc9308a60e}\label{namespaceps_a585704d3f738c5eb899810fc9308a60e} 
 \index{ps@{ps}!operator/@{operator/}}
 \index{operator/@{operator/}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{structps_1_1Point}{ps\+::operator}}/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{a,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{b }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ ps\+::operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{a,  }\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{b }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceps_a6663b4f1e9c5ee48e2bf6e1896430580}\label{namespaceps_a6663b4f1e9c5ee48e2bf6e1896430580} 
 \index{ps@{ps}!operator/@{operator/}}
 \index{operator/@{operator/}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{operator/()}{operator/()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \mbox{\hyperlink{structps_1_1Point}{ps\+::operator}}/ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{p,  }\item[{\mbox{\hyperlink{structps_1_1Point}{T}}}]{scalar }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ ps\+::operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{p,  }\item[{T}]{scalar }\end{DoxyParamCaption})}
 
 \Hypertarget{namespaceps_a5b1e932ba8a20e05cd8c113179aa77c8}\label{namespaceps_a5b1e932ba8a20e05cd8c113179aa77c8} 
 \index{ps@{ps}!poisson\_disk\_sampling@{poisson\_disk\_sampling}}
 \index{poisson\_disk\_sampling@{poisson\_disk\_sampling}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{poisson\_disk\_sampling()}{poisson\_disk\_sampling()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N, \mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{Scale\+Fn}} $>$ \\
-std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::poisson\+\_\+disk\+\_\+sampling (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{count,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{ranges,  }\item[{\mbox{\hyperlink{structps_1_1Point}{T}}}]{base\+\_\+min\+\_\+dist,  }\item[{\mbox{\hyperlink{structps_1_1Point}{Scale\+Fn}}}]{scale\+\_\+fn,  }\item[{std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$}]{seed = {\ttfamily std\+:\+:nullopt},  }\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{new\+\_\+points\+\_\+attempts = {\ttfamily 30} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N, typename Scale\+Fn $>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::poisson\+\_\+disk\+\_\+sampling (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{ranges,  }\item[{T}]{base\+\_\+min\+\_\+dist,  }\item[{Scale\+Fn}]{scale\+\_\+fn,  }\item[{std\+::optional$<$ unsigned int $>$}]{seed = {\ttfamily std\+:\+:nullopt},  }\item[{size\+\_\+t}]{new\+\_\+points\+\_\+attempts = {\ttfamily 30} }\end{DoxyParamCaption})}
 
 
 
@@ -830,8 +827,8 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of sample points satisfying the 
 \index{ps@{ps}!poisson\_disk\_sampling\_uniform@{poisson\_disk\_sampling\_uniform}}
 \index{poisson\_disk\_sampling\_uniform@{poisson\_disk\_sampling\_uniform}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{poisson\_disk\_sampling\_uniform()}{poisson\_disk\_sampling\_uniform()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::poisson\+\_\+disk\+\_\+sampling\+\_\+uniform (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{count,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{ranges,  }\item[{\mbox{\hyperlink{structps_1_1Point}{T}}}]{base\+\_\+min\+\_\+dist,  }\item[{std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$}]{seed = {\ttfamily std\+:\+:nullopt},  }\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{new\+\_\+points\+\_\+attempts = {\ttfamily 30} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::poisson\+\_\+disk\+\_\+sampling\+\_\+uniform (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{ranges,  }\item[{T}]{base\+\_\+min\+\_\+dist,  }\item[{std\+::optional$<$ unsigned int $>$}]{seed = {\ttfamily std\+:\+:nullopt},  }\item[{size\+\_\+t}]{new\+\_\+points\+\_\+attempts = {\ttfamily 30} }\end{DoxyParamCaption})}
 
 
 
@@ -866,8 +863,8 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of uniformly spaced sample point
 \index{ps@{ps}!random@{random}}
 \index{random@{random}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{random()}{random()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::random (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{count,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{axis\+\_\+ranges,  }\item[{std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::random (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{axis\+\_\+ranges,  }\item[{std\+::optional$<$ unsigned int $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
 
 
 
@@ -896,7 +893,7 @@ A vector containing {\ttfamily count} randomly generated points within the speci
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em std\+::invalid\+\_\+argument\+Ifanyaxisrangehas} & min \texorpdfstring{$>$}{>} max.\\
+{\em std\+::invalid\+\_\+argument\+Ifanyaxisrangehasmin} & \texorpdfstring{$>$}{>} max.\\
 \hline
 \end{DoxyExceptions}
 \begin{DoxyNote}{Note}
@@ -907,15 +904,15 @@ The points are generated independently per axis using uniform\+\_\+real\+\_\+dis
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{random_8hpp}{point\_sampler/random.hpp}}"{}}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keywordtype}{int}\ \mbox{\hyperlink{structps_1_1Point}{main}}()}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ main()}
 \DoxyCodeLine{\{}
-\DoxyCodeLine{\ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{dim}}\ =\ 3;}
-\DoxyCodeLine{\ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{count}}\ =\ 5;}
-\DoxyCodeLine{\ \ std::array<std::pair<float,\ float>,\ \mbox{\hyperlink{structps_1_1Point}{dim}}>\ \mbox{\hyperlink{structps_1_1Point}{ranges}}\ =\ \{\{\{0.f,\ 1.f\},\ \{0.f,\ 2.f\},}
+\DoxyCodeLine{\ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ dim\ =\ 3;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{size\_t}\ count\ =\ 5;}
+\DoxyCodeLine{\ \ std::array<std::pair<float,\ float>,\ dim>\ ranges\ =\ \{\{\{0.f,\ 1.f\},\ \{0.f,\ 2.f\},}
 \DoxyCodeLine{\{-\/1.f,\ 1.f\}\}\};}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{comment}{//\ Generate\ points\ with\ a\ fixed\ seed\ for\ reproducibility\ auto\ points\ =}}
-\DoxyCodeLine{\mbox{\hyperlink{structps_1_1Point}{ps::random<float,\ dim>}}(count,\ ranges,\ 42);}
+\DoxyCodeLine{ps::random<float,\ dim>(count,\ ranges,\ 42);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ p\ :\ points)}
 \DoxyCodeLine{\ \ \{}
@@ -931,8 +928,8 @@ The points are generated independently per axis using uniform\+\_\+real\+\_\+dis
 \index{ps@{ps}!random\_rejection\_filter@{random\_rejection\_filter}}
 \index{random\_rejection\_filter@{random\_rejection\_filter}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{random\_rejection\_filter()}{random\_rejection\_filter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , std\+::size\+\_\+t N$>$ \\
-std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::random\+\_\+rejection\+\_\+filter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&}]{points,  }\item[{\mbox{\hyperlink{structps_1_1Point}{float}}}]{keep\+\_\+fraction }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , std\+::size\+\_\+t N$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::random\+\_\+rejection\+\_\+filter (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{float}]{keep\+\_\+fraction }\end{DoxyParamCaption})}
 
 
 
@@ -959,7 +956,7 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ containing {\ttfamily keep\+\_\+fraction 
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ std::vector<Point<double,\ 3>>\ \mbox{\hyperlink{structps_1_1Point}{cloud}}\ =\ \mbox{\hyperlink{structps_1_1Point}{ps::random<double,\ 3>}}(10000,}
+\DoxyCodeLine{\ std::vector<Point<double,\ 3>>\ cloud\ =\ ps::random<double,\ 3>(10000,}
 \DoxyCodeLine{\{\{-\/1,1\},\{-\/1,1\},\{-\/1,1\}\});}
 \DoxyCodeLine{\textcolor{keyword}{auto}\ sparse\ =\ \mbox{\hyperlink{namespaceps_ab818126518017939773c8a43bd92fc42}{ps::random\_rejection\_filter}}(cloud,\ 0.25);\ \textcolor{comment}{//\ Keep\ 25\%\ of\ the}}
 \DoxyCodeLine{points}
@@ -969,8 +966,8 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ containing {\ttfamily keep\+\_\+fraction 
 \index{ps@{ps}!random\_rejection\_filter@{random\_rejection\_filter}}
 \index{random\_rejection\_filter@{random\_rejection\_filter}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{random\_rejection\_filter()}{random\_rejection\_filter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , std\+::size\+\_\+t N$>$ \\
-std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::random\+\_\+rejection\+\_\+filter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&}]{points,  }\item[{std\+::size\+\_\+t}]{target\+\_\+count }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , std\+::size\+\_\+t N$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::random\+\_\+rejection\+\_\+filter (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{std\+::size\+\_\+t}]{target\+\_\+count }\end{DoxyParamCaption})}
 
 
 
@@ -997,7 +994,7 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ containing {\ttfamily target\+\_\+count} 
 \end{DoxyReturn}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ std::vector<Point<float,\ 2>>\ pts\ =\ \mbox{\hyperlink{structps_1_1Point}{ps::random<float,\ 2>}}(1000,}
+\DoxyCodeLine{\ std::vector<Point<float,\ 2>>\ pts\ =\ ps::random<float,\ 2>(1000,}
 \DoxyCodeLine{\{\{0,1\},\{0,1\}\});}
 \DoxyCodeLine{\textcolor{keyword}{auto}\ reduced\ =\ \mbox{\hyperlink{namespaceps_ab818126518017939773c8a43bd92fc42}{ps::random\_rejection\_filter}}(pts,\ 300);\ \textcolor{comment}{//\ Keep\ 300\ points}}
 
@@ -1006,8 +1003,8 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ containing {\ttfamily target\+\_\+count} 
 \index{ps@{ps}!refit\_points\_to\_range@{refit\_points\_to\_range}}
 \index{refit\_points\_to\_range@{refit\_points\_to\_range}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{refit\_points\_to\_range()}{refit\_points\_to\_range()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-\mbox{\hyperlink{structps_1_1Point}{void}} ps\+::refit\+\_\+points\+\_\+to\+\_\+range (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&}]{points,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{target\+\_\+ranges }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+void ps\+::refit\+\_\+points\+\_\+to\+\_\+range (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{target\+\_\+ranges }\end{DoxyParamCaption})}
 
 
 
@@ -1032,7 +1029,7 @@ This function computes the axis-\/aligned bounding box (AABB) of the input point
 \hypertarget{namespaceps_autotoc_md8}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md8}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ std::vector<Point<float,\ 2>>\ pts\ =\ \mbox{\hyperlink{structps_1_1Point}{generate\_random\_points}}<\mbox{\hyperlink{structps_1_1Point}{float}},}
+\DoxyCodeLine{\ std::vector<Point<float,\ 2>>\ pts\ =\ generate\_random\_points<float,}
 \DoxyCodeLine{2>(100,\ \{\ \{}
 \DoxyCodeLine{\{0.f,\ 1.f\},\ \{0.f,\ 1.f\}\ \}\ \},\ 42);}
 \DoxyCodeLine{\textcolor{comment}{//\ Refit\ to\ a\ new\ range:\ [10,\ 20]\ ×\ [50,\ 100]\ refit\_points\_to\_range<float,}}
@@ -1048,8 +1045,8 @@ If a dimension has constant value (min == max), the center of the target range i
 \index{ps@{ps}!rejection\_sampling@{rejection\_sampling}}
 \index{rejection\_sampling@{rejection\_sampling}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{rejection\_sampling()}{rejection\_sampling()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N, \mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{Density\+Fn}} $>$ \\
-std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ ps\+::rejection\+\_\+sampling (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{count,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{axis\+\_\+ranges,  }\item[{\mbox{\hyperlink{structps_1_1Point}{Density\+Fn}}}]{density\+\_\+fn,  }\item[{std\+::optional$<$ \mbox{\hyperlink{structps_1_1Point}{unsigned}} \mbox{\hyperlink{structps_1_1Point}{int}} $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N, typename Density\+Fn $>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::rejection\+\_\+sampling (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{axis\+\_\+ranges,  }\item[{Density\+Fn}]{density\+\_\+fn,  }\item[{std\+::optional$<$ unsigned int $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
 
 
 
@@ -1082,7 +1079,7 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of accepted points based on reje
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em std\+::invalid\+\_\+argumentifanyaxisrangeis} & invalid (min \texorpdfstring{$>$}{>} max).\\
+{\em std\+::invalid\+\_\+argumentifanyaxisrangeisinvalid} & (min \texorpdfstring{$>$}{>} max).\\
 \hline
 \end{DoxyExceptions}
 \hypertarget{namespaceps_autotoc_md9}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md9}
@@ -1091,16 +1088,16 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of accepted points based on reje
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{rejection__sampling_8hpp}{point\_sampler/rejection\_sampling.hpp}}"{}}}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keywordtype}{float}\ \mbox{\hyperlink{structps_1_1Point}{radial\_density}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<float,\ 2>}}\&\ \mbox{\hyperlink{structps_1_1Point}{p}})}
+\DoxyCodeLine{\textcolor{keywordtype}{float}\ radial\_density(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<float,\ 2>}}\&\ p)}
 \DoxyCodeLine{\{}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structps_1_1Point}{r2}}\ =\ \mbox{\hyperlink{structps_1_1Point}{p}}[0]\ *\ \mbox{\hyperlink{structps_1_1Point}{p}}[0]\ +\ \mbox{\hyperlink{structps_1_1Point}{p}}[1]\ *\ \mbox{\hyperlink{structps_1_1Point}{p}}[1];}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ std::exp(-\/\mbox{\hyperlink{structps_1_1Point}{r2}});\ \textcolor{comment}{//\ higher\ near\ origin,\ drops\ with\ radius}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{float}\ r2\ =\ p[0]\ *\ p[0]\ +\ p[1]\ *\ p[1];}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ std::exp(-\/r2);\ \textcolor{comment}{//\ higher\ near\ origin,\ drops\ with\ radius}}
 \DoxyCodeLine{\}}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keywordtype}{int}\ main()\ \{}
 \DoxyCodeLine{\ \ \ \ std::array<std::pair<float,\ float>,\ 2>\ bounds\ =\ \{\ \{\ \{-\/2.0f,\ 2.0f\},}
 \DoxyCodeLine{\{-\/2.0f,\ 2.0f\}\ \}\ \};}
-\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ pts\ =\ \mbox{\hyperlink{structps_1_1Point}{ps::rejection\_sampling<float,\ 2>}}(1000,\ bounds,\ radial\_density,}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ pts\ =\ ps::rejection\_sampling<float,\ 2>(1000,\ bounds,\ radial\_density,}
 \DoxyCodeLine{42);}
 \DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Generated\ "{}}\ <<\ pts.size()\ <<\ \textcolor{stringliteral}{"{}\ points.\(\backslash\)n"{}};}
 \DoxyCodeLine{\}}
@@ -1115,8 +1112,8 @@ Rejection sampling can be inefficient if {\ttfamily density\+\_\+fn} returns low
 \index{ps@{ps}!relaxation\_ktree@{relaxation\_ktree}}
 \index{relaxation\_ktree@{relaxation\_ktree}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{relaxation\_ktree()}{relaxation\_ktree()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-\mbox{\hyperlink{structps_1_1Point}{void}} ps\+::relaxation\+\_\+ktree (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&}]{points,  }\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{k\+\_\+neighbors = {\ttfamily 8},  }\item[{\mbox{\hyperlink{structps_1_1Point}{T}}}]{step\+\_\+size = {\ttfamily \mbox{\hyperlink{structps_1_1Point}{T}}(0.1)},  }\item[{\mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}}}]{iterations = {\ttfamily 10} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+void ps\+::relaxation\+\_\+ktree (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{size\+\_\+t}]{k\+\_\+neighbors = {\ttfamily 8},  }\item[{T}]{step\+\_\+size = {\ttfamily T(0.1)},  }\item[{size\+\_\+t}]{iterations = {\ttfamily 10} }\end{DoxyParamCaption})}
 
 
 
@@ -1152,7 +1149,7 @@ The KD-\/tree is rebuilt on each iteration to reflect the updated positions.
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{relaxation_8hpp}{point\_sampler/relaxation.hpp}}>}}
 \DoxyCodeLine{}
-\DoxyCodeLine{std::vector<Point<float,\ 2>>\ pts\ =\ \mbox{\hyperlink{structps_1_1Point}{generate\_random\_points<float,\ 2>}}(}
+\DoxyCodeLine{std::vector<Point<float,\ 2>>\ pts\ =\ generate\_random\_points<float,\ 2>(}
 \DoxyCodeLine{\ \ \ \ 1000,\ \{\ \{\ \{0.f,\ 1.f\},\ \{0.f,\ 1.f\}\ \}\ \},\ 42);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{comment}{//\ Apply\ 10\ iterations\ of\ relaxation\ relaxation\_ktree<float,\ 2>(pts,\ 8,\ 0.1f,}}
@@ -1175,8 +1172,8 @@ The KD-\/tree is rebuilt on each iteration to reflect the updated positions.
 \index{ps@{ps}!rescale\_points@{rescale\_points}}
 \index{rescale\_points@{rescale\_points}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{rescale\_points()}{rescale\_points()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-\mbox{\hyperlink{structps_1_1Point}{void}} ps\+::rescale\+\_\+points (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&}]{points,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ \&}]{ranges }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+void ps\+::rescale\+\_\+points (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{ranges }\end{DoxyParamCaption})}
 
 
 
@@ -1202,7 +1199,7 @@ Each coordinate in every point is mapped from \mbox{[}0, 1\mbox{]} to a new rang
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ std::vector<Point<float,\ 2>>\ pts\ =\ \{\ \{0.f,\ 0.f\},\ \{1.f,\ 1.f\},\ \{0.5f,}
 \DoxyCodeLine{0.5f\}\ \};}
-\DoxyCodeLine{\mbox{\hyperlink{structps_1_1Point}{ps::rescale\_points<float,\ 2>}}(pts,\ \{\ \{\ \{10.f,\ 20.f\},\ \{100.f,\ 200.f\}\ \}\ \});}
+\DoxyCodeLine{ps::rescale\_points<float,\ 2>(pts,\ \{\ \{\ \{10.f,\ 20.f\},\ \{100.f,\ 200.f\}\ \}\ \});}
 \DoxyCodeLine{\textcolor{comment}{//\ pts\ is\ now\ \{\ \{10.f,\ 100.f\},\ \{20.f,\ 200.f\},\ \{15.f,\ 150.f\}\ \}}}
 
 \end{DoxyCode}
@@ -1215,8 +1212,8 @@ Assumes points are in \mbox{[}0, 1\mbox{]}\texorpdfstring{$^\wedge$}{\string^}N.
 \index{ps@{ps}!save\_points\_to\_csv@{save\_points\_to\_csv}}
 \index{save\_points\_to\_csv@{save\_points\_to\_csv}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{save\_points\_to\_csv()}{save\_points\_to\_csv()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-\mbox{\hyperlink{structps_1_1Point}{bool}} ps\+::save\+\_\+points\+\_\+to\+\_\+csv (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::string \&}]{filename,  }\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&}]{points,  }\item[{\mbox{\hyperlink{structps_1_1Point}{bool}}}]{write\+\_\+header = {\ttfamily \mbox{\hyperlink{structps_1_1Point}{true}}} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+bool ps\+::save\+\_\+points\+\_\+to\+\_\+csv (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename,  }\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{bool}]{write\+\_\+header = {\ttfamily true} }\end{DoxyParamCaption})}
 
 
 
@@ -1243,15 +1240,12 @@ The output file will contain one point per line, with each coordinate separated 
 \begin{DoxyReturn}{Returns}
 true if the file was successfully written, false otherwise. 
 \end{DoxyReturn}
-\begin{Desc}
-\item[Examples]\par
-\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2utils_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/utils.\+hpp}}.\end{Desc}
 \Hypertarget{namespaceps_af6737277b9cc05d5f2ab248f17baea3b}\label{namespaceps_af6737277b9cc05d5f2ab248f17baea3b} 
 \index{ps@{ps}!split\_by\_dimension@{split\_by\_dimension}}
 \index{split\_by\_dimension@{split\_by\_dimension}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{split\_by\_dimension()}{split\_by\_dimension()}}
-{\footnotesize\ttfamily template$<$\mbox{\hyperlink{structps_1_1Point}{typename}} \mbox{\hyperlink{structps_1_1Point}{T}} , \mbox{\hyperlink{structps_1_1Point}{size\+\_\+t}} N$>$ \\
-std\+::array$<$ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{T}} $>$, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ ps\+::split\+\_\+by\+\_\+dimension (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structps_1_1Point}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{structps_1_1Point}{T}}, \mbox{\hyperlink{structps_1_1Point}{N}} $>$ $>$ \&}]{points }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+std\+::array$<$ std\+::vector$<$ T $>$, N $>$ ps\+::split\+\_\+by\+\_\+dimension (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points }\end{DoxyParamCaption})}
 
 
 
@@ -1281,6 +1275,3 @@ For example, given 3D points\+: \mbox{[}(1,2,3), (4,5,6), (7,8,9)\mbox{]}, the r
 \begin{DoxyReturn}{Returns}
 An array of N vectors, each containing the values for one coordinate axis. 
 \end{DoxyReturn}
-\begin{Desc}
-\item[Examples]\par
-\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2utils_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/utils.\+hpp}}.\end{Desc}

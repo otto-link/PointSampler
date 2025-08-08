@@ -16,38 +16,38 @@
 \DoxyCodeLine{00012\ }
 \DoxyCodeLine{00052\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N,\ \textcolor{keyword}{typename}\ DensityFn>}
 \DoxyCodeLine{00053\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a932640b18d76a7e336fc760e9cf5511b}{importance\_resampling}}(}
-\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{count}},}
-\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{oversampling\_ratio}},}
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ \mbox{\hyperlink{structps_1_1Point}{N}}>\ \&\mbox{\hyperlink{structps_1_1Point}{axis\_ranges}},}
-\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{DensityFn}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{density\_fn}},}
-\DoxyCodeLine{00058\ \ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{seed}}\ =\ std::nullopt)}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ count,}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ oversampling\_ratio,}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ N>\ \&axis\_ranges,}
+\DoxyCodeLine{00057\ \ \ \ \ DensityFn\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ density\_fn,}
+\DoxyCodeLine{00058\ \ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ \ \ \ \ \ \ seed\ =\ std::nullopt)}
 \DoxyCodeLine{00059\ \{}
-\DoxyCodeLine{00060\ \ \ std::mt19937\ \mbox{\hyperlink{structps_1_1Point}{gen}}(\mbox{\hyperlink{structps_1_1Point}{seed}}\ ?\ *\mbox{\hyperlink{structps_1_1Point}{seed}}\ :\ std::random\_device\{\}());}
+\DoxyCodeLine{00060\ \ \ std::mt19937\ gen(seed\ ?\ *seed\ :\ std::random\_device\{\}());}
 \DoxyCodeLine{00061\ }
 \DoxyCodeLine{00062\ \ \ \textcolor{comment}{//\ Generate\ grid}}
-\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{count\_grid}}\ =\ \mbox{\hyperlink{structps_1_1Point}{count}}\ *\ \mbox{\hyperlink{structps_1_1Point}{oversampling\_ratio}};}
-\DoxyCodeLine{00064\ \ \ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{structps_1_1Point}{grid\_points}}\ =\ \mbox{\hyperlink{structps_1_1Point}{halton<T,\ N>}}(\mbox{\hyperlink{structps_1_1Point}{count\_grid}},\ \mbox{\hyperlink{structps_1_1Point}{axis\_ranges}},\ \mbox{\hyperlink{structps_1_1Point}{seed}});}
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ count\_grid\ =\ count\ *\ oversampling\_ratio;}
+\DoxyCodeLine{00064\ \ \ std::vector<Point<T,\ N>>\ grid\_points\ =\ halton<T,\ N>(count\_grid,\ axis\_ranges,\ seed);}
 \DoxyCodeLine{00065\ }
 \DoxyCodeLine{00066\ \ \ \textcolor{comment}{//\ Weights}}
-\DoxyCodeLine{00067\ \ \ std::vector<T>\ \mbox{\hyperlink{structps_1_1Point}{weights}};}
-\DoxyCodeLine{00068\ \ \ \mbox{\hyperlink{structps_1_1Point}{weights}}.reserve(\mbox{\hyperlink{structps_1_1Point}{count\_grid}});}
+\DoxyCodeLine{00067\ \ \ std::vector<T>\ weights;}
+\DoxyCodeLine{00068\ \ \ weights.reserve(count\_grid);}
 \DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&\mbox{\hyperlink{structps_1_1Point}{p}}\ :\ \mbox{\hyperlink{structps_1_1Point}{grid\_points}})}
-\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{weights}}.push\_back(\mbox{\hyperlink{structps_1_1Point}{density\_fn}}(\mbox{\hyperlink{structps_1_1Point}{p}}));}
+\DoxyCodeLine{00070\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&p\ :\ grid\_points)}
+\DoxyCodeLine{00071\ \ \ \ \ weights.push\_back(density\_fn(p));}
 \DoxyCodeLine{00072\ }
 \DoxyCodeLine{00073\ \ \ \textcolor{comment}{//\ Normalize\ weights}}
-\DoxyCodeLine{00074\ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{sum}}\ =\ std::accumulate(\mbox{\hyperlink{structps_1_1Point}{weights}}.begin(),\ \mbox{\hyperlink{structps_1_1Point}{weights}}.end(),\ \mbox{\hyperlink{structps_1_1Point}{T}}(0));}
-\DoxyCodeLine{00075\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&w\ :\ \mbox{\hyperlink{structps_1_1Point}{weights}})}
-\DoxyCodeLine{00076\ \ \ \ \ w\ /=\ \mbox{\hyperlink{structps_1_1Point}{sum}};}
+\DoxyCodeLine{00074\ \ \ T\ sum\ =\ std::accumulate(weights.begin(),\ weights.end(),\ T(0));}
+\DoxyCodeLine{00075\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&w\ :\ weights)}
+\DoxyCodeLine{00076\ \ \ \ \ w\ /=\ sum;}
 \DoxyCodeLine{00077\ }
 \DoxyCodeLine{00078\ \ \ \textcolor{comment}{//\ Resample}}
-\DoxyCodeLine{00079\ \ \ std::discrete\_distribution<size\_t>\ \mbox{\hyperlink{structps_1_1Point}{dist}}(\mbox{\hyperlink{structps_1_1Point}{weights}}.begin(),\ \mbox{\hyperlink{structps_1_1Point}{weights}}.end());}
-\DoxyCodeLine{00080\ \ \ std::vector<Point<T,\ N>>\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{samples}};}
-\DoxyCodeLine{00081\ \ \ \mbox{\hyperlink{structps_1_1Point}{samples}}.reserve(\mbox{\hyperlink{structps_1_1Point}{count}});}
-\DoxyCodeLine{00082\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{count}};\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
-\DoxyCodeLine{00083\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{samples}}.push\_back(\mbox{\hyperlink{structps_1_1Point}{grid\_points}}[\mbox{\hyperlink{structps_1_1Point}{dist}}(\mbox{\hyperlink{structps_1_1Point}{gen}})]);}
+\DoxyCodeLine{00079\ \ \ std::discrete\_distribution<size\_t>\ dist(weights.begin(),\ weights.end());}
+\DoxyCodeLine{00080\ \ \ std::vector<Point<T,\ N>>\ \ \ \ \ \ \ \ \ \ \ samples;}
+\DoxyCodeLine{00081\ \ \ samples.reserve(count);}
+\DoxyCodeLine{00082\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ count;\ ++i)}
+\DoxyCodeLine{00083\ \ \ \ \ samples.push\_back(grid\_points[dist(gen)]);}
 \DoxyCodeLine{00084\ }
-\DoxyCodeLine{00085\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point}{samples}};}
+\DoxyCodeLine{00085\ \ \ \textcolor{keywordflow}{return}\ samples;}
 \DoxyCodeLine{00086\ \}}
 \DoxyCodeLine{00087\ }
 \DoxyCodeLine{00088\ \}\ \textcolor{comment}{//\ namespace\ ps}}
