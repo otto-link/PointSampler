@@ -15,34 +15,34 @@
 \DoxyCodeLine{00011\ }
 \DoxyCodeLine{00040\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N>}
 \DoxyCodeLine{00041\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a9ca14831de223ff62a6c3ec93e96a7c0}{latin\_hypercube\_sampling}}(}
-\DoxyCodeLine{00042\ \ \ \ \ std::size\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sample\_count,}
-\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ N>\ \&axis\_ranges,}
-\DoxyCodeLine{00044\ \ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ \ \ \ \ \ \ seed\ =\ std::nullopt)}
+\DoxyCodeLine{00042\ \ \ \ \ std::size\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{sample\_count}},}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ \mbox{\hyperlink{structps_1_1Point}{N}}>\ \&\mbox{\hyperlink{structps_1_1Point}{axis\_ranges}},}
+\DoxyCodeLine{00044\ \ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{seed}}\ =\ std::nullopt)}
 \DoxyCodeLine{00045\ \{}
-\DoxyCodeLine{00046\ \ \ std::mt19937\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rng(seed\ ?\ *seed\ :\ std::random\_device\{\}());}
-\DoxyCodeLine{00047\ \ \ std::uniform\_real\_distribution<T>\ jitter(0.0,\ 1.0);}
+\DoxyCodeLine{00046\ \ \ std::mt19937\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{rng}}(\mbox{\hyperlink{structps_1_1Point}{seed}}\ ?\ *\mbox{\hyperlink{structps_1_1Point}{seed}}\ :\ std::random\_device\{\}());}
+\DoxyCodeLine{00047\ \ \ std::uniform\_real\_distribution<T>\ \mbox{\hyperlink{structps_1_1Point}{jitter}}(0.0,\ 1.0);}
 \DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ \ \ std::vector<Point<T,\ N>>\ samples(sample\_count);}
+\DoxyCodeLine{00049\ \ \ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{structps_1_1Point}{samples}}(\mbox{\hyperlink{structps_1_1Point}{sample\_count}});}
 \DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ dim\ =\ 0;\ dim\ <\ N;\ ++dim)}
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ \mbox{\hyperlink{structps_1_1Point}{dim}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{dim}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}};\ ++\mbox{\hyperlink{structps_1_1Point}{dim}})}
 \DoxyCodeLine{00052\ \ \ \{}
-\DoxyCodeLine{00053\ \ \ \ \ std::vector<T>\ strata(sample\_count);}
-\DoxyCodeLine{00054\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ range\_min\ =\ axis\_ranges[dim].first;}
-\DoxyCodeLine{00055\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ range\_max\ =\ axis\_ranges[dim].second;}
-\DoxyCodeLine{00056\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ stride\ =\ (range\_max\ -\/\ range\_min)\ /\ sample\_count;}
+\DoxyCodeLine{00053\ \ \ \ \ std::vector<T>\ \mbox{\hyperlink{structps_1_1Point}{strata}}(\mbox{\hyperlink{structps_1_1Point}{sample\_count}});}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{range\_min}}\ =\ \mbox{\hyperlink{structps_1_1Point}{axis\_ranges}}[\mbox{\hyperlink{structps_1_1Point}{dim}}].first;}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{range\_max}}\ =\ \mbox{\hyperlink{structps_1_1Point}{axis\_ranges}}[\mbox{\hyperlink{structps_1_1Point}{dim}}].second;}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{stride}}\ =\ (\mbox{\hyperlink{structps_1_1Point}{range\_max}}\ -\/\ \mbox{\hyperlink{structps_1_1Point}{range\_min}})\ /\ \mbox{\hyperlink{structps_1_1Point}{sample\_count}};}
 \DoxyCodeLine{00057\ }
 \DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ Generate\ stratified\ positions\ with\ jitter}}
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ sample\_count;\ ++i)}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ strata[i]\ =\ range\_min\ +\ (i\ +\ jitter(rng))\ *\ stride;}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{sample\_count}};\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{strata}}[\mbox{\hyperlink{structps_1_1Point}{i}}]\ =\ \mbox{\hyperlink{structps_1_1Point}{range\_min}}\ +\ (\mbox{\hyperlink{structps_1_1Point}{i}}\ +\ \mbox{\hyperlink{structps_1_1Point}{jitter}}(\mbox{\hyperlink{structps_1_1Point}{rng}}))\ *\ \mbox{\hyperlink{structps_1_1Point}{stride}};}
 \DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \ \ \ \ std::shuffle(strata.begin(),\ strata.end(),\ rng);}
+\DoxyCodeLine{00062\ \ \ \ \ std::shuffle(\mbox{\hyperlink{structps_1_1Point}{strata}}.begin(),\ \mbox{\hyperlink{structps_1_1Point}{strata}}.end(),\ \mbox{\hyperlink{structps_1_1Point}{rng}});}
 \DoxyCodeLine{00063\ }
 \DoxyCodeLine{00064\ \ \ \ \ \textcolor{comment}{//\ Assign\ values\ to\ the\ sample\ vector}}
-\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ sample\_count;\ ++i)}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ samples[i][dim]\ =\ strata[i];}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{sample\_count}};\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{samples}}[\mbox{\hyperlink{structps_1_1Point}{i}}][\mbox{\hyperlink{structps_1_1Point}{dim}}]\ =\ \mbox{\hyperlink{structps_1_1Point}{strata}}[\mbox{\hyperlink{structps_1_1Point}{i}}];}
 \DoxyCodeLine{00067\ \ \ \}}
 \DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ \ \ \textcolor{keywordflow}{return}\ samples;}
+\DoxyCodeLine{00069\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point}{samples}};}
 \DoxyCodeLine{00070\ \}}
 \DoxyCodeLine{00071\ }
 \DoxyCodeLine{00072\ \}\ \textcolor{comment}{//\ namespace\ ps}}

@@ -1,15 +1,14 @@
 var searchData=
 [
-  ['random_0',['random',['../namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69',1,'ps']]],
-  ['random_2ehpp_1',['random.hpp',['../random_8hpp.html',1,'']]],
-  ['random_5frejection_5ffilter_2',['random_rejection_filter',['../namespaceps.html#ab818126518017939773c8a43bd92fc42',1,'ps::random_rejection_filter(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, std::size_t target_count)'],['../namespaceps.html#a66183362443c104da098224df9bcd2a1',1,'ps::random_rejection_filter(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, float keep_fraction)']]],
-  ['random_5frejection_5ffilter_2ehpp_3',['random_rejection_filter.hpp',['../random__rejection__filter_8hpp.html',1,'']]],
-  ['range_2ehpp_4',['range.hpp',['../range_8hpp.html',1,'']]],
-  ['refit_5fpoints_5fto_5frange_5',['refit_points_to_range',['../namespaceps.html#a2b8197901114d1c4fd6cfe19efcd3862',1,'ps']]],
-  ['rejection_5fsampling_6',['rejection_sampling',['../namespaceps.html#a29ab0a94bbe26a22cb87bf8f44703527',1,'ps']]],
-  ['rejection_5fsampling_2ehpp_7',['rejection_sampling.hpp',['../rejection__sampling_8hpp.html',1,'']]],
-  ['relaxation_2ehpp_8',['relaxation.hpp',['../relaxation_8hpp.html',1,'']]],
-  ['relaxation_5fktree_9',['relaxation_ktree',['../namespaceps.html#aed8a3217a801c5b5706f4bcc3306bb18',1,'ps']]],
-  ['repository_10',['Repository',['../index.html#repo_sec',1,'']]],
-  ['rescale_5fpoints_11',['rescale_points',['../namespaceps.html#a7addf1455112b7895f8de7c475eed850',1,'ps']]]
+  ['point_0',['point',['../structps_1_1Point.html',1,'ps::Point&lt; T, N &gt;'],['../structps_1_1Point.html#a424a02dff2ba0f1458cfbe5c453cc739',1,'ps::Point::Point()=default'],['../structps_1_1Point.html#a5baa7fdf8d85cf33a45b47e804f1065a',1,'ps::Point::Point(const std::vector&lt; T &gt; &amp;v)'],['../structps_1_1Point.html#ac3aebf196b50c94ae7f29ee136253c2e',1,'ps::Point::Point(std::initializer_list&lt; T &gt; init)']]],
+  ['point_2ehpp_1',['point.hpp',['../point_8hpp.html',1,'']]],
+  ['point_5fsampler_2ehpp_2',['point_sampler.hpp',['../point__sampler_8hpp.html',1,'']]],
+  ['point_5fto_5fgrid_3',['point_to_grid',['../structps_1_1GridND.html#ab64bb87b538321af8b8f219022cf08d5',1,'ps::GridND']]],
+  ['pointcloudadaptor_4',['pointcloudadaptor',['../structps_1_1PointCloudAdaptor.html',1,'ps::PointCloudAdaptor&lt; T, N &gt;'],['../structps_1_1PointCloudAdaptor.html#acbd72d60ac355bf20db1f248545e961c',1,'ps::PointCloudAdaptor::PointCloudAdaptor()']]],
+  ['pointsampler_5',['PointSampler',['../index.html',1,'']]],
+  ['poisson_5fdisk_5fsampling_6',['poisson_disk_sampling',['../namespaceps.html#a5b1e932ba8a20e05cd8c113179aa77c8',1,'ps']]],
+  ['poisson_5fdisk_5fsampling_2ehpp_7',['poisson_disk_sampling.hpp',['../poisson__disk__sampling_8hpp.html',1,'']]],
+  ['poisson_5fdisk_5fsampling_5funiform_8',['poisson_disk_sampling_uniform',['../namespaceps.html#a6f7ab76c5d0a395aa78b85bad488e94e',1,'ps']]],
+  ['ps_9',['ps',['../namespaceps.html',1,'']]],
+  ['pts_10',['pts',['../structps_1_1PointCloudAdaptor.html#ad9019fcb2d338f1843242b8eb3f49e8b',1,'ps::PointCloudAdaptor']]]
 ];

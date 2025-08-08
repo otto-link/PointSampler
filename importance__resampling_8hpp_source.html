@@ -96,38 +96,38 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> N, <span class="keyword">typename</span> DensityFn&gt;</div>
 <div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="namespaceps.html#a932640b18d76a7e336fc760e9cf5511b">   53</a></span>std::vector&lt;Point&lt;T, N&gt;&gt; <a class="code hl_function" href="namespaceps.html#a932640b18d76a7e336fc760e9cf5511b">importance_resampling</a>(</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">size_t</span>                                count,</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">size_t</span>                                oversampling_ratio,</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keyword">const</span> std::array&lt;std::pair&lt;T, T&gt;, N&gt; &amp;axis_ranges,</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    DensityFn                             density_fn,</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    std::optional&lt;unsigned int&gt;           seed = std::nullopt)</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">size_t</span>                                <a class="code hl_struct" href="structps_1_1Point.html">count</a>,</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">size_t</span>                                <a class="code hl_struct" href="structps_1_1Point.html">oversampling_ratio</a>,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keyword">const</span> std::array&lt;std::pair&lt;T, T&gt;, <a class="code hl_struct" href="structps_1_1Point.html">N</a>&gt; &amp;<a class="code hl_struct" href="structps_1_1Point.html">axis_ranges</a>,</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_struct" href="structps_1_1Point.html">DensityFn</a>                             <a class="code hl_struct" href="structps_1_1Point.html">density_fn</a>,</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    std::optional&lt;unsigned int&gt;           <a class="code hl_struct" href="structps_1_1Point.html">seed</a> = std::nullopt)</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>{</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  std::mt19937 gen(seed ? *seed : std::random_device{}());</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  std::mt19937 <a class="code hl_struct" href="structps_1_1Point.html">gen</a>(<a class="code hl_struct" href="structps_1_1Point.html">seed</a> ? *<a class="code hl_struct" href="structps_1_1Point.html">seed</a> : std::random_device{}());</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  <span class="comment">// Generate grid</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  <span class="keywordtype">size_t</span>                   count_grid = count * oversampling_ratio;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  std::vector&lt;Point&lt;T, N&gt;&gt; grid_points = halton&lt;T, N&gt;(count_grid, axis_ranges, seed);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  <span class="keywordtype">size_t</span>                   <a class="code hl_struct" href="structps_1_1Point.html">count_grid</a> = <a class="code hl_struct" href="structps_1_1Point.html">count</a> * <a class="code hl_struct" href="structps_1_1Point.html">oversampling_ratio</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  std::vector&lt;Point&lt;T, N&gt;&gt; <a class="code hl_struct" href="structps_1_1Point.html">grid_points</a> = <a class="code hl_struct" href="structps_1_1Point.html">halton&lt;T, N&gt;</a>(<a class="code hl_struct" href="structps_1_1Point.html">count_grid</a>, <a class="code hl_struct" href="structps_1_1Point.html">axis_ranges</a>, <a class="code hl_struct" href="structps_1_1Point.html">seed</a>);</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>  <span class="comment">// Weights</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  std::vector&lt;T&gt; weights;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  weights.reserve(count_grid);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  std::vector&lt;T&gt; <a class="code hl_struct" href="structps_1_1Point.html">weights</a>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  <a class="code hl_struct" href="structps_1_1Point.html">weights</a>.reserve(<a class="code hl_struct" href="structps_1_1Point.html">count_grid</a>);</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>  <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;p : grid_points)</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    weights.push_back(density_fn(p));</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>  <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;<a class="code hl_struct" href="structps_1_1Point.html">p</a> : <a class="code hl_struct" href="structps_1_1Point.html">grid_points</a>)</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <a class="code hl_struct" href="structps_1_1Point.html">weights</a>.push_back(<a class="code hl_struct" href="structps_1_1Point.html">density_fn</a>(<a class="code hl_struct" href="structps_1_1Point.html">p</a>));</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>  <span class="comment">// Normalize weights</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>  T sum = std::accumulate(weights.begin(), weights.end(), T(0));</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;w : weights)</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    w /= sum;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>  <a class="code hl_struct" href="structps_1_1Point.html">T</a> <a class="code hl_struct" href="structps_1_1Point.html">sum</a> = std::accumulate(<a class="code hl_struct" href="structps_1_1Point.html">weights</a>.begin(), <a class="code hl_struct" href="structps_1_1Point.html">weights</a>.end(), <a class="code hl_struct" href="structps_1_1Point.html">T</a>(0));</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;w : <a class="code hl_struct" href="structps_1_1Point.html">weights</a>)</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    w /= <a class="code hl_struct" href="structps_1_1Point.html">sum</a>;</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  <span class="comment">// Resample</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  std::discrete_distribution&lt;size_t&gt; dist(weights.begin(), weights.end());</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  std::vector&lt;Point&lt;T, N&gt;&gt;           samples;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>  samples.reserve(count);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; count; ++i)</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    samples.push_back(grid_points[dist(gen)]);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  std::discrete_distribution&lt;size_t&gt; <a class="code hl_struct" href="structps_1_1Point.html">dist</a>(<a class="code hl_struct" href="structps_1_1Point.html">weights</a>.begin(), <a class="code hl_struct" href="structps_1_1Point.html">weights</a>.end());</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  std::vector&lt;Point&lt;T, N&gt;&gt;           <a class="code hl_struct" href="structps_1_1Point.html">samples</a>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>  <a class="code hl_struct" href="structps_1_1Point.html">samples</a>.reserve(<a class="code hl_struct" href="structps_1_1Point.html">count</a>);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code hl_struct" href="structps_1_1Point.html">i</a> = 0; <a class="code hl_struct" href="structps_1_1Point.html">i</a> &lt; <a class="code hl_struct" href="structps_1_1Point.html">count</a>; ++<a class="code hl_struct" href="structps_1_1Point.html">i</a>)</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <a class="code hl_struct" href="structps_1_1Point.html">samples</a>.push_back(<a class="code hl_struct" href="structps_1_1Point.html">grid_points</a>[<a class="code hl_struct" href="structps_1_1Point.html">dist</a>(<a class="code hl_struct" href="structps_1_1Point.html">gen</a>)]);</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  <span class="keywordflow">return</span> samples;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  <span class="keywordflow">return</span> <a class="code hl_struct" href="structps_1_1Point.html">samples</a>;</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}</div>
 </div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
@@ -136,6 +136,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="ttc" id="anamespaceps_html"><div class="ttname"><a href="namespaceps.html">ps</a></div><div class="ttdef"><b>Definition</b> distance_rejection_filter.hpp:12</div></div>
 <div class="ttc" id="anamespaceps_html_a932640b18d76a7e336fc760e9cf5511b"><div class="ttname"><a href="namespaceps.html#a932640b18d76a7e336fc760e9cf5511b">ps::importance_resampling</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; importance_resampling(size_t count, size_t oversampling_ratio, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, DensityFn density_fn, std::optional&lt; unsigned int &gt; seed=std::nullopt)</div><div class="ttdoc">Generates a point set via importance resampling from a quasi-random oversampled grid.</div><div class="ttdef"><b>Definition</b> importance_resampling.hpp:53</div></div>
 <div class="ttc" id="apoint_8hpp_html"><div class="ttname"><a href="point_8hpp.html">point.hpp</a></div></div>
+<div class="ttc" id="astructps_1_1Point_html"><div class="ttname"><a href="structps_1_1Point.html">ps::Point</a></div><div class="ttdoc">A fixed-size N-dimensional point/vector class.</div><div class="ttdef"><b>Definition</b> point.hpp:37</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

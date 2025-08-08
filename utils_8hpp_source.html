@@ -97,60 +97,91 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> N&gt;</div>
 <div class="foldopen" id="foldopen00034" data-start="{" data-end="}">
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="namespaceps.html#a802637e81218193c0e65266c8075f002">   34</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceps.html#a802637e81218193c0e65266c8075f002">save_points_to_csv</a>(<span class="keyword">const</span> std::string              &amp;filename,</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>                        <span class="keyword">const</span> std::vector&lt;<a class="code hl_struct" href="structps_1_1Point.html">Point&lt;T, N&gt;</a>&gt; &amp;points,</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>                        <span class="keywordtype">bool</span>                            write_header = <span class="keyword">true</span>)</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="namespaceps.html#a802637e81218193c0e65266c8075f002">   34</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="namespaceps.html#a802637e81218193c0e65266c8075f002">save_points_to_csv</a>(<span class="keyword">const</span> std::string              &amp;<a class="code hl_struct" href="structps_1_1Point.html">filename</a>,</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>                        <span class="keyword">const</span> std::vector&lt;<a class="code hl_struct" href="structps_1_1Point.html">Point&lt;T, N&gt;</a>&gt; &amp;<a class="code hl_struct" href="structps_1_1Point.html">points</a>,</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>                        <span class="keywordtype">bool</span>                            <a class="code hl_struct" href="structps_1_1Point.html">write_header</a> = <span class="keyword">true</span>)</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>{</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  std::ofstream out(filename);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <span class="keywordflow">if</span> (!out.is_open())</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  std::ofstream <a class="code hl_struct" href="structps_1_1Point.html">out</a>(<a class="code hl_struct" href="structps_1_1Point.html">filename</a>);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <span class="keywordflow">if</span> (!<a class="code hl_struct" href="structps_1_1Point.html">out</a>.is_open())</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <span class="keywordflow">if</span> (write_header)</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <span class="keywordflow">if</span> (<a class="code hl_struct" href="structps_1_1Point.html">write_header</a>)</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  {</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; N; ++i)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code hl_struct" href="structps_1_1Point.html">i</a> = 0; <a class="code hl_struct" href="structps_1_1Point.html">i</a> &lt; <a class="code hl_struct" href="structps_1_1Point.html">N</a>; ++<a class="code hl_struct" href="structps_1_1Point.html">i</a>)</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    {</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>      out &lt;&lt; <span class="stringliteral">&quot;x&quot;</span> &lt;&lt; i;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>      <span class="keywordflow">if</span> (i &lt; N - 1)</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        out &lt;&lt; <span class="stringliteral">&quot;,&quot;</span>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>      <a class="code hl_struct" href="structps_1_1Point.html">out</a> &lt;&lt; <span class="stringliteral">&quot;x&quot;</span> &lt;&lt; <a class="code hl_struct" href="structps_1_1Point.html">i</a>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>      <span class="keywordflow">if</span> (<a class="code hl_struct" href="structps_1_1Point.html">i</a> &lt; <a class="code hl_struct" href="structps_1_1Point.html">N</a> - 1)</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <a class="code hl_struct" href="structps_1_1Point.html">out</a> &lt;&lt; <span class="stringliteral">&quot;,&quot;</span>;</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    }</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    out &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_struct" href="structps_1_1Point.html">out</a> &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  }</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;point : points)</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;<a class="code hl_struct" href="structps_1_1Point.html">point</a> : <a class="code hl_struct" href="structps_1_1Point.html">points</a>)</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  {</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; N; ++i)</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code hl_struct" href="structps_1_1Point.html">i</a> = 0; <a class="code hl_struct" href="structps_1_1Point.html">i</a> &lt; <a class="code hl_struct" href="structps_1_1Point.html">N</a>; ++<a class="code hl_struct" href="structps_1_1Point.html">i</a>)</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    {</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>      out &lt;&lt; point[i];</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>      <span class="keywordflow">if</span> (i &lt; N - 1)</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        out &lt;&lt; <span class="stringliteral">&quot;,&quot;</span>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>      <a class="code hl_struct" href="structps_1_1Point.html">out</a> &lt;&lt; <a class="code hl_struct" href="structps_1_1Point.html">point</a>[<a class="code hl_struct" href="structps_1_1Point.html">i</a>];</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>      <span class="keywordflow">if</span> (<a class="code hl_struct" href="structps_1_1Point.html">i</a> &lt; <a class="code hl_struct" href="structps_1_1Point.html">N</a> - 1)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <a class="code hl_struct" href="structps_1_1Point.html">out</a> &lt;&lt; <span class="stringliteral">&quot;,&quot;</span>;</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    }</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    out &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <a class="code hl_struct" href="structps_1_1Point.html">out</a> &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  }</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>}</div>
 </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> N&gt;</div>
-<div class="foldopen" id="foldopen00090" data-start="{" data-end="}">
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="namespaceps.html#af6737277b9cc05d5f2ab248f17baea3b">   90</a></span>std::array&lt;std::vector&lt;T&gt;, N&gt; <a class="code hl_function" href="namespaceps.html#af6737277b9cc05d5f2ab248f17baea3b">split_by_dimension</a>(<span class="keyword">const</span> std::vector&lt;<a class="code hl_struct" href="structps_1_1Point.html">Point&lt;T, N&gt;</a>&gt; &amp;points)</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>{</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  std::array&lt;std::vector&lt;T&gt;, N&gt; components;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;point : points)</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; N; ++i)</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    {</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>      components[i].push_back(point[i]);</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    }</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>  <span class="keywordflow">return</span> components;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>}</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> N&gt;</div>
+<div class="foldopen" id="foldopen00103" data-start="{" data-end="}">
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="namespaceps.html#a677f90d97b1dcfeaa2ecc299ee37f5bf">  103</a></span>std::vector&lt;Point&lt;T, N&gt;&gt; <a class="code hl_function" href="namespaceps.html#a677f90d97b1dcfeaa2ecc299ee37f5bf">merge_by_dimension</a>(</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keyword">const</span> std::array&lt;std::vector&lt;T&gt;, <a class="code hl_struct" href="structps_1_1Point.html">N</a>&gt; &amp;<a class="code hl_struct" href="structps_1_1Point.html">components</a>)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>{</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>  <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (<a class="code hl_struct" href="structps_1_1Point.html">N</a> &gt; 0)</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>  {</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    std::size_t <a class="code hl_struct" href="structps_1_1Point.html">count</a> = <a class="code hl_struct" href="structps_1_1Point.html">components</a>[0].size();</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordflow">for</span> (std::size_t <a class="code hl_struct" href="structps_1_1Point.html">i</a> = 1; <a class="code hl_struct" href="structps_1_1Point.html">i</a> &lt; <a class="code hl_struct" href="structps_1_1Point.html">N</a>; ++<a class="code hl_struct" href="structps_1_1Point.html">i</a>)</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    {</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>      <span class="keywordflow">if</span> (<a class="code hl_struct" href="structps_1_1Point.html">components</a>[<a class="code hl_struct" href="structps_1_1Point.html">i</a>].<a class="code hl_struct" href="structps_1_1Point.html">size</a>() != <a class="code hl_struct" href="structps_1_1Point.html">count</a>)</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;All component vectors must have the same size&quot;</span>);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    }</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    std::vector&lt;Point&lt;T, N&gt;&gt; <a class="code hl_struct" href="structps_1_1Point.html">points</a>(<a class="code hl_struct" href="structps_1_1Point.html">count</a>);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordflow">for</span> (std::size_t <a class="code hl_struct" href="structps_1_1Point.html">i</a> = 0; <a class="code hl_struct" href="structps_1_1Point.html">i</a> &lt; <a class="code hl_struct" href="structps_1_1Point.html">count</a>; ++<a class="code hl_struct" href="structps_1_1Point.html">i</a>)</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    {</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>      <span class="keywordflow">for</span> (std::size_t <a class="code hl_struct" href="structps_1_1Point.html">j</a> = 0; <a class="code hl_struct" href="structps_1_1Point.html">j</a> &lt; <a class="code hl_struct" href="structps_1_1Point.html">N</a>; ++<a class="code hl_struct" href="structps_1_1Point.html">j</a>)</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <a class="code hl_struct" href="structps_1_1Point.html">points</a>[<a class="code hl_struct" href="structps_1_1Point.html">i</a>][<a class="code hl_struct" href="structps_1_1Point.html">j</a>] = <a class="code hl_struct" href="structps_1_1Point.html">components</a>[<a class="code hl_struct" href="structps_1_1Point.html">j</a>][<a class="code hl_struct" href="structps_1_1Point.html">i</a>];</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    }</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordflow">return</span> <a class="code hl_struct" href="structps_1_1Point.html">points</a>;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>  }</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>  <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>  {</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keywordflow">return</span> {};</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>  }</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>}</div>
 </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>} <span class="comment">// namespace ps</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> N&gt;</div>
+<div class="foldopen" id="foldopen00153" data-start="{" data-end="}">
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="namespaceps.html#af6737277b9cc05d5f2ab248f17baea3b">  153</a></span>std::array&lt;std::vector&lt;T&gt;, <a class="code hl_struct" href="structps_1_1Point.html">N</a>&gt; <a class="code hl_function" href="namespaceps.html#af6737277b9cc05d5f2ab248f17baea3b">split_by_dimension</a>(<span class="keyword">const</span> std::vector&lt;<a class="code hl_struct" href="structps_1_1Point.html">Point&lt;T, N&gt;</a>&gt; &amp;<a class="code hl_struct" href="structps_1_1Point.html">points</a>)</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>{</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>  std::array&lt;std::vector&lt;T&gt;, <a class="code hl_struct" href="structps_1_1Point.html">N</a>&gt; <a class="code hl_struct" href="structps_1_1Point.html">components</a>;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;<a class="code hl_struct" href="structps_1_1Point.html">point</a> : <a class="code hl_struct" href="structps_1_1Point.html">points</a>)</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code hl_struct" href="structps_1_1Point.html">i</a> = 0; <a class="code hl_struct" href="structps_1_1Point.html">i</a> &lt; <a class="code hl_struct" href="structps_1_1Point.html">N</a>; ++<a class="code hl_struct" href="structps_1_1Point.html">i</a>)</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    {</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>      <a class="code hl_struct" href="structps_1_1Point.html">components</a>[<a class="code hl_struct" href="structps_1_1Point.html">i</a>].push_back(<a class="code hl_struct" href="structps_1_1Point.html">point</a>[<a class="code hl_struct" href="structps_1_1Point.html">i</a>]);</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    }</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>  <span class="keywordflow">return</span> <a class="code hl_struct" href="structps_1_1Point.html">components</a>;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>}</div>
+</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>} <span class="comment">// namespace ps</span></div>
 <div class="ttc" id="anamespaceps_html"><div class="ttname"><a href="namespaceps.html">ps</a></div><div class="ttdef"><b>Definition</b> distance_rejection_filter.hpp:12</div></div>
+<div class="ttc" id="anamespaceps_html_a677f90d97b1dcfeaa2ecc299ee37f5bf"><div class="ttname"><a href="namespaceps.html#a677f90d97b1dcfeaa2ecc299ee37f5bf">ps::merge_by_dimension</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; merge_by_dimension(const std::array&lt; std::vector&lt; T &gt;, N &gt; &amp;components)</div><div class="ttdef"><b>Definition</b> utils.hpp:103</div></div>
 <div class="ttc" id="anamespaceps_html_a802637e81218193c0e65266c8075f002"><div class="ttname"><a href="namespaceps.html#a802637e81218193c0e65266c8075f002">ps::save_points_to_csv</a></div><div class="ttdeci">bool save_points_to_csv(const std::string &amp;filename, const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, bool write_header=true)</div><div class="ttdoc">Save a set of N-dimensional points to a CSV file.</div><div class="ttdef"><b>Definition</b> utils.hpp:34</div></div>
-<div class="ttc" id="anamespaceps_html_af6737277b9cc05d5f2ab248f17baea3b"><div class="ttname"><a href="namespaceps.html#af6737277b9cc05d5f2ab248f17baea3b">ps::split_by_dimension</a></div><div class="ttdeci">std::array&lt; std::vector&lt; T &gt;, N &gt; split_by_dimension(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points)</div><div class="ttdoc">Rearranges a list of N-dimensional points into N separate coordinate vectors.</div><div class="ttdef"><b>Definition</b> utils.hpp:90</div></div>
+<div class="ttc" id="anamespaceps_html_af6737277b9cc05d5f2ab248f17baea3b"><div class="ttname"><a href="namespaceps.html#af6737277b9cc05d5f2ab248f17baea3b">ps::split_by_dimension</a></div><div class="ttdeci">std::array&lt; std::vector&lt; T &gt;, N &gt; split_by_dimension(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points)</div><div class="ttdoc">Rearranges a list of N-dimensional points into N separate coordinate vectors.</div><div class="ttdef"><b>Definition</b> utils.hpp:153</div></div>
 <div class="ttc" id="apoint_8hpp_html"><div class="ttname"><a href="point_8hpp.html">point.hpp</a></div></div>
 <div class="ttc" id="astructps_1_1Point_html"><div class="ttname"><a href="structps_1_1Point.html">ps::Point</a></div><div class="ttdoc">A fixed-size N-dimensional point/vector class.</div><div class="ttdef"><b>Definition</b> point.hpp:37</div></div>
 </div><!-- fragment --></div><!-- contents -->

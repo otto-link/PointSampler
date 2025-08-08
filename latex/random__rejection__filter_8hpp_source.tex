@@ -16,39 +16,39 @@
 \DoxyCodeLine{00012\ \{}
 \DoxyCodeLine{00013\ }
 \DoxyCodeLine{00034\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00035\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_ab818126518017939773c8a43bd92fc42}{random\_rejection\_filter}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ target\_count)}
+\DoxyCodeLine{00035\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_ab818126518017939773c8a43bd92fc42}{random\_rejection\_filter}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&\mbox{\hyperlink{structps_1_1Point}{points}},}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ \mbox{\hyperlink{structps_1_1Point}{target\_count}})}
 \DoxyCodeLine{00037\ \{}
-\DoxyCodeLine{00038\ \ \ \textcolor{keywordflow}{if}\ (target\_count\ >=\ points.size())}
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structps_1_1Point}{target\_count}}\ >=\ \mbox{\hyperlink{structps_1_1Point}{points}}.size())}
 \DoxyCodeLine{00039\ \ \ \{}
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{return}\ points;\ \textcolor{comment}{//\ nothing\ to\ remove}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point}{points}};\ \textcolor{comment}{//\ nothing\ to\ remove}}
 \DoxyCodeLine{00041\ \ \ \}}
 \DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \ \ std::vector<std::size\_t>\ indices(points.size());}
-\DoxyCodeLine{00044\ \ \ std::iota(indices.begin(),\ indices.end(),\ 0);}
+\DoxyCodeLine{00043\ \ \ std::vector<std::size\_t>\ \mbox{\hyperlink{structps_1_1Point}{indices}}(\mbox{\hyperlink{structps_1_1Point}{points}}.size());}
+\DoxyCodeLine{00044\ \ \ std::iota(\mbox{\hyperlink{structps_1_1Point}{indices}}.begin(),\ \mbox{\hyperlink{structps_1_1Point}{indices}}.end(),\ 0);}
 \DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \ \ std::random\_device\ rd;}
-\DoxyCodeLine{00047\ \ \ std::mt19937\ \ \ \ \ \ \ gen(rd());}
-\DoxyCodeLine{00048\ \ \ std::shuffle(indices.begin(),\ indices.end(),\ gen);}
+\DoxyCodeLine{00046\ \ \ std::random\_device\ \mbox{\hyperlink{structps_1_1Point}{rd}};}
+\DoxyCodeLine{00047\ \ \ std::mt19937\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{gen}}(\mbox{\hyperlink{structps_1_1Point}{rd}}());}
+\DoxyCodeLine{00048\ \ \ std::shuffle(\mbox{\hyperlink{structps_1_1Point}{indices}}.begin(),\ \mbox{\hyperlink{structps_1_1Point}{indices}}.end(),\ \mbox{\hyperlink{structps_1_1Point}{gen}});}
 \DoxyCodeLine{00049\ }
 \DoxyCodeLine{00050\ \ \ \textcolor{comment}{//\ Take\ the\ first\ \`{}target\_count`\ shuffled\ indices}}
-\DoxyCodeLine{00051\ \ \ std::vector<Point<T,\ N>>\ result;}
-\DoxyCodeLine{00052\ \ \ result.reserve(target\_count);}
-\DoxyCodeLine{00053\ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ target\_count;\ ++i)}
+\DoxyCodeLine{00051\ \ \ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{structps_1_1Point}{result}};}
+\DoxyCodeLine{00052\ \ \ \mbox{\hyperlink{structps_1_1Point}{result}}.reserve(\mbox{\hyperlink{structps_1_1Point}{target\_count}});}
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{target\_count}};\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
 \DoxyCodeLine{00054\ \ \ \{}
-\DoxyCodeLine{00055\ \ \ \ \ result.push\_back(points[indices[i]]);}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{result}}.push\_back(\mbox{\hyperlink{structps_1_1Point}{points}}[\mbox{\hyperlink{structps_1_1Point}{indices}}[\mbox{\hyperlink{structps_1_1Point}{i}}]]);}
 \DoxyCodeLine{00056\ \ \ \}}
 \DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point}{result}};}
 \DoxyCodeLine{00059\ \}}
 \DoxyCodeLine{00060\ }
 \DoxyCodeLine{00081\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00082\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_ab818126518017939773c8a43bd92fc42}{random\_rejection\_filter}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ keep\_fraction)}
+\DoxyCodeLine{00082\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_ab818126518017939773c8a43bd92fc42}{random\_rejection\_filter}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&\mbox{\hyperlink{structps_1_1Point}{points}},}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structps_1_1Point}{keep\_fraction}})}
 \DoxyCodeLine{00084\ \{}
-\DoxyCodeLine{00085\ \ \ assert(keep\_fraction\ >=\ 0.0\ \&\&\ keep\_fraction\ <=\ 1.0);}
-\DoxyCodeLine{00086\ \ \ std::size\_t\ target\_count\ =\ \textcolor{keyword}{static\_cast<}std::size\_t\textcolor{keyword}{>}(keep\_fraction\ *\ points.size());}
-\DoxyCodeLine{00087\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_ab818126518017939773c8a43bd92fc42}{random\_rejection\_filter}}(points,\ target\_count);}
+\DoxyCodeLine{00085\ \ \ \mbox{\hyperlink{structps_1_1Point}{assert}}(\mbox{\hyperlink{structps_1_1Point}{keep\_fraction}}\ >=\ 0.0\ \&\&\ \mbox{\hyperlink{structps_1_1Point}{keep\_fraction}}\ <=\ 1.0);}
+\DoxyCodeLine{00086\ \ \ std::size\_t\ \mbox{\hyperlink{structps_1_1Point}{target\_count}}\ =\ \textcolor{keyword}{static\_cast<}std::size\_t\textcolor{keyword}{>}(\mbox{\hyperlink{structps_1_1Point}{keep\_fraction}}\ *\ \mbox{\hyperlink{structps_1_1Point}{points}}.size());}
+\DoxyCodeLine{00087\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_ab818126518017939773c8a43bd92fc42}{random\_rejection\_filter}}(\mbox{\hyperlink{structps_1_1Point}{points}},\ \mbox{\hyperlink{structps_1_1Point}{target\_count}});}
 \DoxyCodeLine{00088\ \}}
 \DoxyCodeLine{00089\ }
 \DoxyCodeLine{00090\ \}\ \textcolor{comment}{//\ namespace\ ps}}

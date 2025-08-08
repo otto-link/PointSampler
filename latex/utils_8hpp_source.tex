@@ -17,53 +17,81 @@
 \DoxyCodeLine{00013\ \{}
 \DoxyCodeLine{00014\ }
 \DoxyCodeLine{00033\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00034\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceps_a802637e81218193c0e65266c8075f002}{save\_points\_to\_csv}}(\textcolor{keyword}{const}\ std::string\ \ \ \ \ \ \ \ \ \ \ \ \ \ \&filename,}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ write\_header\ =\ \textcolor{keyword}{true})}
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespaceps_a802637e81218193c0e65266c8075f002}{save\_points\_to\_csv}}(\textcolor{keyword}{const}\ std::string\ \ \ \ \ \ \ \ \ \ \ \ \ \ \&\mbox{\hyperlink{structps_1_1Point}{filename}},}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&\mbox{\hyperlink{structps_1_1Point}{points}},}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{write\_header}}\ =\ \textcolor{keyword}{true})}
 \DoxyCodeLine{00037\ \{}
-\DoxyCodeLine{00038\ \ \ std::ofstream\ out(filename);}
-\DoxyCodeLine{00039\ \ \ \textcolor{keywordflow}{if}\ (!out.is\_open())}
+\DoxyCodeLine{00038\ \ \ std::ofstream\ \mbox{\hyperlink{structps_1_1Point}{out}}(\mbox{\hyperlink{structps_1_1Point}{filename}});}
+\DoxyCodeLine{00039\ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{structps_1_1Point}{out}}.is\_open())}
 \DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
 \DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \ \ \textcolor{keywordflow}{if}\ (write\_header)}
+\DoxyCodeLine{00042\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structps_1_1Point}{write\_header}})}
 \DoxyCodeLine{00043\ \ \ \{}
-\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ N;\ ++i)}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}};\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
 \DoxyCodeLine{00045\ \ \ \ \ \{}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}x"{}}\ <<\ i;}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ N\ -\/\ 1)}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{out}}\ <<\ \textcolor{stringliteral}{"{}x"{}}\ <<\ \mbox{\hyperlink{structps_1_1Point}{i}};}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}}\ -\/\ 1)}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{out}}\ <<\ \textcolor{stringliteral}{"{},"{}};}
 \DoxyCodeLine{00049\ \ \ \ \ \}}
-\DoxyCodeLine{00050\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{out}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
 \DoxyCodeLine{00051\ \ \ \}}
 \DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&point\ :\ points)}
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&\mbox{\hyperlink{structps_1_1Point}{point}}\ :\ \mbox{\hyperlink{structps_1_1Point}{points}})}
 \DoxyCodeLine{00054\ \ \ \{}
-\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ N;\ ++i)}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}};\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
 \DoxyCodeLine{00056\ \ \ \ \ \{}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ out\ <<\ point[i];}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <\ N\ -\/\ 1)}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{out}}\ <<\ \mbox{\hyperlink{structps_1_1Point}{point}}[\mbox{\hyperlink{structps_1_1Point}{i}}];}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}}\ -\/\ 1)}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{out}}\ <<\ \textcolor{stringliteral}{"{},"{}};}
 \DoxyCodeLine{00060\ \ \ \ \ \}}
-\DoxyCodeLine{00061\ \ \ \ \ out\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{out}}\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
 \DoxyCodeLine{00062\ \ \ \}}
 \DoxyCodeLine{00063\ }
 \DoxyCodeLine{00064\ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
 \DoxyCodeLine{00065\ \}}
 \DoxyCodeLine{00066\ }
-\DoxyCodeLine{00089\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00090\ std::array<std::vector<T>,\ N>\ \mbox{\hyperlink{namespaceps_af6737277b9cc05d5f2ab248f17baea3b}{split\_by\_dimension}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points)}
-\DoxyCodeLine{00091\ \{}
-\DoxyCodeLine{00092\ \ \ std::array<std::vector<T>,\ N>\ components;}
-\DoxyCodeLine{00093\ }
-\DoxyCodeLine{00094\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&point\ :\ points)}
-\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ N;\ ++i)}
-\DoxyCodeLine{00096\ \ \ \ \ \{}
-\DoxyCodeLine{00097\ \ \ \ \ \ \ components[i].push\_back(point[i]);}
-\DoxyCodeLine{00098\ \ \ \ \ \}}
-\DoxyCodeLine{00099\ }
-\DoxyCodeLine{00100\ \ \ \textcolor{keywordflow}{return}\ components;}
-\DoxyCodeLine{00101\ \}}
-\DoxyCodeLine{00102\ }
-\DoxyCodeLine{00103\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+\DoxyCodeLine{00102\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00103\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a677f90d97b1dcfeaa2ecc299ee37f5bf}{merge\_by\_dimension}}(}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::vector<T>,\ \mbox{\hyperlink{structps_1_1Point}{N}}>\ \&\mbox{\hyperlink{structps_1_1Point}{components}})}
+\DoxyCodeLine{00105\ \{}
+\DoxyCodeLine{00106\ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (\mbox{\hyperlink{structps_1_1Point}{N}}\ >\ 0)}
+\DoxyCodeLine{00107\ \ \ \{}
+\DoxyCodeLine{00108\ \ \ \ \ std::size\_t\ \mbox{\hyperlink{structps_1_1Point}{count}}\ =\ \mbox{\hyperlink{structps_1_1Point}{components}}[0].size();}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 1;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}};\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
+\DoxyCodeLine{00110\ \ \ \ \ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structps_1_1Point}{components}}[\mbox{\hyperlink{structps_1_1Point}{i}}].\mbox{\hyperlink{structps_1_1Point}{size}}()\ !=\ \mbox{\hyperlink{structps_1_1Point}{count}})}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}All\ component\ vectors\ must\ have\ the\ same\ size"{}});}
+\DoxyCodeLine{00113\ \ \ \ \ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{structps_1_1Point}{points}}(\mbox{\hyperlink{structps_1_1Point}{count}});}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{count}};\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
+\DoxyCodeLine{00117\ \ \ \ \ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ \mbox{\hyperlink{structps_1_1Point}{j}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{j}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}};\ ++\mbox{\hyperlink{structps_1_1Point}{j}})}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{points}}[\mbox{\hyperlink{structps_1_1Point}{i}}][\mbox{\hyperlink{structps_1_1Point}{j}}]\ =\ \mbox{\hyperlink{structps_1_1Point}{components}}[\mbox{\hyperlink{structps_1_1Point}{j}}][\mbox{\hyperlink{structps_1_1Point}{i}}];}
+\DoxyCodeLine{00120\ \ \ \ \ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point}{points}};}
+\DoxyCodeLine{00123\ \ \ \}}
+\DoxyCodeLine{00124\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00125\ \ \ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{00127\ \ \ \}}
+\DoxyCodeLine{00128\ \}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00152\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00153\ std::array<std::vector<T>,\ \mbox{\hyperlink{structps_1_1Point}{N}}>\ \mbox{\hyperlink{namespaceps_af6737277b9cc05d5f2ab248f17baea3b}{split\_by\_dimension}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&\mbox{\hyperlink{structps_1_1Point}{points}})}
+\DoxyCodeLine{00154\ \{}
+\DoxyCodeLine{00155\ \ \ std::array<std::vector<T>,\ \mbox{\hyperlink{structps_1_1Point}{N}}>\ \mbox{\hyperlink{structps_1_1Point}{components}};}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&\mbox{\hyperlink{structps_1_1Point}{point}}\ :\ \mbox{\hyperlink{structps_1_1Point}{points}})}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}};\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
+\DoxyCodeLine{00159\ \ \ \ \ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{components}}[\mbox{\hyperlink{structps_1_1Point}{i}}].push\_back(\mbox{\hyperlink{structps_1_1Point}{point}}[\mbox{\hyperlink{structps_1_1Point}{i}}]);}
+\DoxyCodeLine{00161\ \ \ \ \ \}}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point}{components}};}
+\DoxyCodeLine{00164\ \}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \}\ \textcolor{comment}{//\ namespace\ ps}}
 
 \end{DoxyCode}

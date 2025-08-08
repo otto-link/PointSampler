@@ -16,77 +16,77 @@
 \DoxyCodeLine{00012\ \{}
 \DoxyCodeLine{00013\ }
 \DoxyCodeLine{00030\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00031\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_ad1f4a1110a40bf1c6a687182db6b4b94}{distance\_rejection\_filter}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ min\_dist)}
+\DoxyCodeLine{00031\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_ad1f4a1110a40bf1c6a687182db6b4b94}{distance\_rejection\_filter}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&\mbox{\hyperlink{structps_1_1Point}{points}},}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{min\_dist}})}
 \DoxyCodeLine{00033\ \{}
-\DoxyCodeLine{00034\ \ \ \textcolor{keywordflow}{if}\ (points.empty())}
+\DoxyCodeLine{00034\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structps_1_1Point}{points}}.empty())}
 \DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
 \DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ std::vector<Point<T,\ N>>\ result;}
-\DoxyCodeLine{00038\ \ \ result.reserve(points.size());}
-\DoxyCodeLine{00039\ \ \ result.push\_back(points.front());}
+\DoxyCodeLine{00037\ \ \ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{structps_1_1Point}{result}};}
+\DoxyCodeLine{00038\ \ \ \mbox{\hyperlink{structps_1_1Point}{result}}.reserve(\mbox{\hyperlink{structps_1_1Point}{points}}.size());}
+\DoxyCodeLine{00039\ \ \ \mbox{\hyperlink{structps_1_1Point}{result}}.push\_back(\mbox{\hyperlink{structps_1_1Point}{points}}.front());}
 \DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 1;\ i\ <\ points.size();\ ++i)}
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 1;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{points}}.size();\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
 \DoxyCodeLine{00042\ \ \ \{}
-\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ =\ points[i];}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&\mbox{\hyperlink{structps_1_1Point}{p}}\ =\ \mbox{\hyperlink{structps_1_1Point}{points}}[\mbox{\hyperlink{structps_1_1Point}{i}}];}
 \DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{PointCloudAdaptor<T,\ N>}}\ adaptor(result);}
-\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{namespaceps_ac9ecfd54020ea95c133d1fc99cf4f75a}{KDTree<T,\ N>}}\ \ \ \ \ \ \ \ \ \ \ \ index(N,\ adaptor);}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{PointCloudAdaptor<T,\ N>}}\ \mbox{\hyperlink{structps_1_1Point}{adaptor}}(\mbox{\hyperlink{structps_1_1Point}{result}});}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{KDTree<T,\ N>}}\ \ \ \ \ \ \ \ \ \ \ \ index(\mbox{\hyperlink{structps_1_1Point}{N}},\ \mbox{\hyperlink{structps_1_1Point}{adaptor}});}
 \DoxyCodeLine{00047\ \ \ \ \ index.buildIndex();}
 \DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ \ \ \ \ std::array<T,\ N>\ query;}
-\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ d\ =\ 0;\ d\ <\ N;\ ++d)}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ query[d]\ =\ p[d];}
+\DoxyCodeLine{00049\ \ \ \ \ std::array<T,\ N>\ \mbox{\hyperlink{structps_1_1Point}{query}};}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ \mbox{\hyperlink{structps_1_1Point}{d}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{d}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}};\ ++\mbox{\hyperlink{structps_1_1Point}{d}})}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{query}}[\mbox{\hyperlink{structps_1_1Point}{d}}]\ =\ \mbox{\hyperlink{structps_1_1Point}{p}}[\mbox{\hyperlink{structps_1_1Point}{d}}];}
 \DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \ \ \ \ std::vector<nanoflann::ResultItem<unsigned\ int,\ T>>\ matches;}
-\DoxyCodeLine{00054\ \ \ \ \ nanoflann::SearchParameters\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ params;}
-\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{const}\ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ radius\ =\ min\_dist\ *\ min\_dist;}
+\DoxyCodeLine{00053\ \ \ \ \ std::vector<nanoflann::ResultItem<unsigned\ int,\ T>>\ \mbox{\hyperlink{structps_1_1Point}{matches}};}
+\DoxyCodeLine{00054\ \ \ \ \ nanoflann::SearchParameters\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{params}};}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{T}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{radius}}\ =\ \mbox{\hyperlink{structps_1_1Point}{min\_dist}}\ *\ \mbox{\hyperlink{structps_1_1Point}{min\_dist}};}
 \DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ found\ =\ index.radiusSearch(query.data(),\ radius,\ matches,\ params);}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{found}}\ =\ index.radiusSearch(\mbox{\hyperlink{structps_1_1Point}{query}}.data(),\ \mbox{\hyperlink{structps_1_1Point}{radius}},\ \mbox{\hyperlink{structps_1_1Point}{matches}},\ \mbox{\hyperlink{structps_1_1Point}{params}});}
 \DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{if}\ (found\ ==\ 0)}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ result.push\_back(p);}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structps_1_1Point}{found}}\ ==\ 0)}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{result}}.push\_back(\mbox{\hyperlink{structps_1_1Point}{p}});}
 \DoxyCodeLine{00061\ \ \ \}}
 \DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00063\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point}{result}};}
 \DoxyCodeLine{00064\ \}}
 \DoxyCodeLine{00065\ }
 \DoxyCodeLine{00094\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N,\ \textcolor{keyword}{typename}\ ScaleFn>}
 \DoxyCodeLine{00095\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_af23d114903fd5cb3ccb19d3e64183632}{distance\_rejection\_filter\_warped}}(}
-\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
-\DoxyCodeLine{00097\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ base\_min\_dist,}
-\DoxyCodeLine{00098\ \ \ \ \ ScaleFn\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ scale\_fn)}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&\mbox{\hyperlink{structps_1_1Point}{points}},}
+\DoxyCodeLine{00097\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{T}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{base\_min\_dist}},}
+\DoxyCodeLine{00098\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{ScaleFn}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{scale\_fn}})}
 \DoxyCodeLine{00099\ \{}
-\DoxyCodeLine{00100\ \ \ \textcolor{keywordflow}{if}\ (points.empty())}
+\DoxyCodeLine{00100\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structps_1_1Point}{points}}.empty())}
 \DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
 \DoxyCodeLine{00102\ }
-\DoxyCodeLine{00103\ \ \ std::vector<Point<T,\ N>>\ result;}
-\DoxyCodeLine{00104\ \ \ result.reserve(points.size());}
-\DoxyCodeLine{00105\ \ \ result.push\_back(points.front());}
+\DoxyCodeLine{00103\ \ \ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{structps_1_1Point}{result}};}
+\DoxyCodeLine{00104\ \ \ \mbox{\hyperlink{structps_1_1Point}{result}}.reserve(\mbox{\hyperlink{structps_1_1Point}{points}}.size());}
+\DoxyCodeLine{00105\ \ \ \mbox{\hyperlink{structps_1_1Point}{result}}.push\_back(\mbox{\hyperlink{structps_1_1Point}{points}}.front());}
 \DoxyCodeLine{00106\ }
-\DoxyCodeLine{00107\ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 1;\ i\ <\ points.size();\ ++i)}
+\DoxyCodeLine{00107\ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ \mbox{\hyperlink{structps_1_1Point}{i}}\ =\ 1;\ \mbox{\hyperlink{structps_1_1Point}{i}}\ <\ \mbox{\hyperlink{structps_1_1Point}{points}}.size();\ ++\mbox{\hyperlink{structps_1_1Point}{i}})}
 \DoxyCodeLine{00108\ \ \ \{}
-\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ =\ points[i];}
-\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{const}\ T\ \ \ \ \ local\_min\_dist\ =\ base\_min\_dist\ *\ scale\_fn(p);}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&\mbox{\hyperlink{structps_1_1Point}{p}}\ =\ \mbox{\hyperlink{structps_1_1Point}{points}}[\mbox{\hyperlink{structps_1_1Point}{i}}];}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{T}}\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{local\_min\_dist}}\ =\ \mbox{\hyperlink{structps_1_1Point}{base\_min\_dist}}\ *\ \mbox{\hyperlink{structps_1_1Point}{scale\_fn}}(\mbox{\hyperlink{structps_1_1Point}{p}});}
 \DoxyCodeLine{00111\ }
-\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{PointCloudAdaptor<T,\ N>}}\ adaptor(result);}
-\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{namespaceps_ac9ecfd54020ea95c133d1fc99cf4f75a}{KDTree<T,\ N>}}\ \ \ \ \ \ \ \ \ \ \ \ index(N,\ adaptor);}
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{PointCloudAdaptor<T,\ N>}}\ \mbox{\hyperlink{structps_1_1Point}{adaptor}}(\mbox{\hyperlink{structps_1_1Point}{result}});}
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{KDTree<T,\ N>}}\ \ \ \ \ \ \ \ \ \ \ \ index(\mbox{\hyperlink{structps_1_1Point}{N}},\ \mbox{\hyperlink{structps_1_1Point}{adaptor}});}
 \DoxyCodeLine{00114\ \ \ \ \ index.buildIndex();}
 \DoxyCodeLine{00115\ }
-\DoxyCodeLine{00116\ \ \ \ \ std::array<T,\ N>\ query;}
-\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ d\ =\ 0;\ d\ <\ N;\ ++d)}
-\DoxyCodeLine{00118\ \ \ \ \ \ \ query[d]\ =\ p[d];}
+\DoxyCodeLine{00116\ \ \ \ \ std::array<T,\ N>\ \mbox{\hyperlink{structps_1_1Point}{query}};}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ \mbox{\hyperlink{structps_1_1Point}{d}}\ =\ 0;\ \mbox{\hyperlink{structps_1_1Point}{d}}\ <\ \mbox{\hyperlink{structps_1_1Point}{N}};\ ++\mbox{\hyperlink{structps_1_1Point}{d}})}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{query}}[\mbox{\hyperlink{structps_1_1Point}{d}}]\ =\ \mbox{\hyperlink{structps_1_1Point}{p}}[\mbox{\hyperlink{structps_1_1Point}{d}}];}
 \DoxyCodeLine{00119\ }
-\DoxyCodeLine{00120\ \ \ \ \ std::vector<nanoflann::ResultItem<unsigned\ int,\ T>>\ matches;}
-\DoxyCodeLine{00121\ \ \ \ \ nanoflann::SearchParameters\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ params;}
-\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keyword}{const}\ T\ radius\ =\ local\_min\_dist\ *\ local\_min\_dist;}
+\DoxyCodeLine{00120\ \ \ \ \ std::vector<nanoflann::ResultItem<unsigned\ int,\ T>>\ \mbox{\hyperlink{structps_1_1Point}{matches}};}
+\DoxyCodeLine{00121\ \ \ \ \ nanoflann::SearchParameters\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{params}};}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{T}}\ \mbox{\hyperlink{structps_1_1Point}{radius}}\ =\ \mbox{\hyperlink{structps_1_1Point}{local\_min\_dist}}\ *\ \mbox{\hyperlink{structps_1_1Point}{local\_min\_dist}};}
 \DoxyCodeLine{00123\ }
-\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ found\ =\ index.radiusSearch(query.data(),\ radius,\ matches,\ params);}
-\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{if}\ (found\ ==\ 0)}
-\DoxyCodeLine{00126\ \ \ \ \ \ \ result.push\_back(p);}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structps_1_1Point}{found}}\ =\ index.radiusSearch(\mbox{\hyperlink{structps_1_1Point}{query}}.data(),\ \mbox{\hyperlink{structps_1_1Point}{radius}},\ \mbox{\hyperlink{structps_1_1Point}{matches}},\ \mbox{\hyperlink{structps_1_1Point}{params}});}
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structps_1_1Point}{found}}\ ==\ 0)}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{result}}.push\_back(\mbox{\hyperlink{structps_1_1Point}{p}});}
 \DoxyCodeLine{00127\ \ \ \}}
 \DoxyCodeLine{00128\ }
-\DoxyCodeLine{00129\ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00129\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point}{result}};}
 \DoxyCodeLine{00130\ \}}
 \DoxyCodeLine{00131\ }
 \DoxyCodeLine{00132\ \}\ \textcolor{comment}{//\ namespace\ ps}}

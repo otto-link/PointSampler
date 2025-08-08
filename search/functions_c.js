@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['random_0',['random',['../namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69',1,'ps']]],
-  ['random_5frejection_5ffilter_1',['random_rejection_filter',['../namespaceps.html#ab818126518017939773c8a43bd92fc42',1,'ps::random_rejection_filter(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, std::size_t target_count)'],['../namespaceps.html#a66183362443c104da098224df9bcd2a1',1,'ps::random_rejection_filter(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, float keep_fraction)']]],
-  ['refit_5fpoints_5fto_5frange_2',['refit_points_to_range',['../namespaceps.html#a2b8197901114d1c4fd6cfe19efcd3862',1,'ps']]],
-  ['rejection_5fsampling_3',['rejection_sampling',['../namespaceps.html#a29ab0a94bbe26a22cb87bf8f44703527',1,'ps']]],
-  ['relaxation_5fktree_4',['relaxation_ktree',['../namespaceps.html#aed8a3217a801c5b5706f4bcc3306bb18',1,'ps']]],
-  ['rescale_5fpoints_5',['rescale_points',['../namespaceps.html#a7addf1455112b7895f8de7c475eed850',1,'ps']]]
+  ['point_0',['point',['../structps_1_1Point.html#a424a02dff2ba0f1458cfbe5c453cc739',1,'ps::Point::Point()=default'],['../structps_1_1Point.html#a5baa7fdf8d85cf33a45b47e804f1065a',1,'ps::Point::Point(const std::vector&lt; T &gt; &amp;v)'],['../structps_1_1Point.html#ac3aebf196b50c94ae7f29ee136253c2e',1,'ps::Point::Point(std::initializer_list&lt; T &gt; init)']]],
+  ['point_5fto_5fgrid_1',['point_to_grid',['../structps_1_1GridND.html#ab64bb87b538321af8b8f219022cf08d5',1,'ps::GridND']]],
+  ['pointcloudadaptor_2',['PointCloudAdaptor',['../structps_1_1PointCloudAdaptor.html#acbd72d60ac355bf20db1f248545e961c',1,'ps::PointCloudAdaptor']]],
+  ['poisson_5fdisk_5fsampling_3',['poisson_disk_sampling',['../namespaceps.html#a5b1e932ba8a20e05cd8c113179aa77c8',1,'ps']]],
+  ['poisson_5fdisk_5fsampling_5funiform_4',['poisson_disk_sampling_uniform',['../namespaceps.html#a6f7ab76c5d0a395aa78b85bad488e94e',1,'ps']]]
 ];

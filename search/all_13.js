@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['z_0',['z',['../structps_1_1Point.html#a2056ca5f03e6dbf3bb59571ff31c45ee',1,'ps::Point::z()'],['../structps_1_1Point.html#aa68e8a954f09c3fca7aea0cd9e4fa896',1,'ps::Point::z() const']]]
+  ['y_0',['y',['../structps_1_1Point.html#ad7db73a30d4922706ab50c965bf09e8c',1,'ps::Point::y()'],['../structps_1_1Point.html#ab12206278dcdc9eec61ac37ba5d16fb9',1,'ps::Point::y() const']]]
 ];
