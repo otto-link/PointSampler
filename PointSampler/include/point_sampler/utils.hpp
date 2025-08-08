@@ -65,6 +65,69 @@ bool save_points_to_csv(const std::string              &filename,
 }
 
 /**
+ * @brief Reconstructs a list of N-dimensional points from N separate coordinate vectors.
+ *
+ * This function takes N vectors—each representing one coordinate axis—and
+ * combines them into a single vector of N-dimensional points. It is the inverse
+ * operation of `split_by_dimension`.
+ *
+ * All coordinate vectors must have the same length.
+ *
+ * For example, given:
+ *   - dimension 0: [1, 4, 7]
+ *   - dimension 1: [2, 5, 8]
+ *   - dimension 2: [3, 6, 9]
+ *
+ * The result will be: [(1,2,3), (4,5,6), (7,8,9)]
+ *
+ * @tparam T Scalar type (e.g., float, double).
+ * @tparam N Dimension of each point.
+ *
+ * @param components An array of N vectors, each containing values for one coordinate
+ * axis.
+ *
+ * @return A vector of N-dimensional points reconstructed from the coordinate vectors.
+ *
+ * @throws std::invalid_argument if the coordinate vectors do not all have the same
+ * length.
+ *
+ * @example
+ * std::array<std::vector<float>, 3> components = {{
+ *     {1.0f, 4.0f, 7.0f},  // x
+ *     {2.0f, 5.0f, 8.0f},  // y
+ *     {3.0f, 6.0f, 9.0f}   // z
+ * }};
+ * std::vector<Point<float, 3>> points = merge_by_dimension(components);
+ */
+template <typename T, size_t N>
+std::vector<Point<T, N>> merge_by_dimension(
+    const std::array<std::vector<T>, N> &components)
+{
+  if constexpr (N > 0)
+  {
+    std::size_t count = components[0].size();
+    for (std::size_t i = 1; i < N; ++i)
+    {
+      if (components[i].size() != count)
+        throw std::invalid_argument("All component vectors must have the same size");
+    }
+
+    std::vector<Point<T, N>> points(count);
+    for (std::size_t i = 0; i < count; ++i)
+    {
+      for (std::size_t j = 0; j < N; ++j)
+        points[i][j] = components[j][i];
+    }
+
+    return points;
+  }
+  else
+  {
+    return {};
+  }
+}
+
+/**
  * @brief Rearranges a list of N-dimensional points into N separate coordinate
  * vectors.
  *
