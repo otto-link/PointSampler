@@ -16,6 +16,7 @@ Documentation is available here: [otto-link.github.io/PointSampler](https://otto
 - ✔️ Density-based spatial distribution
 - ✔️ Relaxation using k-nearest neighbors (with `nanoflann`)  
 - ✔️ Dimension-agnostic (supports any `N`)
+- ✔️ Utility wrappers for common spatial metrics (nearest neighbors, minimum distance, etc.)
 - ...
 
 <img width="1010" height="696" alt="demo" src="https://github.com/user-attachments/assets/2dd1b550-a20f-44f1-a3b6-427f76b619ef" />
