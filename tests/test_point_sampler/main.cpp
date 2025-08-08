@@ -217,5 +217,23 @@ int main()
     ps::save_points_to_csv("metrics_first_neighbor_distance_dist_sq.csv", p_dummy);
   }
 
+  {
+    std::cout << "ps::nearest_neighbors_indices...\n";
+
+    auto         points = ps::random<float, dim>(50, ranges, seed);
+    const size_t k_neighbors = 5;
+
+    std::vector<std::vector<size_t>> idx = ps::nearest_neighbors_indices(points,
+                                                                         k_neighbors);
+
+    ps::save_points_to_csv("metrics_nearest_neighbors_indices.csv", points);
+
+    // trick to save the indices as csv
+    std::vector<ps::Point<size_t, k_neighbors>> p_dummy;
+    for (auto &idx_vector : idx)
+      p_dummy.push_back(ps::Point<size_t, k_neighbors>(idx_vector));
+    ps::save_points_to_csv("metrics_nearest_neighbors_indices_idx.csv", p_dummy);
+  }
+
   return 0;
 }

@@ -93,4 +93,71 @@ std::vector<T> first_neighbor_distance(std::vector<Point<T, N>> &points)
   return distance_sq;
 }
 
+/**
+ * @brief Finds the nearest neighbors for each point in a set.
+ *
+ * This function uses a KD-tree to search for the k nearest neighbors of each
+ * point in the input set, returning their indices. The search excludes the
+ * query point itself.
+ *
+ * @tparam T Scalar type (e.g., float, double).
+ * @tparam N Dimension of each point.
+ *
+ * @param  points      Vector of N-dimensional points.
+ * @param  k_neighbors Number of nearest neighbors to return for each point.
+ *
+ * @return             A vector where each element is a vector of indices
+ *                     representing the nearest neighbors of the corresponding
+ *                     point in `points`.
+ *
+ * @note The KD-tree is rebuilt internally for the search.
+ *
+ * @par Example
+ * @code std::vector<Point<float, 3>> points = {
+ *     {0.0f, 0.0f, 0.0f},
+ *     {1.0f, 0.0f, 0.0f},
+ *     {0.0f, 1.0f, 0.0f},
+ *     {1.0f, 1.0f, 0.0f}
+ * };
+ *
+ * auto neighbors = nearest_neighbors_indices(points, 2);
+ * // neighbors[0] might contain {1, 2}
+ * // neighbors[1] might contain {0, 3}
+ * @endcode
+ */
+template <typename T, size_t N>
+std::vector<std::vector<size_t>> nearest_neighbors_indices(
+    const std::vector<Point<T, N>> &points,
+    size_t                          k_neighbors = 8)
+{
+  PointCloudAdaptor<T, N> adaptor(points);
+  KDTree<T, N>            index(N, adaptor);
+  index.buildIndex();
+
+  std::vector<std::vector<size_t>> all_neighbors;
+  all_neighbors.resize(points.size());
+
+  for (size_t i = 0; i < points.size(); ++i)
+  {
+    const auto &p = points[i];
+
+    std::vector<size_t> ret_indexes(k_neighbors + 1);
+    std::vector<T>      out_dists_sqr(k_neighbors + 1);
+
+    nanoflann::KNNResultSet<T> result_set(k_neighbors + 1);
+    result_set.init(ret_indexes.data(), out_dists_sqr.data());
+
+    std::array<T, N> query;
+    for (size_t d = 0; d < N; ++d)
+      query[d] = p[d];
+
+    index.findNeighbors(result_set, query.data(), nanoflann::SearchParameters());
+
+    // Skip self at index 0
+    all_neighbors[i].assign(ret_indexes.begin() + 1, ret_indexes.end());
+  }
+
+  return all_neighbors;
+}
+
 } // namespace ps
