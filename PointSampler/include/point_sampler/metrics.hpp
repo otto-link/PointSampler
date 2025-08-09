@@ -12,6 +12,59 @@ namespace ps
 {
 
 /**
+ * @brief Compute the distance of each point to the domain boundary.
+ *
+ * The domain is defined by axis-aligned ranges in each dimension. For each
+ * point, the returned distance is the smallest Euclidean distance to any
+ * boundary plane of the domain.
+ *
+ * @tparam T Floating point type.
+ * @tparam N Dimensionality of the points.
+ * @param  points      Vector of points to evaluate.
+ * @param  axis_ranges Vector of size N, where each element is a std::pair<min,
+ *                     max>
+ *                    defining the domain limits in that dimension.
+ * @return             std::vector<T> Distances of each point to the nearest
+ *                     domain boundary.
+ *
+ * @note This assumes the domain is a rectangular box aligned with the
+ * coordinate axes.
+ *
+ * **Example:**
+ * @code std::vector<Point<double, 2>> pts = { {0.2, 0.8}, {0.9, 0.1} };
+ * std::vector<std::pair<double, double>> ranges = { {0.0, 1.0}, {0.0, 1.0} };
+ * auto distances = distance_to_boundary(pts, ranges);
+ * // distances[0] -> 0.2
+ * // distances[1] -> 0.1
+ * @endcode
+ */
+template <typename T, size_t N>
+std::vector<T> distance_to_boundary(const std::vector<Point<T, N>>       &points,
+                                    const std::array<std::pair<T, T>, N> &axis_ranges)
+{
+  std::vector<T> distances;
+  distances.reserve(points.size());
+
+  for (const auto &p : points)
+  {
+    // Find min distance to a boundary plane
+    T min_dist = std::numeric_limits<T>::max();
+
+    for (size_t d = 0; d < N; ++d)
+    {
+      T dist_to_min = std::abs(p[d] - axis_ranges[d].first);
+      T dist_to_max = std::abs(axis_ranges[d].second - p[d]);
+
+      min_dist = std::min({min_dist, dist_to_min, dist_to_max});
+    }
+
+    distances.push_back(min_dist);
+  }
+
+  return distances;
+}
+
+/**
  * @brief Computes the squared distance to the nearest neighbor for each point.
  *
  * This function builds a KD-tree from a given set of N-dimensional points and

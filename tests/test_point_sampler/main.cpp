@@ -218,6 +218,20 @@ int main()
   }
 
   {
+    std::cout << "ps::distance_to_boundary...\n";
+
+    auto               points = ps::random<float, dim>(50, ranges, seed);
+    std::vector<float> dist = ps::distance_to_boundary(points, ranges);
+
+    ps::save_points_to_csv("metrics_distance_to_boundary.csv", points);
+
+    // trick to save the vector as csv
+    std::array<std::vector<float>, 1> array = {dist};
+    auto                              p_dummy = ps::merge_by_dimension(array);
+    ps::save_points_to_csv("metrics_distance_to_boundary_dist.csv", p_dummy);
+  }
+
+  {
     std::cout << "ps::nearest_neighbors_indices...\n";
 
     auto         points = ps::random<float, dim>(50, ranges, seed);

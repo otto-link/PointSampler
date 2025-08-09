@@ -90,7 +90,7 @@ bool save_points_to_csv(const std::string              &filename,
  * @return            A vector of N-dimensional points reconstructed from the
  *                    coordinate vectors.
  *
- * @throws std::invalid_argumentifthecoordinatevectorsdonotallhave the same
+ * @throws std::invalid_argumentifthecoordinatevectorsdonotallhavethesame
  *                    length.
  *
  * @example std::array<std::vector<float>, 3> components = {{
