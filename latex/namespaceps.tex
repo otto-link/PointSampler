@@ -43,6 +43,8 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 \begin{DoxyCompactList}\small\item\em Generates a jittered grid of points with full jitter and no stagger. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , std\+::size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a9ca14831de223ff62a6c3ec93e96a7c0}{latin\+\_\+hypercube\+\_\+sampling}} (std\+::size\+\_\+t sample\+\_\+count, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
 \item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{namespaceps_a9a824a8963ef7b15c01da0f1f9c90eee}{distance\+\_\+to\+\_\+boundary}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges)
+\begin{DoxyCompactList}\small\item\em Compute the distance of each point to the domain boundary. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{namespaceps_a97febccfaf65fb7b96c6ae09df0a9c7e}{first\+\_\+neighbor\+\_\+distance}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points)
 \begin{DoxyCompactList}\small\item\em Computes the squared distance to the nearest neighbor for each point. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ std\+::vector$<$ size\+\_\+t $>$ $>$ \mbox{\hyperlink{namespaceps_ac29744e12116f882d8a620a3fd02d72d}{nearest\+\_\+neighbors\+\_\+indices}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, size\+\_\+t k\+\_\+neighbors=8)
@@ -202,7 +204,49 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ A filtered set of points with variable sp
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 T ps\+::distance\+\_\+squared (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{a,  }\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{b }\end{DoxyParamCaption})}
 
-\Hypertarget{namespaceps_ace7642868199df621df9139e5179767b}\label{namespaceps_ace7642868199df621df9139e5179767b} 
+\Hypertarget{namespaceps_a9a824a8963ef7b15c01da0f1f9c90eee}\label{namespaceps_a9a824a8963ef7b15c01da0f1f9c90eee} 
+\index{ps@{ps}!distance\_to\_boundary@{distance\_to\_boundary}}
+\index{distance\_to\_boundary@{distance\_to\_boundary}!ps@{ps}}
+\doxysubsubsection{\texorpdfstring{distance\_to\_boundary()}{distance\_to\_boundary()}}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+std\+::vector$<$ T $>$ ps\+::distance\+\_\+to\+\_\+boundary (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{axis\+\_\+ranges }\end{DoxyParamCaption})}
+
+
+
+Compute the distance of each point to the domain boundary. 
+
+The domain is defined by axis-\/aligned ranges in each dimension. For each point, the returned distance is the smallest Euclidean distance to any boundary plane of the domain.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Floating point type. \\
+\hline
+{\em N} & Dimensionality of the points. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em points} & Vector of points to evaluate. \\
+\hline
+{\em axis\+\_\+ranges} & Vector of size N, where each element is a std\+::pair\texorpdfstring{$<$}{<}min, max\texorpdfstring{$>$}{>} defining the domain limits in that dimension. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+T$>$ Distances of each point to the nearest domain boundary.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This assumes the domain is a rectangular box aligned with the coordinate axes.
+\end{DoxyNote}
+{\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ std::vector<Point<double,\ 2>>\ pts\ =\ \{\ \{0.2,\ 0.8\},\ \{0.9,\ 0.1\}\ \};}
+\DoxyCodeLine{std::vector<std::pair<double,\ double>>\ ranges\ =\ \{\ \{0.0,\ 1.0\},\ \{0.0,\ 1.0\}\ \};}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ distances\ =\ \mbox{\hyperlink{namespaceps_a9a824a8963ef7b15c01da0f1f9c90eee}{distance\_to\_boundary}}(pts,\ ranges);}
+\DoxyCodeLine{\textcolor{comment}{//\ distances[0]\ -\/>\ 0.2}}
+\DoxyCodeLine{\textcolor{comment}{//\ distances[1]\ -\/>\ 0.1}}
+
+\end{DoxyCode}
+ \Hypertarget{namespaceps_ace7642868199df621df9139e5179767b}\label{namespaceps_ace7642868199df621df9139e5179767b} 
 \index{ps@{ps}!dot@{dot}}
 \index{dot@{dot}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{dot()}{dot()}}

@@ -15,84 +15,110 @@
 \DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
 \DoxyCodeLine{00012\ \{}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00053\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00054\ std::vector<T>\ \mbox{\hyperlink{namespaceps_a97febccfaf65fb7b96c6ae09df0a9c7e}{first\_neighbor\_distance}}(std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points)}
-\DoxyCodeLine{00055\ \{}
-\DoxyCodeLine{00056\ \ \ \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{PointCloudAdaptor<T,\ N>}}\ adaptor(points);}
-\DoxyCodeLine{00057\ \ \ \mbox{\hyperlink{namespaceps_ac9ecfd54020ea95c133d1fc99cf4f75a}{KDTree<T,\ N>}}\ \ \ \ \ \ \ \ \ \ \ \ index(N,\ adaptor);}
-\DoxyCodeLine{00058\ \ \ index.buildIndex();}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \ \ std::vector<T>\ distance\_sq;}
-\DoxyCodeLine{00061\ \ \ distance\_sq.reserve(points.size());}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \ \ \textcolor{comment}{//\ first\ neighbor\ search\ only}}
-\DoxyCodeLine{00064\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ k\_neighbors\ =\ 1;}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ points.size();\ ++i)}
-\DoxyCodeLine{00067\ \ \ \{}
-\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ =\ points[i];}
-\DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ \ \ \ \ std::vector<size\_t>\ ret\_indexes(k\_neighbors\ +\ 1);}
-\DoxyCodeLine{00071\ \ \ \ \ std::vector<T>\ \ \ \ \ \ out\_dists\_sqr(k\_neighbors\ +\ 1);}
-\DoxyCodeLine{00072\ }
-\DoxyCodeLine{00073\ \ \ \ \ nanoflann::KNNResultSet<T>\ result\_set(k\_neighbors\ +\ 1);}
-\DoxyCodeLine{00074\ \ \ \ \ result\_set.init(ret\_indexes.data(),\ out\_dists\_sqr.data());}
-\DoxyCodeLine{00075\ }
-\DoxyCodeLine{00076\ \ \ \ \ std::array<T,\ N>\ query;}
-\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ query[d]\ =\ p[d];}
-\DoxyCodeLine{00079\ }
-\DoxyCodeLine{00080\ \ \ \ \ index.findNeighbors(result\_set,\ query.data(),\ nanoflann::SearchParameters());}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \ \ \ \ T\ dist\_sq\ =\ 0.f;}
-\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordflow}{if}\ (ret\_indexes.size()\ >\ 1)}
-\DoxyCodeLine{00084\ \ \ \ \ \{}
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&q\ =\ points[ret\_indexes[1]];}
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \ \ \ \ \ \ \ delta\ =\ p\ -\/\ q;}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ dist\_sq\ =\ \mbox{\hyperlink{namespaceps_a7c3e161560ad3000aa4e2218291b169c}{length\_squared}}(delta)\ +\ T(1e-\/6);}
-\DoxyCodeLine{00088\ \ \ \ \ \}}
-\DoxyCodeLine{00089\ }
-\DoxyCodeLine{00090\ \ \ \ \ distance\_sq.push\_back(dist\_sq);}
-\DoxyCodeLine{00091\ \ \ \}}
-\DoxyCodeLine{00092\ }
-\DoxyCodeLine{00093\ \ \ \textcolor{keywordflow}{return}\ distance\_sq;}
-\DoxyCodeLine{00094\ \}}
-\DoxyCodeLine{00095\ }
-\DoxyCodeLine{00128\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00129\ std::vector<std::vector<size\_t>>\ \mbox{\hyperlink{namespaceps_ac29744e12116f882d8a620a3fd02d72d}{nearest\_neighbors\_indices}}(}
-\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
-\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k\_neighbors\ =\ 8)}
-\DoxyCodeLine{00132\ \{}
-\DoxyCodeLine{00133\ \ \ \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{PointCloudAdaptor<T,\ N>}}\ adaptor(points);}
-\DoxyCodeLine{00134\ \ \ \mbox{\hyperlink{namespaceps_ac9ecfd54020ea95c133d1fc99cf4f75a}{KDTree<T,\ N>}}\ \ \ \ \ \ \ \ \ \ \ \ index(N,\ adaptor);}
-\DoxyCodeLine{00135\ \ \ index.buildIndex();}
-\DoxyCodeLine{00136\ }
-\DoxyCodeLine{00137\ \ \ std::vector<std::vector<size\_t>>\ all\_neighbors;}
-\DoxyCodeLine{00138\ \ \ all\_neighbors.resize(points.size());}
-\DoxyCodeLine{00139\ }
-\DoxyCodeLine{00140\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ points.size();\ ++i)}
-\DoxyCodeLine{00141\ \ \ \{}
-\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ =\ points[i];}
-\DoxyCodeLine{00143\ }
-\DoxyCodeLine{00144\ \ \ \ \ std::vector<size\_t>\ ret\_indexes(k\_neighbors\ +\ 1);}
-\DoxyCodeLine{00145\ \ \ \ \ std::vector<T>\ \ \ \ \ \ out\_dists\_sqr(k\_neighbors\ +\ 1);}
-\DoxyCodeLine{00146\ }
-\DoxyCodeLine{00147\ \ \ \ \ nanoflann::KNNResultSet<T>\ result\_set(k\_neighbors\ +\ 1);}
-\DoxyCodeLine{00148\ \ \ \ \ result\_set.init(ret\_indexes.data(),\ out\_dists\_sqr.data());}
-\DoxyCodeLine{00149\ }
-\DoxyCodeLine{00150\ \ \ \ \ std::array<T,\ N>\ query;}
-\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
-\DoxyCodeLine{00152\ \ \ \ \ \ \ query[d]\ =\ p[d];}
-\DoxyCodeLine{00153\ }
-\DoxyCodeLine{00154\ \ \ \ \ index.findNeighbors(result\_set,\ query.data(),\ nanoflann::SearchParameters());}
-\DoxyCodeLine{00155\ }
-\DoxyCodeLine{00156\ \ \ \ \ \textcolor{comment}{//\ Skip\ self\ at\ index\ 0}}
-\DoxyCodeLine{00157\ \ \ \ \ all\_neighbors[i].assign(ret\_indexes.begin()\ +\ 1,\ ret\_indexes.end());}
-\DoxyCodeLine{00158\ \ \ \}}
-\DoxyCodeLine{00159\ }
-\DoxyCodeLine{00160\ \ \ \textcolor{keywordflow}{return}\ all\_neighbors;}
-\DoxyCodeLine{00161\ \}}
-\DoxyCodeLine{00162\ }
-\DoxyCodeLine{00163\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+\DoxyCodeLine{00041\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00042\ std::vector<T>\ \mbox{\hyperlink{namespaceps_a9a824a8963ef7b15c01da0f1f9c90eee}{distance\_to\_boundary}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \ \ \ \ \ \ \&points,}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ N>\ \&axis\_ranges)}
+\DoxyCodeLine{00044\ \{}
+\DoxyCodeLine{00045\ \ \ std::vector<T>\ distances;}
+\DoxyCodeLine{00046\ \ \ distances.reserve(points.size());}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ :\ points)}
+\DoxyCodeLine{00049\ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{//\ Find\ min\ distance\ to\ a\ boundary\ plane}}
+\DoxyCodeLine{00051\ \ \ \ \ T\ min\_dist\ =\ std::numeric\_limits<T>::max();}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{00054\ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ T\ dist\_to\_min\ =\ std::abs(p[d]\ -\/\ axis\_ranges[d].first);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ T\ dist\_to\_max\ =\ std::abs(axis\_ranges[d].second\ -\/\ p[d]);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ min\_dist\ =\ std::min(\{min\_dist,\ dist\_to\_min,\ dist\_to\_max\});}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ distances.push\_back(min\_dist);}
+\DoxyCodeLine{00062\ \ \ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \textcolor{keywordflow}{return}\ distances;}
+\DoxyCodeLine{00065\ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00106\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00107\ std::vector<T>\ \mbox{\hyperlink{namespaceps_a97febccfaf65fb7b96c6ae09df0a9c7e}{first\_neighbor\_distance}}(std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points)}
+\DoxyCodeLine{00108\ \{}
+\DoxyCodeLine{00109\ \ \ \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{PointCloudAdaptor<T,\ N>}}\ adaptor(points);}
+\DoxyCodeLine{00110\ \ \ \mbox{\hyperlink{namespaceps_ac9ecfd54020ea95c133d1fc99cf4f75a}{KDTree<T,\ N>}}\ \ \ \ \ \ \ \ \ \ \ \ index(N,\ adaptor);}
+\DoxyCodeLine{00111\ \ \ index.buildIndex();}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ std::vector<T>\ distance\_sq;}
+\DoxyCodeLine{00114\ \ \ distance\_sq.reserve(points.size());}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \textcolor{comment}{//\ first\ neighbor\ search\ only}}
+\DoxyCodeLine{00117\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ k\_neighbors\ =\ 1;}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ points.size();\ ++i)}
+\DoxyCodeLine{00120\ \ \ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ =\ points[i];}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ std::vector<size\_t>\ ret\_indexes(k\_neighbors\ +\ 1);}
+\DoxyCodeLine{00124\ \ \ \ \ std::vector<T>\ \ \ \ \ \ out\_dists\_sqr(k\_neighbors\ +\ 1);}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ nanoflann::KNNResultSet<T>\ result\_set(k\_neighbors\ +\ 1);}
+\DoxyCodeLine{00127\ \ \ \ \ result\_set.init(ret\_indexes.data(),\ out\_dists\_sqr.data());}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ std::array<T,\ N>\ query;}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ query[d]\ =\ p[d];}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ index.findNeighbors(result\_set,\ query.data(),\ nanoflann::SearchParameters());}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ T\ dist\_sq\ =\ 0.f;}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordflow}{if}\ (ret\_indexes.size()\ >\ 1)}
+\DoxyCodeLine{00137\ \ \ \ \ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&q\ =\ points[ret\_indexes[1]];}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \ \ \ \ \ \ \ delta\ =\ p\ -\/\ q;}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ dist\_sq\ =\ \mbox{\hyperlink{namespaceps_a7c3e161560ad3000aa4e2218291b169c}{length\_squared}}(delta)\ +\ T(1e-\/6);}
+\DoxyCodeLine{00141\ \ \ \ \ \}}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ distance\_sq.push\_back(dist\_sq);}
+\DoxyCodeLine{00144\ \ \ \}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \textcolor{keywordflow}{return}\ distance\_sq;}
+\DoxyCodeLine{00147\ \}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00181\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00182\ std::vector<std::vector<size\_t>>\ \mbox{\hyperlink{namespaceps_ac29744e12116f882d8a620a3fd02d72d}{nearest\_neighbors\_indices}}(}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k\_neighbors\ =\ 8)}
+\DoxyCodeLine{00185\ \{}
+\DoxyCodeLine{00186\ \ \ \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{PointCloudAdaptor<T,\ N>}}\ adaptor(points);}
+\DoxyCodeLine{00187\ \ \ \mbox{\hyperlink{namespaceps_ac9ecfd54020ea95c133d1fc99cf4f75a}{KDTree<T,\ N>}}\ \ \ \ \ \ \ \ \ \ \ \ index(N,\ adaptor);}
+\DoxyCodeLine{00188\ \ \ index.buildIndex();}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ std::vector<std::vector<size\_t>>\ all\_neighbors;}
+\DoxyCodeLine{00191\ \ \ all\_neighbors.resize(points.size());}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ points.size();\ ++i)}
+\DoxyCodeLine{00194\ \ \ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ =\ points[i];}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \ \ \ \ std::vector<size\_t>\ ret\_indexes(k\_neighbors\ +\ 1);}
+\DoxyCodeLine{00198\ \ \ \ \ std::vector<T>\ \ \ \ \ \ out\_dists\_sqr(k\_neighbors\ +\ 1);}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ nanoflann::KNNResultSet<T>\ result\_set(k\_neighbors\ +\ 1);}
+\DoxyCodeLine{00201\ \ \ \ \ result\_set.init(ret\_indexes.data(),\ out\_dists\_sqr.data());}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ std::array<T,\ N>\ query;}
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ query[d]\ =\ p[d];}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ index.findNeighbors(result\_set,\ query.data(),\ nanoflann::SearchParameters());}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{comment}{//\ Skip\ self\ at\ index\ 0}}
+\DoxyCodeLine{00210\ \ \ \ \ all\_neighbors[i].assign(ret\_indexes.begin()\ +\ 1,\ ret\_indexes.end());}
+\DoxyCodeLine{00211\ \ \ \}}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \ \ \textcolor{keywordflow}{return}\ all\_neighbors;}
+\DoxyCodeLine{00214\ \}}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \}\ \textcolor{comment}{//\ namespace\ ps}}
 
 \end{DoxyCode}

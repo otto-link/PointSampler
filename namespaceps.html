@@ -143,6 +143,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a9ca14831de223ff62a6c3ec93e96a7c0" id="r_a9ca14831de223ff62a6c3ec93e96a7c0"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
 <tr class="memitem:a9ca14831de223ff62a6c3ec93e96a7c0"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a9ca14831de223ff62a6c3ec93e96a7c0">latin_hypercube_sampling</a> (std::size_t sample_count, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, std::optional&lt; unsigned int &gt; seed=std::nullopt)</td></tr>
 <tr class="separator:a9ca14831de223ff62a6c3ec93e96a7c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a824a8963ef7b15c01da0f1f9c90eee" id="r_a9a824a8963ef7b15c01da0f1f9c90eee"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
+<tr class="memitem:a9a824a8963ef7b15c01da0f1f9c90eee"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a9a824a8963ef7b15c01da0f1f9c90eee">distance_to_boundary</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges)</td></tr>
+<tr class="memdesc:a9a824a8963ef7b15c01da0f1f9c90eee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the distance of each point to the domain boundary.  <br /></td></tr>
+<tr class="separator:a9a824a8963ef7b15c01da0f1f9c90eee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a97febccfaf65fb7b96c6ae09df0a9c7e" id="r_a97febccfaf65fb7b96c6ae09df0a9c7e"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:a97febccfaf65fb7b96c6ae09df0a9c7e"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a97febccfaf65fb7b96c6ae09df0a9c7e">first_neighbor_distance</a> (std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points)</td></tr>
 <tr class="memdesc:a97febccfaf65fb7b96c6ae09df0a9c7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the squared distance to the nearest neighbor for each point.  <br /></td></tr>
@@ -476,6 +480,61 @@ template&lt;typename T , size_t N&gt; </div>
 
 </div>
 </div>
+<a id="a9a824a8963ef7b15c01da0f1f9c90eee" name="a9a824a8963ef7b15c01da0f1f9c90eee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a824a8963ef7b15c01da0f1f9c90eee">&#9670;&#160;</a></span>distance_to_boundary()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; T &gt; ps::distance_to_boundary </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>points</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>axis_ranges</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute the distance of each point to the domain boundary. </p>
+<p>The domain is defined by axis-aligned ranges in each dimension. For each point, the returned distance is the smallest Euclidean distance to any boundary plane of the domain.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Floating point type. </td></tr>
+    <tr><td class="paramname">N</td><td>Dimensionality of the points. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">points</td><td>Vector of points to evaluate. </td></tr>
+    <tr><td class="paramname">axis_ranges</td><td>Vector of size N, where each element is a std::pair&lt;min, max&gt; defining the domain limits in that dimension. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;T&gt; Distances of each point to the nearest domain boundary.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This assumes the domain is a rectangular box aligned with the coordinate axes.</dd></dl>
+<p><b>Example:</b> </p><div class="fragment"><div class="line"> std::vector&lt;Point&lt;double, 2&gt;&gt; pts = { {0.2, 0.8}, {0.9, 0.1} };</div>
+<div class="line">std::vector&lt;std::pair&lt;double, double&gt;&gt; ranges = { {0.0, 1.0}, {0.0, 1.0} };</div>
+<div class="line"><span class="keyword">auto</span> distances = <a class="code hl_function" href="namespaceps.html#a9a824a8963ef7b15c01da0f1f9c90eee">distance_to_boundary</a>(pts, ranges);</div>
+<div class="line"><span class="comment">// distances[0] -&gt; 0.2</span></div>
+<div class="line"><span class="comment">// distances[1] -&gt; 0.1</span></div>
+<div class="ttc" id="anamespaceps_html_a9a824a8963ef7b15c01da0f1f9c90eee"><div class="ttname"><a href="namespaceps.html#a9a824a8963ef7b15c01da0f1f9c90eee">ps::distance_to_boundary</a></div><div class="ttdeci">std::vector&lt; T &gt; distance_to_boundary(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges)</div><div class="ttdoc">Compute the distance of each point to the domain boundary.</div><div class="ttdef"><b>Definition</b> metrics.hpp:42</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
 <a id="ace7642868199df621df9139e5179767b" name="ace7642868199df621df9139e5179767b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ace7642868199df621df9139e5179767b">&#9670;&#160;</a></span>dot()</h2>
 
@@ -670,7 +729,7 @@ template&lt;typename T , size_t N&gt; </div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// distances_sq[i] contains the squared distance to the closest neighbor of</span></div>
 <div class="line">points[i].</div>
-<div class="ttc" id="anamespaceps_html_a97febccfaf65fb7b96c6ae09df0a9c7e"><div class="ttname"><a href="namespaceps.html#a97febccfaf65fb7b96c6ae09df0a9c7e">ps::first_neighbor_distance</a></div><div class="ttdeci">std::vector&lt; T &gt; first_neighbor_distance(std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points)</div><div class="ttdoc">Computes the squared distance to the nearest neighbor for each point.</div><div class="ttdef"><b>Definition</b> metrics.hpp:54</div></div>
+<div class="ttc" id="anamespaceps_html_a97febccfaf65fb7b96c6ae09df0a9c7e"><div class="ttname"><a href="namespaceps.html#a97febccfaf65fb7b96c6ae09df0a9c7e">ps::first_neighbor_distance</a></div><div class="ttdeci">std::vector&lt; T &gt; first_neighbor_distance(std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points)</div><div class="ttdoc">Computes the squared distance to the nearest neighbor for each point.</div><div class="ttdef"><b>Definition</b> metrics.hpp:107</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -1559,7 +1618,7 @@ template&lt;typename T , size_t N&gt; </div>
 <div class="line"><span class="keyword">auto</span> neighbors = <a class="code hl_function" href="namespaceps.html#ac29744e12116f882d8a620a3fd02d72d">nearest_neighbors_indices</a>(points, 2);</div>
 <div class="line"><span class="comment">// neighbors[0] might contain {1, 2}</span></div>
 <div class="line"><span class="comment">// neighbors[1] might contain {0, 3}</span></div>
-<div class="ttc" id="anamespaceps_html_ac29744e12116f882d8a620a3fd02d72d"><div class="ttname"><a href="namespaceps.html#ac29744e12116f882d8a620a3fd02d72d">ps::nearest_neighbors_indices</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; size_t &gt; &gt; nearest_neighbors_indices(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, size_t k_neighbors=8)</div><div class="ttdoc">Finds the nearest neighbors for each point in a set.</div><div class="ttdef"><b>Definition</b> metrics.hpp:129</div></div>
+<div class="ttc" id="anamespaceps_html_ac29744e12116f882d8a620a3fd02d72d"><div class="ttname"><a href="namespaceps.html#ac29744e12116f882d8a620a3fd02d72d">ps::nearest_neighbors_indices</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; size_t &gt; &gt; nearest_neighbors_indices(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, size_t k_neighbors=8)</div><div class="ttdoc">Finds the nearest neighbors for each point in a set.</div><div class="ttdef"><b>Definition</b> metrics.hpp:182</div></div>
 </div><!-- fragment --> </dd></dl>
 
 </div>
