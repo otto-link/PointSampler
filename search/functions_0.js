@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['clamp_0',['clamp',['../namespaceps.html#adb0bd4806c7e79eddef0e1263740ae28',1,'ps']]]
+  ['add_5fdimension_0',['add_dimension',['../namespaceps.html#a964f314c19f0b1300d513bce618c5954',1,'ps']]]
 ];

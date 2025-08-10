@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['nanoflann_5fadaptator_2ehpp_0',['nanoflann_adaptator.hpp',['../nanoflann__adaptator_8hpp.html',1,'']]],
-  ['nearest_5fneighbors_5findices_1',['nearest_neighbors_indices',['../namespaceps.html#ac29744e12116f882d8a620a3fd02d72d',1,'ps']]],
-  ['normalized_2',['normalized',['../namespaceps.html#a7de6090e2c8291401816be9bc6cda914',1,'ps']]]
+  ['merge_5fby_5fdimension_0',['merge_by_dimension',['../namespaceps.html#a677f90d97b1dcfeaa2ecc299ee37f5bf',1,'ps']]],
+  ['metrics_2ehpp_1',['metrics.hpp',['../metrics_8hpp.html',1,'']]]
 ];

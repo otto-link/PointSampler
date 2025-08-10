@@ -94,6 +94,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5baa7fdf8d85cf33a45b47e804f1065a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3aebf196b50c94ae7f29ee136253c2e" id="r_ac3aebf196b50c94ae7f29ee136253c2e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structps_1_1Point.html#ac3aebf196b50c94ae7f29ee136253c2e">Point</a> (std::initializer_list&lt; T &gt; init)</td></tr>
 <tr class="separator:ac3aebf196b50c94ae7f29ee136253c2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a384ff1eed26e22b50f2a6ed3b2b9b883" id="r_a384ff1eed26e22b50f2a6ed3b2b9b883"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structps_1_1Point.html#a384ff1eed26e22b50f2a6ed3b2b9b883">Point</a> (const std::array&lt; T, N &gt; &amp;coords_)</td></tr>
+<tr class="separator:a384ff1eed26e22b50f2a6ed3b2b9b883"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a02edf0e14b6bacf2963bc99a98559d0d" id="r_a02edf0e14b6bacf2963bc99a98559d0d"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structps_1_1Point.html#a02edf0e14b6bacf2963bc99a98559d0d">operator[]</a> (size_t i)</td></tr>
 <tr class="separator:a02edf0e14b6bacf2963bc99a98559d0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ff0c82493f4b4fcabe92536252f55a5" id="r_a7ff0c82493f4b4fcabe92536252f55a5"><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structps_1_1Point.html#a7ff0c82493f4b4fcabe92536252f55a5">operator[]</a> (size_t i) const</td></tr>
@@ -133,7 +135,7 @@ struct ps::Point&lt; T, N &gt;</div><p>A fixed-size N-dimensional point/vector c
 <p>Example: Point&lt;float, 2&gt; p{1.0f, 2.0f}; auto length = p.x() * p.x() + p.y() * p.y(); </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a424a02dff2ba0f1458cfbe5c453cc739" name="a424a02dff2ba0f1458cfbe5c453cc739"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a424a02dff2ba0f1458cfbe5c453cc739">&#9670;&#160;</a></span>Point() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a424a02dff2ba0f1458cfbe5c453cc739">&#9670;&#160;</a></span>Point() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -160,7 +162,7 @@ template&lt;typename T , size_t N&gt; </div>
 </div>
 </div>
 <a id="a5baa7fdf8d85cf33a45b47e804f1065a" name="a5baa7fdf8d85cf33a45b47e804f1065a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5baa7fdf8d85cf33a45b47e804f1065a">&#9670;&#160;</a></span>Point() <span class="overload">[2/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5baa7fdf8d85cf33a45b47e804f1065a">&#9670;&#160;</a></span>Point() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -188,7 +190,7 @@ template&lt;typename T , size_t N&gt; </div>
 </div>
 </div>
 <a id="ac3aebf196b50c94ae7f29ee136253c2e" name="ac3aebf196b50c94ae7f29ee136253c2e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3aebf196b50c94ae7f29ee136253c2e">&#9670;&#160;</a></span>Point() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3aebf196b50c94ae7f29ee136253c2e">&#9670;&#160;</a></span>Point() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -203,6 +205,34 @@ template&lt;typename T , size_t N&gt; </div>
           <td>(</td>
           <td class="paramtype">std::initializer_list&lt; T &gt;&#160;</td>
           <td class="paramname"><em>init</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a384ff1eed26e22b50f2a6ed3b2b9b883" name="a384ff1eed26e22b50f2a6ed3b2b9b883"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a384ff1eed26e22b50f2a6ed3b2b9b883">&#9670;&#160;</a></span>Point() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structps_1_1Point.html">ps::Point</a>&lt; T, N &gt;::Point </td>
+          <td>(</td>
+          <td class="paramtype">const std::array&lt; T, N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>coords_</em></td><td>)</td>
           <td></td>
         </tr>
       </table>

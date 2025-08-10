@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['jittered_5fgrid_0',['jittered_grid',['../namespaceps.html#ad8525c124fef24618bf574b9b7b1ece8',1,'ps::jittered_grid(size_t count, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, const std::array&lt; T, N &gt; &amp;jitter_amount, const std::array&lt; T, N &gt; &amp;stagger_ratio, std::optional&lt; unsigned int &gt; seed=std::nullopt)'],['../namespaceps.html#ae90df8db8e751ff4b61298114f092714',1,'ps::jittered_grid(size_t count, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, std::optional&lt; unsigned int &gt; seed=std::nullopt)']]],
-  ['jittered_5fgrid_2ehpp_1',['jittered_grid.hpp',['../jittered__grid_8hpp.html',1,'']]]
+  ['importance_5fresampling_0',['importance_resampling',['../namespaceps.html#a932640b18d76a7e336fc760e9cf5511b',1,'ps']]],
+  ['importance_5fresampling_2ehpp_1',['importance_resampling.hpp',['../importance__resampling_8hpp.html',1,'']]],
+  ['in_5fneighborhood_2',['in_neighborhood',['../namespaceps.html#aedb5908eae325f054e4f3dd6b9b223af',1,'ps']]],
+  ['introduction_3',['Introduction',['../index.html#intro_sec',1,'']]],
+  ['it_20works_3a_4',['How it works:',['../namespaceps.html#autotoc_md11',1,'']]]
 ];

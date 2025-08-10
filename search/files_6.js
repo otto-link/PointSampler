@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['latin_5fhypercube_5fsampling_2ehpp_0',['latin_hypercube_sampling.hpp',['../latin__hypercube__sampling_8hpp.html',1,'']]]
+  ['kmeans_5fcluster_2ehpp_0',['kmeans_cluster.hpp',['../kmeans__cluster_8hpp.html',1,'']]]
 ];

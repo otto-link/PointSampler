@@ -140,6 +140,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ae90df8db8e751ff4b61298114f092714"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#ae90df8db8e751ff4b61298114f092714">jittered_grid</a> (size_t count, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, std::optional&lt; unsigned int &gt; seed=std::nullopt)</td></tr>
 <tr class="memdesc:ae90df8db8e751ff4b61298114f092714"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a jittered grid of points with full jitter and no stagger.  <br /></td></tr>
 <tr class="separator:ae90df8db8e751ff4b61298114f092714"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0a1fb7adf634a6a0137cd041c54b0a3" id="r_ac0a1fb7adf634a6a0137cd041c54b0a3"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
+<tr class="memitem:ac0a1fb7adf634a6a0137cd041c54b0a3"><td class="memTemplItemLeft" align="right" valign="top">std::pair&lt; std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;, std::vector&lt; size_t &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#ac0a1fb7adf634a6a0137cd041c54b0a3">kmeans_cluster</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, size_t k_clusters, bool normalize_data=true, size_t max_iterations=100)</td></tr>
+<tr class="memdesc:ac0a1fb7adf634a6a0137cd041c54b0a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform k-means clustering on a set of points.  <br /></td></tr>
+<tr class="separator:ac0a1fb7adf634a6a0137cd041c54b0a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ca14831de223ff62a6c3ec93e96a7c0" id="r_a9ca14831de223ff62a6c3ec93e96a7c0"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
 <tr class="memitem:a9ca14831de223ff62a6c3ec93e96a7c0"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a9ca14831de223ff62a6c3ec93e96a7c0">latin_hypercube_sampling</a> (std::size_t sample_count, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, std::optional&lt; unsigned int &gt; seed=std::nullopt)</td></tr>
 <tr class="separator:a9ca14831de223ff62a6c3ec93e96a7c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -261,9 +265,21 @@ Functions</h2></td></tr>
 <tr class="memitem:a802637e81218193c0e65266c8075f002"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a802637e81218193c0e65266c8075f002">save_points_to_csv</a> (const std::string &amp;filename, const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, bool write_header=true)</td></tr>
 <tr class="memdesc:a802637e81218193c0e65266c8075f002"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save a set of N-dimensional points to a CSV file.  <br /></td></tr>
 <tr class="separator:a802637e81218193c0e65266c8075f002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b92b660faab5030374ba2dee9f89810" id="r_a5b92b660faab5030374ba2dee9f89810"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a5b92b660faab5030374ba2dee9f89810"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a5b92b660faab5030374ba2dee9f89810">save_vector_to_csv</a> (const std::string &amp;filename, const std::vector&lt; T &gt; &amp;values, bool write_header=true, const std::string &amp;header_name=&quot;value&quot;)</td></tr>
+<tr class="memdesc:a5b92b660faab5030374ba2dee9f89810"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save a 1D vector of values to a CSV file.  <br /></td></tr>
+<tr class="separator:a5b92b660faab5030374ba2dee9f89810"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a964f314c19f0b1300d513bce618c5954" id="r_a964f314c19f0b1300d513bce618c5954"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
+<tr class="memitem:a964f314c19f0b1300d513bce618c5954"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N+1 &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a964f314c19f0b1300d513bce618c5954">add_dimension</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, const std::vector&lt; T &gt; &amp;new_dimension)</td></tr>
+<tr class="memdesc:a964f314c19f0b1300d513bce618c5954"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new dimension to a set of points.  <br /></td></tr>
+<tr class="separator:a964f314c19f0b1300d513bce618c5954"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a677f90d97b1dcfeaa2ecc299ee37f5bf" id="r_a677f90d97b1dcfeaa2ecc299ee37f5bf"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:a677f90d97b1dcfeaa2ecc299ee37f5bf"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a677f90d97b1dcfeaa2ecc299ee37f5bf">merge_by_dimension</a> (const std::array&lt; std::vector&lt; T &gt;, N &gt; &amp;components)</td></tr>
 <tr class="separator:a677f90d97b1dcfeaa2ecc299ee37f5bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a172358f05108b5cabdac4e43ab309ab2" id="r_a172358f05108b5cabdac4e43ab309ab2"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
+<tr class="memitem:a172358f05108b5cabdac4e43ab309ab2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a172358f05108b5cabdac4e43ab309ab2">normalize_points</a> (std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points)</td></tr>
+<tr class="memdesc:a172358f05108b5cabdac4e43ab309ab2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalize the coordinates of a set of points along each axis to the range [0, 1].  <br /></td></tr>
+<tr class="separator:a172358f05108b5cabdac4e43ab309ab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6737277b9cc05d5f2ab248f17baea3b" id="r_af6737277b9cc05d5f2ab248f17baea3b"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:af6737277b9cc05d5f2ab248f17baea3b"><td class="memTemplItemLeft" align="right" valign="top">std::array&lt; std::vector&lt; T &gt;, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#af6737277b9cc05d5f2ab248f17baea3b">split_by_dimension</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points)</td></tr>
 <tr class="memdesc:af6737277b9cc05d5f2ab248f17baea3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rearranges a list of N-dimensional points into N separate coordinate vectors.  <br /></td></tr>
@@ -287,6 +303,67 @@ template&lt;typename T , size_t N&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a964f314c19f0b1300d513bce618c5954" name="a964f314c19f0b1300d513bce618c5954"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a964f314c19f0b1300d513bce618c5954">&#9670;&#160;</a></span>add_dimension()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N+1 &gt; &gt; ps::add_dimension </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>points</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>new_dimension</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add a new dimension to a set of points. </p>
+<p>This function takes a vector of points of dimension N and appends a new coordinate to each point, producing a new vector of points of dimension N+1.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Numeric type of the coordinates (e.g., float, double, int). </td></tr>
+    <tr><td class="paramname">N</td><td>Current number of dimensions in the input points. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">points</td><td>Vector of input points of dimension N. </td></tr>
+    <tr><td class="paramname">new_dimension</td><td>Vector of values for the new dimension. Must have the same size as <code>points</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of points of dimension N+1, with the new dimension appended.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_errorifthesizeof`points`and</td><td><code>new_dimension</code> do not match.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>This function creates a new vector of points with an increased dimension count, since the type Point&lt;T, N&gt; is distinct from <a class="el" href="structps_1_1Point.html" title="A fixed-size N-dimensional point/vector class.">Point</a>&lt;T, N+1&gt;.</dd></dl>
+<p><b>Example usage:</b> </p><div class="fragment"><div class="line"> std::vector&lt;Point&lt;float, 2&gt;&gt; points = { {{1.0f, 2.0f}}, {{3.0f, 4.0f}}</div>
+<div class="line">};</div>
+<div class="line">std::vector&lt;float&gt; z_values = { 10.0f, 20.0f };</div>
+<div class="line"><span class="keyword">auto</span> points3D = <a class="code hl_function" href="namespaceps.html#a964f314c19f0b1300d513bce618c5954">add_dimension</a>(points, z_values);</div>
+<div class="line"><span class="comment">// points3D now contains {{1.0f, 2.0f, 10.0f}}, {{3.0f, 4.0f, 20.0f}}</span></div>
+<div class="ttc" id="anamespaceps_html_a964f314c19f0b1300d513bce618c5954"><div class="ttname"><a href="namespaceps.html#a964f314c19f0b1300d513bce618c5954">ps::add_dimension</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N+1 &gt; &gt; add_dimension(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, const std::vector&lt; T &gt; &amp;new_dimension)</div><div class="ttdoc">Add a new dimension to a set of points.</div><div class="ttdef"><b>Definition</b> utils.hpp:142</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
 <a id="adb0bd4806c7e79eddef0e1263740ae28" name="adb0bd4806c7e79eddef0e1263740ae28"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#adb0bd4806c7e79eddef0e1263740ae28">&#9670;&#160;</a></span>clamp()</h2>
 
@@ -1430,6 +1507,78 @@ Example</h3>
 </div><!-- fragment --> 
 </div>
 </div>
+<a id="ac0a1fb7adf634a6a0137cd041c54b0a3" name="ac0a1fb7adf634a6a0137cd041c54b0a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0a1fb7adf634a6a0137cd041c54b0a3">&#9670;&#160;</a></span>kmeans_cluster()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt; std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;, std::vector&lt; size_t &gt; &gt; ps::kmeans_cluster </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>points</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>k_clusters</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>normalize_data</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>max_iterations</em> = <code>100</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Perform k-means clustering on a set of points. </p>
+<p>Uses the <code>dkm</code> library to cluster points into <code>k</code> groups.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Floating point type. </td></tr>
+    <tr><td class="paramname">N</td><td>Dimensionality of the points. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">points</td><td>Vector of points to cluster. </td></tr>
+    <tr><td class="paramname">k_clusters</td><td>Number of clusters. </td></tr>
+    <tr><td class="paramname">max_iterations</td><td>Maximum number of iterations for k-means. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::pair&lt; std::vector&lt;Point&lt;T, N&gt;&gt;, std::vector&lt;size_t&gt; &gt;<ul>
+<li>First element: vector of cluster centroids.</li>
+<li>Second element: cluster index assignment for each point.</li>
+</ul>
+</dd></dl>
+<p><b>Example:</b> </p><div class="fragment"><div class="line"> std::vector&lt;Point&lt;float, 2&gt;&gt; pts = {</div>
+<div class="line">    {0.1f, 0.2f}, {0.15f, 0.22f}, {0.8f, 0.75f}</div>
+<div class="line">};</div>
+<div class="line"><span class="keyword">auto</span> [centroids, labels] = <a class="code hl_function" href="namespaceps.html#ac0a1fb7adf634a6a0137cd041c54b0a3">kmeans_cluster</a>(pts, 2);</div>
+<div class="line"><span class="comment">// centroids.size() == 2</span></div>
+<div class="line"><span class="comment">// labels.size() == pts.size()</span></div>
+<div class="ttc" id="anamespaceps_html_ac0a1fb7adf634a6a0137cd041c54b0a3"><div class="ttname"><a href="namespaceps.html#ac0a1fb7adf634a6a0137cd041c54b0a3">ps::kmeans_cluster</a></div><div class="ttdeci">std::pair&lt; std::vector&lt; Point&lt; T, N &gt; &gt;, std::vector&lt; size_t &gt; &gt; kmeans_cluster(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, size_t k_clusters, bool normalize_data=true, size_t max_iterations=100)</div><div class="ttdoc">Perform k-means clustering on a set of points.</div><div class="ttdef"><b>Definition</b> kmeans_cluster.hpp:37</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
 <a id="a9ca14831de223ff62a6c3ec93e96a7c0" name="a9ca14831de223ff62a6c3ec93e96a7c0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9ca14831de223ff62a6c3ec93e96a7c0">&#9670;&#160;</a></span>latin_hypercube_sampling()</h2>
 
@@ -1621,6 +1770,50 @@ template&lt;typename T , size_t N&gt; </div>
 <div class="ttc" id="anamespaceps_html_ac29744e12116f882d8a620a3fd02d72d"><div class="ttname"><a href="namespaceps.html#ac29744e12116f882d8a620a3fd02d72d">ps::nearest_neighbors_indices</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; size_t &gt; &gt; nearest_neighbors_indices(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, size_t k_neighbors=8)</div><div class="ttdoc">Finds the nearest neighbors for each point in a set.</div><div class="ttdef"><b>Definition</b> metrics.hpp:182</div></div>
 </div><!-- fragment --> </dd></dl>
 
+</div>
+</div>
+<a id="a172358f05108b5cabdac4e43ab309ab2" name="a172358f05108b5cabdac4e43ab309ab2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a172358f05108b5cabdac4e43ab309ab2">&#9670;&#160;</a></span>normalize_points()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void ps::normalize_points </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>points</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Normalize the coordinates of a set of points along each axis to the range [0, 1]. </p>
+<p>This function finds the minimum and maximum value for each axis across all points and rescales each coordinate so that the minimum becomes 0 and the maximum becomes 1.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Numeric type of the coordinates (e.g., float, double). </td></tr>
+    <tr><td class="paramname">N</td><td>Number of dimensions in each point. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">points</td><td>Vector of points to normalize. The points are modified in place.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>If all points have the same value along a given axis, the corresponding normalized coordinate will be set to 0 for that axis.</dd></dl>
+<p><b>Example usage:</b> </p><div class="fragment"><div class="line"> std::vector&lt;Point&lt;float, 3&gt;&gt; points = {</div>
+<div class="line">    {{1.0f, 5.0f, 10.0f}},</div>
+<div class="line">    {{3.0f, 15.0f, 20.0f}}</div>
+<div class="line">};</div>
+<div class="line"><a class="code hl_function" href="namespaceps.html#a172358f05108b5cabdac4e43ab309ab2">normalize_points</a>(points);</div>
+<div class="line"><span class="comment">// Now points coordinates are scaled in [0, 1] along each axis</span></div>
+<div class="ttc" id="anamespaceps_html_a172358f05108b5cabdac4e43ab309ab2"><div class="ttname"><a href="namespaceps.html#a172358f05108b5cabdac4e43ab309ab2">ps::normalize_points</a></div><div class="ttdeci">void normalize_points(std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points)</div><div class="ttdoc">Normalize the coordinates of a set of points along each axis to the range [0, 1].</div><div class="ttdef"><b>Definition</b> utils.hpp:252</div></div>
+</div><!-- fragment --> 
 </div>
 </div>
 <a id="a7de6090e2c8291401816be9bc6cda914" name="a7de6090e2c8291401816be9bc6cda914"></a>
@@ -2568,6 +2761,76 @@ template&lt;typename T , size_t N&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the file was successfully written, false otherwise. </dd></dl>
 
+</div>
+</div>
+<a id="a5b92b660faab5030374ba2dee9f89810" name="a5b92b660faab5030374ba2dee9f89810"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b92b660faab5030374ba2dee9f89810">&#9670;&#160;</a></span>save_vector_to_csv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ps::save_vector_to_csv </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>values</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>write_header</em> = <code>true</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>header_name</em> = <code>&quot;value&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Save a 1D vector of values to a CSV file. </p>
+<p>This function writes a sequence of values to a CSV file with one value per row. The column name can be customized via the <code>header_name</code> parameter.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Type of the values (must be streamable to std::ostream). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Path to the output CSV file. </td></tr>
+    <tr><td class="paramname">values</td><td>The vector of values to write. </td></tr>
+    <tr><td class="paramname">write_header</td><td>If true, writes a header line at the top of the file. </td></tr>
+    <tr><td class="paramname">header_name</td><td>Name of the column header (only used if <code>write_header</code> is true). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the file was successfully written, false otherwise.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The file will be overwritten if it already exists.</dd></dl>
+<p><b>Example</b> </p><div class="fragment"><div class="line"> std::vector&lt;double&gt; data = {1.0, 2.5, 3.7};</div>
+<div class="line"><a class="code hl_function" href="namespaceps.html#a5b92b660faab5030374ba2dee9f89810">save_vector_to_csv</a>(<span class="stringliteral">&quot;data.csv&quot;</span>, data, <span class="keyword">true</span>, <span class="stringliteral">&quot;measurement&quot;</span>);</div>
+<div class="line"><span class="comment">// data.csv content:</span></div>
+<div class="line"><span class="comment">// measurement</span></div>
+<div class="line"><span class="comment">// 1.0</span></div>
+<div class="line"><span class="comment">// 2.5</span></div>
+<div class="line"><span class="comment">// 3.7</span></div>
+<div class="ttc" id="anamespaceps_html_a5b92b660faab5030374ba2dee9f89810"><div class="ttname"><a href="namespaceps.html#a5b92b660faab5030374ba2dee9f89810">ps::save_vector_to_csv</a></div><div class="ttdeci">bool save_vector_to_csv(const std::string &amp;filename, const std::vector&lt; T &gt; &amp;values, bool write_header=true, const std::string &amp;header_name=&quot;value&quot;)</div><div class="ttdoc">Save a 1D vector of values to a CSV file.</div><div class="ttdef"><b>Definition</b> utils.hpp:95</div></div>
+</div><!-- fragment --> 
 </div>
 </div>
 <a id="af6737277b9cc05d5f2ab248f17baea3b" name="af6737277b9cc05d5f2ab248f17baea3b"></a>

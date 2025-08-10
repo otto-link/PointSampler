@@ -10,7 +10,13 @@ namespace \mbox{\hyperlink{namespaceps}{ps}}
 \item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\bool \mbox{\hyperlink{namespaceps_a802637e81218193c0e65266c8075f002}{ps\+::save\+\_\+points\+\_\+to\+\_\+csv}} (const std\+::string \&filename, const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, bool write\+\_\+header=true)
 \begin{DoxyCompactList}\small\item\em Save a set of N-\/dimensional points to a CSV file. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{namespaceps_a5b92b660faab5030374ba2dee9f89810}{ps\+::save\+\_\+vector\+\_\+to\+\_\+csv}} (const std\+::string \&filename, const std\+::vector$<$ T $>$ \&values, bool write\+\_\+header=true, const std\+::string \&header\+\_\+name="{}value"{})
+\begin{DoxyCompactList}\small\item\em Save a 1D vector of values to a CSV file. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N+1 $>$ $>$ \mbox{\hyperlink{namespaceps_a964f314c19f0b1300d513bce618c5954}{ps\+::add\+\_\+dimension}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, const std\+::vector$<$ T $>$ \&new\+\_\+dimension)
+\begin{DoxyCompactList}\small\item\em Add a new dimension to a set of points. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a677f90d97b1dcfeaa2ecc299ee37f5bf}{ps\+::merge\+\_\+by\+\_\+dimension}} (const std\+::array$<$ std\+::vector$<$ T $>$, N $>$ \&components)
 \item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\void \mbox{\hyperlink{namespaceps_a172358f05108b5cabdac4e43ab309ab2}{ps\+::normalize\+\_\+points}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points)
+\begin{DoxyCompactList}\small\item\em Normalize the coordinates of a set of points along each axis to the range \mbox{[}0, 1\mbox{]}. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::array$<$ std\+::vector$<$ T $>$, N $>$ \mbox{\hyperlink{namespaceps_af6737277b9cc05d5f2ab248f17baea3b}{ps\+::split\+\_\+by\+\_\+dimension}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points)
 \begin{DoxyCompactList}\small\item\em Rearranges a list of N-\/dimensional points into N separate coordinate vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}

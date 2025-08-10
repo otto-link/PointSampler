@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['halton_0',['halton',['../namespaceps.html#a81b18395a05f0bb4d483406e79aa9524',1,'ps']]],
-  ['halton_2ehpp_1',['halton.hpp',['../halton_8hpp.html',1,'']]],
-  ['halton_5fsequence_2',['halton_sequence',['../namespaceps.html#aa8c3b3b3367276f9a194938599d2463b',1,'ps']]],
-  ['hammersley_3',['hammersley',['../namespaceps.html#aad0cc7bc81f7cac9f0be26177b9986a6',1,'ps']]],
-  ['hammersley_2ehpp_4',['hammersley.hpp',['../hammersley_8hpp.html',1,'']]],
-  ['hammersley_5fsequence_5',['hammersley_sequence',['../namespaceps.html#ae21a8c51533330ead4ebe76eed3e72b3',1,'ps']]],
-  ['how_20it_20works_3a_6',['How it works:',['../namespaceps.html#autotoc_md11',1,'']]]
+  ['gaussian_5fclusters_0',['gaussian_clusters',['../namespaceps.html#a913ab9d687ee42d04488e5eb0373e23a',1,'ps::gaussian_clusters(std::vector&lt; Point&lt; T, N &gt; &gt; cluster_centers, size_t points_per_cluster, T spread, std::optional&lt; unsigned int &gt; seed=std::nullopt)'],['../namespaceps.html#a0efaff8017d5a171ffdf0ed0201bd65d',1,'ps::gaussian_clusters(size_t cluster_count, size_t points_per_cluster, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, T spread, std::optional&lt; unsigned int &gt; seed=std::nullopt)']]],
+  ['gaussian_5fclusters_2ehpp_1',['gaussian_clusters.hpp',['../gaussian__clusters_8hpp.html',1,'']]],
+  ['generate_5frandom_5fpoint_5faround_2',['generate_random_point_around',['../namespaceps.html#a898bca65491a14a41bfdd50fdc6230b8',1,'ps']]],
+  ['grid_5fsize_3',['grid_size',['../structps_1_1GridND.html#a3311bce88db1888a7e1bead887fe1d2d',1,'ps::GridND']]],
+  ['gridnd_4',['gridnd',['../structps_1_1GridND.html',1,'ps::GridND&lt; T, N &gt;'],['../structps_1_1GridND.html#a4761ff40e7e3246e0af2fe5e428803d2',1,'ps::GridND::GridND()']]]
 ];

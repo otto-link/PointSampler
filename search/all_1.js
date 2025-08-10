@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['distance_0',['distance',['../namespaceps.html#ac0b74f22d427d199ab0df8f6942d3b11',1,'ps']]],
-  ['distance_5frejection_5ffilter_1',['distance_rejection_filter',['../namespaceps.html#ad1f4a1110a40bf1c6a687182db6b4b94',1,'ps']]],
-  ['distance_5frejection_5ffilter_2ehpp_2',['distance_rejection_filter.hpp',['../distance__rejection__filter_8hpp.html',1,'']]],
-  ['distance_5frejection_5ffilter_5fwarped_3',['distance_rejection_filter_warped',['../namespaceps.html#af23d114903fd5cb3ccb19d3e64183632',1,'ps']]],
-  ['distance_5fsquared_4',['distance_squared',['../namespaceps.html#aecf2b150ec16bf286e6a7b462c4d5808',1,'ps']]],
-  ['distance_5fto_5fboundary_5',['distance_to_boundary',['../namespaceps.html#a9a824a8963ef7b15c01da0f1f9c90eee',1,'ps']]],
-  ['dot_6',['dot',['../namespaceps.html#ace7642868199df621df9139e5179767b',1,'ps']]]
+  ['categories_0',['Categories',['../index.html#modules_sec',1,'']]],
+  ['cell_5fsize_1',['cell_size',['../structps_1_1GridND.html#abe54270f01915da587698baa0ce15ff0',1,'ps::GridND']]],
+  ['cells_2',['cells',['../structps_1_1GridND.html#a1da56d23d70f08bbd3306bb5867ccd6b',1,'ps::GridND']]],
+  ['clamp_3',['clamp',['../namespaceps.html#adb0bd4806c7e79eddef0e1263740ae28',1,'ps']]],
+  ['coords_4',['coords',['../structps_1_1Point.html#a5567a990371b89b1cdc1ea740796aba3',1,'ps::Point']]]
 ];

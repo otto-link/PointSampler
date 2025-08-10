@@ -41,6 +41,8 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 \begin{DoxyCompactList}\small\item\em Generates a point set on a jittered and optionally staggered grid. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_ae90df8db8e751ff4b61298114f092714}{jittered\+\_\+grid}} (size\+\_\+t count, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
 \begin{DoxyCompactList}\small\item\em Generates a jittered grid of points with full jitter and no stagger. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::pair$<$ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$, std\+::vector$<$ size\+\_\+t $>$ $>$ \mbox{\hyperlink{namespaceps_ac0a1fb7adf634a6a0137cd041c54b0a3}{kmeans\+\_\+cluster}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, size\+\_\+t k\+\_\+clusters, bool normalize\+\_\+data=true, size\+\_\+t max\+\_\+iterations=100)
+\begin{DoxyCompactList}\small\item\em Perform k-\/means clustering on a set of points. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , std\+::size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a9ca14831de223ff62a6c3ec93e96a7c0}{latin\+\_\+hypercube\+\_\+sampling}} (std\+::size\+\_\+t sample\+\_\+count, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
 \item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{namespaceps_a9a824a8963ef7b15c01da0f1f9c90eee}{distance\+\_\+to\+\_\+boundary}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges)
@@ -113,8 +115,14 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 \begin{DoxyCompactList}\small\item\em Relax a point set using a k-\/nearest neighbor repulsion algorithm with a KD-\/tree. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\bool \mbox{\hyperlink{namespaceps_a802637e81218193c0e65266c8075f002}{save\+\_\+points\+\_\+to\+\_\+csv}} (const std\+::string \&filename, const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, bool write\+\_\+header=true)
 \begin{DoxyCompactList}\small\item\em Save a set of N-\/dimensional points to a CSV file. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{namespaceps_a5b92b660faab5030374ba2dee9f89810}{save\+\_\+vector\+\_\+to\+\_\+csv}} (const std\+::string \&filename, const std\+::vector$<$ T $>$ \&values, bool write\+\_\+header=true, const std\+::string \&header\+\_\+name="{}value"{})
+\begin{DoxyCompactList}\small\item\em Save a 1D vector of values to a CSV file. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N+1 $>$ $>$ \mbox{\hyperlink{namespaceps_a964f314c19f0b1300d513bce618c5954}{add\+\_\+dimension}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, const std\+::vector$<$ T $>$ \&new\+\_\+dimension)
+\begin{DoxyCompactList}\small\item\em Add a new dimension to a set of points. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a677f90d97b1dcfeaa2ecc299ee37f5bf}{merge\+\_\+by\+\_\+dimension}} (const std\+::array$<$ std\+::vector$<$ T $>$, N $>$ \&components)
 \item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\void \mbox{\hyperlink{namespaceps_a172358f05108b5cabdac4e43ab309ab2}{normalize\+\_\+points}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points)
+\begin{DoxyCompactList}\small\item\em Normalize the coordinates of a set of points along each axis to the range \mbox{[}0, 1\mbox{]}. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::array$<$ std\+::vector$<$ T $>$, N $>$ \mbox{\hyperlink{namespaceps_af6737277b9cc05d5f2ab248f17baea3b}{split\+\_\+by\+\_\+dimension}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points)
 \begin{DoxyCompactList}\small\item\em Rearranges a list of N-\/dimensional points into N separate coordinate vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -130,7 +138,54 @@ using \mbox{\hyperlink{namespaceps_ac9ecfd54020ea95c133d1fc99cf4f75a}{ps\+::\+KD
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{namespaceps_adb0bd4806c7e79eddef0e1263740ae28}\label{namespaceps_adb0bd4806c7e79eddef0e1263740ae28} 
+\Hypertarget{namespaceps_a964f314c19f0b1300d513bce618c5954}\label{namespaceps_a964f314c19f0b1300d513bce618c5954} 
+\index{ps@{ps}!add\_dimension@{add\_dimension}}
+\index{add\_dimension@{add\_dimension}!ps@{ps}}
+\doxysubsubsection{\texorpdfstring{add\_dimension()}{add\_dimension()}}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N+1 $>$ $>$ ps\+::add\+\_\+dimension (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{const std\+::vector$<$ T $>$ \&}]{new\+\_\+dimension }\end{DoxyParamCaption})}
+
+
+
+Add a new dimension to a set of points. 
+
+This function takes a vector of points of dimension N and appends a new coordinate to each point, producing a new vector of points of dimension N+1.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Numeric type of the coordinates (e.\+g., float, double, int). \\
+\hline
+{\em N} & Current number of dimensions in the input points. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em points} & Vector of input points of dimension N. \\
+\hline
+{\em new\+\_\+dimension} & Vector of values for the new dimension. Must have the same size as {\ttfamily points}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of points of dimension N+1, with the new dimension appended.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+errorifthesizeof\`{}points\`{}and} & {\ttfamily new\+\_\+dimension} do not match.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+This function creates a new vector of points with an increased dimension count, since the type Point$<$\+T, N$>$ is distinct from \doxylink{structps_1_1Point}{Point}\texorpdfstring{$<$}{<}T, N+1\texorpdfstring{$>$}{>}.
+\end{DoxyNote}
+{\bfseries{Example usage\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ std::vector<Point<float,\ 2>>\ points\ =\ \{\ \{\{1.0f,\ 2.0f\}\},\ \{\{3.0f,\ 4.0f\}\}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{std::vector<float>\ z\_values\ =\ \{\ 10.0f,\ 20.0f\ \};}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ points3D\ =\ \mbox{\hyperlink{namespaceps_a964f314c19f0b1300d513bce618c5954}{add\_dimension}}(points,\ z\_values);}
+\DoxyCodeLine{\textcolor{comment}{//\ points3D\ now\ contains\ \{\{1.0f,\ 2.0f,\ 10.0f\}\},\ \{\{3.0f,\ 4.0f,\ 20.0f\}\}}}
+
+\end{DoxyCode}
+ \Hypertarget{namespaceps_adb0bd4806c7e79eddef0e1263740ae28}\label{namespaceps_adb0bd4806c7e79eddef0e1263740ae28} 
 \index{ps@{ps}!clamp@{clamp}}
 \index{clamp@{clamp}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{clamp()}{clamp()}}
@@ -770,6 +825,52 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ Jittered point samples
 \DoxyCodeLine{\textcolor{keyword}{auto}\ points\ =\ ps::jittered\_grid<double,\ 3>(1000,\ bounds,\ 1234);}
 
 \end{DoxyCode}
+ \Hypertarget{namespaceps_ac0a1fb7adf634a6a0137cd041c54b0a3}\label{namespaceps_ac0a1fb7adf634a6a0137cd041c54b0a3} 
+\index{ps@{ps}!kmeans\_cluster@{kmeans\_cluster}}
+\index{kmeans\_cluster@{kmeans\_cluster}!ps@{ps}}
+\doxysubsubsection{\texorpdfstring{kmeans\_cluster()}{kmeans\_cluster()}}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+std\+::pair$<$ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$, std\+::vector$<$ size\+\_\+t $>$ $>$ ps\+::kmeans\+\_\+cluster (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{size\+\_\+t}]{k\+\_\+clusters,  }\item[{bool}]{normalize\+\_\+data = {\ttfamily true},  }\item[{size\+\_\+t}]{max\+\_\+iterations = {\ttfamily 100} }\end{DoxyParamCaption})}
+
+
+
+Perform k-\/means clustering on a set of points. 
+
+Uses the {\ttfamily dkm} library to cluster points into {\ttfamily k} groups.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Floating point type. \\
+\hline
+{\em N} & Dimensionality of the points. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em points} & Vector of points to cluster. \\
+\hline
+{\em k\+\_\+clusters} & Number of clusters. \\
+\hline
+{\em max\+\_\+iterations} & Maximum number of iterations for k-\/means. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::pair\texorpdfstring{$<$}{<} std\+::vector$<$\+Point$<$\+T, N$>$$>$, std\+::vector$<$size\+\_\+t$>$ \texorpdfstring{$>$}{>}
+\begin{DoxyItemize}
+\item First element\+: vector of cluster centroids.
+\item Second element\+: cluster index assignment for each point.
+\end{DoxyItemize}
+\end{DoxyReturn}
+{\bfseries{Example\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ std::vector<Point<float,\ 2>>\ pts\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \{0.1f,\ 0.2f\},\ \{0.15f,\ 0.22f\},\ \{0.8f,\ 0.75f\}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ [centroids,\ labels]\ =\ \mbox{\hyperlink{namespaceps_ac0a1fb7adf634a6a0137cd041c54b0a3}{kmeans\_cluster}}(pts,\ 2);}
+\DoxyCodeLine{\textcolor{comment}{//\ centroids.size()\ ==\ 2}}
+\DoxyCodeLine{\textcolor{comment}{//\ labels.size()\ ==\ pts.size()}}
+
+\end{DoxyCode}
  \Hypertarget{namespaceps_a9ca14831de223ff62a6c3ec93e96a7c0}\label{namespaceps_a9ca14831de223ff62a6c3ec93e96a7c0} 
 \index{ps@{ps}!latin\_hypercube\_sampling@{latin\_hypercube\_sampling}}
 \index{latin\_hypercube\_sampling@{latin\_hypercube\_sampling}!ps@{ps}}
@@ -855,7 +956,45 @@ The KD-\/tree is rebuilt internally for the search.
 \end{DoxyCode}
  
 \end{DoxyParagraph}
-\Hypertarget{namespaceps_a7de6090e2c8291401816be9bc6cda914}\label{namespaceps_a7de6090e2c8291401816be9bc6cda914} 
+\Hypertarget{namespaceps_a172358f05108b5cabdac4e43ab309ab2}\label{namespaceps_a172358f05108b5cabdac4e43ab309ab2} 
+\index{ps@{ps}!normalize\_points@{normalize\_points}}
+\index{normalize\_points@{normalize\_points}!ps@{ps}}
+\doxysubsubsection{\texorpdfstring{normalize\_points()}{normalize\_points()}}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+void ps\+::normalize\+\_\+points (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points }\end{DoxyParamCaption})}
+
+
+
+Normalize the coordinates of a set of points along each axis to the range \mbox{[}0, 1\mbox{]}. 
+
+This function finds the minimum and maximum value for each axis across all points and rescales each coordinate so that the minimum becomes 0 and the maximum becomes 1.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Numeric type of the coordinates (e.\+g., float, double). \\
+\hline
+{\em N} & Number of dimensions in each point. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em points} & Vector of points to normalize. The points are modified in place.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+If all points have the same value along a given axis, the corresponding normalized coordinate will be set to 0 for that axis.
+\end{DoxyNote}
+{\bfseries{Example usage\+:}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ std::vector<Point<float,\ 3>>\ points\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \{\{1.0f,\ 5.0f,\ 10.0f\}\},}
+\DoxyCodeLine{\ \ \ \ \{\{3.0f,\ 15.0f,\ 20.0f\}\}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{\mbox{\hyperlink{namespaceps_a172358f05108b5cabdac4e43ab309ab2}{normalize\_points}}(points);}
+\DoxyCodeLine{\textcolor{comment}{//\ Now\ points\ coordinates\ are\ scaled\ in\ [0,\ 1]\ along\ each\ axis}}
+
+\end{DoxyCode}
+ \Hypertarget{namespaceps_a7de6090e2c8291401816be9bc6cda914}\label{namespaceps_a7de6090e2c8291401816be9bc6cda914} 
 \index{ps@{ps}!normalized@{normalized}}
 \index{normalized@{normalized}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{normalized()}{normalized()}}
@@ -1327,7 +1466,53 @@ The output file will contain one point per line, with each coordinate separated 
 \begin{DoxyReturn}{Returns}
 true if the file was successfully written, false otherwise. 
 \end{DoxyReturn}
-\Hypertarget{namespaceps_af6737277b9cc05d5f2ab248f17baea3b}\label{namespaceps_af6737277b9cc05d5f2ab248f17baea3b} 
+\Hypertarget{namespaceps_a5b92b660faab5030374ba2dee9f89810}\label{namespaceps_a5b92b660faab5030374ba2dee9f89810} 
+\index{ps@{ps}!save\_vector\_to\_csv@{save\_vector\_to\_csv}}
+\index{save\_vector\_to\_csv@{save\_vector\_to\_csv}!ps@{ps}}
+\doxysubsubsection{\texorpdfstring{save\_vector\_to\_csv()}{save\_vector\_to\_csv()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool ps\+::save\+\_\+vector\+\_\+to\+\_\+csv (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename,  }\item[{const std\+::vector$<$ T $>$ \&}]{values,  }\item[{bool}]{write\+\_\+header = {\ttfamily true},  }\item[{const std\+::string \&}]{header\+\_\+name = {\ttfamily "{}value"{}} }\end{DoxyParamCaption})}
+
+
+
+Save a 1D vector of values to a CSV file. 
+
+This function writes a sequence of values to a CSV file with one value per row. The column name can be customized via the {\ttfamily header\+\_\+name} parameter.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Type of the values (must be streamable to std\+::ostream). \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Path to the output CSV file. \\
+\hline
+{\em values} & The vector of values to write. \\
+\hline
+{\em write\+\_\+header} & If true, writes a header line at the top of the file. \\
+\hline
+{\em header\+\_\+name} & Name of the column header (only used if {\ttfamily write\+\_\+header} is true). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the file was successfully written, false otherwise.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The file will be overwritten if it already exists.
+\end{DoxyNote}
+{\bfseries{Example}} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ std::vector<double>\ data\ =\ \{1.0,\ 2.5,\ 3.7\};}
+\DoxyCodeLine{\mbox{\hyperlink{namespaceps_a5b92b660faab5030374ba2dee9f89810}{save\_vector\_to\_csv}}(\textcolor{stringliteral}{"{}data.csv"{}},\ data,\ \textcolor{keyword}{true},\ \textcolor{stringliteral}{"{}measurement"{}});}
+\DoxyCodeLine{\textcolor{comment}{//\ data.csv\ content:}}
+\DoxyCodeLine{\textcolor{comment}{//\ measurement}}
+\DoxyCodeLine{\textcolor{comment}{//\ 1.0}}
+\DoxyCodeLine{\textcolor{comment}{//\ 2.5}}
+\DoxyCodeLine{\textcolor{comment}{//\ 3.7}}
+
+\end{DoxyCode}
+ \Hypertarget{namespaceps_af6737277b9cc05d5f2ab248f17baea3b}\label{namespaceps_af6737277b9cc05d5f2ab248f17baea3b} 
 \index{ps@{ps}!split\_by\_dimension@{split\_by\_dimension}}
 \index{split\_by\_dimension@{split\_by\_dimension}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{split\_by\_dimension()}{split\_by\_dimension()}}

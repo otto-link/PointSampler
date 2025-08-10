@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['gaussian_5fclusters_0',['gaussian_clusters',['../namespaceps.html#a913ab9d687ee42d04488e5eb0373e23a',1,'ps::gaussian_clusters(std::vector&lt; Point&lt; T, N &gt; &gt; cluster_centers, size_t points_per_cluster, T spread, std::optional&lt; unsigned int &gt; seed=std::nullopt)'],['../namespaceps.html#a0efaff8017d5a171ffdf0ed0201bd65d',1,'ps::gaussian_clusters(size_t cluster_count, size_t points_per_cluster, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, T spread, std::optional&lt; unsigned int &gt; seed=std::nullopt)']]],
-  ['gaussian_5fclusters_2ehpp_1',['gaussian_clusters.hpp',['../gaussian__clusters_8hpp.html',1,'']]],
-  ['generate_5frandom_5fpoint_5faround_2',['generate_random_point_around',['../namespaceps.html#a898bca65491a14a41bfdd50fdc6230b8',1,'ps']]],
-  ['grid_5fsize_3',['grid_size',['../structps_1_1GridND.html#a3311bce88db1888a7e1bead887fe1d2d',1,'ps::GridND']]],
-  ['gridnd_4',['gridnd',['../structps_1_1GridND.html',1,'ps::GridND&lt; T, N &gt;'],['../structps_1_1GridND.html#a4761ff40e7e3246e0af2fe5e428803d2',1,'ps::GridND::GridND()']]]
+  ['filter_5fpoints_5ffunction_0',['filter_points_function',['../namespaceps.html#a5350b843397a5bf2a748115108ffa21a',1,'ps']]],
+  ['filter_5fpoints_5fin_5frange_1',['filter_points_in_range',['../namespaceps.html#a9c8c5679d987d3023b9d3beffd81e6df',1,'ps']]],
+  ['first_5fneighbor_5fdistance_2',['first_neighbor_distance',['../namespaceps.html#a97febccfaf65fb7b96c6ae09df0a9c7e',1,'ps']]],
+  ['function_5frejection_5ffilter_3',['function_rejection_filter',['../namespaceps.html#a0e4055582214237ee9f21369133e6194',1,'ps']]],
+  ['function_5frejection_5ffilter_2ehpp_4',['function_rejection_filter.hpp',['../function__rejection__filter_8hpp.html',1,'']]]
 ];

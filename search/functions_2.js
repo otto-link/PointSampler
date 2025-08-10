@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['filter_5fpoints_5ffunction_0',['filter_points_function',['../namespaceps.html#a5350b843397a5bf2a748115108ffa21a',1,'ps']]],
-  ['filter_5fpoints_5fin_5frange_1',['filter_points_in_range',['../namespaceps.html#a9c8c5679d987d3023b9d3beffd81e6df',1,'ps']]],
-  ['first_5fneighbor_5fdistance_2',['first_neighbor_distance',['../namespaceps.html#a97febccfaf65fb7b96c6ae09df0a9c7e',1,'ps']]],
-  ['function_5frejection_5ffilter_3',['function_rejection_filter',['../namespaceps.html#a0e4055582214237ee9f21369133e6194',1,'ps']]]
+  ['distance_0',['distance',['../namespaceps.html#ac0b74f22d427d199ab0df8f6942d3b11',1,'ps']]],
+  ['distance_5frejection_5ffilter_1',['distance_rejection_filter',['../namespaceps.html#ad1f4a1110a40bf1c6a687182db6b4b94',1,'ps']]],
+  ['distance_5frejection_5ffilter_5fwarped_2',['distance_rejection_filter_warped',['../namespaceps.html#af23d114903fd5cb3ccb19d3e64183632',1,'ps']]],
+  ['distance_5fsquared_3',['distance_squared',['../namespaceps.html#aecf2b150ec16bf286e6a7b462c4d5808',1,'ps']]],
+  ['distance_5fto_5fboundary_4',['distance_to_boundary',['../namespaceps.html#a9a824a8963ef7b15c01da0f1f9c90eee',1,'ps']]],
+  ['dot_5',['dot',['../namespaceps.html#ace7642868199df621df9139e5179767b',1,'ps']]]
 ];
