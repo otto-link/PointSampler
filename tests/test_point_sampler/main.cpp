@@ -256,30 +256,33 @@ int main()
       std::vector<std::vector<size_t>> idx = ps::nearest_neighbors_indices(points,
                                                                            k_neighbors);
 
+      // build a cluster using the minimum distance and the average
+      // distance between the neighbors to have an idea of the
+      // compacteness at the point and around the others points
       std::vector<float> dist_min;
-      std::vector<float> dist_max;
+      std::vector<float> dist_avg;
       dist_min.reserve(idx.size());
-      dist_max.reserve(idx.size());
+      dist_avg.reserve(idx.size());
 
       for (size_t k = 0; k < idx.size(); ++k)
       {
         float dmin = 1e9f;
-        float dmax = 0.f;
+        float davg = 0.f;
 
         // loop over neighbors
         for (size_t r = 0; r < k_neighbors; ++r)
         {
           float dist = ps::distance_squared(points[k], points[idx[k][r]]);
           dmin = std::min(dist, dmin);
-          dmax = std::max(dist, dmax);
+          davg += dist;
         }
 
         dist_min.push_back(dmin);
-        dist_max.push_back(dmax);
+        dist_avg.push_back(davg); // will be normalized after in kmeans
       }
 
       std::vector<ps::Point<float, 2>> data = ps::merge_by_dimension<float, 2>(
-          {dist_min, dist_max});
+          {dist_min, dist_avg});
 
       // 3 clusters: (1) densely packed points with close neigbors,
       // (2) partially dense packed points with some neighbors further
