@@ -157,6 +157,7 @@ This includes:
 ## Dependencies
 
 * [nanoflann](https://github.com/jlblancoc/nanoflann) — used for k-nearest neighbor acceleration in relaxation
+* [dkm](https://github.com/genbattle/dkm) - used for k-means clustering
 
 ## License
 
