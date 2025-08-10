@@ -350,7 +350,7 @@ template&lt;typename T , size_t N&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>A vector of points of dimension N+1, with the new dimension appended.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">std::runtime_errorifthesizeof`points`and</td><td><code>new_dimension</code> do not match.</td></tr>
+    <tr><td class="paramname">std::runtime_errorifthesizeof`points`and`new_dimension`</td><td>do not match.</td></tr>
   </table>
   </dd>
 </dl>
@@ -360,7 +360,7 @@ template&lt;typename T , size_t N&gt; </div>
 <div class="line">std::vector&lt;float&gt; z_values = { 10.0f, 20.0f };</div>
 <div class="line"><span class="keyword">auto</span> points3D = <a class="code hl_function" href="namespaceps.html#a964f314c19f0b1300d513bce618c5954">add_dimension</a>(points, z_values);</div>
 <div class="line"><span class="comment">// points3D now contains {{1.0f, 2.0f, 10.0f}}, {{3.0f, 4.0f, 20.0f}}</span></div>
-<div class="ttc" id="anamespaceps_html_a964f314c19f0b1300d513bce618c5954"><div class="ttname"><a href="namespaceps.html#a964f314c19f0b1300d513bce618c5954">ps::add_dimension</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N+1 &gt; &gt; add_dimension(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, const std::vector&lt; T &gt; &amp;new_dimension)</div><div class="ttdoc">Add a new dimension to a set of points.</div><div class="ttdef"><b>Definition</b> utils.hpp:142</div></div>
+<div class="ttc" id="anamespaceps_html_a964f314c19f0b1300d513bce618c5954"><div class="ttname"><a href="namespaceps.html#a964f314c19f0b1300d513bce618c5954">ps::add_dimension</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N+1 &gt; &gt; add_dimension(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, const std::vector&lt; T &gt; &amp;new_dimension)</div><div class="ttdoc">Add a new dimension to a set of points.</div><div class="ttdef"><b>Definition</b> utils.hpp:141</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -1812,7 +1812,7 @@ template&lt;typename T , size_t N&gt; </div>
 <div class="line">};</div>
 <div class="line"><a class="code hl_function" href="namespaceps.html#a172358f05108b5cabdac4e43ab309ab2">normalize_points</a>(points);</div>
 <div class="line"><span class="comment">// Now points coordinates are scaled in [0, 1] along each axis</span></div>
-<div class="ttc" id="anamespaceps_html_a172358f05108b5cabdac4e43ab309ab2"><div class="ttname"><a href="namespaceps.html#a172358f05108b5cabdac4e43ab309ab2">ps::normalize_points</a></div><div class="ttdeci">void normalize_points(std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points)</div><div class="ttdoc">Normalize the coordinates of a set of points along each axis to the range [0, 1].</div><div class="ttdef"><b>Definition</b> utils.hpp:252</div></div>
+<div class="ttc" id="anamespaceps_html_a172358f05108b5cabdac4e43ab309ab2"><div class="ttname"><a href="namespaceps.html#a172358f05108b5cabdac4e43ab309ab2">ps::normalize_points</a></div><div class="ttdeci">void normalize_points(std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points)</div><div class="ttdoc">Normalize the coordinates of a set of points along each axis to the range [0, 1].</div><div class="ttdef"><b>Definition</b> utils.hpp:251</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
