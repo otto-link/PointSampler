@@ -12,4 +12,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${PS_INCLUDE}
                                                    ${CMAKE_BINARY_DIR}/include)
 
 # Link libraries
-target_link_libraries(${PROJECT_NAME} PUBLIC nanoflann::nanoflann)
+target_link_libraries(
+  ${PROJECT_NAME}
+  PUBLIC nanoflann::nanoflann
+  INTERFACE point_sampler::dkm)

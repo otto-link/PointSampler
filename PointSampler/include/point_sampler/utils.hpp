@@ -65,6 +65,102 @@ bool save_points_to_csv(const std::string              &filename,
 }
 
 /**
+ * @brief Save a 1D vector of values to a CSV file.
+ *
+ * This function writes a sequence of values to a CSV file with one value per
+ * row. The column name can be customized via the @p header_name parameter.
+ *
+ * @tparam T Type of the values (must be streamable to std::ostream).
+ * @param  filename     Path to the output CSV file.
+ * @param  values       The vector of values to write.
+ * @param  write_header If true, writes a header line at the top of the file.
+ * @param  header_name  Name of the column header (only used if @p write_header
+ *                      is true).
+ * @return              True if the file was successfully written, false
+ *                      otherwise.
+ *
+ * @note The file will be overwritten if it already exists.
+ *
+ * **Example**
+ * @code std::vector<double> data = {1.0, 2.5, 3.7};
+ * save_vector_to_csv("data.csv", data, true, "measurement");
+ * // data.csv content:
+ * // measurement
+ * // 1.0
+ * // 2.5
+ * // 3.7
+ * @endcode
+ */
+template <typename T>
+bool save_vector_to_csv(const std::string    &filename,
+                        const std::vector<T> &values,
+                        bool                  write_header = true,
+                        const std::string    &header_name = "value")
+{
+  std::ofstream out(filename);
+  if (!out.is_open())
+    return false;
+
+  if (write_header)
+    out << header_name << "\n";
+
+  for (const auto &val : values)
+    out << val << "\n";
+
+  return true;
+}
+
+/**
+ * @brief Add a new dimension to a set of points.
+ *
+ * This function takes a vector of points of dimension N and appends a new
+ * coordinate to each point, producing a new vector of points of dimension N+1.
+ *
+ * @tparam T Numeric type of the coordinates (e.g., float, double, int).
+ * @tparam N Current number of dimensions in the input points.
+ * @param  points        Vector of input points of dimension N.
+ * @param  new_dimension Vector of values for the new dimension. Must have the
+ *                       same size as `points`.
+ * @return               A vector of points of dimension N+1, with the new
+ *                       dimension appended.
+ *
+ * @throws std::runtime_errorifthesizeof`points`and `new_dimension` do not
+ *                       match.
+ *
+ * @note This function creates a new vector of points with an increased
+ * dimension count, since the type Point<T, N> is distinct from Point<T, N+1>.
+ *
+ * **Example usage:**
+ * @code std::vector<Point<float, 2>> points = { {{1.0f, 2.0f}}, {{3.0f, 4.0f}}
+ * };
+ * std::vector<float> z_values = { 10.0f, 20.0f };
+ * auto points3D = add_dimension(points, z_values);
+ * // points3D now contains {{1.0f, 2.0f, 10.0f}}, {{3.0f, 4.0f, 20.0f}}
+ * @endcode
+ */
+template <typename T, size_t N>
+std::vector<Point<T, N + 1>> add_dimension(const std::vector<Point<T, N>> &points,
+                                           const std::vector<T>           &new_dimension)
+{
+  if (points.size() != new_dimension.size())
+    throw std::runtime_error(
+        "add_dimension: size mismatch between points and new dimension data");
+
+  std::vector<Point<T, N + 1>> result;
+  result.reserve(points.size());
+
+  for (size_t i = 0; i < points.size(); ++i)
+  {
+    std::array<T, N + 1> coords{};
+    std::copy(points[i].coords.begin(), points[i].coords.end(), coords.begin());
+    coords[N] = new_dimension[i];
+    result.emplace_back(coords);
+  }
+
+  return result;
+}
+
+/**
  * @brief Reconstructs a list of N-dimensional points from N separate coordinate
  * vectors.
  *
@@ -125,6 +221,71 @@ std::vector<Point<T, N>> merge_by_dimension(
   else
   {
     return {};
+  }
+}
+
+/**
+ * @brief Normalize the coordinates of a set of points along each axis to the
+ * range [0, 1].
+ *
+ * This function finds the minimum and maximum value for each axis across all
+ * points and rescales each coordinate so that the minimum becomes 0 and the
+ * maximum becomes 1.
+ *
+ * @tparam T Numeric type of the coordinates (e.g., float, double).
+ * @tparam N Number of dimensions in each point.
+ * @param points Vector of points to normalize. The points are modified in
+ *               place.
+ *
+ * @note If all points have the same value along a given axis, the corresponding
+ * normalized coordinate will be set to 0 for that axis.
+ *
+ * **Example usage:**
+ * @code std::vector<Point<float, 3>> points = {
+ *     {{1.0f, 5.0f, 10.0f}},
+ *     {{3.0f, 15.0f, 20.0f}}
+ * };
+ * normalize_points(points);
+ * // Now points coordinates are scaled in [0, 1] along each axis
+ * @endcode
+ */
+template <typename T, size_t N> void normalize_points(std::vector<Point<T, N>> &points)
+{
+  if (points.empty())
+    return;
+
+  std::array<T, N> min_vals;
+  std::array<T, N> max_vals;
+
+  // Initialize min/max arrays
+  for (size_t dim = 0; dim < N; ++dim)
+  {
+    min_vals[dim] = points[0].coords[dim];
+    max_vals[dim] = points[0].coords[dim];
+  }
+
+  // Find min/max for each axis
+  for (const auto &p : points)
+  {
+    for (size_t dim = 0; dim < N; ++dim)
+    {
+      min_vals[dim] = std::min(min_vals[dim], p.coords[dim]);
+      max_vals[dim] = std::max(max_vals[dim], p.coords[dim]);
+    }
+  }
+
+  // Normalize each point
+  for (auto &p : points)
+  {
+    for (size_t dim = 0; dim < N; ++dim)
+    {
+      T range = max_vals[dim] - min_vals[dim];
+      if (range != T(0))
+        p.coords[dim] = (p.coords[dim] - min_vals[dim]) / range;
+      else
+        p.coords[dim] = T(0); // Avoid NaN if all values
+                              // are equal
+    }
   }
 }
 

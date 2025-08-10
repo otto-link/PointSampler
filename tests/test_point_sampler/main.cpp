@@ -210,11 +210,7 @@ int main()
     std::vector<float> dist_sq = ps::first_neighbor_distance(points);
 
     ps::save_points_to_csv("metrics_first_neighbor_distance.csv", points);
-
-    // trick to save the vector as csv
-    std::array<std::vector<float>, 1> array = {dist_sq};
-    auto                              p_dummy = ps::merge_by_dimension(array);
-    ps::save_points_to_csv("metrics_first_neighbor_distance_dist_sq.csv", p_dummy);
+    ps::save_vector_to_csv("metrics_first_neighbor_distance_dist_sq.csv", dist_sq);
   }
 
   {
@@ -224,11 +220,7 @@ int main()
     std::vector<float> dist = ps::distance_to_boundary(points, ranges);
 
     ps::save_points_to_csv("metrics_distance_to_boundary.csv", points);
-
-    // trick to save the vector as csv
-    std::array<std::vector<float>, 1> array = {dist};
-    auto                              p_dummy = ps::merge_by_dimension(array);
-    ps::save_points_to_csv("metrics_distance_to_boundary_dist.csv", p_dummy);
+    ps::save_vector_to_csv("metrics_distance_to_boundary_dist.csv", dist);
   }
 
   {
@@ -247,6 +239,57 @@ int main()
     for (auto &idx_vector : idx)
       p_dummy.push_back(ps::Point<size_t, k_neighbors>(idx_vector));
     ps::save_points_to_csv("metrics_nearest_neighbors_indices_idx.csv", p_dummy);
+  }
+
+  {
+    std::cout << "ps::kmeans_cluster...\n";
+
+    // random points
+    auto points = ps::latin_hypercube_sampling<float, dim>(count, ranges, seed);
+    ps::save_points_to_csv("metrics_kmeans_cluster.csv", points);
+
+    size_t k_clusters = 3;
+
+    // build clustering on min and max distance to nearest neighbors
+    {
+      size_t                           k_neighbors = 4;
+      std::vector<std::vector<size_t>> idx = ps::nearest_neighbors_indices(points,
+                                                                           k_neighbors);
+
+      std::vector<float> dist_min;
+      std::vector<float> dist_max;
+      dist_min.reserve(idx.size());
+      dist_max.reserve(idx.size());
+
+      for (size_t k = 0; k < idx.size(); ++k)
+      {
+        float dmin = 1e9f;
+        float dmax = 0.f;
+
+        // loop over neighbors
+        for (size_t r = 0; r < k_neighbors; ++r)
+        {
+          float dist = ps::distance_squared(points[k], points[idx[k][r]]);
+          dmin = std::min(dist, dmin);
+          dmax = std::max(dist, dmax);
+        }
+
+        dist_min.push_back(dmin);
+        dist_max.push_back(dmax);
+      }
+
+      std::vector<ps::Point<float, 2>> data = ps::merge_by_dimension<float, 2>(
+          {dist_min, dist_max});
+
+      // 3 clusters: (1) densely packed points with close neigbors,
+      // (2) partially dense packed points with some neighbors further
+      // away, lonely points
+
+      auto km = ps::kmeans_cluster(data, k_clusters);
+
+      ps::save_points_to_csv("metrics_kmeans_cluster_centroids.csv", km.first);
+      ps::save_vector_to_csv("metrics_kmeans_cluster_labels.csv", km.second);
+    }
   }
 
   return 0;

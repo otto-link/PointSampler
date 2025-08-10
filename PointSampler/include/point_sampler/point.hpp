@@ -57,6 +57,8 @@ template <typename T, size_t N> struct Point
     std::copy(init.begin(), init.end(), coords.begin());
   }
 
+  Point(const std::array<T, N> &coords_) { coords = coords_; }
+
   // Accessors
   T       &operator[](size_t i) { return coords[i]; }
   const T &operator[](size_t i) const { return coords[i]; }
