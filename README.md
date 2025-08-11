@@ -136,6 +136,7 @@ target_link_libraries(my_app PRIVATE point_sampler)
 
 * **C++20** compiler
 * `nanoflann` (embedded as an external)
+* `dkm` (embedded as an external)
 
 ## Where to Find Examples
 
