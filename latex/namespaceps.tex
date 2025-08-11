@@ -47,7 +47,7 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 \item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{namespaceps_a9a824a8963ef7b15c01da0f1f9c90eee}{distance\+\_\+to\+\_\+boundary}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges)
 \begin{DoxyCompactList}\small\item\em Compute the distance of each point to the domain boundary. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{namespaceps_a97febccfaf65fb7b96c6ae09df0a9c7e}{first\+\_\+neighbor\+\_\+distance}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points)
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{namespaceps_a91a0bac33731ed899845c6081c117db2}{first\+\_\+neighbor\+\_\+distance\+\_\+squared}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points)
 \begin{DoxyCompactList}\small\item\em Computes the squared distance to the nearest neighbor for each point. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ std\+::vector$<$ size\+\_\+t $>$ $>$ \mbox{\hyperlink{namespaceps_ac29744e12116f882d8a620a3fd02d72d}{nearest\+\_\+neighbors\+\_\+indices}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, size\+\_\+t k\+\_\+neighbors=8)
 \begin{DoxyCompactList}\small\item\em Finds the nearest neighbors for each point in a set. \end{DoxyCompactList}\item 
@@ -170,7 +170,7 @@ A vector of points of dimension N+1, with the new dimension appended.
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em std\+::runtime\+\_\+errorifthesizeof\`{}points\`{}and\`{}new\+\_\+dimension\`{}} & do not match.\\
+{\em std\+::runtime\+\_\+errorifthesizeof\`{}points\`{}and\`{}new\+\_\+dimension\`{}do} & not match.\\
 \hline
 \end{DoxyExceptions}
 \begin{DoxyNote}{Note}
@@ -391,12 +391,12 @@ A vector containing only the points that lie within all specified axis ranges.
 \DoxyCodeLine{\textcolor{comment}{//\ filtered\ now\ contains\ only\ \{\ \{0.5f,\ 0.5f\}\ \}}}
 
 \end{DoxyCode}
- \Hypertarget{namespaceps_a97febccfaf65fb7b96c6ae09df0a9c7e}\label{namespaceps_a97febccfaf65fb7b96c6ae09df0a9c7e} 
-\index{ps@{ps}!first\_neighbor\_distance@{first\_neighbor\_distance}}
-\index{first\_neighbor\_distance@{first\_neighbor\_distance}!ps@{ps}}
-\doxysubsubsection{\texorpdfstring{first\_neighbor\_distance()}{first\_neighbor\_distance()}}
+ \Hypertarget{namespaceps_a91a0bac33731ed899845c6081c117db2}\label{namespaceps_a91a0bac33731ed899845c6081c117db2} 
+\index{ps@{ps}!first\_neighbor\_distance\_squared@{first\_neighbor\_distance\_squared}}
+\index{first\_neighbor\_distance\_squared@{first\_neighbor\_distance\_squared}!ps@{ps}}
+\doxysubsubsection{\texorpdfstring{first\_neighbor\_distance\_squared()}{first\_neighbor\_distance\_squared()}}
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
-std\+::vector$<$ T $>$ ps\+::first\+\_\+neighbor\+\_\+distance (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points }\end{DoxyParamCaption})}
+std\+::vector$<$ T $>$ ps\+::first\+\_\+neighbor\+\_\+distance\+\_\+squared (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points }\end{DoxyParamCaption})}
 
 
 
@@ -436,7 +436,7 @@ A vector containing the squared distances to the first neighbor for each point, 
 \DoxyCodeLine{\ \ \ \ \{1.0f,\ 1.0f,\ 0.0f\}}
 \DoxyCodeLine{\};}
 \DoxyCodeLine{}
-\DoxyCodeLine{std::vector<float>\ distances\_sq\ =\ \mbox{\hyperlink{namespaceps_a97febccfaf65fb7b96c6ae09df0a9c7e}{first\_neighbor\_distance}}(points);}
+\DoxyCodeLine{std::vector<float>\ distances\_sq\ =\ \mbox{\hyperlink{namespaceps_a91a0bac33731ed899845c6081c117db2}{first\_neighbor\_distance\_squared}}(points);}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{comment}{//\ distances\_sq[i]\ contains\ the\ squared\ distance\ to\ the\ closest\ neighbor\ of}}
 \DoxyCodeLine{points[i].}

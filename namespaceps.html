@@ -151,10 +151,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a9a824a8963ef7b15c01da0f1f9c90eee"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a9a824a8963ef7b15c01da0f1f9c90eee">distance_to_boundary</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges)</td></tr>
 <tr class="memdesc:a9a824a8963ef7b15c01da0f1f9c90eee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the distance of each point to the domain boundary.  <br /></td></tr>
 <tr class="separator:a9a824a8963ef7b15c01da0f1f9c90eee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97febccfaf65fb7b96c6ae09df0a9c7e" id="r_a97febccfaf65fb7b96c6ae09df0a9c7e"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
-<tr class="memitem:a97febccfaf65fb7b96c6ae09df0a9c7e"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a97febccfaf65fb7b96c6ae09df0a9c7e">first_neighbor_distance</a> (std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points)</td></tr>
-<tr class="memdesc:a97febccfaf65fb7b96c6ae09df0a9c7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the squared distance to the nearest neighbor for each point.  <br /></td></tr>
-<tr class="separator:a97febccfaf65fb7b96c6ae09df0a9c7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91a0bac33731ed899845c6081c117db2" id="r_a91a0bac33731ed899845c6081c117db2"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
+<tr class="memitem:a91a0bac33731ed899845c6081c117db2"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a91a0bac33731ed899845c6081c117db2">first_neighbor_distance_squared</a> (std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points)</td></tr>
+<tr class="memdesc:a91a0bac33731ed899845c6081c117db2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the squared distance to the nearest neighbor for each point.  <br /></td></tr>
+<tr class="separator:a91a0bac33731ed899845c6081c117db2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac29744e12116f882d8a620a3fd02d72d" id="r_ac29744e12116f882d8a620a3fd02d72d"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:ac29744e12116f882d8a620a3fd02d72d"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; size_t &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#ac29744e12116f882d8a620a3fd02d72d">nearest_neighbors_indices</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, size_t k_neighbors=8)</td></tr>
 <tr class="memdesc:ac29744e12116f882d8a620a3fd02d72d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the nearest neighbors for each point in a set.  <br /></td></tr>
@@ -350,7 +350,7 @@ template&lt;typename T , size_t N&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>A vector of points of dimension N+1, with the new dimension appended.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">std::runtime_errorifthesizeof`points`and`new_dimension`</td><td>do not match.</td></tr>
+    <tr><td class="paramname">std::runtime_errorifthesizeof`points`and`new_dimension`do</td><td>not match.</td></tr>
   </table>
   </dd>
 </dl>
@@ -754,8 +754,8 @@ template&lt;typename T , size_t N&gt; </div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a97febccfaf65fb7b96c6ae09df0a9c7e" name="a97febccfaf65fb7b96c6ae09df0a9c7e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97febccfaf65fb7b96c6ae09df0a9c7e">&#9670;&#160;</a></span>first_neighbor_distance()</h2>
+<a id="a91a0bac33731ed899845c6081c117db2" name="a91a0bac33731ed899845c6081c117db2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91a0bac33731ed899845c6081c117db2">&#9670;&#160;</a></span>first_neighbor_distance_squared()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -763,7 +763,7 @@ template&lt;typename T , size_t N&gt; </div>
 template&lt;typename T , size_t N&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; T &gt; ps::first_neighbor_distance </td>
+          <td class="memname">std::vector&lt; T &gt; ps::first_neighbor_distance_squared </td>
           <td>(</td>
           <td class="paramtype">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>points</em></td><td>)</td>
@@ -802,11 +802,11 @@ template&lt;typename T , size_t N&gt; </div>
 <div class="line">    {1.0f, 1.0f, 0.0f}</div>
 <div class="line">};</div>
 <div class="line"> </div>
-<div class="line">std::vector&lt;float&gt; distances_sq = <a class="code hl_function" href="namespaceps.html#a97febccfaf65fb7b96c6ae09df0a9c7e">first_neighbor_distance</a>(points);</div>
+<div class="line">std::vector&lt;float&gt; distances_sq = <a class="code hl_function" href="namespaceps.html#a91a0bac33731ed899845c6081c117db2">first_neighbor_distance_squared</a>(points);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// distances_sq[i] contains the squared distance to the closest neighbor of</span></div>
 <div class="line">points[i].</div>
-<div class="ttc" id="anamespaceps_html_a97febccfaf65fb7b96c6ae09df0a9c7e"><div class="ttname"><a href="namespaceps.html#a97febccfaf65fb7b96c6ae09df0a9c7e">ps::first_neighbor_distance</a></div><div class="ttdeci">std::vector&lt; T &gt; first_neighbor_distance(std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points)</div><div class="ttdoc">Computes the squared distance to the nearest neighbor for each point.</div><div class="ttdef"><b>Definition</b> metrics.hpp:107</div></div>
+<div class="ttc" id="anamespaceps_html_a91a0bac33731ed899845c6081c117db2"><div class="ttname"><a href="namespaceps.html#a91a0bac33731ed899845c6081c117db2">ps::first_neighbor_distance_squared</a></div><div class="ttdeci">std::vector&lt; T &gt; first_neighbor_distance_squared(std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points)</div><div class="ttdoc">Computes the squared distance to the nearest neighbor for each point.</div><div class="ttdef"><b>Definition</b> metrics.hpp:107</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
