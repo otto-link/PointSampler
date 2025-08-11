@@ -124,7 +124,7 @@ bool save_vector_to_csv(const std::string    &filename,
  * @return               A vector of points of dimension N+1, with the new
  *                       dimension appended.
  *
- * @throws std::runtime_errorifthesizeof`points`and`new_dimension` do not match.
+ * @throws std::runtime_errorifthesizeof`points`and`new_dimension`do not match.
  *
  * @note This function creates a new vector of points with an increased
  * dimension count, since the type Point<T, N> is distinct from Point<T, N+1>.

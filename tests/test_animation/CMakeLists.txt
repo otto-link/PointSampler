@@ -1,0 +1,2 @@
+add_executable(test_ps_animation main.cpp)
+target_link_libraries(test_ps_animation point_sampler)

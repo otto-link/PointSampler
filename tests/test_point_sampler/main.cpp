@@ -207,7 +207,7 @@ int main()
     std::cout << "ps::first_neighbor_distance...\n";
 
     auto               points = ps::random<float, dim>(50, ranges, seed);
-    std::vector<float> dist_sq = ps::first_neighbor_distance(points);
+    std::vector<float> dist_sq = ps::first_neighbor_distance_squared(points);
 
     ps::save_points_to_csv("metrics_first_neighbor_distance.csv", points);
     ps::save_vector_to_csv("metrics_first_neighbor_distance_dist_sq.csv", dist_sq);

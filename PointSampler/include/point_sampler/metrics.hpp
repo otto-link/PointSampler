@@ -97,14 +97,14 @@ std::vector<T> distance_to_boundary(const std::vector<Point<T, N>>       &points
  *     {1.0f, 1.0f, 0.0f}
  * };
  *
- * std::vector<float> distances_sq = first_neighbor_distance(points);
+ * std::vector<float> distances_sq = first_neighbor_distance_squared(points);
  *
  * // distances_sq[i] contains the squared distance to the closest neighbor of
  * points[i].
  * @endcode
  */
 template <typename T, size_t N>
-std::vector<T> first_neighbor_distance(std::vector<Point<T, N>> &points)
+std::vector<T> first_neighbor_distance_squared(std::vector<Point<T, N>> &points)
 {
   PointCloudAdaptor<T, N> adaptor(points);
   KDTree<T, N>            index(N, adaptor);
