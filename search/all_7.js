@@ -4,5 +4,5 @@ var searchData=
   ['importance_5fresampling_2ehpp_1',['importance_resampling.hpp',['../importance__resampling_8hpp.html',1,'']]],
   ['in_5fneighborhood_2',['in_neighborhood',['../namespaceps.html#aedb5908eae325f054e4f3dd6b9b223af',1,'ps']]],
   ['introduction_3',['Introduction',['../index.html#intro_sec',1,'']]],
-  ['it_20works_3a_4',['How it works:',['../namespaceps.html#autotoc_md11',1,'']]]
+  ['it_20works_3a_4',['How it works:',['../namespaceps.html#autotoc_md12',1,'']]]
 ];

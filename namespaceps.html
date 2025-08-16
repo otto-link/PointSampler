@@ -159,6 +159,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ac29744e12116f882d8a620a3fd02d72d"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; size_t &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#ac29744e12116f882d8a620a3fd02d72d">nearest_neighbors_indices</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, size_t k_neighbors=8)</td></tr>
 <tr class="memdesc:ac29744e12116f882d8a620a3fd02d72d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the nearest neighbors for each point in a set.  <br /></td></tr>
 <tr class="separator:ac29744e12116f882d8a620a3fd02d72d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d80a56ea4774726e748b48e1ecf0a8d" id="r_a8d80a56ea4774726e748b48e1ecf0a8d"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
+<tr class="memitem:a8d80a56ea4774726e748b48e1ecf0a8d"><td class="memTemplItemLeft" align="right" valign="top">std::pair&lt; std::vector&lt; T &gt;, std::vector&lt; T &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a8d80a56ea4774726e748b48e1ecf0a8d">radial_distribution</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, T bin_width, T max_distance)</td></tr>
+<tr class="memdesc:a8d80a56ea4774726e748b48e1ecf0a8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the normalized radial distribution function g(r).  <br /></td></tr>
+<tr class="separator:a8d80a56ea4774726e748b48e1ecf0a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9ee1cf5d335276b7fabe6f1daddf1b0" id="r_af9ee1cf5d335276b7fabe6f1daddf1b0"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:af9ee1cf5d335276b7fabe6f1daddf1b0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#af9ee1cf5d335276b7fabe6f1daddf1b0">operator+</a> (const <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &amp;a, const <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &amp;b)</td></tr>
 <tr class="separator:af9ee1cf5d335276b7fabe6f1daddf1b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -350,7 +354,7 @@ template&lt;typename T , size_t N&gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>A vector of points of dimension N+1, with the new dimension appended.</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">std::runtime_errorifthesizeof`points`and`new_dimension`do</td><td>not match.</td></tr>
+    <tr><td class="paramname">std::runtime_errorifthesizeof`points`and`new_dimension`donot</td><td>match.</td></tr>
   </table>
   </dd>
 </dl>
@@ -2238,6 +2242,93 @@ template&lt;typename T , size_t N&gt; </div>
 
 </div>
 </div>
+<a id="a8d80a56ea4774726e748b48e1ecf0a8d" name="a8d80a56ea4774726e748b48e1ecf0a8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d80a56ea4774726e748b48e1ecf0a8d">&#9670;&#160;</a></span>radial_distribution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt; std::vector&lt; T &gt;, std::vector&lt; T &gt; &gt; ps::radial_distribution </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>points</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>axis_ranges</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>bin_width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>max_distance</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute the normalized radial distribution function g(r). </p>
+<p>The radial distribution function (RDF) describes how the density of points varies as a function of distance from a reference point.</p>
+<ul>
+<li>g(r) ≈ 1 → uniform / random distribution at distance r</li>
+<li>g(r) &gt; 1 → clustering / aggregation (excess probability of finding neighbors)</li>
+<li>g(r) &lt; 1 → depletion / exclusion (points repel or avoid each other)</li>
+</ul>
+<p>This function normalizes the observed pair distances against the expected density in the domain (given by axis_ranges).</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Numeric type (float, double, ...) </td></tr>
+    <tr><td class="paramname">N</td><td>Dimension of points </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">points</td><td>Vector of points </td></tr>
+    <tr><td class="paramname">axis_ranges</td><td>Axis-aligned domain ranges for each dimension </td></tr>
+    <tr><td class="paramname">bin_width</td><td>Width of distance bins </td></tr>
+    <tr><td class="paramname">max_distance</td><td>Maximum distance to consider </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::pair&lt;std::vector&lt;T&gt;, std::vector&lt;T&gt;&gt;<ul>
+<li>First: radii (bin centers)</li>
+<li>Second: normalized RDF values g(r)</li>
+</ul>
+</dd></dl>
+<h3><a class="anchor" id="autotoc_md8"></a>
+Example</h3>
+<div class="fragment"><div class="line"> std::vector&lt;Point&lt;double, 2&gt;&gt; pts = {</div>
+<div class="line">    {0.0, 0.0}, {1.0, 0.0}, {0.0, 1.0}, {1.0, 1.0}</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">std::array&lt;std::pair&lt;double,double&gt;,2&gt; ranges = {</div>
+<div class="line">    std::make_pair(0.0, 1.0), std::make_pair(0.0, 1.0)</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">auto</span> [r, g] = <a class="code hl_function" href="namespaceps.html#a8d80a56ea4774726e748b48e1ecf0a8d">radial_distribution</a>(pts, ranges, 0.1, 2.0);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; r.size(); ++i) std::cout &lt;&lt; <span class="stringliteral">&quot;r=&quot;</span> &lt;&lt; r[i] &lt;&lt; <span class="stringliteral">&quot; g(r)=&quot;</span></div>
+<div class="line">&lt;&lt; g[i] &lt;&lt; std::endl;</div>
+<div class="ttc" id="anamespaceps_html_a8d80a56ea4774726e748b48e1ecf0a8d"><div class="ttname"><a href="namespaceps.html#a8d80a56ea4774726e748b48e1ecf0a8d">ps::radial_distribution</a></div><div class="ttdeci">std::pair&lt; std::vector&lt; T &gt;, std::vector&lt; T &gt; &gt; radial_distribution(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, T bin_width, T max_distance)</div><div class="ttdoc">Compute the normalized radial distribution function g(r).</div><div class="ttdef"><b>Definition</b> metrics.hpp:256</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
 <a id="a10763ef2a872aa9eddb48ea341cd6f69" name="a10763ef2a872aa9eddb48ea341cd6f69"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a10763ef2a872aa9eddb48ea341cd6f69">&#9670;&#160;</a></span>random()</h2>
 
@@ -2470,7 +2561,7 @@ template&lt;typename T , size_t N&gt; </div>
   </table>
   </dd>
 </dl>
-<h3><a class="anchor" id="autotoc_md8"></a>
+<h3><a class="anchor" id="autotoc_md9"></a>
 Example</h3>
 <div class="fragment"><div class="line"> std::vector&lt;Point&lt;float, 2&gt;&gt; pts = generate_random_points&lt;float,</div>
 <div class="line">2&gt;(100, { {</div>
@@ -2547,7 +2638,7 @@ template&lt;typename T , size_t N, typename DensityFn &gt; </div>
   </table>
   </dd>
 </dl>
-<h3><a class="anchor" id="autotoc_md9"></a>
+<h3><a class="anchor" id="autotoc_md10"></a>
 Example</h3>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="rejection__sampling_8hpp.html">point_sampler/rejection_sampling.hpp</a>&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
@@ -2630,7 +2721,7 @@ template&lt;typename T , size_t N&gt; </div>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>The KD-tree is rebuilt on each iteration to reflect the updated positions.</dd></dl>
-<h3><a class="anchor" id="autotoc_md10"></a>
+<h3><a class="anchor" id="autotoc_md11"></a>
 Example</h3>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="relaxation_8hpp.html">point_sampler/relaxation.hpp</a>&gt;</span></div>
 <div class="line"> </div>
@@ -2640,7 +2731,7 @@ Example</h3>
 <div class="line"><span class="comment">// Apply 10 iterations of relaxation relaxation_ktree&lt;float, 2&gt;(pts, 8, 0.1f,</span></div>
 <div class="line">10);</div>
 <div class="ttc" id="arelaxation_8hpp_html"><div class="ttname"><a href="relaxation_8hpp.html">relaxation.hpp</a></div></div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md11"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md12"></a>
 How it works:</h3>
 <ul>
 <li>For each point:<ul>

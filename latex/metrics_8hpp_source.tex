@@ -119,6 +119,65 @@
 \DoxyCodeLine{00213\ \ \ \textcolor{keywordflow}{return}\ all\_neighbors;}
 \DoxyCodeLine{00214\ \}}
 \DoxyCodeLine{00215\ }
-\DoxyCodeLine{00216\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+\DoxyCodeLine{00255\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00256\ std::pair<std::vector<T>,\ std::vector<T>>\ \mbox{\hyperlink{namespaceps_a8d80a56ea4774726e748b48e1ecf0a8d}{radial\_distribution}}(}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \ \ \ \ \ \ \&points,}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ N>\ \&axis\_ranges,}
+\DoxyCodeLine{00259\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bin\_width,}
+\DoxyCodeLine{00260\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ max\_distance)}
+\DoxyCodeLine{00261\ \{}
+\DoxyCodeLine{00262\ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ num\_bins\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(std::ceil(max\_distance\ /\ bin\_width));}
+\DoxyCodeLine{00263\ \ \ std::vector<T>\ radii(num\_bins);}
+\DoxyCodeLine{00264\ \ \ std::vector<T>\ g(num\_bins,\ T(0));}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \ \ \textcolor{comment}{//\ Precompute\ bin\ centers}}
+\DoxyCodeLine{00267\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ num\_bins;\ ++i)}
+\DoxyCodeLine{00268\ \ \ \ \ radii[i]\ =\ (i\ +\ T(0.5))\ *\ bin\_width;}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ \textcolor{comment}{//\ Compute\ volume\ of\ domain}}
+\DoxyCodeLine{00271\ \ \ T\ volume\ =\ T(1);}
+\DoxyCodeLine{00272\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&range\ :\ axis\_ranges)}
+\DoxyCodeLine{00273\ \ \ \ \ volume\ *=\ (range.second\ -\/\ range.first);}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ \ \ \textcolor{keywordtype}{size\_t}\ n\_points\ =\ points.size();}
+\DoxyCodeLine{00276\ \ \ T\ \ \ \ \ \ density\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(n\_points)\ /\ volume;}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \ \ \textcolor{comment}{//\ Histogram\ of\ pair\ distances}}
+\DoxyCodeLine{00279\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ n\_points;\ ++i)}
+\DoxyCodeLine{00280\ \ \ \{}
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ i\ +\ 1;\ j\ <\ n\_points;\ ++j)}
+\DoxyCodeLine{00282\ \ \ \ \ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ T\ dist\ =\ \mbox{\hyperlink{namespaceps_ac0b74f22d427d199ab0df8f6942d3b11}{distance}}(points[i],\ points[j]);}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dist\ <\ max\_distance)}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ bin\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(dist\ /\ bin\_width);}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bin\ <\ num\_bins)}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ g[bin]\ +=\ T(2);\ \textcolor{comment}{//\ count\ both\ i→j\ and}}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ j→i}}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00291\ \ \ \ \ \}}
+\DoxyCodeLine{00292\ \ \ \}}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00294\ \ \ \textcolor{comment}{//\ Normalize}}
+\DoxyCodeLine{00295\ \ \ T\ norm\_factor\ =\ (T)n\_points\ *\ density;}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \ \ \textcolor{comment}{//\ Volume\ of\ spherical\ shell\ between\ r1\ and\ r2\ in\ N\ dimensions}}
+\DoxyCodeLine{00298\ \ \ \textcolor{keyword}{auto}\ sphere\_volume\ =\ [](T\ radius)}
+\DoxyCodeLine{00299\ \ \ \{\ \textcolor{keywordflow}{return}\ std::pow(M\_PI,\ N\ /\ 2.0)\ /\ std::tgamma(N\ /\ 2.0\ +\ 1.0)\ *\ std::pow(radius,\ N);\ \};}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ num\_bins;\ ++i)}
+\DoxyCodeLine{00302\ \ \ \{}
+\DoxyCodeLine{00303\ \ \ \ \ T\ r\_inner\ =\ i\ *\ bin\_width;}
+\DoxyCodeLine{00304\ \ \ \ \ T\ r\_outer\ =\ (i\ +\ 1)\ *\ bin\_width;}
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{comment}{//\ Volume\ of\ spherical\ shell}}
+\DoxyCodeLine{00307\ \ \ \ \ T\ shell\_vol\ =\ sphere\_volume(r\_outer)\ -\/\ sphere\_volume(r\_inner);}
+\DoxyCodeLine{00308\ \ \ \ \ g[i]\ /=\ norm\_factor\ *\ shell\_vol;}
+\DoxyCodeLine{00309\ \ \ \}}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00311\ \ \ \textcolor{keywordflow}{return}\ \{radii,\ g\};}
+\DoxyCodeLine{00312\ \}}
+\DoxyCodeLine{00313\ }
+\DoxyCodeLine{00314\ \}\ \textcolor{comment}{//\ namespace\ ps}}
 
 \end{DoxyCode}

@@ -51,6 +51,8 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 \begin{DoxyCompactList}\small\item\em Computes the squared distance to the nearest neighbor for each point. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ std\+::vector$<$ size\+\_\+t $>$ $>$ \mbox{\hyperlink{namespaceps_ac29744e12116f882d8a620a3fd02d72d}{nearest\+\_\+neighbors\+\_\+indices}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, size\+\_\+t k\+\_\+neighbors=8)
 \begin{DoxyCompactList}\small\item\em Finds the nearest neighbors for each point in a set. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::pair$<$ std\+::vector$<$ T $>$, std\+::vector$<$ T $>$ $>$ \mbox{\hyperlink{namespaceps_a8d80a56ea4774726e748b48e1ecf0a8d}{radial\+\_\+distribution}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, T bin\+\_\+width, T max\+\_\+distance)
+\begin{DoxyCompactList}\small\item\em Compute the normalized radial distribution function g(r). \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_af9ee1cf5d335276b7fabe6f1daddf1b0}{operator+}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&a, const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&b)
 \item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_aa369956286bc3f09dfdc146a5b2a49f1}{operator-\/}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&a, const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&b)
@@ -170,7 +172,7 @@ A vector of points of dimension N+1, with the new dimension appended.
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em std\+::runtime\+\_\+errorifthesizeof\`{}points\`{}and\`{}new\+\_\+dimension\`{}do} & not match.\\
+{\em std\+::runtime\+\_\+errorifthesizeof\`{}points\`{}and\`{}new\+\_\+dimension\`{}donot} & match.\\
 \hline
 \end{DoxyExceptions}
 \begin{DoxyNote}{Note}
@@ -1085,7 +1087,71 @@ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::poisson\+\_\+disk\+\_\+sampling\+\_\+uniform (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{ranges,  }\item[{T}]{base\+\_\+min\+\_\+dist,  }\item[{std\+::optional$<$ unsigned int $>$}]{seed = {\ttfamily std\+:\+:nullopt},  }\item[{size\+\_\+t}]{new\+\_\+points\+\_\+attempts = {\ttfamily 30} }\end{DoxyParamCaption})}
 
-\Hypertarget{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}\label{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69} 
+\Hypertarget{namespaceps_a8d80a56ea4774726e748b48e1ecf0a8d}\label{namespaceps_a8d80a56ea4774726e748b48e1ecf0a8d} 
+\index{ps@{ps}!radial\_distribution@{radial\_distribution}}
+\index{radial\_distribution@{radial\_distribution}!ps@{ps}}
+\doxysubsubsection{\texorpdfstring{radial\_distribution()}{radial\_distribution()}}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+std\+::pair$<$ std\+::vector$<$ T $>$, std\+::vector$<$ T $>$ $>$ ps\+::radial\+\_\+distribution (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{axis\+\_\+ranges,  }\item[{T}]{bin\+\_\+width,  }\item[{T}]{max\+\_\+distance }\end{DoxyParamCaption})}
+
+
+
+Compute the normalized radial distribution function g(r). 
+
+The radial distribution function (RDF) describes how the density of points varies as a function of distance from a reference point.
+
+
+\begin{DoxyItemize}
+\item g(r) ≈ 1 → uniform / random distribution at distance r
+\item g(r) \texorpdfstring{$>$}{>} 1 → clustering / aggregation (excess probability of finding neighbors)
+\item g(r) \texorpdfstring{$<$}{<} 1 → depletion / exclusion (points repel or avoid each other)
+\end{DoxyItemize}
+
+This function normalizes the observed pair distances against the expected density in the domain (given by axis\+\_\+ranges).
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Numeric type (float, double, ...) \\
+\hline
+{\em N} & Dimension of points \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em points} & Vector of points \\
+\hline
+{\em axis\+\_\+ranges} & Axis-\/aligned domain ranges for each dimension \\
+\hline
+{\em bin\+\_\+width} & Width of distance bins \\
+\hline
+{\em max\+\_\+distance} & Maximum distance to consider \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::pair\texorpdfstring{$<$}{<}std\+::vector$<$\+T$>$, std\+::vector$<$\+T$>$\texorpdfstring{$>$}{>}
+\begin{DoxyItemize}
+\item First\+: radii (bin centers)
+\item Second\+: normalized RDF values g(r)
+\end{DoxyItemize}
+\end{DoxyReturn}
+\hypertarget{namespaceps_autotoc_md8}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md8}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ std::vector<Point<double,\ 2>>\ pts\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \{0.0,\ 0.0\},\ \{1.0,\ 0.0\},\ \{0.0,\ 1.0\},\ \{1.0,\ 1.0\}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{std::array<std::pair<double,double>,2>\ ranges\ =\ \{}
+\DoxyCodeLine{\ \ \ \ std::make\_pair(0.0,\ 1.0),\ std::make\_pair(0.0,\ 1.0)}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ [r,\ g]\ =\ \mbox{\hyperlink{namespaceps_a8d80a56ea4774726e748b48e1ecf0a8d}{radial\_distribution}}(pts,\ ranges,\ 0.1,\ 2.0);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ r.size();\ ++i)\ std::cout\ <<\ \textcolor{stringliteral}{"{}r="{}}\ <<\ r[i]\ <<\ \textcolor{stringliteral}{"{}\ g(r)="{}}}
+\DoxyCodeLine{<<\ g[i]\ <<\ std::endl;}
+
+\end{DoxyCode}
+ \Hypertarget{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}\label{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69} 
 \index{ps@{ps}!random@{random}}
 \index{random@{random}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{random()}{random()}}
@@ -1252,7 +1318,7 @@ This function computes the axis-\/aligned bounding box (AABB) of the input point
 \mbox{\texttt{ in}}  & {\em target\+\_\+ranges} & Desired output min/max per dimension.\\
 \hline
 \end{DoxyParams}
-\hypertarget{namespaceps_autotoc_md8}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md8}
+\hypertarget{namespaceps_autotoc_md9}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md9}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ std::vector<Point<float,\ 2>>\ pts\ =\ generate\_random\_points<float,}
@@ -1308,7 +1374,7 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of accepted points based on reje
 {\em std\+::invalid\+\_\+argumentifanyaxisrangeisinvalid(min$>$max).} & \\
 \hline
 \end{DoxyExceptions}
-\hypertarget{namespaceps_autotoc_md9}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md9}
+\hypertarget{namespaceps_autotoc_md10}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md10}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{rejection__sampling_8hpp}{point\_sampler/rejection\_sampling.hpp}}"{}}}
@@ -1370,7 +1436,7 @@ Each point is offset based on inverse-\/distance-\/weighted repulsion from its k
 \begin{DoxyNote}{Note}
 The KD-\/tree is rebuilt on each iteration to reflect the updated positions.
 \end{DoxyNote}
-\hypertarget{namespaceps_autotoc_md10}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md10}
+\hypertarget{namespaceps_autotoc_md11}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md11}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{relaxation_8hpp}{point\_sampler/relaxation.hpp}}>}}
@@ -1382,7 +1448,7 @@ The KD-\/tree is rebuilt on each iteration to reflect the updated positions.
 \DoxyCodeLine{10);}
 
 \end{DoxyCode}
-\hypertarget{namespaceps_autotoc_md11}{}\doxysubsubsubsection{\texorpdfstring{How it works\+:}{How it works:}}\label{namespaceps_autotoc_md11}
+\hypertarget{namespaceps_autotoc_md12}{}\doxysubsubsubsection{\texorpdfstring{How it works\+:}{How it works:}}\label{namespaceps_autotoc_md12}
 
 \begin{DoxyItemize}
 \item For each point\+:
