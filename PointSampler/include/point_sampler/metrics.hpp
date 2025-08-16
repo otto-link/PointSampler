@@ -213,4 +213,102 @@ std::vector<std::vector<size_t>> nearest_neighbors_indices(
   return all_neighbors;
 }
 
+/**
+ * @brief Compute the normalized radial distribution function g(r).
+ *
+ * The radial distribution function (RDF) describes how the density of points
+ * varies as a function of distance from a reference point.
+ *
+ * - g(r) ≈ 1 → uniform / random distribution at distance r
+ * - g(r) > 1 → clustering / aggregation (excess probability of finding
+ * neighbors)
+ * - g(r) < 1 → depletion / exclusion (points repel or avoid each other)
+ *
+ * This function normalizes the observed pair distances against the expected
+ * density in the domain (given by axis_ranges).
+ *
+ * @tparam T Numeric type (float, double, ...)
+ * @tparam N Dimension of points
+ * @param  points       Vector of points
+ * @param  axis_ranges  Axis-aligned domain ranges for each dimension
+ * @param  bin_width    Width of distance bins
+ * @param  max_distance Maximum distance to consider
+ * @return              std::pair<std::vector<T>, std::vector<T>>
+ *         - First: radii (bin centers)
+ *         - Second: normalized RDF values g(r)
+ *
+ * ### Example
+ * @code std::vector<Point<double, 2>> pts = {
+ *     {0.0, 0.0}, {1.0, 0.0}, {0.0, 1.0}, {1.0, 1.0}
+ * };
+ *
+ * std::array<std::pair<double,double>,2> ranges = {
+ *     std::make_pair(0.0, 1.0), std::make_pair(0.0, 1.0)
+ * };
+ *
+ * auto [r, g] = radial_distribution(pts, ranges, 0.1, 2.0);
+ *
+ * for (size_t i = 0; i < r.size(); ++i) std::cout << "r=" << r[i] << " g(r)="
+ * << g[i] << std::endl;
+ * @endcode
+ */
+template <typename T, size_t N>
+std::pair<std::vector<T>, std::vector<T>> radial_distribution(
+    const std::vector<Point<T, N>>       &points,
+    const std::array<std::pair<T, T>, N> &axis_ranges,
+    T                                     bin_width,
+    T                                     max_distance)
+{
+  size_t         num_bins = static_cast<size_t>(std::ceil(max_distance / bin_width));
+  std::vector<T> radii(num_bins);
+  std::vector<T> g(num_bins, T(0));
+
+  // Precompute bin centers
+  for (size_t i = 0; i < num_bins; ++i)
+    radii[i] = (i + T(0.5)) * bin_width;
+
+  // Compute volume of domain
+  T volume = T(1);
+  for (const auto &range : axis_ranges)
+    volume *= (range.second - range.first);
+
+  size_t n_points = points.size();
+  T      density = static_cast<T>(n_points) / volume;
+
+  // Histogram of pair distances
+  for (size_t i = 0; i < n_points; ++i)
+  {
+    for (size_t j = i + 1; j < n_points; ++j)
+    {
+      T dist = distance(points[i], points[j]);
+      if (dist < max_distance)
+      {
+        size_t bin = static_cast<size_t>(dist / bin_width);
+        if (bin < num_bins)
+          g[bin] += T(2); // count both i→j and
+                          // j→i
+      }
+    }
+  }
+
+  // Normalize
+  T norm_factor = (T)n_points * density;
+
+  // Volume of spherical shell between r1 and r2 in N dimensions
+  auto sphere_volume = [](T radius)
+  { return std::pow(M_PI, N / 2.0) / std::tgamma(N / 2.0 + 1.0) * std::pow(radius, N); };
+
+  for (size_t i = 0; i < num_bins; ++i)
+  {
+    T r_inner = i * bin_width;
+    T r_outer = (i + 1) * bin_width;
+
+    // Volume of spherical shell
+    T shell_vol = sphere_volume(r_outer) - sphere_volume(r_inner);
+    g[i] /= norm_factor * shell_vol;
+  }
+
+  return {radii, g};
+}
+
 } // namespace ps

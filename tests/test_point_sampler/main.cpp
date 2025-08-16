@@ -295,5 +295,20 @@ int main()
     }
   }
 
+  {
+    std::cout << "ps::radial_distribution...\n";
+
+    auto points = ps::random<float, dim>(10 * count, ranges, seed);
+
+    float bin_width = 0.005f;
+    float max_distance = 0.5f;
+
+    auto g = ps::radial_distribution(points, ranges, bin_width, max_distance);
+
+    ps::save_points_to_csv("metrics_radial_distribution.csv", points);
+    ps::save_vector_to_csv("metrics_radial_distribution_r.csv", g.first);
+    ps::save_vector_to_csv("metrics_radial_distribution_pdf.csv", g.second);
+  }
+
   return 0;
 }
