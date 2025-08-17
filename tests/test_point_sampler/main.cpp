@@ -303,11 +303,26 @@ int main()
     float bin_width = 0.005f;
     float max_distance = 0.5f;
 
-    auto g = ps::radial_distribution(points, ranges, bin_width, max_distance);
+    auto g = ps::radial_distribution<float, dim>(points, ranges, bin_width, max_distance);
 
     ps::save_points_to_csv("metrics_radial_distribution.csv", points);
     ps::save_vector_to_csv("metrics_radial_distribution_r.csv", g.first);
     ps::save_vector_to_csv("metrics_radial_distribution_pdf.csv", g.second);
+  }
+
+  {
+    std::cout << "ps::angle_distribution_neighbors...\n";
+
+    auto points = ps::random<float, dim>(10 * count, ranges, seed);
+
+    float bin_width = 3.1416f / 32.f; // rads
+
+    // /!\ O(N^3)... can be pretty slow
+    auto g = ps::angle_distribution_neighbors<float, dim>(points, bin_width);
+
+    ps::save_points_to_csv("metrics_angle_distribution_neighbors.csv", points);
+    ps::save_vector_to_csv("metrics_angle_distribution_neighbors_alpha.csv", g.first);
+    ps::save_vector_to_csv("metrics_angle_distribution_neighbors_pdf.csv", g.second);
   }
 
   return 0;

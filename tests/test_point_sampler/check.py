@@ -16,7 +16,7 @@ def setup_and_save_plot(fname):
     plt.axis('off')
 
     plt.savefig(fname,
-                dpi=80,
+                dpi=200,
                 bbox_inches='tight',
                 pad_inches=0,
                 transparent=False)
@@ -32,16 +32,17 @@ if __name__ == '__main__':
     ymin = -2
     ymax = 2
     gap = 0.01
-    
-    for fname in flist:
-        print(fname)
 
-        data = np.genfromtxt(fname, delimiter=',', skip_header=True)
+    if False:
+        for fname in flist:
+            print(fname)
 
-        plt.figure()
-        plt.plot(data[:, 0], data[:, 1], 'w.', mfc='w', ms=1)
-        # plt.title(fname)
-        setup_and_save_plot(fname + '.jpg')
+            data = np.genfromtxt(fname, delimiter=',', skip_header=True)
+
+            plt.figure()
+            plt.plot(data[:, 0], data[:, 1], 'w.', mfc='w', ms=1)
+            # plt.title(fname)
+            setup_and_save_plot(fname + '.jpg')
 
     # --- metrics
 
@@ -105,8 +106,25 @@ if __name__ == '__main__':
     
         plt.figure()
         plt.scatter(data[:, 0], data[:, 1], s=2, c=labels, cmap='bwr')
-
     
         setup_and_save_plot(fname + '.jpg')
+
+    if True:
+        fname = 'metrics_radial_distribution'
+        data = np.genfromtxt('metrics_radial_distribution.csv', delimiter=',', skip_header=True)
+        r = np.genfromtxt('metrics_radial_distribution_r.csv', delimiter=',', skip_header=True)
+        g = np.genfromtxt('metrics_radial_distribution_pdf.csv', delimiter=',', skip_header=True)
+
+        plt.figure();
+        plt.plot(r, g, 'w-')
+        
+    if True:
+        fname = 'metrics_angle_distribution'
+        data = np.genfromtxt('metrics_angle_distribution_neighbors.csv', delimiter=',', skip_header=True)
+        alpha = np.genfromtxt('metrics_angle_distribution_neighbors_alpha.csv', delimiter=',', skip_header=True)
+        g = np.genfromtxt('metrics_angle_distribution_neighbors_pdf.csv', delimiter=',', skip_header=True)
+
+        plt.figure();
+        plt.plot(alpha, g, 'w-')
         
     plt.show()

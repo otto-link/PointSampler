@@ -12,6 +12,114 @@ namespace ps
 {
 
 /**
+ * @brief Compute the angular distribution function (ADF) using nearest
+ * neighbors.
+ *
+ * The angular distribution function (ADF) measures the distribution of
+ * bond angles formed by a point and pairs of its nearest neighbors.
+ *
+ * - Flat distribution → random uniform points.
+ * - Peaks at characteristic angles → local order (e.g. hexagonal lattice peaks
+ * at 60°).
+ * - Depletions → angular avoidance due to constraints or repulsion.
+ *
+ * @tparam T Numeric type (float, double, ...)
+ * @tparam N Dimension of points (N >= 2)
+ * @param  points      Vector of points
+ * @param  bin_width   Width of angle bins (in radians)
+ * @param  k_neighbors Number of neighbors used for angle calculation (default:
+ *                     8)
+ * @return             std::pair<std::vector<T>, std::vector<T>>
+ *         - First: bin centers (angles in radians)
+ *         - Second: normalized ADF values
+ *
+ * ### Example
+ * @code std::vector<Point<double, 2>> pts = {
+ *     {0.0, 0.0}, {1.0, 0.0}, {0.0, 1.0}, {1.0, 1.0}
+ * };
+ *
+ * auto [theta, g_theta] = angle_distribution_neighbors(pts, 0.1, 6);
+ *
+ * for (size_t i = 0; i < theta.size(); ++i) std::cout << "θ=" << theta[i] << "
+ * g(θ)=" << g_theta[i] << std::endl;
+ * @endcode
+ */
+template <typename T, size_t N>
+std::pair<std::vector<T>, std::vector<T>> angle_distribution_neighbors(
+    const std::vector<Point<T, N>> &points,
+    T                               bin_width,
+    size_t                          k_neighbors = 8)
+{
+  if constexpr (N < 2)
+    throw std::runtime_error("Angle distribution requires dimension >= 2");
+
+  size_t         num_bins = static_cast<size_t>(std::ceil(M_PI / bin_width));
+  std::vector<T> angles(num_bins);
+  std::vector<T> g_theta(num_bins, T(0));
+
+  // Precompute bin centers
+  for (size_t i = 0; i < num_bins; ++i)
+    angles[i] = (i + T(0.5)) * bin_width;
+
+  // Get nearest neighbors once
+  auto neighbors = nearest_neighbors_indices(points, k_neighbors);
+
+  // Loop over all points
+  for (size_t i = 0; i < points.size(); ++i)
+  {
+    const auto &nbrs = neighbors[i];
+    size_t      n_nbrs = nbrs.size();
+
+    // Compute angles between all neighbor pairs
+    for (size_t a = 0; a < n_nbrs; ++a)
+    {
+      for (size_t b = a + 1; b < n_nbrs; ++b)
+      {
+        size_t j = nbrs[a];
+        size_t k = nbrs[b];
+
+        // Vectors from center i to j and k
+        std::array<T, N> v1, v2;
+        for (size_t d = 0; d < N; ++d)
+        {
+          v1[d] = points[j][d] - points[i][d];
+          v2[d] = points[k][d] - points[i][d];
+        }
+
+        // Compute angle
+        T dot = T(0), norm1 = T(0), norm2 = T(0);
+        for (size_t d = 0; d < N; ++d)
+        {
+          dot += v1[d] * v2[d];
+          norm1 += v1[d] * v1[d];
+          norm2 += v2[d] * v2[d];
+        }
+
+        if (norm1 > T(0) && norm2 > T(0))
+        {
+          T cos_theta = std::clamp(dot / (std::sqrt(norm1) * std::sqrt(norm2)),
+                                   T(-1),
+                                   T(1));
+          T theta = std::acos(cos_theta);
+
+          size_t bin = static_cast<size_t>(theta / bin_width);
+          if (bin < num_bins)
+            g_theta[bin] += T(1);
+        }
+      }
+    }
+  }
+
+  // Normalize histogram
+  T total = std::accumulate(g_theta.begin(), g_theta.end(), T(0));
+  if (total > T(0))
+    for (auto &val : g_theta)
+      val /= total;
+
+  return {angles, g_theta};
+}
+
+/**
  * @brief Compute the distance of each point to the domain boundary.
  *
  * The domain is defined by axis-aligned ranges in each dimension. For each
