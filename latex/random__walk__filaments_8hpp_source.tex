@@ -1,0 +1,130 @@
+\doxysection{random\+\_\+walk\+\_\+filaments.\+hpp}
+\hypertarget{random__walk__filaments_8hpp_source}{}\label{random__walk__filaments_8hpp_source}\index{PointSampler/include/point\_sampler/random\_walk\_filaments.hpp@{PointSampler/include/point\_sampler/random\_walk\_filaments.hpp}}
+\mbox{\hyperlink{random__walk__filaments_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*\ Copyright\ (c)\ 2025\ Otto\ Link.\ Distributed\ under\ the\ terms\ of\ the\ GNU\ General}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ Public\ License.\ The\ full\ license\ is\ in\ the\ file\ LICENSE,\ distributed\ with}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ this\ software.\ */}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{point_8hpp}{point\_sampler/point.hpp}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00037\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a54a1e19fa663340b68ad9f74e740a6c0}{random\_walk\_filaments}}(}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n\_filaments,}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ filament\_count,}
+\DoxyCodeLine{00040\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ step\_size,}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ N>\ \&ranges,}
+\DoxyCodeLine{00042\ \ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ \ \ \ \ \ \ seed\ =\ std::nullopt,}
+\DoxyCodeLine{00043\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ persistence\ =\ T(0.8),}
+\DoxyCodeLine{00044\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gaussian\_sigma\ =\ T(0),}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gaussian\_samples\ =\ 0,}
+\DoxyCodeLine{00046\ \ \ \ \ std::vector<T>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *p\_distances\ =\ \textcolor{keyword}{nullptr})\ \textcolor{comment}{//\ optional}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ output}}
+\DoxyCodeLine{00048\ \{}
+\DoxyCodeLine{00049\ \ \ std::vector<Point<T,\ N>>\ points;}
+\DoxyCodeLine{00050\ \ \ points.reserve(n\_filaments\ *\ filament\_count\ *\ (1\ +\ gaussian\_samples));}
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordflow}{if}\ (p\_distances)}
+\DoxyCodeLine{00052\ \ \ \ \ p\_distances-\/>reserve(n\_filaments\ *\ filament\_count\ *\ (1\ +\ gaussian\_samples));}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ std::mt19937\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gen(seed\ ?\ *seed\ :\ std::random\_device\{\}());}
+\DoxyCodeLine{00055\ \ \ std::uniform\_real\_distribution<T>\ uniform(-\/1,\ 1);}
+\DoxyCodeLine{00056\ \ \ std::normal\_distribution<T>\ \ \ \ \ \ \ normal(0,\ gaussian\_sigma);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ f\ =\ 0;\ f\ <\ n\_filaments;\ ++f)}
+\DoxyCodeLine{00059\ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ Random\ starting\ point}}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ p;}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ p[d]\ =\ std::uniform\_real\_distribution<T>(ranges[d].first,\ ranges[d].second)(gen);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{comment}{//\ Random\ initial\ direction\ (normalized)}}
+\DoxyCodeLine{00066\ \ \ \ \ std::array<T,\ N>\ dir;}
+\DoxyCodeLine{00067\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ norm\ =\ 0;}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{00069\ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ dir[d]\ =\ uniform(gen);}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ norm\ +=\ dir[d]\ *\ dir[d];}
+\DoxyCodeLine{00072\ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ norm\ =\ std::sqrt(norm);}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ dir[d]\ /=\ norm;}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ filament\_count;\ ++i)}
+\DoxyCodeLine{00078\ \ \ \ \ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \textcolor{comment}{//\ Always\ add\ core\ filament\ point}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ points.push\_back(p);}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p\_distances)}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ p\_distances-\/>push\_back(T(0));}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \textcolor{comment}{//\ Add\ Gaussian\ scatter\ points\ (thickness)}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ g\ =\ 0;\ g\ <\ gaussian\_samples;\ ++g)}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ q\ =\ p;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ dist2\ =\ 0;}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ T\ offset\ =\ normal(gen);}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ q[d]\ +=\ offset;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ dist2\ +=\ offset\ *\ offset;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Discard\ points\ outside\ the\ bounding\ box}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ inside\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (q[d]\ <\ ranges[d].first\ ||\ q[d]\ >\ ranges[d].second)}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ inside\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (inside)}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ points.push\_back(q);}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p\_distances)}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ p\_distances-\/>push\_back(std::sqrt(dist2));}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \textcolor{comment}{//\ Random\ perturbation}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ std::array<T,\ N>\ rnd;}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rnd\_norm\ =\ 0;}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ rnd[d]\ =\ uniform(gen);}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ rnd\_norm\ +=\ rnd[d]\ *\ rnd[d];}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ rnd\_norm\ =\ std::sqrt(rnd\_norm);}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ rnd[d]\ /=\ rnd\_norm;}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \textcolor{comment}{//\ Blend\ with\ persistence}}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ dir[d]\ =\ persistence\ *\ dir[d]\ +\ (1\ -\/\ persistence)\ *\ rnd[d];}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \textcolor{comment}{//\ Normalize\ direction}}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ T\ dnorm\ =\ 0;}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ dnorm\ +=\ dir[d]\ *\ dir[d];}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ dnorm\ =\ std::sqrt(dnorm);}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ dir[d]\ /=\ dnorm;}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \textcolor{comment}{//\ Step\ forward}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ p[d]\ +=\ step\_size\ *\ dir[d];}
+\DoxyCodeLine{00142\ \ \ \ \ \}}
+\DoxyCodeLine{00143\ \ \ \}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \textcolor{keywordflow}{return}\ points;}
+\DoxyCodeLine{00146\ \}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+
+\end{DoxyCode}

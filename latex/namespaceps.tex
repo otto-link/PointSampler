@@ -105,6 +105,8 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 \begin{DoxyCompactList}\small\item\em Randomly retains a fixed number of points from the input set. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , std\+::size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a66183362443c104da098224df9bcd2a1}{random\+\_\+rejection\+\_\+filter}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, float keep\+\_\+fraction)
 \begin{DoxyCompactList}\small\item\em Randomly retains a fraction of the input points. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a54a1e19fa663340b68ad9f74e740a6c0}{random\+\_\+walk\+\_\+filaments}} (size\+\_\+t n\+\_\+filaments, size\+\_\+t filament\+\_\+count, T step\+\_\+size, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&ranges, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt, T persistence=T(0.\+8), T gaussian\+\_\+sigma=T(0), size\+\_\+t gaussian\+\_\+samples=0, std\+::vector$<$ T $>$ \texorpdfstring{$\ast$}{*}p\+\_\+distances=nullptr)
+\begin{DoxyCompactList}\small\item\em Generate random walk filaments in N dimensions with optional Gaussian thickness. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a9c8c5679d987d3023b9d3beffd81e6df}{filter\+\_\+points\+\_\+in\+\_\+range}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges)
 \begin{DoxyCompactList}\small\item\em Filters points that lie within the specified axis-\/aligned bounding box. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , std\+::size\+\_\+t N, typename Func $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a5350b843397a5bf2a748115108ffa21a}{filter\+\_\+points\+\_\+function}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, Func fn)
@@ -1349,7 +1351,51 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ containing {\ttfamily target\+\_\+count} 
 \DoxyCodeLine{\textcolor{keyword}{auto}\ reduced\ =\ \mbox{\hyperlink{namespaceps_ab818126518017939773c8a43bd92fc42}{ps::random\_rejection\_filter}}(pts,\ 300);\ \textcolor{comment}{//\ Keep\ 300\ points}}
 
 \end{DoxyCode}
- \Hypertarget{namespaceps_a2b8197901114d1c4fd6cfe19efcd3862}\label{namespaceps_a2b8197901114d1c4fd6cfe19efcd3862} 
+ \Hypertarget{namespaceps_a54a1e19fa663340b68ad9f74e740a6c0}\label{namespaceps_a54a1e19fa663340b68ad9f74e740a6c0} 
+\index{ps@{ps}!random\_walk\_filaments@{random\_walk\_filaments}}
+\index{random\_walk\_filaments@{random\_walk\_filaments}!ps@{ps}}
+\doxysubsubsection{\texorpdfstring{random\_walk\_filaments()}{random\_walk\_filaments()}}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::random\+\_\+walk\+\_\+filaments (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n\+\_\+filaments,  }\item[{size\+\_\+t}]{filament\+\_\+count,  }\item[{T}]{step\+\_\+size,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{ranges,  }\item[{std\+::optional$<$ unsigned int $>$}]{seed = {\ttfamily std\+:\+:nullopt},  }\item[{T}]{persistence = {\ttfamily T(0.8)},  }\item[{T}]{gaussian\+\_\+sigma = {\ttfamily T(0)},  }\item[{size\+\_\+t}]{gaussian\+\_\+samples = {\ttfamily 0},  }\item[{std\+::vector$<$ T $>$ \texorpdfstring{$\ast$}{*}}]{p\+\_\+distances = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Generate random walk filaments in N dimensions with optional Gaussian thickness. 
+
+Each filament starts at a random seed and grows step by step, where each step is a random direction with a persistence factor to avoid sharp turns. Around each step, additional points can be sampled from a Gaussian distribution to form a "{}thick"{} filament.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Scalar type (e.\+g., float, double). \\
+\hline
+{\em N} & Dimension. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+filaments} & Number of separate filaments. \\
+\hline
+{\em filament\+\_\+count} & Number of points per filament. \\
+\hline
+{\em step\+\_\+size} & Average step length. \\
+\hline
+{\em ranges} & Bounding box for clamping. \\
+\hline
+{\em seed} & Optional RNG seed. \\
+\hline
+{\em persistence} & Correlation between steps (0 = totally random, 1 = straight line). \\
+\hline
+{\em gaussian\+\_\+sigma} & Standard deviation of Gaussian scatter around the filament (0 = no scatter, \texorpdfstring{$>$}{>}0 = thick filament). \\
+\hline
+{\em gaussian\+\_\+samples} & Number of samples drawn per step for thickness. \\
+\hline
+{\em p\+\_\+distances} & Optional output vector to store p\+\_\+distances of each point from the filament center (0 for core filament points). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of generated filament points. 
+\end{DoxyReturn}
+\Hypertarget{namespaceps_a2b8197901114d1c4fd6cfe19efcd3862}\label{namespaceps_a2b8197901114d1c4fd6cfe19efcd3862} 
 \index{ps@{ps}!refit\_points\_to\_range@{refit\_points\_to\_range}}
 \index{refit\_points\_to\_range@{refit\_points\_to\_range}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{refit\_points\_to\_range()}{refit\_points\_to\_range()}}

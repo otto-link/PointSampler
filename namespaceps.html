@@ -245,6 +245,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a66183362443c104da098224df9bcd2a1"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a66183362443c104da098224df9bcd2a1">random_rejection_filter</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, float keep_fraction)</td></tr>
 <tr class="memdesc:a66183362443c104da098224df9bcd2a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Randomly retains a fraction of the input points.  <br /></td></tr>
 <tr class="separator:a66183362443c104da098224df9bcd2a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54a1e19fa663340b68ad9f74e740a6c0" id="r_a54a1e19fa663340b68ad9f74e740a6c0"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
+<tr class="memitem:a54a1e19fa663340b68ad9f74e740a6c0"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a54a1e19fa663340b68ad9f74e740a6c0">random_walk_filaments</a> (size_t n_filaments, size_t filament_count, T step_size, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;ranges, std::optional&lt; unsigned int &gt; seed=std::nullopt, T persistence=T(0.8), T gaussian_sigma=T(0), size_t gaussian_samples=0, std::vector&lt; T &gt; *p_distances=nullptr)</td></tr>
+<tr class="memdesc:a54a1e19fa663340b68ad9f74e740a6c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate random walk filaments in N dimensions with optional Gaussian thickness.  <br /></td></tr>
+<tr class="separator:a54a1e19fa663340b68ad9f74e740a6c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c8c5679d987d3023b9d3beffd81e6df" id="r_a9c8c5679d987d3023b9d3beffd81e6df"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:a9c8c5679d987d3023b9d3beffd81e6df"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a9c8c5679d987d3023b9d3beffd81e6df">filter_points_in_range</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges)</td></tr>
 <tr class="memdesc:a9c8c5679d987d3023b9d3beffd81e6df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filters points that lie within the specified axis-aligned bounding box.  <br /></td></tr>
@@ -2594,6 +2598,103 @@ template&lt;typename T , std::size_t N&gt; </div>
 <div class="line">{{0,1},{0,1}});</div>
 <div class="line"><span class="keyword">auto</span> reduced = <a class="code hl_function" href="namespaceps.html#ab818126518017939773c8a43bd92fc42">ps::random_rejection_filter</a>(pts, 300); <span class="comment">// Keep 300 points</span></div>
 </div><!-- fragment --> 
+</div>
+</div>
+<a id="a54a1e19fa663340b68ad9f74e740a6c0" name="a54a1e19fa663340b68ad9f74e740a6c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54a1e19fa663340b68ad9f74e740a6c0">&#9670;&#160;</a></span>random_walk_filaments()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; ps::random_walk_filaments </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>n_filaments</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>filament_count</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>step_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;&#160;</td>
+          <td class="paramname"><em>ranges</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::optional&lt; unsigned int &gt;&#160;</td>
+          <td class="paramname"><em>seed</em> = <code>std::nullopt</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>persistence</em> = <code>T(0.8)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>gaussian_sigma</em> = <code>T(0)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>gaussian_samples</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; T &gt; *&#160;</td>
+          <td class="paramname"><em>p_distances</em> = <code>nullptr</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generate random walk filaments in N dimensions with optional Gaussian thickness. </p>
+<p>Each filament starts at a random seed and grows step by step, where each step is a random direction with a persistence factor to avoid sharp turns. Around each step, additional points can be sampled from a Gaussian distribution to form a "thick" filament.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Scalar type (e.g., float, double). </td></tr>
+    <tr><td class="paramname">N</td><td>Dimension. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n_filaments</td><td>Number of separate filaments. </td></tr>
+    <tr><td class="paramname">filament_count</td><td>Number of points per filament. </td></tr>
+    <tr><td class="paramname">step_size</td><td>Average step length. </td></tr>
+    <tr><td class="paramname">ranges</td><td>Bounding box for clamping. </td></tr>
+    <tr><td class="paramname">seed</td><td>Optional RNG seed. </td></tr>
+    <tr><td class="paramname">persistence</td><td>Correlation between steps (0 = totally random, 1 = straight line). </td></tr>
+    <tr><td class="paramname">gaussian_sigma</td><td>Standard deviation of Gaussian scatter around the filament (0 = no scatter, &gt;0 = thick filament). </td></tr>
+    <tr><td class="paramname">gaussian_samples</td><td>Number of samples drawn per step for thickness. </td></tr>
+    <tr><td class="paramname">p_distances</td><td>Optional output vector to store p_distances of each point from the filament center (0 for core filament points). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of generated filament points. </dd></dl>
+
 </div>
 </div>
 <a id="a2b8197901114d1c4fd6cfe19efcd3862" name="a2b8197901114d1c4fd6cfe19efcd3862"></a>
