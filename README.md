@@ -19,7 +19,7 @@ Documentation is available here: [otto-link.github.io/PointSampler](https://otto
 - ✔️ Utility wrappers for common spatial metrics (nearest neighbors, minimum distance, etc.)
 - ...
 
-<img width="1330" height="777" alt="demo" src="https://github.com/user-attachments/assets/18d88488-dfb0-48e1-a41a-f30b9c4e1a86" />
+<img width="1211" height="716" alt="demo" src="https://github.com/user-attachments/assets/51a4c023-680d-4002-9156-ebf2399f91dc" />
 
 ## Example
 
