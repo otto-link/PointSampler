@@ -15,8 +15,8 @@ namespace ps
  * @brief Compute the angular distribution function (ADF) using nearest
  * neighbors.
  *
- * The angular distribution function (ADF) measures the distribution of
- * bond angles formed by a point and pairs of its nearest neighbors.
+ * The angular distribution function (ADF) measures the distribution of bond
+ * angles formed by a point and pairs of its nearest neighbors.
  *
  * - Flat distribution → random uniform points.
  * - Peaks at characteristic angles → local order (e.g. hexagonal lattice peaks

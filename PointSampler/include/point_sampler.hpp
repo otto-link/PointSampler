@@ -72,6 +72,7 @@
 #include "point_sampler/poisson_disk_sampling.hpp"
 #include "point_sampler/random.hpp"
 #include "point_sampler/random_rejection_filter.hpp"
+#include "point_sampler/random_walk_filaments.hpp"
 #include "point_sampler/range.hpp"
 #include "point_sampler/rejection_sampling.hpp"
 #include "point_sampler/relaxation.hpp"

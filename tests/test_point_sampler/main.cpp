@@ -88,6 +88,32 @@ int main()
   }
 
   {
+    std::cout << "ps::random_walk_filaments...\n";
+
+    size_t n_filaments = 4;
+    size_t filament_count = 100;
+    float  step_size = 0.05;
+    float  persistence = 0.8f;
+    float  gaussian_sigma = 0.1f; // filament thickness
+    size_t gaussian_samples = 10;
+
+    std::vector<float> distances = {}; // optional, distance to the filament
+
+    auto points = ps::random_walk_filaments(n_filaments,
+                                            filament_count,
+                                            step_size,
+                                            ranges,
+                                            seed,
+                                            persistence,
+                                            gaussian_sigma,
+                                            gaussian_samples,
+                                            &distances);
+
+    ps::save_points_to_csv("out_random_walk_filaments.csv", points);
+    ps::save_vector_to_csv("metrics_random_walk_filaments_dst.csv", distances);
+  }
+
+  {
     std::cout << "ps::rejection_sampling...\n";
 
     auto density = [](const ps::Point<float, dim> &p) -> float
