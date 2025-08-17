@@ -45,6 +45,8 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 \begin{DoxyCompactList}\small\item\em Perform k-\/means clustering on a set of points. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , std\+::size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a9ca14831de223ff62a6c3ec93e96a7c0}{latin\+\_\+hypercube\+\_\+sampling}} (std\+::size\+\_\+t sample\+\_\+count, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
 \item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::pair$<$ std\+::vector$<$ T $>$, std\+::vector$<$ T $>$ $>$ \mbox{\hyperlink{namespaceps_ae96771d03336a56988d82df95e8a797a}{angle\+\_\+distribution\+\_\+neighbors}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, T bin\+\_\+width, size\+\_\+t k\+\_\+neighbors=8)
+\begin{DoxyCompactList}\small\item\em Compute the angular distribution function (ADF) using nearest neighbors. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{namespaceps_a9a824a8963ef7b15c01da0f1f9c90eee}{distance\+\_\+to\+\_\+boundary}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges)
 \begin{DoxyCompactList}\small\item\em Compute the distance of each point to the domain boundary. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{namespaceps_a91a0bac33731ed899845c6081c117db2}{first\+\_\+neighbor\+\_\+distance\+\_\+squared}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points)
@@ -172,7 +174,7 @@ A vector of points of dimension N+1, with the new dimension appended.
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceptions}
-{\em std\+::runtime\+\_\+errorifthesizeof\`{}points\`{}and\`{}new\+\_\+dimension\`{}donot} & match.\\
+{\em std\+::runtime\+\_\+errorifthesizeof\`{}points\`{}and\`{}new\+\_\+dimension\`{}donotmatch.} & \\
 \hline
 \end{DoxyExceptions}
 \begin{DoxyNote}{Note}
@@ -185,6 +187,62 @@ This function creates a new vector of points with an increased dimension count, 
 \DoxyCodeLine{std::vector<float>\ z\_values\ =\ \{\ 10.0f,\ 20.0f\ \};}
 \DoxyCodeLine{\textcolor{keyword}{auto}\ points3D\ =\ \mbox{\hyperlink{namespaceps_a964f314c19f0b1300d513bce618c5954}{add\_dimension}}(points,\ z\_values);}
 \DoxyCodeLine{\textcolor{comment}{//\ points3D\ now\ contains\ \{\{1.0f,\ 2.0f,\ 10.0f\}\},\ \{\{3.0f,\ 4.0f,\ 20.0f\}\}}}
+
+\end{DoxyCode}
+ \Hypertarget{namespaceps_ae96771d03336a56988d82df95e8a797a}\label{namespaceps_ae96771d03336a56988d82df95e8a797a} 
+\index{ps@{ps}!angle\_distribution\_neighbors@{angle\_distribution\_neighbors}}
+\index{angle\_distribution\_neighbors@{angle\_distribution\_neighbors}!ps@{ps}}
+\doxysubsubsection{\texorpdfstring{angle\_distribution\_neighbors()}{angle\_distribution\_neighbors()}}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+std\+::pair$<$ std\+::vector$<$ T $>$, std\+::vector$<$ T $>$ $>$ ps\+::angle\+\_\+distribution\+\_\+neighbors (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{T}]{bin\+\_\+width,  }\item[{size\+\_\+t}]{k\+\_\+neighbors = {\ttfamily 8} }\end{DoxyParamCaption})}
+
+
+
+Compute the angular distribution function (ADF) using nearest neighbors. 
+
+The angular distribution function (ADF) measures the distribution of bond angles formed by a point and pairs of its nearest neighbors.
+
+
+\begin{DoxyItemize}
+\item Flat distribution → random uniform points.
+\item Peaks at characteristic angles → local order (e.\+g. hexagonal lattice peaks at 60°).
+\item Depletions → angular avoidance due to constraints or repulsion.
+\end{DoxyItemize}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Numeric type (float, double, ...) \\
+\hline
+{\em N} & Dimension of points (N \texorpdfstring{$>$}{>}= 2) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em points} & Vector of points \\
+\hline
+{\em bin\+\_\+width} & Width of angle bins (in radians) \\
+\hline
+{\em k\+\_\+neighbors} & Number of neighbors used for angle calculation (default\+: 8) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::pair\texorpdfstring{$<$}{<}std\+::vector$<$\+T$>$, std\+::vector$<$\+T$>$\texorpdfstring{$>$}{>}
+\begin{DoxyItemize}
+\item First\+: bin centers (angles in radians)
+\item Second\+: normalized ADF values
+\end{DoxyItemize}
+\end{DoxyReturn}
+\hypertarget{namespaceps_autotoc_md8}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md8}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ std::vector<Point<double,\ 2>>\ pts\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \{0.0,\ 0.0\},\ \{1.0,\ 0.0\},\ \{0.0,\ 1.0\},\ \{1.0,\ 1.0\}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ [theta,\ g\_theta]\ =\ \mbox{\hyperlink{namespaceps_ae96771d03336a56988d82df95e8a797a}{angle\_distribution\_neighbors}}(pts,\ 0.1,\ 6);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ theta.size();\ ++i)\ std::cout\ <<\ \textcolor{stringliteral}{"{}θ="{}}\ <<\ theta[i]\ <<\ \textcolor{stringliteral}{"{}}}
+\DoxyCodeLine{\textcolor{stringliteral}{g(θ)="{}}\ <<\ g\_theta[i]\ <<\ std::endl;}
 
 \end{DoxyCode}
  \Hypertarget{namespaceps_adb0bd4806c7e79eddef0e1263740ae28}\label{namespaceps_adb0bd4806c7e79eddef0e1263740ae28} 
@@ -1134,7 +1192,7 @@ std\+::pair\texorpdfstring{$<$}{<}std\+::vector$<$\+T$>$, std\+::vector$<$\+T$>$
 \item Second\+: normalized RDF values g(r)
 \end{DoxyItemize}
 \end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md8}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md8}
+\hypertarget{namespaceps_autotoc_md9}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md9}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ std::vector<Point<double,\ 2>>\ pts\ =\ \{}
@@ -1318,7 +1376,7 @@ This function computes the axis-\/aligned bounding box (AABB) of the input point
 \mbox{\texttt{ in}}  & {\em target\+\_\+ranges} & Desired output min/max per dimension.\\
 \hline
 \end{DoxyParams}
-\hypertarget{namespaceps_autotoc_md9}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md9}
+\hypertarget{namespaceps_autotoc_md10}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md10}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ std::vector<Point<float,\ 2>>\ pts\ =\ generate\_random\_points<float,}
@@ -1374,7 +1432,7 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of accepted points based on reje
 {\em std\+::invalid\+\_\+argumentifanyaxisrangeisinvalid(min$>$max).} & \\
 \hline
 \end{DoxyExceptions}
-\hypertarget{namespaceps_autotoc_md10}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md10}
+\hypertarget{namespaceps_autotoc_md11}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md11}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{rejection__sampling_8hpp}{point\_sampler/rejection\_sampling.hpp}}"{}}}
@@ -1436,7 +1494,7 @@ Each point is offset based on inverse-\/distance-\/weighted repulsion from its k
 \begin{DoxyNote}{Note}
 The KD-\/tree is rebuilt on each iteration to reflect the updated positions.
 \end{DoxyNote}
-\hypertarget{namespaceps_autotoc_md11}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md11}
+\hypertarget{namespaceps_autotoc_md12}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md12}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{relaxation_8hpp}{point\_sampler/relaxation.hpp}}>}}
@@ -1448,7 +1506,7 @@ The KD-\/tree is rebuilt on each iteration to reflect the updated positions.
 \DoxyCodeLine{10);}
 
 \end{DoxyCode}
-\hypertarget{namespaceps_autotoc_md12}{}\doxysubsubsubsection{\texorpdfstring{How it works\+:}{How it works:}}\label{namespaceps_autotoc_md12}
+\hypertarget{namespaceps_autotoc_md13}{}\doxysubsubsubsection{\texorpdfstring{How it works\+:}{How it works:}}\label{namespaceps_autotoc_md13}
 
 \begin{DoxyItemize}
 \item For each point\+:

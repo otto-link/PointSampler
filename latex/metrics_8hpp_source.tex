@@ -15,169 +15,244 @@
 \DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
 \DoxyCodeLine{00012\ \{}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00041\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00042\ std::vector<T>\ \mbox{\hyperlink{namespaceps_a9a824a8963ef7b15c01da0f1f9c90eee}{distance\_to\_boundary}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \ \ \ \ \ \ \&points,}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ N>\ \&axis\_ranges)}
-\DoxyCodeLine{00044\ \{}
-\DoxyCodeLine{00045\ \ \ std::vector<T>\ distances;}
-\DoxyCodeLine{00046\ \ \ distances.reserve(points.size());}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ :\ points)}
-\DoxyCodeLine{00049\ \ \ \{}
-\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{//\ Find\ min\ distance\ to\ a\ boundary\ plane}}
-\DoxyCodeLine{00051\ \ \ \ \ T\ min\_dist\ =\ std::numeric\_limits<T>::max();}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
-\DoxyCodeLine{00054\ \ \ \ \ \{}
-\DoxyCodeLine{00055\ \ \ \ \ \ \ T\ dist\_to\_min\ =\ std::abs(p[d]\ -\/\ axis\_ranges[d].first);}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ T\ dist\_to\_max\ =\ std::abs(axis\_ranges[d].second\ -\/\ p[d]);}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ \ \ \ \ min\_dist\ =\ std::min(\{min\_dist,\ dist\_to\_min,\ dist\_to\_max\});}
-\DoxyCodeLine{00059\ \ \ \ \ \}}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \ \ \ \ distances.push\_back(min\_dist);}
-\DoxyCodeLine{00062\ \ \ \}}
+\DoxyCodeLine{00047\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00048\ std::pair<std::vector<T>,\ std::vector<T>>\ \mbox{\hyperlink{namespaceps_ae96771d03336a56988d82df95e8a797a}{angle\_distribution\_neighbors}}(}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
+\DoxyCodeLine{00050\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bin\_width,}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k\_neighbors\ =\ 8)}
+\DoxyCodeLine{00052\ \{}
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (N\ <\ 2)}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Angle\ distribution\ requires\ dimension\ >=\ 2"{}});}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ num\_bins\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(std::ceil(M\_PI\ /\ bin\_width));}
+\DoxyCodeLine{00057\ \ \ std::vector<T>\ angles(num\_bins);}
+\DoxyCodeLine{00058\ \ \ std::vector<T>\ g\_theta(num\_bins,\ T(0));}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \textcolor{comment}{//\ Precompute\ bin\ centers}}
+\DoxyCodeLine{00061\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ num\_bins;\ ++i)}
+\DoxyCodeLine{00062\ \ \ \ \ angles[i]\ =\ (i\ +\ T(0.5))\ *\ bin\_width;}
 \DoxyCodeLine{00063\ }
-\DoxyCodeLine{00064\ \ \ \textcolor{keywordflow}{return}\ distances;}
-\DoxyCodeLine{00065\ \}}
+\DoxyCodeLine{00064\ \ \ \textcolor{comment}{//\ Get\ nearest\ neighbors\ once}}
+\DoxyCodeLine{00065\ \ \ \textcolor{keyword}{auto}\ neighbors\ =\ \mbox{\hyperlink{namespaceps_ac29744e12116f882d8a620a3fd02d72d}{nearest\_neighbors\_indices}}(points,\ k\_neighbors);}
 \DoxyCodeLine{00066\ }
-\DoxyCodeLine{00106\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00107\ std::vector<T>\ \mbox{\hyperlink{namespaceps_a91a0bac33731ed899845c6081c117db2}{first\_neighbor\_distance\_squared}}(std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points)}
-\DoxyCodeLine{00108\ \{}
-\DoxyCodeLine{00109\ \ \ \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{PointCloudAdaptor<T,\ N>}}\ adaptor(points);}
-\DoxyCodeLine{00110\ \ \ \mbox{\hyperlink{namespaceps_ac9ecfd54020ea95c133d1fc99cf4f75a}{KDTree<T,\ N>}}\ \ \ \ \ \ \ \ \ \ \ \ index(N,\ adaptor);}
-\DoxyCodeLine{00111\ \ \ index.buildIndex();}
+\DoxyCodeLine{00067\ \ \ \textcolor{comment}{//\ Loop\ over\ all\ points}}
+\DoxyCodeLine{00068\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ points.size();\ ++i)}
+\DoxyCodeLine{00069\ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&nbrs\ =\ neighbors[i];}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ n\_nbrs\ =\ nbrs.size();}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{//\ Compute\ angles\ between\ all\ neighbor\ pairs}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ a\ =\ 0;\ a\ <\ n\_nbrs;\ ++a)}
+\DoxyCodeLine{00075\ \ \ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ b\ =\ a\ +\ 1;\ b\ <\ n\_nbrs;\ ++b)}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ j\ =\ nbrs[a];}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ k\ =\ nbrs[b];}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Vectors\ from\ center\ i\ to\ j\ and\ k}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ std::array<T,\ N>\ v1,\ v2;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ v1[d]\ =\ points[j][d]\ -\/\ points[i][d];}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ v2[d]\ =\ points[k][d]\ -\/\ points[i][d];}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Compute\ angle}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ T\ \mbox{\hyperlink{namespaceps_ace7642868199df621df9139e5179767b}{dot}}\ =\ T(0),\ norm1\ =\ T(0),\ norm2\ =\ T(0);}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_ace7642868199df621df9139e5179767b}{dot}}\ +=\ v1[d]\ *\ v2[d];}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ norm1\ +=\ v1[d]\ *\ v1[d];}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ norm2\ +=\ v2[d]\ *\ v2[d];}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (norm1\ >\ T(0)\ \&\&\ norm2\ >\ T(0))}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ T\ cos\_theta\ =\ std::clamp(\mbox{\hyperlink{namespaceps_ace7642868199df621df9139e5179767b}{dot}}\ /\ (std::sqrt(norm1)\ *\ std::sqrt(norm2)),}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T(-\/1),}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T(1));}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ T\ theta\ =\ std::acos(cos\_theta);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ bin\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(theta\ /\ bin\_width);}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bin\ <\ num\_bins)}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ g\_theta[bin]\ +=\ T(1);}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00110\ \ \ \ \ \}}
+\DoxyCodeLine{00111\ \ \ \}}
 \DoxyCodeLine{00112\ }
-\DoxyCodeLine{00113\ \ \ std::vector<T>\ distance\_sq;}
-\DoxyCodeLine{00114\ \ \ distance\_sq.reserve(points.size());}
-\DoxyCodeLine{00115\ }
-\DoxyCodeLine{00116\ \ \ \textcolor{comment}{//\ first\ neighbor\ search\ only}}
-\DoxyCodeLine{00117\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ k\_neighbors\ =\ 1;}
+\DoxyCodeLine{00113\ \ \ \textcolor{comment}{//\ Normalize\ histogram}}
+\DoxyCodeLine{00114\ \ \ T\ total\ =\ std::accumulate(g\_theta.begin(),\ g\_theta.end(),\ T(0));}
+\DoxyCodeLine{00115\ \ \ \textcolor{keywordflow}{if}\ (total\ >\ T(0))}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&val\ :\ g\_theta)}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ val\ /=\ total;}
 \DoxyCodeLine{00118\ }
-\DoxyCodeLine{00119\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ points.size();\ ++i)}
-\DoxyCodeLine{00120\ \ \ \{}
-\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ =\ points[i];}
-\DoxyCodeLine{00122\ }
-\DoxyCodeLine{00123\ \ \ \ \ std::vector<size\_t>\ ret\_indexes(k\_neighbors\ +\ 1);}
-\DoxyCodeLine{00124\ \ \ \ \ std::vector<T>\ \ \ \ \ \ out\_dists\_sqr(k\_neighbors\ +\ 1);}
-\DoxyCodeLine{00125\ }
-\DoxyCodeLine{00126\ \ \ \ \ nanoflann::KNNResultSet<T>\ result\_set(k\_neighbors\ +\ 1);}
-\DoxyCodeLine{00127\ \ \ \ \ result\_set.init(ret\_indexes.data(),\ out\_dists\_sqr.data());}
-\DoxyCodeLine{00128\ }
-\DoxyCodeLine{00129\ \ \ \ \ std::array<T,\ N>\ query;}
-\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
-\DoxyCodeLine{00131\ \ \ \ \ \ \ query[d]\ =\ p[d];}
-\DoxyCodeLine{00132\ }
-\DoxyCodeLine{00133\ \ \ \ \ index.findNeighbors(result\_set,\ query.data(),\ nanoflann::SearchParameters());}
-\DoxyCodeLine{00134\ }
-\DoxyCodeLine{00135\ \ \ \ \ T\ dist\_sq\ =\ 0.f;}
-\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordflow}{if}\ (ret\_indexes.size()\ >\ 1)}
-\DoxyCodeLine{00137\ \ \ \ \ \{}
-\DoxyCodeLine{00138\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&q\ =\ points[ret\_indexes[1]];}
-\DoxyCodeLine{00139\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \ \ \ \ \ \ \ delta\ =\ p\ -\/\ q;}
-\DoxyCodeLine{00140\ \ \ \ \ \ \ dist\_sq\ =\ \mbox{\hyperlink{namespaceps_a7c3e161560ad3000aa4e2218291b169c}{length\_squared}}(delta)\ +\ T(1e-\/6);}
-\DoxyCodeLine{00141\ \ \ \ \ \}}
-\DoxyCodeLine{00142\ }
-\DoxyCodeLine{00143\ \ \ \ \ distance\_sq.push\_back(dist\_sq);}
-\DoxyCodeLine{00144\ \ \ \}}
-\DoxyCodeLine{00145\ }
-\DoxyCodeLine{00146\ \ \ \textcolor{keywordflow}{return}\ distance\_sq;}
-\DoxyCodeLine{00147\ \}}
-\DoxyCodeLine{00148\ }
-\DoxyCodeLine{00181\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00182\ std::vector<std::vector<size\_t>>\ \mbox{\hyperlink{namespaceps_ac29744e12116f882d8a620a3fd02d72d}{nearest\_neighbors\_indices}}(}
-\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
-\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k\_neighbors\ =\ 8)}
-\DoxyCodeLine{00185\ \{}
-\DoxyCodeLine{00186\ \ \ \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{PointCloudAdaptor<T,\ N>}}\ adaptor(points);}
-\DoxyCodeLine{00187\ \ \ \mbox{\hyperlink{namespaceps_ac9ecfd54020ea95c133d1fc99cf4f75a}{KDTree<T,\ N>}}\ \ \ \ \ \ \ \ \ \ \ \ index(N,\ adaptor);}
-\DoxyCodeLine{00188\ \ \ index.buildIndex();}
-\DoxyCodeLine{00189\ }
-\DoxyCodeLine{00190\ \ \ std::vector<std::vector<size\_t>>\ all\_neighbors;}
-\DoxyCodeLine{00191\ \ \ all\_neighbors.resize(points.size());}
-\DoxyCodeLine{00192\ }
-\DoxyCodeLine{00193\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ points.size();\ ++i)}
-\DoxyCodeLine{00194\ \ \ \{}
-\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ =\ points[i];}
-\DoxyCodeLine{00196\ }
-\DoxyCodeLine{00197\ \ \ \ \ std::vector<size\_t>\ ret\_indexes(k\_neighbors\ +\ 1);}
-\DoxyCodeLine{00198\ \ \ \ \ std::vector<T>\ \ \ \ \ \ out\_dists\_sqr(k\_neighbors\ +\ 1);}
-\DoxyCodeLine{00199\ }
-\DoxyCodeLine{00200\ \ \ \ \ nanoflann::KNNResultSet<T>\ result\_set(k\_neighbors\ +\ 1);}
-\DoxyCodeLine{00201\ \ \ \ \ result\_set.init(ret\_indexes.data(),\ out\_dists\_sqr.data());}
-\DoxyCodeLine{00202\ }
-\DoxyCodeLine{00203\ \ \ \ \ std::array<T,\ N>\ query;}
-\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
-\DoxyCodeLine{00205\ \ \ \ \ \ \ query[d]\ =\ p[d];}
-\DoxyCodeLine{00206\ }
-\DoxyCodeLine{00207\ \ \ \ \ index.findNeighbors(result\_set,\ query.data(),\ nanoflann::SearchParameters());}
-\DoxyCodeLine{00208\ }
-\DoxyCodeLine{00209\ \ \ \ \ \textcolor{comment}{//\ Skip\ self\ at\ index\ 0}}
-\DoxyCodeLine{00210\ \ \ \ \ all\_neighbors[i].assign(ret\_indexes.begin()\ +\ 1,\ ret\_indexes.end());}
-\DoxyCodeLine{00211\ \ \ \}}
-\DoxyCodeLine{00212\ }
-\DoxyCodeLine{00213\ \ \ \textcolor{keywordflow}{return}\ all\_neighbors;}
-\DoxyCodeLine{00214\ \}}
-\DoxyCodeLine{00215\ }
-\DoxyCodeLine{00255\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00256\ std::pair<std::vector<T>,\ std::vector<T>>\ \mbox{\hyperlink{namespaceps_a8d80a56ea4774726e748b48e1ecf0a8d}{radial\_distribution}}(}
-\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \ \ \ \ \ \ \&points,}
-\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ N>\ \&axis\_ranges,}
-\DoxyCodeLine{00259\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bin\_width,}
-\DoxyCodeLine{00260\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ max\_distance)}
-\DoxyCodeLine{00261\ \{}
-\DoxyCodeLine{00262\ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ num\_bins\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(std::ceil(max\_distance\ /\ bin\_width));}
-\DoxyCodeLine{00263\ \ \ std::vector<T>\ radii(num\_bins);}
-\DoxyCodeLine{00264\ \ \ std::vector<T>\ g(num\_bins,\ T(0));}
-\DoxyCodeLine{00265\ }
-\DoxyCodeLine{00266\ \ \ \textcolor{comment}{//\ Precompute\ bin\ centers}}
-\DoxyCodeLine{00267\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ num\_bins;\ ++i)}
-\DoxyCodeLine{00268\ \ \ \ \ radii[i]\ =\ (i\ +\ T(0.5))\ *\ bin\_width;}
-\DoxyCodeLine{00269\ }
-\DoxyCodeLine{00270\ \ \ \textcolor{comment}{//\ Compute\ volume\ of\ domain}}
-\DoxyCodeLine{00271\ \ \ T\ volume\ =\ T(1);}
-\DoxyCodeLine{00272\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&range\ :\ axis\_ranges)}
-\DoxyCodeLine{00273\ \ \ \ \ volume\ *=\ (range.second\ -\/\ range.first);}
-\DoxyCodeLine{00274\ }
-\DoxyCodeLine{00275\ \ \ \textcolor{keywordtype}{size\_t}\ n\_points\ =\ points.size();}
-\DoxyCodeLine{00276\ \ \ T\ \ \ \ \ \ density\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(n\_points)\ /\ volume;}
-\DoxyCodeLine{00277\ }
-\DoxyCodeLine{00278\ \ \ \textcolor{comment}{//\ Histogram\ of\ pair\ distances}}
-\DoxyCodeLine{00279\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ n\_points;\ ++i)}
-\DoxyCodeLine{00280\ \ \ \{}
-\DoxyCodeLine{00281\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ i\ +\ 1;\ j\ <\ n\_points;\ ++j)}
-\DoxyCodeLine{00282\ \ \ \ \ \{}
-\DoxyCodeLine{00283\ \ \ \ \ \ \ T\ dist\ =\ \mbox{\hyperlink{namespaceps_ac0b74f22d427d199ab0df8f6942d3b11}{distance}}(points[i],\ points[j]);}
-\DoxyCodeLine{00284\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dist\ <\ max\_distance)}
-\DoxyCodeLine{00285\ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ bin\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(dist\ /\ bin\_width);}
-\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bin\ <\ num\_bins)}
-\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ g[bin]\ +=\ T(2);\ \textcolor{comment}{//\ count\ both\ i→j\ and}}
-\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ j→i}}
-\DoxyCodeLine{00290\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00291\ \ \ \ \ \}}
-\DoxyCodeLine{00292\ \ \ \}}
-\DoxyCodeLine{00293\ }
-\DoxyCodeLine{00294\ \ \ \textcolor{comment}{//\ Normalize}}
-\DoxyCodeLine{00295\ \ \ T\ norm\_factor\ =\ (T)n\_points\ *\ density;}
-\DoxyCodeLine{00296\ }
-\DoxyCodeLine{00297\ \ \ \textcolor{comment}{//\ Volume\ of\ spherical\ shell\ between\ r1\ and\ r2\ in\ N\ dimensions}}
-\DoxyCodeLine{00298\ \ \ \textcolor{keyword}{auto}\ sphere\_volume\ =\ [](T\ radius)}
-\DoxyCodeLine{00299\ \ \ \{\ \textcolor{keywordflow}{return}\ std::pow(M\_PI,\ N\ /\ 2.0)\ /\ std::tgamma(N\ /\ 2.0\ +\ 1.0)\ *\ std::pow(radius,\ N);\ \};}
+\DoxyCodeLine{00119\ \ \ \textcolor{keywordflow}{return}\ \{angles,\ g\_theta\};}
+\DoxyCodeLine{00120\ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00149\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00150\ std::vector<T>\ \mbox{\hyperlink{namespaceps_a9a824a8963ef7b15c01da0f1f9c90eee}{distance\_to\_boundary}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \ \ \ \ \ \ \&points,}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ N>\ \&axis\_ranges)}
+\DoxyCodeLine{00152\ \{}
+\DoxyCodeLine{00153\ \ \ std::vector<T>\ distances;}
+\DoxyCodeLine{00154\ \ \ distances.reserve(points.size());}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ :\ points)}
+\DoxyCodeLine{00157\ \ \ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{comment}{//\ Find\ min\ distance\ to\ a\ boundary\ plane}}
+\DoxyCodeLine{00159\ \ \ \ \ T\ min\_dist\ =\ std::numeric\_limits<T>::max();}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{00162\ \ \ \ \ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ T\ dist\_to\_min\ =\ std::abs(p[d]\ -\/\ axis\_ranges[d].first);}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ T\ dist\_to\_max\ =\ std::abs(axis\_ranges[d].second\ -\/\ p[d]);}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \ \ min\_dist\ =\ std::min(\{min\_dist,\ dist\_to\_min,\ dist\_to\_max\});}
+\DoxyCodeLine{00167\ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ distances.push\_back(min\_dist);}
+\DoxyCodeLine{00170\ \ \ \}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \textcolor{keywordflow}{return}\ distances;}
+\DoxyCodeLine{00173\ \}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00214\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00215\ std::vector<T>\ \mbox{\hyperlink{namespaceps_a91a0bac33731ed899845c6081c117db2}{first\_neighbor\_distance\_squared}}(std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points)}
+\DoxyCodeLine{00216\ \{}
+\DoxyCodeLine{00217\ \ \ \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{PointCloudAdaptor<T,\ N>}}\ adaptor(points);}
+\DoxyCodeLine{00218\ \ \ \mbox{\hyperlink{namespaceps_ac9ecfd54020ea95c133d1fc99cf4f75a}{KDTree<T,\ N>}}\ \ \ \ \ \ \ \ \ \ \ \ index(N,\ adaptor);}
+\DoxyCodeLine{00219\ \ \ index.buildIndex();}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ std::vector<T>\ distance\_sq;}
+\DoxyCodeLine{00222\ \ \ distance\_sq.reserve(points.size());}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \textcolor{comment}{//\ first\ neighbor\ search\ only}}
+\DoxyCodeLine{00225\ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ k\_neighbors\ =\ 1;}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ points.size();\ ++i)}
+\DoxyCodeLine{00228\ \ \ \{}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ =\ points[i];}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \ \ \ \ std::vector<size\_t>\ ret\_indexes(k\_neighbors\ +\ 1);}
+\DoxyCodeLine{00232\ \ \ \ \ std::vector<T>\ \ \ \ \ \ out\_dists\_sqr(k\_neighbors\ +\ 1);}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \ \ \ \ nanoflann::KNNResultSet<T>\ result\_set(k\_neighbors\ +\ 1);}
+\DoxyCodeLine{00235\ \ \ \ \ result\_set.init(ret\_indexes.data(),\ out\_dists\_sqr.data());}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ std::array<T,\ N>\ query;}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ query[d]\ =\ p[d];}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \ \ \ \ index.findNeighbors(result\_set,\ query.data(),\ nanoflann::SearchParameters());}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \ \ \ \ T\ dist\_sq\ =\ 0.f;}
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keywordflow}{if}\ (ret\_indexes.size()\ >\ 1)}
+\DoxyCodeLine{00245\ \ \ \ \ \{}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&q\ =\ points[ret\_indexes[1]];}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \ \ \ \ \ \ \ delta\ =\ p\ -\/\ q;}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ dist\_sq\ =\ \mbox{\hyperlink{namespaceps_a7c3e161560ad3000aa4e2218291b169c}{length\_squared}}(delta)\ +\ T(1e-\/6);}
+\DoxyCodeLine{00249\ \ \ \ \ \}}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \ \ \ \ distance\_sq.push\_back(dist\_sq);}
+\DoxyCodeLine{00252\ \ \ \}}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \ \ \textcolor{keywordflow}{return}\ distance\_sq;}
+\DoxyCodeLine{00255\ \}}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00289\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00290\ std::vector<std::vector<size\_t>>\ \mbox{\hyperlink{namespaceps_ac29744e12116f882d8a620a3fd02d72d}{nearest\_neighbors\_indices}}(}
+\DoxyCodeLine{00291\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
+\DoxyCodeLine{00292\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k\_neighbors\ =\ 8)}
+\DoxyCodeLine{00293\ \{}
+\DoxyCodeLine{00294\ \ \ \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{PointCloudAdaptor<T,\ N>}}\ adaptor(points);}
+\DoxyCodeLine{00295\ \ \ \mbox{\hyperlink{namespaceps_ac9ecfd54020ea95c133d1fc99cf4f75a}{KDTree<T,\ N>}}\ \ \ \ \ \ \ \ \ \ \ \ index(N,\ adaptor);}
+\DoxyCodeLine{00296\ \ \ index.buildIndex();}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00298\ \ \ std::vector<std::vector<size\_t>>\ all\_neighbors;}
+\DoxyCodeLine{00299\ \ \ all\_neighbors.resize(points.size());}
 \DoxyCodeLine{00300\ }
-\DoxyCodeLine{00301\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ num\_bins;\ ++i)}
+\DoxyCodeLine{00301\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ points.size();\ ++i)}
 \DoxyCodeLine{00302\ \ \ \{}
-\DoxyCodeLine{00303\ \ \ \ \ T\ r\_inner\ =\ i\ *\ bin\_width;}
-\DoxyCodeLine{00304\ \ \ \ \ T\ r\_outer\ =\ (i\ +\ 1)\ *\ bin\_width;}
-\DoxyCodeLine{00305\ }
-\DoxyCodeLine{00306\ \ \ \ \ \textcolor{comment}{//\ Volume\ of\ spherical\ shell}}
-\DoxyCodeLine{00307\ \ \ \ \ T\ shell\_vol\ =\ sphere\_volume(r\_outer)\ -\/\ sphere\_volume(r\_inner);}
-\DoxyCodeLine{00308\ \ \ \ \ g[i]\ /=\ norm\_factor\ *\ shell\_vol;}
-\DoxyCodeLine{00309\ \ \ \}}
+\DoxyCodeLine{00303\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ =\ points[i];}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ \ \ \ \ std::vector<size\_t>\ ret\_indexes(k\_neighbors\ +\ 1);}
+\DoxyCodeLine{00306\ \ \ \ \ std::vector<T>\ \ \ \ \ \ out\_dists\_sqr(k\_neighbors\ +\ 1);}
+\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00308\ \ \ \ \ nanoflann::KNNResultSet<T>\ result\_set(k\_neighbors\ +\ 1);}
+\DoxyCodeLine{00309\ \ \ \ \ result\_set.init(ret\_indexes.data(),\ out\_dists\_sqr.data());}
 \DoxyCodeLine{00310\ }
-\DoxyCodeLine{00311\ \ \ \textcolor{keywordflow}{return}\ \{radii,\ g\};}
-\DoxyCodeLine{00312\ \}}
-\DoxyCodeLine{00313\ }
-\DoxyCodeLine{00314\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+\DoxyCodeLine{00311\ \ \ \ \ std::array<T,\ N>\ query;}
+\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ query[d]\ =\ p[d];}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00315\ \ \ \ \ index.findNeighbors(result\_set,\ query.data(),\ nanoflann::SearchParameters());}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00317\ \ \ \ \ \textcolor{comment}{//\ Skip\ self\ at\ index\ 0}}
+\DoxyCodeLine{00318\ \ \ \ \ all\_neighbors[i].assign(ret\_indexes.begin()\ +\ 1,\ ret\_indexes.end());}
+\DoxyCodeLine{00319\ \ \ \}}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00321\ \ \ \textcolor{keywordflow}{return}\ all\_neighbors;}
+\DoxyCodeLine{00322\ \}}
+\DoxyCodeLine{00323\ }
+\DoxyCodeLine{00363\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00364\ std::pair<std::vector<T>,\ std::vector<T>>\ \mbox{\hyperlink{namespaceps_a8d80a56ea4774726e748b48e1ecf0a8d}{radial\_distribution}}(}
+\DoxyCodeLine{00365\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \ \ \ \ \ \ \&points,}
+\DoxyCodeLine{00366\ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ N>\ \&axis\_ranges,}
+\DoxyCodeLine{00367\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bin\_width,}
+\DoxyCodeLine{00368\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ max\_distance)}
+\DoxyCodeLine{00369\ \{}
+\DoxyCodeLine{00370\ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ num\_bins\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(std::ceil(max\_distance\ /\ bin\_width));}
+\DoxyCodeLine{00371\ \ \ std::vector<T>\ radii(num\_bins);}
+\DoxyCodeLine{00372\ \ \ std::vector<T>\ g(num\_bins,\ T(0));}
+\DoxyCodeLine{00373\ }
+\DoxyCodeLine{00374\ \ \ \textcolor{comment}{//\ Precompute\ bin\ centers}}
+\DoxyCodeLine{00375\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ num\_bins;\ ++i)}
+\DoxyCodeLine{00376\ \ \ \ \ radii[i]\ =\ (i\ +\ T(0.5))\ *\ bin\_width;}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00378\ \ \ \textcolor{comment}{//\ Compute\ volume\ of\ domain}}
+\DoxyCodeLine{00379\ \ \ T\ volume\ =\ T(1);}
+\DoxyCodeLine{00380\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&range\ :\ axis\_ranges)}
+\DoxyCodeLine{00381\ \ \ \ \ volume\ *=\ (range.second\ -\/\ range.first);}
+\DoxyCodeLine{00382\ }
+\DoxyCodeLine{00383\ \ \ \textcolor{keywordtype}{size\_t}\ n\_points\ =\ points.size();}
+\DoxyCodeLine{00384\ \ \ T\ \ \ \ \ \ density\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(n\_points)\ /\ volume;}
+\DoxyCodeLine{00385\ }
+\DoxyCodeLine{00386\ \ \ \textcolor{comment}{//\ Histogram\ of\ pair\ distances}}
+\DoxyCodeLine{00387\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ n\_points;\ ++i)}
+\DoxyCodeLine{00388\ \ \ \{}
+\DoxyCodeLine{00389\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ i\ +\ 1;\ j\ <\ n\_points;\ ++j)}
+\DoxyCodeLine{00390\ \ \ \ \ \{}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ T\ dist\ =\ \mbox{\hyperlink{namespaceps_ac0b74f22d427d199ab0df8f6942d3b11}{distance}}(points[i],\ points[j]);}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dist\ <\ max\_distance)}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ bin\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(dist\ /\ bin\_width);}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bin\ <\ num\_bins)}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \ \ g[bin]\ +=\ T(2);\ \textcolor{comment}{//\ count\ both\ i→j\ and}}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ j→i}}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00399\ \ \ \ \ \}}
+\DoxyCodeLine{00400\ \ \ \}}
+\DoxyCodeLine{00401\ }
+\DoxyCodeLine{00402\ \ \ \textcolor{comment}{//\ Normalize}}
+\DoxyCodeLine{00403\ \ \ T\ norm\_factor\ =\ (T)n\_points\ *\ density;}
+\DoxyCodeLine{00404\ }
+\DoxyCodeLine{00405\ \ \ \textcolor{comment}{//\ Volume\ of\ spherical\ shell\ between\ r1\ and\ r2\ in\ N\ dimensions}}
+\DoxyCodeLine{00406\ \ \ \textcolor{keyword}{auto}\ sphere\_volume\ =\ [](T\ radius)}
+\DoxyCodeLine{00407\ \ \ \{\ \textcolor{keywordflow}{return}\ std::pow(M\_PI,\ N\ /\ 2.0)\ /\ std::tgamma(N\ /\ 2.0\ +\ 1.0)\ *\ std::pow(radius,\ N);\ \};}
+\DoxyCodeLine{00408\ }
+\DoxyCodeLine{00409\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ num\_bins;\ ++i)}
+\DoxyCodeLine{00410\ \ \ \{}
+\DoxyCodeLine{00411\ \ \ \ \ T\ r\_inner\ =\ i\ *\ bin\_width;}
+\DoxyCodeLine{00412\ \ \ \ \ T\ r\_outer\ =\ (i\ +\ 1)\ *\ bin\_width;}
+\DoxyCodeLine{00413\ }
+\DoxyCodeLine{00414\ \ \ \ \ \textcolor{comment}{//\ Volume\ of\ spherical\ shell}}
+\DoxyCodeLine{00415\ \ \ \ \ T\ shell\_vol\ =\ sphere\_volume(r\_outer)\ -\/\ sphere\_volume(r\_inner);}
+\DoxyCodeLine{00416\ \ \ \ \ g[i]\ /=\ norm\_factor\ *\ shell\_vol;}
+\DoxyCodeLine{00417\ \ \ \}}
+\DoxyCodeLine{00418\ }
+\DoxyCodeLine{00419\ \ \ \textcolor{keywordflow}{return}\ \{radii,\ g\};}
+\DoxyCodeLine{00420\ \}}
+\DoxyCodeLine{00421\ }
+\DoxyCodeLine{00422\ \}\ \textcolor{comment}{//\ namespace\ ps}}
 
 \end{DoxyCode}
