@@ -26,10 +26,12 @@ namespace ps
  * @return              std::vector<Point<T, N>> containing `target_count`
  *                      randomly selected points
  *
- * @code std::vector<Point<float, 2>> pts = ps::random<float, 2>(1000,
- * {{0,1},{0,1}});
+ * @code
+ * std::vector<Point<float, 2>> pts = ps::random<float, 2>(1000, {{0,1},{0,1}});
  * auto reduced = ps::random_rejection_filter(pts, 300); // Keep 300 points
  * @endcode
+ *
+ * @image html out_random_rejection_filter.csv.jpg
  */
 template <typename T, std::size_t N>
 std::vector<Point<T, N>> random_rejection_filter(const std::vector<Point<T, N>> &points,
@@ -72,10 +74,10 @@ std::vector<Point<T, N>> random_rejection_filter(const std::vector<Point<T, N>> 
  * @return               std::vector<Point<T, N>> containing `keep_fraction *
  *                       points.size()` randomly selected points
  *
- * @code std::vector<Point<double, 3>> cloud = ps::random<double, 3>(10000,
- * {{-1,1},{-1,1},{-1,1}});
- * auto sparse = ps::random_rejection_filter(cloud, 0.25); // Keep 25% of the
- * points
+ * @code
+ * std::vector<Point<double, 3>> cloud = ps::random<double, 3>(10000,
+ * {{-1,1},{-1,1},{-1,1}}); auto sparse = ps::random_rejection_filter(cloud, 0.25); //
+ * Keep 25% of the points
  * @endcode
  */
 template <typename T, std::size_t N>

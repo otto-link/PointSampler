@@ -28,9 +28,11 @@ namespace ps
  * - Zero-allocation, fast and cache-friendly (uses std::array<T, N>)
  * - Works seamlessly in 2D, 3D, or arbitrary dimensions
  *
- * Example:
- *     Point<float, 2> p{1.0f, 2.0f};
- *     auto length = p.x() * p.x() + p.y() * p.y();
+ * @par Example:
+ * @code {.cpp}
+ * Point<float, 2> p{1.0f, 2.0f};
+ * auto length = p.x() * p.x() + p.y() * p.y();
+ * @endcode
  */
 
 template <typename T, size_t N> struct Point
