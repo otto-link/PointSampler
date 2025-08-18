@@ -37,7 +37,7 @@ namespace ps
  * @note The KD-tree is rebuilt on each iteration to reflect the updated
  * positions.
  *
- * ### Example
+ * @example
  * @code
  * #include <point_sampler/relaxation.hpp>
  *

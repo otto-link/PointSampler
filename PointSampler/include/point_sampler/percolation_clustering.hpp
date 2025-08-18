@@ -24,7 +24,7 @@ namespace ps
  * \return A vector of cluster labels, size = points.size(). Label = -1 if
  * unassigned.
  *
- * ### Example
+ * @example
  * ```cpp std::vector<Point<double,2>> pts = { {0.1,0.2}, {0.15,0.22}, {0.9,0.9}
  * };
  * auto labels = analyze_percolation_clusters<double,2>(pts, 0.1);

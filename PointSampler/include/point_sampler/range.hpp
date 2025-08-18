@@ -118,7 +118,7 @@ std::vector<Point<T, N>> filter_points_function(const std::vector<Point<T, N>> &
  * @param[in,out] points        Vector of input points to modify in-place.
  * @param[in]     target_ranges Desired output min/max per dimension.
  *
- * ### Example
+ * @example
  * @code std::vector<Point<float, 2>> pts = generate_random_points<float,
  * 2>(100, { {
  * {0.f, 1.f}, {0.f, 1.f} } }, 42);

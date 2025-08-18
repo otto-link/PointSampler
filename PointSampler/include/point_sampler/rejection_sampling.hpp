@@ -35,7 +35,7 @@ namespace ps
  *
  * @throws std::invalid_argumentifanyaxisrangeisinvalid(min>max).
  *
- * ### Example
+ * @example
  * @code
  * #include "point_sampler/rejection_sampling.hpp"
  * #include <iostream>

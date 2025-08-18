@@ -27,7 +27,7 @@ namespace ps
  * @return                    std::vector<Point<T, N>> A vector of clustered
  *                            points
  *
- * ### Example
+ * @example
  * @code std::vector<Point<float, 2>> centers = {
  *     {0.2f, 0.2f},
  *     {0.8f, 0.8f}
@@ -81,7 +81,7 @@ std::vector<Point<T, N>> gaussian_clusters(
  * @return                    std::vector<Point<T, N>> A vector of clustered
  *                            points
  *
- * ### Example
+ * @example
  * @code auto clustered = ps::gaussian_clusters<float, 2>(
  *     5, 100,
  *     {{{0,1}, {0,1}}}, 0.03f

@@ -33,7 +33,7 @@ namespace ps
  *         - First: bin centers (angles in radians)
  *         - Second: normalized ADF values
  *
- * ### Example
+ * @example
  * @code
  * std::vector<Point<double, 2>> pts = {
  *     {0.0, 0.0}, {1.0, 0.0}, {0.0, 1.0}, {1.0, 1.0}
@@ -275,14 +275,14 @@ std::vector<T> first_neighbor_distance_squared(std::vector<Point<T, N>> &points)
  * \param k Number of nearest neighbors to use for density estimation (should be >= 1).
  * \return Vector of local densities for each point.
  *
- * ### Example
+ * @example
  * ```cpp
  * std::vector<Point<double,3>> pts = ...; // 3D points
  * size_t k = 8;
  * auto densities = local_density_knn<double,3>(pts, k);
  * ```
  *
- * ### Notes
+ * @note
  * - Works in any dimension \(N\).
  * - High k gives smoother density estimates, low k captures local fluctuations.
  * - The resulting density units are “points per unit volume” in N dimensions.
@@ -411,7 +411,7 @@ std::vector<std::vector<size_t>> nearest_neighbors_indices(
  *         - First: radii (bin centers)
  *         - Second: normalized RDF values g(r)
  *
- * ### Example
+ * @example
  * @code
  * std::vector<Point<double, 2>> pts = {
  *     {0.0, 0.0}, {1.0, 0.0}, {0.0, 1.0}, {1.0, 1.0}

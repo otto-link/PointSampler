@@ -81,7 +81,7 @@ std::vector<Point<T, N>> distance_rejection_filter(const std::vector<Point<T, N>
  * @return               std::vector<Point<T, N>> A filtered set of points with
  *                       variable spacing
  *
- * ### Example
+ * @example
  * @code auto scale_fn = [](const Point<float, 2>& p) {
  *     return 0.5f + 0.5f * std::sin(p[0] * 3.1415f); // Varies between 0.5 and
  * 1

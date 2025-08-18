@@ -57,7 +57,7 @@ std::vector<Point<T, N>> hammersley_sequence(size_t count, size_t shift)
  * @return             std::vector<Point<T, N>> The generated Hammersley points
  *                     rescaled to the bounding box
  *
- * ### Example
+ * @example
  * @code auto points = ps::hammersley<float, 3>(
  *     512,
  *     {{{-1, 1}, {-1, 1}, {0, 1}}}, 7
