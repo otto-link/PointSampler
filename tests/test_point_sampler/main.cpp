@@ -381,5 +381,15 @@ int main()
     ps::save_vector_to_csv("metrics_angle_distribution_neighbors_pdf.csv", g.second);
   }
 
+  {
+    std::cout << "ps::local_density_knn...\n";
+
+    auto points = ps::random<float, dim>(count, ranges, seed);
+    auto d = ps::local_density_knn<float, dim>(points);
+
+    ps::save_points_to_csv("metrics_local_density_knn.csv", points);
+    ps::save_vector_to_csv("metrics_local_density_knn_d.csv", d);
+  }
+
   return 0;
 }

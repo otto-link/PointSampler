@@ -34,14 +34,15 @@ namespace ps
  *         - Second: normalized ADF values
  *
  * ### Example
- * @code std::vector<Point<double, 2>> pts = {
+ * @code
+ * std::vector<Point<double, 2>> pts = {
  *     {0.0, 0.0}, {1.0, 0.0}, {0.0, 1.0}, {1.0, 1.0}
  * };
  *
  * auto [theta, g_theta] = angle_distribution_neighbors(pts, 0.1, 6);
  *
- * for (size_t i = 0; i < theta.size(); ++i) std::cout << "θ=" << theta[i] << "
- * g(θ)=" << g_theta[i] << std::endl;
+ * for (size_t i = 0; i < theta.size(); ++i)
+ *   std::cout << "θ=" << theta[i] << "g(θ)=" << g_theta[i] << std::endl;
  * @endcode
  */
 template <typename T, size_t N>
@@ -139,7 +140,8 @@ std::pair<std::vector<T>, std::vector<T>> angle_distribution_neighbors(
  * coordinate axes.
  *
  * **Example:**
- * @code std::vector<Point<double, 2>> pts = { {0.2, 0.8}, {0.9, 0.1} };
+ * @code
+ * std::vector<Point<double, 2>> pts = { {0.2, 0.8}, {0.9, 0.1} };
  * std::vector<std::pair<double, double>> ranges = { {0.0, 1.0}, {0.0, 1.0} };
  * auto distances = distance_to_boundary(pts, ranges);
  * // distances[0] -> 0.2
@@ -207,8 +209,7 @@ std::vector<T> distance_to_boundary(const std::vector<Point<T, N>>       &points
  *
  * std::vector<float> distances_sq = first_neighbor_distance_squared(points);
  *
- * // distances_sq[i] contains the squared distance to the closest neighbor of
- * points[i].
+ * // distances_sq[i] contains the squared distance to the closest neighbor of points[i].
  * @endcode
  */
 template <typename T, size_t N>
@@ -255,6 +256,70 @@ std::vector<T> first_neighbor_distance_squared(std::vector<Point<T, N>> &points)
 }
 
 /**
+ * \brief Compute local point density based on k-nearest neighbors in N dimensions.
+ *
+ * The density at each point is estimated as:
+ * \f[
+ * \rho_i = \frac{k}{V_N r_i^N}
+ * \f]
+ * where \(r_i\) is the distance to the k-th nearest neighbor, \(V_N\) is the volume
+ * of the unit N-ball:
+ * \f[
+ * V_N = \frac{\pi^{N/2}}{\Gamma(N/2 + 1)}
+ * \f]
+ * and \(\Gamma\) is the gamma function. This generalizes to any dimension.
+ *
+ * \tparam T Scalar type (e.g., float, double).
+ * \tparam N Dimension of the points.
+ * \param points Vector of points in N-dimensional space.
+ * \param k Number of nearest neighbors to use for density estimation (should be >= 1).
+ * \return Vector of local densities for each point.
+ *
+ * ### Example
+ * ```cpp
+ * std::vector<Point<double,3>> pts = ...; // 3D points
+ * size_t k = 8;
+ * auto densities = local_density_knn<double,3>(pts, k);
+ * ```
+ *
+ * ### Notes
+ * - Works in any dimension \(N\).
+ * - High k gives smoother density estimates, low k captures local fluctuations.
+ * - The resulting density units are “points per unit volume” in N dimensions.
+ *
+ * @image html metrics_local_density_knn.jpg
+ */
+template <typename T, size_t N>
+std::vector<T> local_density_knn(const std::vector<Point<T, N>> &points, size_t k = 8)
+{
+  auto neighbors = nearest_neighbors_indices(points, k);
+
+  std::vector<T> densities(points.size());
+
+  // Compute unit N-ball volume using gamma function
+  T volume_unit_ball = std::pow(M_PI, T(N) / 2) / std::tgamma(T(N) / 2 + 1);
+
+  for (size_t i = 0; i < points.size(); ++i)
+  {
+    // Distance to k-th nearest neighbor
+    const auto &nk_idx = neighbors[i].back();
+    T           dist2 = 0;
+    for (size_t d = 0; d < N; ++d)
+    {
+      T diff = points[i][d] - points[nk_idx][d];
+      dist2 += diff * diff;
+    }
+    T r = std::sqrt(dist2);
+
+    // Density = k / (V_N * r^N)
+    T volume = volume_unit_ball * std::pow(r, T(N));
+    densities[i] = k / volume;
+  }
+
+  return densities;
+}
+
+/**
  * @brief Finds the nearest neighbors for each point in a set.
  *
  * This function uses a KD-tree to search for the k nearest neighbors of each
@@ -274,7 +339,8 @@ std::vector<T> first_neighbor_distance_squared(std::vector<Point<T, N>> &points)
  * @note The KD-tree is rebuilt internally for the search.
  *
  * @par Example
- * @code std::vector<Point<float, 3>> points = {
+ * @code
+ * std::vector<Point<float, 3>> points = {
  *     {0.0f, 0.0f, 0.0f},
  *     {1.0f, 0.0f, 0.0f},
  *     {0.0f, 1.0f, 0.0f},
@@ -346,7 +412,8 @@ std::vector<std::vector<size_t>> nearest_neighbors_indices(
  *         - Second: normalized RDF values g(r)
  *
  * ### Example
- * @code std::vector<Point<double, 2>> pts = {
+ * @code
+ * std::vector<Point<double, 2>> pts = {
  *     {0.0, 0.0}, {1.0, 0.0}, {0.0, 1.0}, {1.0, 1.0}
  * };
  *
@@ -356,8 +423,8 @@ std::vector<std::vector<size_t>> nearest_neighbors_indices(
  *
  * auto [r, g] = radial_distribution(pts, ranges, 0.1, 2.0);
  *
- * for (size_t i = 0; i < r.size(); ++i) std::cout << "r=" << r[i] << " g(r)="
- * << g[i] << std::endl;
+ * for (size_t i = 0; i < r.size(); ++i)
+ *   std::cout << "r=" << r[i] << " g(r)=" << g[i] << std::endl;
  * @endcode
  */
 template <typename T, size_t N>

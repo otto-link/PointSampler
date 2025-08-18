@@ -3,6 +3,7 @@ GENERATE_HTML         = YES
 OUTPUT_DIRECTORY      = docs
 HTML_OUTPUT           = .
 INPUT                 = PointSampler/include
+IMAGE_PATH            = docs/images
 RECURSIVE             = YES
 FILE_PATTERNS         = *.hpp
 SHOW_FILES            = YES

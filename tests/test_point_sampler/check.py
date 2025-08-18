@@ -99,6 +99,16 @@ if __name__ == '__main__':
         setup_and_save_plot(fname + '.jpg')
         
         #
+        fname = 'metrics_dbscan_clustering'
+        data = np.genfromtxt('metrics_dbscan_clustering.csv', delimiter=',', skip_header=True)
+        labels = np.genfromtxt('metrics_dbscan_clustering_labels.csv', delimiter=',', skip_header=True)
+    
+        plt.figure()
+        plt.scatter(data[:, 0], data[:, 1], s=2, c=labels, cmap='bwr')
+    
+        setup_and_save_plot(fname + '.jpg')
+        
+        #
         fname = 'metrics_percolation_clustering'
         data = np.genfromtxt('metrics_percolation_clustering.csv', delimiter=',', skip_header=True)
         labels = np.genfromtxt('metrics_percolation_clustering_labels.csv', delimiter=',', skip_header=True)
@@ -146,6 +156,16 @@ if __name__ == '__main__':
         
         plt.figure()
         plt.scatter(data[:, 0], data[:, 1], s=dist * 30, c=dist, cmap='gray')
+    
+        setup_and_save_plot(fname + '.jpg')
+        
+        #
+        fname = 'metrics_local_density_knn'
+        data = np.genfromtxt('metrics_local_density_knn.csv', delimiter=',', skip_header=True)
+        d = np.genfromtxt('metrics_local_density_knn_d.csv', delimiter=',', skip_header=True)
+        
+        plt.figure()
+        plt.scatter(data[:, 0], data[:, 1], s=1, c=d, cmap='nipy_spectral')
     
         setup_and_save_plot(fname + '.jpg')
         
