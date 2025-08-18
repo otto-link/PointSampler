@@ -28,10 +28,10 @@ namespace ps
  *
  * @throws std::invalid_argumentifaxis_rangesareill-formed(e.g., min > max).
  *
- * @code std::vector<Point<float, 2>> pts = { {0.5f, 0.5f}, {2.f, 3.f}, {-1.f,
- * 0.f} };
- * auto filtered = ps::filter_points_in_range<float, 2>(pts, { {{0.f, 1.f},
- * {0.f, 1.f}} });
+ * @code
+ * std::vector<Point<float, 2>> pts = { {0.5f, 0.5f}, {2.f, 3.f}, {-1.f, 0.f} };
+ * auto filtered = ps::filter_points_in_range<float, 2>(pts, {{{0.f, 1.f},
+ *                                                            {0.f, 1.f}}});
  * // filtered now contains only { {0.5f, 0.5f} }
  * @endcode
  */
@@ -80,10 +80,12 @@ std::vector<Point<T, N>> filter_points_in_range(
  *
  * @return        A vector of filtered points.
  *
- * @code std::vector<Point<float, 2>> pts = { {0.f, 0.f}, {1.f, 1.f}, {2.f, 2.f}
+ * @code
+ * std::vector<Point<float, 2>> pts = { {0.f, 0.f}, {1.f, 1.f}, {2.f, 2.f}};
+ * auto lambda = [](const Point<float, 2> &p) {
+ *     return (p[0] + p[1] < 2.5f) ? 1.f : 0.f;
  * };
- * auto filtered = ps::filter_points_function<float, 2>(pts, [](const
- * Point<float, 2> &p) { return (p[0] + p[1] < 2.5f) ? 1.f : 0.f; });
+ * auto filtered = ps::filter_points_function<float, 2>(pts, lambda);
  * // Keeps only { {0.f, 0.f}, {1.f, 1.f} }
  * @endcode
  */
@@ -119,11 +121,11 @@ std::vector<Point<T, N>> filter_points_function(const std::vector<Point<T, N>> &
  * @param[in]     target_ranges Desired output min/max per dimension.
  *
  * @par Example
- * @code std::vector<Point<float, 2>> pts = generate_random_points<float,
- * 2>(100, { {
- * {0.f, 1.f}, {0.f, 1.f} } }, 42);
- * // Refit to a new range: [10, 20] × [50, 100] refit_points_to_range<float,
- * 2>(pts, { { {10.f, 20.f}, {50.f, 100.f} } });
+ * @code
+ * std::vector<Point<float, 2>> pts = generate_random_points<float, 2>(100,
+ *      { {{0.f, 1.f}, {0.f, 1.f} } }, 42);
+ * // Refit to a new range: [10, 20] × [50, 100]
+ * refit_points_to_range<float, 2>(pts, { { {10.f, 20.f}, {50.f, 100.f} } });
  * @endcode
  *
  * @note If a dimension has constant value (min == max), the center of the
@@ -193,8 +195,8 @@ void refit_points_to_range(std::vector<Point<T, N>>             &points,
  * @param[in,out] points Vector of normalized points to be modified in-place.
  * @param[in]     ranges Target value ranges for each dimension.
  *
- * @code std::vector<Point<float, 2>> pts = { {0.f, 0.f}, {1.f, 1.f}, {0.5f,
- * 0.5f} };
+ * @code
+ * std::vector<Point<float, 2>> pts = { {0.f, 0.f}, {1.f, 1.f}, {0.5f, 0.5f} };
  * ps::rescale_points<float, 2>(pts, { { {10.f, 20.f}, {100.f, 200.f} } });
  * // pts is now { {10.f, 100.f}, {20.f, 200.f}, {15.f, 150.f} }
  * @endcode

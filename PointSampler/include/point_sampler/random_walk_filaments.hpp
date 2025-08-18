@@ -32,6 +32,8 @@ namespace ps
  * @param p_distances Optional output vector to store p_distances of each point
  * from the filament center (0 for core filament points).
  * @return A vector of generated filament points.
+ *
+ * @image html out_random_rejection_filter.csv.jpg
  */
 template <typename T, size_t N>
 std::vector<Point<T, N>> random_walk_filaments(

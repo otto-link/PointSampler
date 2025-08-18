@@ -43,11 +43,12 @@ namespace ps
  * {
  *   constexpr size_t dim = 3;
  *   size_t count = 5;
- *   std::array<std::pair<float, float>, dim> ranges = {{{0.f, 1.f}, {0.f, 2.f},
- * {-1.f, 1.f}}};
+ *   std::array<std::pair<float, float>, dim> ranges = {{{0.f, 1.f},
+ *                                                       {0.f, 2.f},
+ *                                                       {-1.f, 1.f}}};
  *
- *   // Generate points with a fixed seed for reproducibility auto points =
- * ps::random<float, dim>(count, ranges, 42);
+ *   // Generate points with a fixed seed for reproducibility
+ *   auto points = ps::random<float, dim>(count, ranges, 42);
  *
  *   for (const auto& p : points)
  *   {
@@ -58,6 +59,8 @@ namespace ps
  *   return 0;
  * }
  * @endcode
+ *
+ * @image html out_random.csv.jpg
  */
 template <typename T, size_t N>
 std::vector<Point<T, N>> random(size_t                                count,
