@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>PointSampler library (C++): PointSampler/include/point_sampler/kmeans_cluster.hpp Source File</title>
+<title>PointSampler library (C++): PointSampler/include/point_sampler/kmeans_clustering.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -78,10 +78,10 @@ $(document).ready(function() { init_codefold(0); });
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">kmeans_cluster.hpp</div></div>
+  <div class="headertitle"><div class="title">kmeans_clustering.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="kmeans__cluster_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* Copyright (c) 2025 Otto Link. Distributed under the terms of the GNU General</span></div>
+<a href="kmeans__clustering_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* Copyright (c) 2025 Otto Link. Distributed under the terms of the GNU General</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">   Public License. The full license is in the file LICENSE, distributed with</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">   this software. */</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#pragma once</span></div>
@@ -94,7 +94,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> N&gt;</div>
 <div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="namespaceps.html#ac0a1fb7adf634a6a0137cd041c54b0a3">   37</a></span>std::pair&lt;std::vector&lt;Point&lt;T, N&gt;&gt;, std::vector&lt;size_t&gt;&gt; <a class="code hl_function" href="namespaceps.html#ac0a1fb7adf634a6a0137cd041c54b0a3">kmeans_cluster</a>(</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="namespaceps.html#acbef03daefffe13bd08b9b4c0952c00d">   37</a></span>std::pair&lt;std::vector&lt;Point&lt;T, N&gt;&gt;, std::vector&lt;size_t&gt;&gt; <a class="code hl_function" href="namespaceps.html#acbef03daefffe13bd08b9b4c0952c00d">kmeans_clustering</a>(</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">const</span> std::vector&lt;<a class="code hl_struct" href="structps_1_1Point.html">Point&lt;T, N&gt;</a>&gt; &amp;points,</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">size_t</span>                          k_clusters,</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">bool</span>                            normalize_data = <span class="keyword">true</span>,</div>
@@ -142,7 +142,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>} <span class="comment">// namespace ps</span></div>
 <div class="ttc" id="anamespaceps_html"><div class="ttname"><a href="namespaceps.html">ps</a></div><div class="ttdef"><b>Definition</b> distance_rejection_filter.hpp:12</div></div>
 <div class="ttc" id="anamespaceps_html_a172358f05108b5cabdac4e43ab309ab2"><div class="ttname"><a href="namespaceps.html#a172358f05108b5cabdac4e43ab309ab2">ps::normalize_points</a></div><div class="ttdeci">void normalize_points(std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points)</div><div class="ttdoc">Normalize the coordinates of a set of points along each axis to the range [0, 1].</div><div class="ttdef"><b>Definition</b> utils.hpp:251</div></div>
-<div class="ttc" id="anamespaceps_html_ac0a1fb7adf634a6a0137cd041c54b0a3"><div class="ttname"><a href="namespaceps.html#ac0a1fb7adf634a6a0137cd041c54b0a3">ps::kmeans_cluster</a></div><div class="ttdeci">std::pair&lt; std::vector&lt; Point&lt; T, N &gt; &gt;, std::vector&lt; size_t &gt; &gt; kmeans_cluster(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, size_t k_clusters, bool normalize_data=true, size_t max_iterations=100)</div><div class="ttdoc">Perform k-means clustering on a set of points.</div><div class="ttdef"><b>Definition</b> kmeans_cluster.hpp:37</div></div>
+<div class="ttc" id="anamespaceps_html_acbef03daefffe13bd08b9b4c0952c00d"><div class="ttname"><a href="namespaceps.html#acbef03daefffe13bd08b9b4c0952c00d">ps::kmeans_clustering</a></div><div class="ttdeci">std::pair&lt; std::vector&lt; Point&lt; T, N &gt; &gt;, std::vector&lt; size_t &gt; &gt; kmeans_clustering(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, size_t k_clusters, bool normalize_data=true, size_t max_iterations=100)</div><div class="ttdoc">Perform k-means clustering on a set of points.</div><div class="ttdef"><b>Definition</b> kmeans_clustering.hpp:37</div></div>
 <div class="ttc" id="apoint_8hpp_html"><div class="ttname"><a href="point_8hpp.html">point.hpp</a></div></div>
 <div class="ttc" id="astructps_1_1Point_html"><div class="ttname"><a href="structps_1_1Point.html">ps::Point</a></div><div class="ttdoc">A fixed-size N-dimensional point/vector class.</div><div class="ttdef"><b>Definition</b> point.hpp:37</div></div>
 </div><!-- fragment --></div><!-- contents -->

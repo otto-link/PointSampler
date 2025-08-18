@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kmeans_5fcluster_2ehpp_0',['kmeans_cluster.hpp',['../kmeans__cluster_8hpp.html',1,'']]]
+  ['kmeans_5fclustering_2ehpp_0',['kmeans_clustering.hpp',['../kmeans__clustering_8hpp.html',1,'']]]
 ];

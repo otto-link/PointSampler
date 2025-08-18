@@ -41,7 +41,7 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 \begin{DoxyCompactList}\small\item\em Generates a point set on a jittered and optionally staggered grid. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_ae90df8db8e751ff4b61298114f092714}{jittered\+\_\+grid}} (size\+\_\+t count, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
 \begin{DoxyCompactList}\small\item\em Generates a jittered grid of points with full jitter and no stagger. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::pair$<$ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$, std\+::vector$<$ size\+\_\+t $>$ $>$ \mbox{\hyperlink{namespaceps_ac0a1fb7adf634a6a0137cd041c54b0a3}{kmeans\+\_\+cluster}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, size\+\_\+t k\+\_\+clusters, bool normalize\+\_\+data=true, size\+\_\+t max\+\_\+iterations=100)
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::pair$<$ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$, std\+::vector$<$ size\+\_\+t $>$ $>$ \mbox{\hyperlink{namespaceps_acbef03daefffe13bd08b9b4c0952c00d}{kmeans\+\_\+clustering}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, size\+\_\+t k\+\_\+clusters, bool normalize\+\_\+data=true, size\+\_\+t max\+\_\+iterations=100)
 \begin{DoxyCompactList}\small\item\em Perform k-\/means clustering on a set of points. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , std\+::size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a9ca14831de223ff62a6c3ec93e96a7c0}{latin\+\_\+hypercube\+\_\+sampling}} (std\+::size\+\_\+t sample\+\_\+count, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
 \item 
@@ -887,12 +887,12 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ Jittered point samples
 \DoxyCodeLine{\textcolor{keyword}{auto}\ points\ =\ ps::jittered\_grid<double,\ 3>(1000,\ bounds,\ 1234);}
 
 \end{DoxyCode}
- \Hypertarget{namespaceps_ac0a1fb7adf634a6a0137cd041c54b0a3}\label{namespaceps_ac0a1fb7adf634a6a0137cd041c54b0a3} 
-\index{ps@{ps}!kmeans\_cluster@{kmeans\_cluster}}
-\index{kmeans\_cluster@{kmeans\_cluster}!ps@{ps}}
-\doxysubsubsection{\texorpdfstring{kmeans\_cluster()}{kmeans\_cluster()}}
+ \Hypertarget{namespaceps_acbef03daefffe13bd08b9b4c0952c00d}\label{namespaceps_acbef03daefffe13bd08b9b4c0952c00d} 
+\index{ps@{ps}!kmeans\_clustering@{kmeans\_clustering}}
+\index{kmeans\_clustering@{kmeans\_clustering}!ps@{ps}}
+\doxysubsubsection{\texorpdfstring{kmeans\_clustering()}{kmeans\_clustering()}}
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
-std\+::pair$<$ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$, std\+::vector$<$ size\+\_\+t $>$ $>$ ps\+::kmeans\+\_\+cluster (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{size\+\_\+t}]{k\+\_\+clusters,  }\item[{bool}]{normalize\+\_\+data = {\ttfamily true},  }\item[{size\+\_\+t}]{max\+\_\+iterations = {\ttfamily 100} }\end{DoxyParamCaption})}
+std\+::pair$<$ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$, std\+::vector$<$ size\+\_\+t $>$ $>$ ps\+::kmeans\+\_\+clustering (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{size\+\_\+t}]{k\+\_\+clusters,  }\item[{bool}]{normalize\+\_\+data = {\ttfamily true},  }\item[{size\+\_\+t}]{max\+\_\+iterations = {\ttfamily 100} }\end{DoxyParamCaption})}
 
 
 
@@ -928,7 +928,7 @@ std\+::pair\texorpdfstring{$<$}{<} std\+::vector$<$\+Point$<$\+T, N$>$$>$, std\+
 \DoxyCodeLine{\ std::vector<Point<float,\ 2>>\ pts\ =\ \{}
 \DoxyCodeLine{\ \ \ \ \{0.1f,\ 0.2f\},\ \{0.15f,\ 0.22f\},\ \{0.8f,\ 0.75f\}}
 \DoxyCodeLine{\};}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ [centroids,\ labels]\ =\ \mbox{\hyperlink{namespaceps_ac0a1fb7adf634a6a0137cd041c54b0a3}{kmeans\_cluster}}(pts,\ 2);}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ [centroids,\ labels]\ =\ \mbox{\hyperlink{namespaceps_acbef03daefffe13bd08b9b4c0952c00d}{kmeans\_clustering}}(pts,\ 2);}
 \DoxyCodeLine{\textcolor{comment}{//\ centroids.size()\ ==\ 2}}
 \DoxyCodeLine{\textcolor{comment}{//\ labels.size()\ ==\ pts.size()}}
 

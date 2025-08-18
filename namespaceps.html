@@ -140,10 +140,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ae90df8db8e751ff4b61298114f092714"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#ae90df8db8e751ff4b61298114f092714">jittered_grid</a> (size_t count, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, std::optional&lt; unsigned int &gt; seed=std::nullopt)</td></tr>
 <tr class="memdesc:ae90df8db8e751ff4b61298114f092714"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a jittered grid of points with full jitter and no stagger.  <br /></td></tr>
 <tr class="separator:ae90df8db8e751ff4b61298114f092714"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0a1fb7adf634a6a0137cd041c54b0a3" id="r_ac0a1fb7adf634a6a0137cd041c54b0a3"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
-<tr class="memitem:ac0a1fb7adf634a6a0137cd041c54b0a3"><td class="memTemplItemLeft" align="right" valign="top">std::pair&lt; std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;, std::vector&lt; size_t &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#ac0a1fb7adf634a6a0137cd041c54b0a3">kmeans_cluster</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, size_t k_clusters, bool normalize_data=true, size_t max_iterations=100)</td></tr>
-<tr class="memdesc:ac0a1fb7adf634a6a0137cd041c54b0a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform k-means clustering on a set of points.  <br /></td></tr>
-<tr class="separator:ac0a1fb7adf634a6a0137cd041c54b0a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbef03daefffe13bd08b9b4c0952c00d" id="r_acbef03daefffe13bd08b9b4c0952c00d"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
+<tr class="memitem:acbef03daefffe13bd08b9b4c0952c00d"><td class="memTemplItemLeft" align="right" valign="top">std::pair&lt; std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;, std::vector&lt; size_t &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#acbef03daefffe13bd08b9b4c0952c00d">kmeans_clustering</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, size_t k_clusters, bool normalize_data=true, size_t max_iterations=100)</td></tr>
+<tr class="memdesc:acbef03daefffe13bd08b9b4c0952c00d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform k-means clustering on a set of points.  <br /></td></tr>
+<tr class="separator:acbef03daefffe13bd08b9b4c0952c00d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ca14831de223ff62a6c3ec93e96a7c0" id="r_a9ca14831de223ff62a6c3ec93e96a7c0"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
 <tr class="memitem:a9ca14831de223ff62a6c3ec93e96a7c0"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a9ca14831de223ff62a6c3ec93e96a7c0">latin_hypercube_sampling</a> (std::size_t sample_count, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, std::optional&lt; unsigned int &gt; seed=std::nullopt)</td></tr>
 <tr class="separator:a9ca14831de223ff62a6c3ec93e96a7c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1594,8 +1594,8 @@ Example</h3>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="ac0a1fb7adf634a6a0137cd041c54b0a3" name="ac0a1fb7adf634a6a0137cd041c54b0a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0a1fb7adf634a6a0137cd041c54b0a3">&#9670;&#160;</a></span>kmeans_cluster()</h2>
+<a id="acbef03daefffe13bd08b9b4c0952c00d" name="acbef03daefffe13bd08b9b4c0952c00d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbef03daefffe13bd08b9b4c0952c00d">&#9670;&#160;</a></span>kmeans_clustering()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1603,7 +1603,7 @@ Example</h3>
 template&lt;typename T , size_t N&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::pair&lt; std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;, std::vector&lt; size_t &gt; &gt; ps::kmeans_cluster </td>
+          <td class="memname">std::pair&lt; std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;, std::vector&lt; size_t &gt; &gt; ps::kmeans_clustering </td>
           <td>(</td>
           <td class="paramtype">const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>points</em>, </td>
@@ -1659,10 +1659,10 @@ template&lt;typename T , size_t N&gt; </div>
 <p><b>Example:</b> </p><div class="fragment"><div class="line"> std::vector&lt;Point&lt;float, 2&gt;&gt; pts = {</div>
 <div class="line">    {0.1f, 0.2f}, {0.15f, 0.22f}, {0.8f, 0.75f}</div>
 <div class="line">};</div>
-<div class="line"><span class="keyword">auto</span> [centroids, labels] = <a class="code hl_function" href="namespaceps.html#ac0a1fb7adf634a6a0137cd041c54b0a3">kmeans_cluster</a>(pts, 2);</div>
+<div class="line"><span class="keyword">auto</span> [centroids, labels] = <a class="code hl_function" href="namespaceps.html#acbef03daefffe13bd08b9b4c0952c00d">kmeans_clustering</a>(pts, 2);</div>
 <div class="line"><span class="comment">// centroids.size() == 2</span></div>
 <div class="line"><span class="comment">// labels.size() == pts.size()</span></div>
-<div class="ttc" id="anamespaceps_html_ac0a1fb7adf634a6a0137cd041c54b0a3"><div class="ttname"><a href="namespaceps.html#ac0a1fb7adf634a6a0137cd041c54b0a3">ps::kmeans_cluster</a></div><div class="ttdeci">std::pair&lt; std::vector&lt; Point&lt; T, N &gt; &gt;, std::vector&lt; size_t &gt; &gt; kmeans_cluster(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, size_t k_clusters, bool normalize_data=true, size_t max_iterations=100)</div><div class="ttdoc">Perform k-means clustering on a set of points.</div><div class="ttdef"><b>Definition</b> kmeans_cluster.hpp:37</div></div>
+<div class="ttc" id="anamespaceps_html_acbef03daefffe13bd08b9b4c0952c00d"><div class="ttname"><a href="namespaceps.html#acbef03daefffe13bd08b9b4c0952c00d">ps::kmeans_clustering</a></div><div class="ttdeci">std::pair&lt; std::vector&lt; Point&lt; T, N &gt; &gt;, std::vector&lt; size_t &gt; &gt; kmeans_clustering(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, size_t k_clusters, bool normalize_data=true, size_t max_iterations=100)</div><div class="ttdoc">Perform k-means clustering on a set of points.</div><div class="ttdef"><b>Definition</b> kmeans_clustering.hpp:37</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
