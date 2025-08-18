@@ -27,8 +27,7 @@ namespace ps
  * @tparam N Dimension of points (N >= 2)
  * @param  points      Vector of points
  * @param  bin_width   Width of angle bins (in radians)
- * @param  k_neighbors Number of neighbors used for angle calculation (default:
- *                     8)
+ * @param  k_neighbors Number of neighbors used for angle calculation (default: 8)
  * @return             std::pair<std::vector<T>, std::vector<T>>
  *         - First: bin centers (angles in radians)
  *         - Second: normalized ADF values
@@ -139,7 +138,7 @@ std::pair<std::vector<T>, std::vector<T>> angle_distribution_neighbors(
  * @note This assumes the domain is a rectangular box aligned with the
  * coordinate axes.
  *
- * **Example:**
+ * @par Example
  * @code
  * std::vector<Point<double, 2>> pts = { {0.2, 0.8}, {0.9, 0.1} };
  * std::vector<std::pair<double, double>> ranges = { {0.0, 1.0}, {0.0, 1.0} };
@@ -211,6 +210,8 @@ std::vector<T> distance_to_boundary(const std::vector<Point<T, N>>       &points
  *
  * // distances_sq[i] contains the squared distance to the closest neighbor of points[i].
  * @endcode
+ *
+ * @image html metrics_first_neighbor_distance.jpg
  */
 template <typename T, size_t N>
 std::vector<T> first_neighbor_distance_squared(std::vector<Point<T, N>> &points)
@@ -351,6 +352,8 @@ std::vector<T> local_density_knn(const std::vector<Point<T, N>> &points, size_t 
  * // neighbors[0] might contain {1, 2}
  * // neighbors[1] might contain {0, 3}
  * @endcode
+ *
+ * @image html metrics_nearest_neighbors_indices.jpg
  */
 template <typename T, size_t N>
 std::vector<std::vector<size_t>> nearest_neighbors_indices(

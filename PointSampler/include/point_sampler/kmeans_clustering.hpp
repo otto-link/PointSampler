@@ -25,14 +25,17 @@ namespace ps
  *         - First element: vector of cluster centroids.
  *         - Second element: cluster index assignment for each point.
  *
- * **Example:**
- * @code std::vector<Point<float, 2>> pts = {
+ * @par Example
+ * @code
+ * std::vector<Point<float, 2>> pts = {
  *     {0.1f, 0.2f}, {0.15f, 0.22f}, {0.8f, 0.75f}
  * };
  * auto [centroids, labels] = kmeans_clustering(pts, 2);
  * // centroids.size() == 2
  * // labels.size() == pts.size()
  * @endcode
+ *
+ * @image html metrics_kmeans_clustering.jpg
  */
 template <typename T, size_t N>
 std::pair<std::vector<Point<T, N>>, std::vector<size_t>> kmeans_clustering(

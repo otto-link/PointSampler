@@ -41,7 +41,7 @@ namespace ps
  *
  * auto samples = ps::jittered_grid<float, 2>(256, bounds, jitter, stagger, 42);
  * @endcode
- * 
+ *
  * @image html out_jittered_grid.csv.jpg
  */
 template <typename T, size_t N>
