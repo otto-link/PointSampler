@@ -17,12 +17,12 @@ namespace ps
  * least `min_pts` neighbors within distance `eps`. Clusters are formed by
  * expanding from core points. Noise points remain unclustered.
  *
- * @tparam T Scalar type (float/double).
- * @tparam N Dimension.
- * @param points Input point cloud.
- * @param eps Neighborhood radius for density check.
- * @param min_pts Minimum neighbors (including self) to be a core point.
- * @return A vector of cluster labels (-1 = noise, 0..k = cluster IDs).
+ * @tparam T       Scalar type (float/double).
+ * @tparam N       Dimension.
+ * @param  points  Input point cloud.
+ * @param  eps     Neighborhood radius for density check.
+ * @param  min_pts Minimum neighbors (including self) to be a core point.
+ * @return         A vector of cluster labels (-1 = noise, 0..k = cluster IDs).
  *
  * @par Example
  * @code {.cpp}

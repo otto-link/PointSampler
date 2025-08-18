@@ -23,9 +23,14 @@ namespace ps
  * @param  min_dist Minimum allowed distance between two accepted points
  * @return          std::vector<Point<T, N>> of filtered points
  *
- * @par Example std::vector<Point<float, 2>> pts = ps::random<float, 2>(1000,
- * {{0,1},{0,1}});
+ * @par Example
+ * @code {.cpp}
+ * std::vector<Point<float, 2>> pts = ps::random<float, 2>(1000, {{0,1},{0,1}});
  * auto filtered = ps::distance_rejection_filter(pts, 0.05f);
+ * @endcode
+ *
+ * @image html out_distance_rejection_filter.csv.jpg
+ * @image html out_distance_rejection_filter_warped.csv.jpg
  */
 template <typename T, std::size_t N>
 std::vector<Point<T, N>> distance_rejection_filter(const std::vector<Point<T, N>> &points,
