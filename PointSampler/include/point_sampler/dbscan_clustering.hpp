@@ -25,10 +25,13 @@ namespace ps
  * @return A vector of cluster labels (-1 = noise, 0..k = cluster IDs).
  *
  * @par Example
- * ```cpp auto labels = dbscan<double,2>(points, 0.05, 5);
- * ```
+ * @code {.cpp}
+ * auto labels = dbscan<double,2>(points, 0.05, 5);
+ * @endcode
  *
  * This assigns each 2D point either to a cluster ID or -1 (noise).
+ *
+ * @image html metrics_dbscan_clustering.jpg
  */
 template <typename T, size_t N>
 std::vector<int> dbscan_clustering(const std::vector<Point<T, N>> &points,

@@ -37,6 +37,8 @@ namespace ps
  * std::array<std::pair<float, float>, 2> range = {{{0.0f, 1.0f}, {0.0f, 1.0f}}};
  * std::vector<Point<float, 2>> points = latin_hypercube_sampling<float, 2>(1000, range);
  * @endcode
+ *
+ * @image html out_latin_hypercube_sampling.jpg
  */
 template <typename T, std::size_t N>
 std::vector<Point<T, N>> latin_hypercube_sampling(
