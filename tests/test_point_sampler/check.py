@@ -97,7 +97,17 @@ if __name__ == '__main__':
                 plt.plot([x, xn], [y, yn], 'w-', lw=0.5, alpha=alpha)
     
         setup_and_save_plot(fname + '.jpg')
-
+        
+        #
+        fname = 'metrics_percolation_clustering'
+        data = np.genfromtxt('metrics_percolation_clustering.csv', delimiter=',', skip_header=True)
+        labels = np.genfromtxt('metrics_percolation_clustering_labels.csv', delimiter=',', skip_header=True)
+    
+        plt.figure()
+        plt.scatter(data[:, 0], data[:, 1], s=2, c=labels, cmap='bwr')
+    
+        setup_and_save_plot(fname + '.jpg')
+        
         #
         fname = 'metrics_kmeans_clustering'
         data = np.genfromtxt('metrics_kmeans_clustering.csv', delimiter=',', skip_header=True)

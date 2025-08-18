@@ -49,6 +49,7 @@
  * - Data
  *   - @ref metrics.hpp
  *   - @ref kmeans_clustering.hpp
+ *   - @ref percolation_clustering.hpp
  * - Point representation
  *   - @ref point.hpp
  *
@@ -70,6 +71,7 @@
 #include "point_sampler/kmeans_clustering.hpp"
 #include "point_sampler/latin_hypercube_sampling.hpp"
 #include "point_sampler/metrics.hpp"
+#include "point_sampler/percolation_clustering.hpp"
 #include "point_sampler/poisson_disk_sampling.hpp"
 #include "point_sampler/random.hpp"
 #include "point_sampler/random_rejection_filter.hpp"

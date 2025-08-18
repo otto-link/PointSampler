@@ -268,6 +268,20 @@ int main()
   }
 
   {
+    std::cout << "ps::percolation_clustering...\n";
+
+    // random points
+    auto points = ps::latin_hypercube_sampling<float, dim>(count, ranges, seed);
+
+    float            connection_radius = 0.1f;
+    std::vector<int> labels = ps::percolation_clusters<float, dim>(points,
+                                                                   connection_radius);
+
+    ps::save_points_to_csv("metrics_percolation_clustering.csv", points);
+    ps::save_vector_to_csv("metrics_percolation_clustering_labels.csv", labels);
+  }
+
+  {
     std::cout << "ps::kmeans_clustering...\n";
 
     // random points

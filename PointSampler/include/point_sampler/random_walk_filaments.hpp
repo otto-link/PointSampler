@@ -44,7 +44,7 @@ std::vector<Point<T, N>> random_walk_filaments(
     T                                     gaussian_sigma = T(0),
     size_t                                gaussian_samples = 0,
     std::vector<T>                       *p_distances = nullptr) // optional
-                                           // output
+// output
 {
   std::vector<Point<T, N>> points;
   points.reserve(n_filaments * filament_count * (1 + gaussian_samples));
