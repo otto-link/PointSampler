@@ -1,0 +1,100 @@
+\doxysection{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/importance\+\_\+resampling.\+hpp}
+\hypertarget{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2importance_resampling_8hpp-example}{}\label{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2importance_resampling_8hpp-example}Generates a point set via importance resampling from a quasi-\/random oversampled grid.
+
+Generates a point set via importance resampling from a quasi-\/random oversampled grid.\+This function uses a Halton sequence to create an oversampled set of candidate points in the domain. Each point is assigned a weight based on the provided density function. A discrete distribution is then used to resample {\ttfamily count} points according to these weights.
+
+The higher the {\ttfamily oversampling\+\_\+ratio}, the better the approximation to the target density, at the cost of performance.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Scalar type (e.\+g., float or double) \\
+\hline
+{\em N} & Dimensionality of the space \\
+\hline
+{\em Density\+Fn} & A callable with signature {\ttfamily T(const Point\texorpdfstring{$<$}{<}T, N\texorpdfstring{$>$}{>}\&)} returning a non-\/negative density value \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em count} & Number of points to return after resampling \\
+\hline
+{\em oversampling\+\_\+ratio} & Number of candidate points to generate as a multiple of {\ttfamily count} \\
+\hline
+{\em axis\+\_\+ranges} & Axis-\/aligned bounding box defining the domain of the points \\
+\hline
+{\em density\+\_\+fn} & Function mapping a point to a (non-\/negative) density value \\
+\hline
+{\em seed} & Optional seed to control the random number generator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Point$<$\+T, N$>$$>$ The resulting resampled point set
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \textcolor{keyword}{auto}\ density\ =\ [](\textcolor{keyword}{const}\ Point<float,\ 2>\ \&p)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ std::exp(-\/10.0f\ *\ (p[0]*p[0]\ +\ p[1]*p[1]));}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ points\ =\ ps::importance\_resampling<float,\ 2>(}
+\DoxyCodeLine{\ \ \ \ 500,\ 5,}
+\DoxyCodeLine{\ \ \ \ \{\{\{-\/1,\ 1\},\ \{-\/1,\ 1\}\}\},\ density,\ 42}
+\DoxyCodeLine{);}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{comment}{/*\ Copyright\ (c)\ 2025\ Otto\ Link.\ Distributed\ under\ the\ terms\ of\ the\ GNU\ General}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ Public\ License.\ The\ full\ license\ is\ in\ the\ file\ LICENSE,\ distributed\ with}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ this\ software.\ */}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{jittered__grid_8hpp}{point\_sampler/jittered\_grid.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{point_8hpp}{point\_sampler/point.hpp}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N,\ \textcolor{keyword}{typename}\ DensityFn>}
+\DoxyCodeLine{std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a932640b18d76a7e336fc760e9cf5511b}{importance\_resampling}}(}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ count,}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ oversampling\_ratio,}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ N>\ \&axis\_ranges,}
+\DoxyCodeLine{\ \ \ \ DensityFn\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ density\_fn,}
+\DoxyCodeLine{\ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ \ \ \ \ \ \ seed\ =\ std::nullopt)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ std::mt19937\ gen(seed\ ?\ *seed\ :\ std::random\_device\{\}());}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ Generate\ grid}}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ count\_grid\ =\ count\ *\ oversampling\_ratio;}
+\DoxyCodeLine{\ \ std::vector<Point<T,\ N>>\ grid\_points\ =\ halton<T,\ N>(count\_grid,\ axis\_ranges,\ seed);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ Weights}}
+\DoxyCodeLine{\ \ std::vector<T>\ weights;}
+\DoxyCodeLine{\ \ weights.reserve(count\_grid);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&p\ :\ grid\_points)}
+\DoxyCodeLine{\ \ \ \ weights.push\_back(density\_fn(p));}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ Normalize\ weights}}
+\DoxyCodeLine{\ \ T\ sum\ =\ std::accumulate(weights.begin(),\ weights.end(),\ T(0));}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&w\ :\ weights)}
+\DoxyCodeLine{\ \ \ \ w\ /=\ sum;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ Resample}}
+\DoxyCodeLine{\ \ std::discrete\_distribution<size\_t>\ dist(weights.begin(),\ weights.end());}
+\DoxyCodeLine{\ \ std::vector<Point<T,\ N>>\ \ \ \ \ \ \ \ \ \ \ samples;}
+\DoxyCodeLine{\ \ samples.reserve(count);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ count;\ ++i)}
+\DoxyCodeLine{\ \ \ \ samples.push\_back(grid\_points[dist(gen)]);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ samples;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}\ \textcolor{comment}{//\ namespace\ ps}}
+
+\end{DoxyCodeInclude}
+ 

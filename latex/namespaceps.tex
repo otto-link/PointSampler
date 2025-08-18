@@ -18,49 +18,49 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 \begin{DoxyCompactItemize}
 \item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ int $>$ \mbox{\hyperlink{namespaceps_a5d453a5cb2885c1a8d264ff96303f627}{dbscan\+\_\+clustering}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, T eps, size\+\_\+t min\+\_\+pts)
-\begin{DoxyCompactList}\small\item\em Density-\/\+Based Spatial Clustering of Applications with Noise (DBSCAN). \end{DoxyCompactList}\item 
+\item 
 {\footnotesize template$<$typename T , std\+::size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_ad1f4a1110a40bf1c6a687182db6b4b94}{distance\+\_\+rejection\+\_\+filter}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, T min\+\_\+dist)
 \item 
 {\footnotesize template$<$typename T , std\+::size\+\_\+t N, typename Scale\+Fn $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_af23d114903fd5cb3ccb19d3e64183632}{distance\+\_\+rejection\+\_\+filter\+\_\+warped}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, T base\+\_\+min\+\_\+dist, Scale\+Fn scale\+\_\+fn)
-\begin{DoxyCompactList}\small\item\em Filters points based on spatially-\/varying minimal distance constraints. \end{DoxyCompactList}\item 
+\item 
 {\footnotesize template$<$typename T , size\+\_\+t N, typename Density\+Fn $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a0e4055582214237ee9f21369133e6194}{function\+\_\+rejection\+\_\+filter}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, Density\+Fn density\+\_\+fn, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
 \begin{DoxyCompactList}\small\item\em Filters points based on a spatial probability (density) function. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a913ab9d687ee42d04488e5eb0373e23a}{gaussian\+\_\+clusters}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ cluster\+\_\+centers, size\+\_\+t points\+\_\+per\+\_\+cluster, T spread, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
-\begin{DoxyCompactList}\small\item\em Generates clustered points around provided cluster centers using a Gaussian distribution. \end{DoxyCompactList}\item 
+\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a0efaff8017d5a171ffdf0ed0201bd65d}{gaussian\+\_\+clusters}} (size\+\_\+t cluster\+\_\+count, size\+\_\+t points\+\_\+per\+\_\+cluster, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, T spread, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
-\begin{DoxyCompactList}\small\item\em Generates clustered points around random centers uniformly sampled in a bounding box. \end{DoxyCompactList}\item 
+\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_aa8c3b3b3367276f9a194938599d2463b}{halton\+\_\+sequence}} (size\+\_\+t count, size\+\_\+t shift)
 \item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a81b18395a05f0bb4d483406e79aa9524}{halton}} (size\+\_\+t count, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
-\begin{DoxyCompactList}\small\item\em Generates a set of quasi-\/random points using the Halton sequence in N dimensions. \end{DoxyCompactList}\item 
+\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_ae21a8c51533330ead4ebe76eed3e72b3}{hammersley\+\_\+sequence}} (size\+\_\+t count, size\+\_\+t shift)
 \item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_aad0cc7bc81f7cac9f0be26177b9986a6}{hammersley}} (size\+\_\+t count, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
-\begin{DoxyCompactList}\small\item\em Generates a set of quasi-\/random points using the Hammersley sequence in N dimensions. \end{DoxyCompactList}\item 
+\item 
 {\footnotesize template$<$typename T , size\+\_\+t N, typename Density\+Fn $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a932640b18d76a7e336fc760e9cf5511b}{importance\+\_\+resampling}} (size\+\_\+t count, size\+\_\+t oversampling\+\_\+ratio, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, Density\+Fn density\+\_\+fn, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
-\begin{DoxyCompactList}\small\item\em Generates a point set via importance resampling from a quasi-\/random oversampled grid. \end{DoxyCompactList}\item 
+\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_ad8525c124fef24618bf574b9b7b1ece8}{jittered\+\_\+grid}} (size\+\_\+t count, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, const std\+::array$<$ T, N $>$ \&jitter\+\_\+amount, const std\+::array$<$ T, N $>$ \&stagger\+\_\+ratio, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
-\begin{DoxyCompactList}\small\item\em Generates a point set on a jittered and optionally staggered grid. \end{DoxyCompactList}\item 
+\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_ae90df8db8e751ff4b61298114f092714}{jittered\+\_\+grid}} (size\+\_\+t count, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
-\begin{DoxyCompactList}\small\item\em Generates a jittered grid of points with full jitter and no stagger. \end{DoxyCompactList}\item 
+\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::pair$<$ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$, std\+::vector$<$ size\+\_\+t $>$ $>$ \mbox{\hyperlink{namespaceps_acbef03daefffe13bd08b9b4c0952c00d}{kmeans\+\_\+clustering}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, size\+\_\+t k\+\_\+clusters, bool normalize\+\_\+data=true, size\+\_\+t max\+\_\+iterations=100)
 \begin{DoxyCompactList}\small\item\em Perform k-\/means clustering on a set of points. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , std\+::size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a9ca14831de223ff62a6c3ec93e96a7c0}{latin\+\_\+hypercube\+\_\+sampling}} (std\+::size\+\_\+t sample\+\_\+count, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
 \item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::pair$<$ std\+::vector$<$ T $>$, std\+::vector$<$ T $>$ $>$ \mbox{\hyperlink{namespaceps_ae96771d03336a56988d82df95e8a797a}{angle\+\_\+distribution\+\_\+neighbors}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, T bin\+\_\+width, size\+\_\+t k\+\_\+neighbors=8)
-\begin{DoxyCompactList}\small\item\em Compute the angular distribution function (ADF) using nearest neighbors. \end{DoxyCompactList}\item 
+\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{namespaceps_a9a824a8963ef7b15c01da0f1f9c90eee}{distance\+\_\+to\+\_\+boundary}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges)
 \begin{DoxyCompactList}\small\item\em Compute the distance of each point to the domain boundary. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{namespaceps_a91a0bac33731ed899845c6081c117db2}{first\+\_\+neighbor\+\_\+distance\+\_\+squared}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points)
 \begin{DoxyCompactList}\small\item\em Computes the squared distance to the nearest neighbor for each point. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{namespaceps_accc008d79bdad63b0acf9a4e627cc479}{local\+\_\+density\+\_\+knn}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, size\+\_\+t k=8)
-\begin{DoxyCompactList}\small\item\em Compute local point density based on k-\/nearest neighbors in N dimensions. \end{DoxyCompactList}\item 
+\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ std\+::vector$<$ size\+\_\+t $>$ $>$ \mbox{\hyperlink{namespaceps_ac29744e12116f882d8a620a3fd02d72d}{nearest\+\_\+neighbors\+\_\+indices}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, size\+\_\+t k\+\_\+neighbors=8)
 \begin{DoxyCompactList}\small\item\em Finds the nearest neighbors for each point in a set. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::pair$<$ std\+::vector$<$ T $>$, std\+::vector$<$ T $>$ $>$ \mbox{\hyperlink{namespaceps_a8d80a56ea4774726e748b48e1ecf0a8d}{radial\+\_\+distribution}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, T bin\+\_\+width, T max\+\_\+distance)
-\begin{DoxyCompactList}\small\item\em Compute the normalized radial distribution function g(r). \end{DoxyCompactList}\item 
+\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ int $>$ \mbox{\hyperlink{namespaceps_a340aa5c812057b97017e88a974e452d8}{percolation\+\_\+clustering}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, T connection\+\_\+radius)
-\begin{DoxyCompactList}\small\item\em Analyze percolation clusters from a set of points using a radius-\/based neighbor graph. \end{DoxyCompactList}\item 
+\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_af9ee1cf5d335276b7fabe6f1daddf1b0}{operator+}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&a, const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&b)
 \item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_aa369956286bc3f09dfdc146a5b2a49f1}{operator-\/}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&a, const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&b)
@@ -118,13 +118,13 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 {\footnotesize template$<$typename T , std\+::size\+\_\+t N, typename Func $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a5350b843397a5bf2a748115108ffa21a}{filter\+\_\+points\+\_\+function}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, Func fn)
 \begin{DoxyCompactList}\small\item\em Filters points using a user-\/provided function. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\void \mbox{\hyperlink{namespaceps_a2b8197901114d1c4fd6cfe19efcd3862}{refit\+\_\+points\+\_\+to\+\_\+range}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&target\+\_\+ranges)
-\begin{DoxyCompactList}\small\item\em Linearly remap a set of points to fit within the specified axis-\/aligned ranges. \end{DoxyCompactList}\item 
+\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\void \mbox{\hyperlink{namespaceps_a7addf1455112b7895f8de7c475eed850}{rescale\+\_\+points}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&ranges)
 \begin{DoxyCompactList}\small\item\em Rescales normalized points (in \mbox{[}0, 1\mbox{]}) to specified axis-\/aligned ranges. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N, typename Density\+Fn $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a29ab0a94bbe26a22cb87bf8f44703527}{rejection\+\_\+sampling}} (size\+\_\+t count, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, Density\+Fn density\+\_\+fn, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
-\begin{DoxyCompactList}\small\item\em Generates random points using rejection sampling based on a user-\/defined density function. \end{DoxyCompactList}\item 
+\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\void \mbox{\hyperlink{namespaceps_aed8a3217a801c5b5706f4bcc3306bb18}{relaxation\+\_\+ktree}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, size\+\_\+t k\+\_\+neighbors=8, T step\+\_\+size=T(0.\+1), size\+\_\+t iterations=10)
-\begin{DoxyCompactList}\small\item\em Relax a point set using a k-\/nearest neighbor repulsion algorithm with a KD-\/tree. \end{DoxyCompactList}\item 
+\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\bool \mbox{\hyperlink{namespaceps_a802637e81218193c0e65266c8075f002}{save\+\_\+points\+\_\+to\+\_\+csv}} (const std\+::string \&filename, const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, bool write\+\_\+header=true)
 \begin{DoxyCompactList}\small\item\em Save a set of N-\/dimensional points to a CSV file. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\bool \mbox{\hyperlink{namespaceps_a5b92b660faab5030374ba2dee9f89810}{save\+\_\+vector\+\_\+to\+\_\+csv}} (const std\+::string \&filename, const std\+::vector$<$ T $>$ \&values, bool write\+\_\+header=true, const std\+::string \&header\+\_\+name="{}value"{})
@@ -132,7 +132,7 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N+1 $>$ $>$ \mbox{\hyperlink{namespaceps_a964f314c19f0b1300d513bce618c5954}{add\+\_\+dimension}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, const std\+::vector$<$ T $>$ \&new\+\_\+dimension)
 \begin{DoxyCompactList}\small\item\em Add a new dimension to a set of points. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ $>$ \mbox{\hyperlink{namespaceps_ac42b8f3f26e63374a7a724a0cd3d9356}{extract\+\_\+clusters}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, const std\+::vector$<$ int $>$ \&labels)
-\begin{DoxyCompactList}\small\item\em Extract clusters of points given DBSCAN (or any clustering) labels. \end{DoxyCompactList}\item 
+\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a677f90d97b1dcfeaa2ecc299ee37f5bf}{merge\+\_\+by\+\_\+dimension}} (const std\+::array$<$ std\+::vector$<$ T $>$, N $>$ \&components)
 \item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\void \mbox{\hyperlink{namespaceps_a172358f05108b5cabdac4e43ab309ab2}{normalize\+\_\+points}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points)
@@ -199,63 +199,20 @@ This function creates a new vector of points with an increased dimension count, 
 \DoxyCodeLine{\textcolor{comment}{//\ points3D\ now\ contains\ \{\{1.0f,\ 2.0f,\ 10.0f\}\},\ \{\{3.0f,\ 4.0f,\ 20.0f\}\}}}
 
 \end{DoxyCode}
- \Hypertarget{namespaceps_ae96771d03336a56988d82df95e8a797a}\label{namespaceps_ae96771d03336a56988d82df95e8a797a} 
+ \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2utils_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/utils.\+hpp}}.\end{Desc}
+\Hypertarget{namespaceps_ae96771d03336a56988d82df95e8a797a}\label{namespaceps_ae96771d03336a56988d82df95e8a797a} 
 \index{ps@{ps}!angle\_distribution\_neighbors@{angle\_distribution\_neighbors}}
 \index{angle\_distribution\_neighbors@{angle\_distribution\_neighbors}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{angle\_distribution\_neighbors()}{angle\_distribution\_neighbors()}}
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 std\+::pair$<$ std\+::vector$<$ T $>$, std\+::vector$<$ T $>$ $>$ ps\+::angle\+\_\+distribution\+\_\+neighbors (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{T}]{bin\+\_\+width,  }\item[{size\+\_\+t}]{k\+\_\+neighbors = {\ttfamily 8} }\end{DoxyParamCaption})}
 
-
-
-Compute the angular distribution function (ADF) using nearest neighbors. 
-
-The angular distribution function (ADF) measures the distribution of bond angles formed by a point and pairs of its nearest neighbors.
-
-
-\begin{DoxyItemize}
-\item Flat distribution → random uniform points.
-\item Peaks at characteristic angles → local order (e.\+g. hexagonal lattice peaks at 60°).
-\item Depletions → angular avoidance due to constraints or repulsion.
-\end{DoxyItemize}
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T} & Numeric type (float, double, ...) \\
-\hline
-{\em N} & Dimension of points (N \texorpdfstring{$>$}{>}= 2) \\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em points} & Vector of points \\
-\hline
-{\em bin\+\_\+width} & Width of angle bins (in radians) \\
-\hline
-{\em k\+\_\+neighbors} & Number of neighbors used for angle calculation (default\+: 8) \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-std\+::pair\texorpdfstring{$<$}{<}std\+::vector$<$\+T$>$, std\+::vector$<$\+T$>$\texorpdfstring{$>$}{>}
-\begin{DoxyItemize}
-\item First\+: bin centers (angles in radians)
-\item Second\+: normalized ADF values
-\end{DoxyItemize}
-\end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md9}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md9}
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{std::vector<Point<double,\ 2>>\ pts\ =\ \{}
-\DoxyCodeLine{\ \ \ \ \{0.0,\ 0.0\},\ \{1.0,\ 0.0\},\ \{0.0,\ 1.0\},\ \{1.0,\ 1.0\}}
-\DoxyCodeLine{\};}
-\DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ [theta,\ g\_theta]\ =\ \mbox{\hyperlink{namespaceps_ae96771d03336a56988d82df95e8a797a}{angle\_distribution\_neighbors}}(pts,\ 0.1,\ 6);}
-\DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ theta.size();\ ++i)}
-\DoxyCodeLine{\ \ std::cout\ <<\ \textcolor{stringliteral}{"{}θ="{}}\ <<\ theta[i]\ <<\ \textcolor{stringliteral}{"{}g(θ)="{}}\ <<\ g\_theta[i]\ <<\ std::endl;}
-
-\end{DoxyCode}
- \Hypertarget{namespaceps_adb0bd4806c7e79eddef0e1263740ae28}\label{namespaceps_adb0bd4806c7e79eddef0e1263740ae28} 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2metrics_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/metrics.\+hpp}}.\end{Desc}
+\Hypertarget{namespaceps_adb0bd4806c7e79eddef0e1263740ae28}\label{namespaceps_adb0bd4806c7e79eddef0e1263740ae28} 
 \index{ps@{ps}!clamp@{clamp}}
 \index{clamp@{clamp}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{clamp()}{clamp()}}
@@ -269,46 +226,19 @@ std\+::pair\texorpdfstring{$<$}{<}std\+::vector$<$\+T$>$, std\+::vector$<$\+T$>$
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 std\+::vector$<$ int $>$ ps\+::dbscan\+\_\+clustering (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{T}]{eps,  }\item[{size\+\_\+t}]{min\+\_\+pts }\end{DoxyParamCaption})}
 
-
-
-Density-\/\+Based Spatial Clustering of Applications with Noise (DBSCAN). 
-
-Groups points into clusters based on density\+: a point is a core if it has at least {\ttfamily min\+\_\+pts} neighbors within distance {\ttfamily eps}. Clusters are formed by expanding from core points. Noise points remain unclustered.
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T} & Scalar type (float/double). \\
-\hline
-{\em N} & Dimension. \\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em points} & Input point cloud. \\
-\hline
-{\em eps} & Neighborhood radius for density check. \\
-\hline
-{\em min\+\_\+pts} & Minimum neighbors (including self) to be a core point. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-A vector of cluster labels (-\/1 = noise, 0..k = cluster IDs).
-\end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md0}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md0}
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ labels\ =\ dbscan<double,2>(points,\ 0.05,\ 5);}
-
-\end{DoxyCode}
-
-
-This assigns each 2D point either to a cluster ID or -\/1 (noise). \Hypertarget{namespaceps_ac0b74f22d427d199ab0df8f6942d3b11}\label{namespaceps_ac0b74f22d427d199ab0df8f6942d3b11} 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2dbscan_clustering_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/dbscan\+\_\+clustering.\+hpp}}.\end{Desc}
+\Hypertarget{namespaceps_ac0b74f22d427d199ab0df8f6942d3b11}\label{namespaceps_ac0b74f22d427d199ab0df8f6942d3b11} 
 \index{ps@{ps}!distance@{distance}}
 \index{distance@{distance}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{distance()}{distance()}}
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 T ps\+::distance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{a,  }\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{b }\end{DoxyParamCaption})}
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2metrics_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/metrics.\+hpp}}.\end{Desc}
 \Hypertarget{namespaceps_ad1f4a1110a40bf1c6a687182db6b4b94}\label{namespaceps_ad1f4a1110a40bf1c6a687182db6b4b94} 
 \index{ps@{ps}!distance\_rejection\_filter@{distance\_rejection\_filter}}
 \index{distance\_rejection\_filter@{distance\_rejection\_filter}!ps@{ps}}
@@ -316,6 +246,9 @@ T ps\+::distance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps
 {\footnotesize\ttfamily template$<$typename T , std\+::size\+\_\+t N$>$ \\
 std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::distance\+\_\+rejection\+\_\+filter (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{T}]{min\+\_\+dist }\end{DoxyParamCaption})}
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2distance_rejection_filter_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/distance\+\_\+rejection\+\_\+filter.\+hpp}}.\end{Desc}
 \Hypertarget{namespaceps_af23d114903fd5cb3ccb19d3e64183632}\label{namespaceps_af23d114903fd5cb3ccb19d3e64183632} 
 \index{ps@{ps}!distance\_rejection\_filter\_warped@{distance\_rejection\_filter\_warped}}
 \index{distance\_rejection\_filter\_warped@{distance\_rejection\_filter\_warped}!ps@{ps}}
@@ -323,46 +256,10 @@ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\
 {\footnotesize\ttfamily template$<$typename T , std\+::size\+\_\+t N, typename Scale\+Fn $>$ \\
 std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::distance\+\_\+rejection\+\_\+filter\+\_\+warped (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{T}]{base\+\_\+min\+\_\+dist,  }\item[{Scale\+Fn}]{scale\+\_\+fn }\end{DoxyParamCaption})}
 
-
-
-Filters points based on spatially-\/varying minimal distance constraints. 
-
-A scale function is used to modulate the minimum allowed distance for each point. The base distance {\ttfamily base\+\_\+min\+\_\+dist} is scaled by the value returned by {\ttfamily scale\+\_\+fn(p)}, allowing for adaptive sampling densities.
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T} & Scalar type (e.\+g., float or double) \\
-\hline
-{\em N} & Dimensionality of the space \\
-\hline
-{\em Scale\+Fn} & Callable returning a scalar scale factor for a given point\\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em points} & Vector of candidate points \\
-\hline
-{\em base\+\_\+min\+\_\+dist} & Base minimum allowed distance \\
-\hline
-{\em scale\+\_\+fn} & Function providing a local scale factor per point \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-std\+::vector$<$\+Point$<$\+T, N$>$$>$ A filtered set of points with variable spacing
-\end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md1}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md1}
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\ \textcolor{keyword}{auto}\ scale\_fn\ =\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<float,\ 2>}}\&\ p)\ \{}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ 0.5f\ +\ 0.5f\ *\ std::sin(p[0]\ *\ 3.1415f);\ \textcolor{comment}{//\ Varies\ between\ 0.5\ and}}
-\DoxyCodeLine{1}
-\DoxyCodeLine{\};}
-\DoxyCodeLine{}
-\DoxyCodeLine{std::vector<Point<float,\ 2>>\ pts\ =\ ps::random<float,\ 2>(1000,\ \{\{0,1\},\{0,1\}\});}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ filtered\ =\ \mbox{\hyperlink{namespaceps_af23d114903fd5cb3ccb19d3e64183632}{ps::distance\_rejection\_filter\_warped}}(pts,\ 0.05f,\ scale\_fn);}
-
-\end{DoxyCode}
- \Hypertarget{namespaceps_aecf2b150ec16bf286e6a7b462c4d5808}\label{namespaceps_aecf2b150ec16bf286e6a7b462c4d5808} 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2distance_rejection_filter_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/distance\+\_\+rejection\+\_\+filter.\+hpp}}.\end{Desc}
+\Hypertarget{namespaceps_aecf2b150ec16bf286e6a7b462c4d5808}\label{namespaceps_aecf2b150ec16bf286e6a7b462c4d5808} 
 \index{ps@{ps}!distance\_squared@{distance\_squared}}
 \index{distance\_squared@{distance\_squared}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{distance\_squared()}{distance\_squared()}}
@@ -411,13 +308,19 @@ This assumes the domain is a rectangular box aligned with the coordinate axes.
 \DoxyCodeLine{\textcolor{comment}{//\ distances[1]\ -\/>\ 0.1}}
 
 \end{DoxyCode}
- \Hypertarget{namespaceps_ace7642868199df621df9139e5179767b}\label{namespaceps_ace7642868199df621df9139e5179767b} 
+ \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2metrics_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/metrics.\+hpp}}.\end{Desc}
+\Hypertarget{namespaceps_ace7642868199df621df9139e5179767b}\label{namespaceps_ace7642868199df621df9139e5179767b} 
 \index{ps@{ps}!dot@{dot}}
 \index{dot@{dot}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{dot()}{dot()}}
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 T ps\+::dot (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{a,  }\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{b }\end{DoxyParamCaption})}
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2metrics_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/metrics.\+hpp}}.\end{Desc}
 \Hypertarget{namespaceps_ac42b8f3f26e63374a7a724a0cd3d9356}\label{namespaceps_ac42b8f3f26e63374a7a724a0cd3d9356} 
 \index{ps@{ps}!extract\_clusters@{extract\_clusters}}
 \index{extract\_clusters@{extract\_clusters}!ps@{ps}}
@@ -425,35 +328,10 @@ T ps\+::dot (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1P
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ $>$ ps\+::extract\+\_\+clusters (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{const std\+::vector$<$ int $>$ \&}]{labels }\end{DoxyParamCaption})}
 
-
-
-Extract clusters of points given DBSCAN (or any clustering) labels. 
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T} & Scalar type. \\
-\hline
-{\em N} & Dimension. \\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em points} & Input point cloud. \\
-\hline
-{\em labels} & Cluster labels (-\/2 = noise, -\/1 = unvisited, 0..k = cluster IDs). \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-A vector of clusters, each cluster is a vector of points.
-\end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md18}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md18}
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\ \textcolor{keyword}{auto}\ labels\ \ \ =\ dbscan<double,2>(points,\ 0.05,\ 5);}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ clusters\ =\ \mbox{\hyperlink{namespaceps_ac42b8f3f26e63374a7a724a0cd3d9356}{extract\_clusters}}(points,\ labels);}
-
-\end{DoxyCode}
- \Hypertarget{namespaceps_a5350b843397a5bf2a748115108ffa21a}\label{namespaceps_a5350b843397a5bf2a748115108ffa21a} 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2utils_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/utils.\+hpp}}.\end{Desc}
+\Hypertarget{namespaceps_a5350b843397a5bf2a748115108ffa21a}\label{namespaceps_a5350b843397a5bf2a748115108ffa21a} 
 \index{ps@{ps}!filter\_points\_function@{filter\_points\_function}}
 \index{filter\_points\_function@{filter\_points\_function}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{filter\_points\_function()}{filter\_points\_function()}}
@@ -494,7 +372,10 @@ A vector of filtered points.
 \DoxyCodeLine{\textcolor{comment}{//\ Keeps\ only\ \{\ \{0.f,\ 0.f\},\ \{1.f,\ 1.f\}\ \}}}
 
 \end{DoxyCode}
- \Hypertarget{namespaceps_a9c8c5679d987d3023b9d3beffd81e6df}\label{namespaceps_a9c8c5679d987d3023b9d3beffd81e6df} 
+ \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2range_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/range.\+hpp}}.\end{Desc}
+\Hypertarget{namespaceps_a9c8c5679d987d3023b9d3beffd81e6df}\label{namespaceps_a9c8c5679d987d3023b9d3beffd81e6df} 
 \index{ps@{ps}!filter\_points\_in\_range@{filter\_points\_in\_range}}
 \index{filter\_points\_in\_range@{filter\_points\_in\_range}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{filter\_points\_in\_range()}{filter\_points\_in\_range()}}
@@ -536,7 +417,10 @@ A vector containing only the points that lie within all specified axis ranges.
 \DoxyCodeLine{\textcolor{comment}{//\ filtered\ now\ contains\ only\ \{\ \{0.5f,\ 0.5f\}\ \}}}
 
 \end{DoxyCode}
- \Hypertarget{namespaceps_a91a0bac33731ed899845c6081c117db2}\label{namespaceps_a91a0bac33731ed899845c6081c117db2} 
+ \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2range_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/range.\+hpp}}.\end{Desc}
+\Hypertarget{namespaceps_a91a0bac33731ed899845c6081c117db2}\label{namespaceps_a91a0bac33731ed899845c6081c117db2} 
 \index{ps@{ps}!first\_neighbor\_distance\_squared@{first\_neighbor\_distance\_squared}}
 \index{first\_neighbor\_distance\_squared@{first\_neighbor\_distance\_squared}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{first\_neighbor\_distance\_squared()}{first\_neighbor\_distance\_squared()}}
@@ -586,7 +470,10 @@ A vector containing the squared distances to the first neighbor for each point, 
 \DoxyCodeLine{\textcolor{comment}{//\ distances\_sq[i]\ contains\ the\ squared\ distance\ to\ the\ closest\ neighbor\ of\ points[i].}}
 
 \end{DoxyCode}
- \Hypertarget{namespaceps_a0e4055582214237ee9f21369133e6194}\label{namespaceps_a0e4055582214237ee9f21369133e6194} 
+ \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2metrics_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/metrics.\+hpp}}.\end{Desc}
+\Hypertarget{namespaceps_a0e4055582214237ee9f21369133e6194}\label{namespaceps_a0e4055582214237ee9f21369133e6194} 
 \index{ps@{ps}!function\_rejection\_filter@{function\_rejection\_filter}}
 \index{function\_rejection\_filter@{function\_rejection\_filter}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{function\_rejection\_filter()}{function\_rejection\_filter()}}
@@ -635,89 +522,17 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ of accepted points
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::gaussian\+\_\+clusters (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{cluster\+\_\+count,  }\item[{size\+\_\+t}]{points\+\_\+per\+\_\+cluster,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{axis\+\_\+ranges,  }\item[{T}]{spread,  }\item[{std\+::optional$<$ unsigned int $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
 
-
-
-Generates clustered points around random centers uniformly sampled in a bounding box. 
-
-Cluster centers are randomly sampled within the provided {\ttfamily axis\+\_\+ranges}, and each cluster then has {\ttfamily points\+\_\+per\+\_\+cluster} points sampled from a Gaussian distribution centered at the cluster\textquotesingle{}s location, with a specified standard deviation {\ttfamily spread}.
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T} & Scalar type (e.\+g., float or double) \\
-\hline
-{\em N} & Dimensionality of the space \\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em cluster\+\_\+count} & Number of cluster centers to generate \\
-\hline
-{\em points\+\_\+per\+\_\+cluster} & Number of points per cluster \\
-\hline
-{\em axis\+\_\+ranges} & Axis-\/aligned bounding box ranges for each dimension \\
-\hline
-{\em spread} & Standard deviation of the Gaussian spread \\
-\hline
-{\em seed} & Optional random seed \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of clustered points
-\end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md3}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md3}
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\ \textcolor{keyword}{auto}\ clustered\ =\ ps::gaussian\_clusters<float,\ 2>(}
-\DoxyCodeLine{\ \ \ \ 5,\ 100,}
-\DoxyCodeLine{\ \ \ \ \{\{\{0,1\},\ \{0,1\}\}\},\ 0.03f}
-\DoxyCodeLine{);}
-
-\end{DoxyCode}
- \Hypertarget{namespaceps_a913ab9d687ee42d04488e5eb0373e23a}\label{namespaceps_a913ab9d687ee42d04488e5eb0373e23a} 
+\Hypertarget{namespaceps_a913ab9d687ee42d04488e5eb0373e23a}\label{namespaceps_a913ab9d687ee42d04488e5eb0373e23a} 
 \index{ps@{ps}!gaussian\_clusters@{gaussian\_clusters}}
 \index{gaussian\_clusters@{gaussian\_clusters}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{gaussian\_clusters()}{gaussian\_clusters()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::gaussian\+\_\+clusters (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$}]{cluster\+\_\+centers,  }\item[{size\+\_\+t}]{points\+\_\+per\+\_\+cluster,  }\item[{T}]{spread,  }\item[{std\+::optional$<$ unsigned int $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
 
-
-
-Generates clustered points around provided cluster centers using a Gaussian distribution. 
-
-For each cluster center, this function generates {\ttfamily points\+\_\+per\+\_\+cluster} points where each coordinate is sampled from a normal distribution centered at the coordinate of the cluster center with standard deviation {\ttfamily spread}.
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T} & Scalar type (e.\+g., float or double) \\
-\hline
-{\em N} & Dimensionality of the space \\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em cluster\+\_\+centers} & A vector of cluster center points \\
-\hline
-{\em points\+\_\+per\+\_\+cluster} & Number of points to generate per cluster \\
-\hline
-{\em spread} & Standard deviation of the Gaussian spread \\
-\hline
-{\em seed} & Optional random seed \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of clustered points
-\end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md2}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md2}
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\ std::vector<Point<float,\ 2>>\ centers\ =\ \{}
-\DoxyCodeLine{\ \ \ \ \{0.2f,\ 0.2f\},}
-\DoxyCodeLine{\ \ \ \ \{0.8f,\ 0.8f\}}
-\DoxyCodeLine{\};}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ clustered\ =\ \mbox{\hyperlink{namespaceps_a913ab9d687ee42d04488e5eb0373e23a}{ps::gaussian\_clusters}}(centers,\ 100,\ 0.05f);}
-
-\end{DoxyCode}
- \Hypertarget{namespaceps_a898bca65491a14a41bfdd50fdc6230b8}\label{namespaceps_a898bca65491a14a41bfdd50fdc6230b8} 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2gaussian_clusters_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/gaussian\+\_\+clusters.\+hpp}}.\end{Desc}
+\Hypertarget{namespaceps_a898bca65491a14a41bfdd50fdc6230b8}\label{namespaceps_a898bca65491a14a41bfdd50fdc6230b8} 
 \index{ps@{ps}!generate\_random\_point\_around@{generate\_random\_point\_around}}
 \index{generate\_random\_point\_around@{generate\_random\_point\_around}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{generate\_random\_point\_around()}{generate\_random\_point\_around()}}
@@ -731,47 +546,19 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of clustered points
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::halton (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{axis\+\_\+ranges,  }\item[{std\+::optional$<$ unsigned int $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
 
-
-
-Generates a set of quasi-\/random points using the Halton sequence in N dimensions. 
-
-This function generates {\ttfamily count} points in the unit hypercube using the Halton sequence, then rescales them to fit within the specified axis-\/aligned bounding box. An optional {\ttfamily seed} is used as a starting index offset (i.\+e., a shift) in the sequence to decorrelate multiple calls.
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T} & Scalar type (e.\+g., float or double) \\
-\hline
-{\em N} & Dimensionality of the space \\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em count} & Number of points to generate \\
-\hline
-{\em axis\+\_\+ranges} & Axis-\/aligned bounding box for each dimension, as min/max pairs \\
-\hline
-{\em seed} & Optional seed that offsets the sequence start index \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-std\+::vector$<$\+Point$<$\+T, N$>$$>$ The generated Halton points rescaled to the bounding box
-\end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md4}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md4}
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\ \textcolor{keyword}{auto}\ points\ =\ ps::halton<float,\ 2>(}
-\DoxyCodeLine{\ \ \ \ 1000,}
-\DoxyCodeLine{\ \ \ \ \{\{\{0,\ 1\},\ \{0,\ 1\}\}\},\ 42}
-\DoxyCodeLine{);}
-
-\end{DoxyCode}
- \Hypertarget{namespaceps_aa8c3b3b3367276f9a194938599d2463b}\label{namespaceps_aa8c3b3b3367276f9a194938599d2463b} 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2halton_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/halton.\+hpp}}.\end{Desc}
+\Hypertarget{namespaceps_aa8c3b3b3367276f9a194938599d2463b}\label{namespaceps_aa8c3b3b3367276f9a194938599d2463b} 
 \index{ps@{ps}!halton\_sequence@{halton\_sequence}}
 \index{halton\_sequence@{halton\_sequence}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{halton\_sequence()}{halton\_sequence()}}
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::halton\+\_\+sequence (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count,  }\item[{size\+\_\+t}]{shift }\end{DoxyParamCaption})}
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2halton_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/halton.\+hpp}}.\end{Desc}
 \Hypertarget{namespaceps_aad0cc7bc81f7cac9f0be26177b9986a6}\label{namespaceps_aad0cc7bc81f7cac9f0be26177b9986a6} 
 \index{ps@{ps}!hammersley@{hammersley}}
 \index{hammersley@{hammersley}!ps@{ps}}
@@ -779,47 +566,19 @@ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::hammersley (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{axis\+\_\+ranges,  }\item[{std\+::optional$<$ unsigned int $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
 
-
-
-Generates a set of quasi-\/random points using the Hammersley sequence in N dimensions. 
-
-This function generates {\ttfamily count} points in the unit hypercube using the Hammersley sequence, then rescales them to fit within the specified axis-\/aligned bounding box. An optional {\ttfamily seed} can be used as a starting index offset (i.\+e., a shift) to decorrelate multiple calls or introduce variation.
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T} & Scalar type (e.\+g., float or double) \\
-\hline
-{\em N} & Dimensionality of the space \\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em count} & Number of points to generate \\
-\hline
-{\em axis\+\_\+ranges} & Axis-\/aligned bounding box for each dimension, as min/max pairs \\
-\hline
-{\em seed} & Optional seed that offsets the sequence start index \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-std\+::vector$<$\+Point$<$\+T, N$>$$>$ The generated Hammersley points rescaled to the bounding box
-\end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md5}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md5}
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\ \textcolor{keyword}{auto}\ points\ =\ ps::hammersley<float,\ 3>(}
-\DoxyCodeLine{\ \ \ \ 512,}
-\DoxyCodeLine{\ \ \ \ \{\{\{-\/1,\ 1\},\ \{-\/1,\ 1\},\ \{0,\ 1\}\}\},\ 7}
-\DoxyCodeLine{);}
-
-\end{DoxyCode}
- \Hypertarget{namespaceps_ae21a8c51533330ead4ebe76eed3e72b3}\label{namespaceps_ae21a8c51533330ead4ebe76eed3e72b3} 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2hammersley_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/hammersley.\+hpp}}.\end{Desc}
+\Hypertarget{namespaceps_ae21a8c51533330ead4ebe76eed3e72b3}\label{namespaceps_ae21a8c51533330ead4ebe76eed3e72b3} 
 \index{ps@{ps}!hammersley\_sequence@{hammersley\_sequence}}
 \index{hammersley\_sequence@{hammersley\_sequence}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{hammersley\_sequence()}{hammersley\_sequence()}}
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::hammersley\+\_\+sequence (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count,  }\item[{size\+\_\+t}]{shift }\end{DoxyParamCaption})}
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2hammersley_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/hammersley.\+hpp}}.\end{Desc}
 \Hypertarget{namespaceps_a932640b18d76a7e336fc760e9cf5511b}\label{namespaceps_a932640b18d76a7e336fc760e9cf5511b} 
 \index{ps@{ps}!importance\_resampling@{importance\_resampling}}
 \index{importance\_resampling@{importance\_resampling}!ps@{ps}}
@@ -827,53 +586,10 @@ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N, typename Density\+Fn $>$ \\
 std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::importance\+\_\+resampling (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count,  }\item[{size\+\_\+t}]{oversampling\+\_\+ratio,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{axis\+\_\+ranges,  }\item[{Density\+Fn}]{density\+\_\+fn,  }\item[{std\+::optional$<$ unsigned int $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
 
-
-
-Generates a point set via importance resampling from a quasi-\/random oversampled grid. 
-
-This function uses a Halton sequence to create an oversampled set of candidate points in the domain. Each point is assigned a weight based on the provided density function. A discrete distribution is then used to resample {\ttfamily count} points according to these weights.
-
-The higher the {\ttfamily oversampling\+\_\+ratio}, the better the approximation to the target density, at the cost of performance.
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T} & Scalar type (e.\+g., float or double) \\
-\hline
-{\em N} & Dimensionality of the space \\
-\hline
-{\em Density\+Fn} & A callable with signature {\ttfamily T(const \doxylink{structps_1_1Point}{Point}\texorpdfstring{$<$}{<}T, N\texorpdfstring{$>$}{>}\&)} returning a non-\/negative density value \\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em count} & Number of points to return after resampling \\
-\hline
-{\em oversampling\+\_\+ratio} & Number of candidate points to generate as a multiple of {\ttfamily count} \\
-\hline
-{\em axis\+\_\+ranges} & Axis-\/aligned bounding box defining the domain of the points \\
-\hline
-{\em density\+\_\+fn} & Function mapping a point to a (non-\/negative) density value \\
-\hline
-{\em seed} & Optional seed to control the random number generator \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-std\+::vector$<$\+Point$<$\+T, N$>$$>$ The resulting resampled point set
-\end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md6}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md6}
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\ \textcolor{keyword}{auto}\ density\ =\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<float,\ 2>}}\ \&p)\ \{}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ std::exp(-\/10.0f\ *\ (p[0]*p[0]\ +\ p[1]*p[1]));}
-\DoxyCodeLine{\};}
-\DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ points\ =\ ps::importance\_resampling<float,\ 2>(}
-\DoxyCodeLine{\ \ \ \ 500,\ 5,}
-\DoxyCodeLine{\ \ \ \ \{\{\{-\/1,\ 1\},\ \{-\/1,\ 1\}\}\},\ density,\ 42}
-\DoxyCodeLine{);}
-
-\end{DoxyCode}
- \Hypertarget{namespaceps_aedb5908eae325f054e4f3dd6b9b223af}\label{namespaceps_aedb5908eae325f054e4f3dd6b9b223af} 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2importance_resampling_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/importance\+\_\+resampling.\+hpp}}.\end{Desc}
+\Hypertarget{namespaceps_aedb5908eae325f054e4f3dd6b9b223af}\label{namespaceps_aedb5908eae325f054e4f3dd6b9b223af} 
 \index{ps@{ps}!in\_neighborhood@{in\_neighborhood}}
 \index{in\_neighborhood@{in\_neighborhood}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{in\_neighborhood()}{in\_neighborhood()}}
@@ -887,89 +603,17 @@ bool ps\+::in\+\_\+neighborhood (\begin{DoxyParamCaption}\item[{const \mbox{\hyp
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::jittered\+\_\+grid (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{axis\+\_\+ranges,  }\item[{const std\+::array$<$ T, N $>$ \&}]{jitter\+\_\+amount,  }\item[{const std\+::array$<$ T, N $>$ \&}]{stagger\+\_\+ratio,  }\item[{std\+::optional$<$ unsigned int $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
 
-
-
-Generates a point set on a jittered and optionally staggered grid. 
-
-This function divides the domain into a grid and places one point in each selected cell. Each point is jittered within its cell, and staggered offsets may be applied depending on the index of higher-\/dimensional axes. The result is a semi-\/regular sampling pattern with randomness.
-
-Jittering prevents aliasing, and staggering introduces a controlled shift between alternating cells to improve uniformity and avoid alignment artifacts.
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T} & Scalar type (e.\+g., float or double) \\
-\hline
-{\em N} & Dimensionality of the space \\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em count} & Number of output points (best effort, may be capped by total available cells) \\
-\hline
-{\em axis\+\_\+ranges} & Axis-\/aligned bounding box defining the sampling domain \\
-\hline
-{\em jitter\+\_\+amount} & Per-\/dimension jitter factor ∈ \mbox{[}0, 1\mbox{]}. A value of 1.\+0 means full jitter in the cell. \\
-\hline
-{\em stagger\+\_\+ratio} & Per-\/dimension stagger ratio, indicating how much to offset points based on higher dimension parity \\
-\hline
-{\em seed} & Optional seed for deterministic jittering and shuffling \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-std\+::vector$<$\+Point$<$\+T, N$>$$>$ Sampled points
-\end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md7}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md7}
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\ std::array<std::pair<float,\ float>,\ 2>\ bounds\ =\ \{\{\{0.0f,\ 1.0f\},\ \{0.0f,}
-\DoxyCodeLine{1.0f\}\}\};}
-\DoxyCodeLine{std::array<float,\ 2>\ jitter\ =\ \{0.8f,\ 0.8f\};}
-\DoxyCodeLine{std::array<float,\ 2>\ stagger\ =\ \{0.2f,\ 0.0f\};}
-\DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ samples\ =\ ps::jittered\_grid<float,\ 2>(256,\ bounds,\ jitter,\ stagger,\ 42);}
-
-\end{DoxyCode}
- \Hypertarget{namespaceps_ae90df8db8e751ff4b61298114f092714}\label{namespaceps_ae90df8db8e751ff4b61298114f092714} 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2jittered_grid_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/jittered\+\_\+grid.\+hpp}}.\end{Desc}
+\Hypertarget{namespaceps_ae90df8db8e751ff4b61298114f092714}\label{namespaceps_ae90df8db8e751ff4b61298114f092714} 
 \index{ps@{ps}!jittered\_grid@{jittered\_grid}}
 \index{jittered\_grid@{jittered\_grid}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{jittered\_grid()}{jittered\_grid()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::jittered\+\_\+grid (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{axis\+\_\+ranges,  }\item[{std\+::optional$<$ unsigned int $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
 
-
-
-Generates a jittered grid of points with full jitter and no stagger. 
-
-This overload defaults to jittering each dimension fully within its cell and applies no staggering. It is equivalent to calling the full version with {\ttfamily jitter\+\_\+amount} filled with 1.\+0 and {\ttfamily stagger\+\_\+ratio} filled with 0.\+0.
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T} & Scalar type (e.\+g., float or double) \\
-\hline
-{\em N} & Dimensionality of the space \\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em count} & Number of points to generate \\
-\hline
-{\em axis\+\_\+ranges} & Axis-\/aligned bounding box defining the sampling domain \\
-\hline
-{\em seed} & Optional seed for deterministic jittering \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-std\+::vector$<$\+Point$<$\+T, N$>$$>$ Jittered point samples
-\end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md8}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md8}
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\ std::array<std::pair<double,\ double>,\ 3>\ bounds\ =\ \{\{\{0,\ 1\},\ \{0,\ 1\},\ \{0,}
-\DoxyCodeLine{1\}\}\};}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ points\ =\ ps::jittered\_grid<double,\ 3>(1000,\ bounds,\ 1234);}
-
-\end{DoxyCode}
- \Hypertarget{namespaceps_acbef03daefffe13bd08b9b4c0952c00d}\label{namespaceps_acbef03daefffe13bd08b9b4c0952c00d} 
+\Hypertarget{namespaceps_acbef03daefffe13bd08b9b4c0952c00d}\label{namespaceps_acbef03daefffe13bd08b9b4c0952c00d} 
 \index{ps@{ps}!kmeans\_clustering@{kmeans\_clustering}}
 \index{kmeans\_clustering@{kmeans\_clustering}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{kmeans\_clustering()}{kmeans\_clustering()}}
@@ -1036,6 +680,9 @@ T ps\+::length (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 T ps\+::length\+\_\+squared (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{a }\end{DoxyParamCaption})}
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2metrics_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/metrics.\+hpp}}, and \mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2relaxation_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/relaxation.\+hpp}}.\end{Desc}
 \Hypertarget{namespaceps_a79914e9fc2dd02bacd38e9bd32e21baa}\label{namespaceps_a79914e9fc2dd02bacd38e9bd32e21baa} 
 \index{ps@{ps}!lerp@{lerp}}
 \index{lerp@{lerp}!ps@{ps}}
@@ -1050,56 +697,19 @@ T ps\+::length\+\_\+squared (\begin{DoxyParamCaption}\item[{const \mbox{\hyperli
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 std\+::vector$<$ T $>$ ps\+::local\+\_\+density\+\_\+knn (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{size\+\_\+t}]{k = {\ttfamily 8} }\end{DoxyParamCaption})}
 
-
-
-Compute local point density based on k-\/nearest neighbors in N dimensions. 
-
-The density at each point is estimated as\+:  \[
-\rho_i = \frac{k}{V_N r_i^N}
-\] where (r\+\_\+i) is the distance to the k-\/th nearest neighbor, (V\+\_\+N) is the volume of the unit N-\/ball\+:  \[
-V_N = \frac{\pi^{N/2}}{\Gamma(N/2 + 1)}
-\] and (\textbackslash{}\+Gamma) is the gamma function. This generalizes to any dimension.
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T} & Scalar type (e.\+g., float, double). \\
-\hline
-{\em N} & Dimension of the points. \\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em points} & Vector of points in N-\/dimensional space. \\
-\hline
-{\em k} & Number of nearest neighbors to use for density estimation (should be \texorpdfstring{$>$}{>}= 1). \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Vector of local densities for each point.
-\end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md10}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md10}
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{std::vector<Point<double,3>>\ pts\ =\ ...;\ \textcolor{comment}{//\ 3D\ points}}
-\DoxyCodeLine{\textcolor{keywordtype}{size\_t}\ k\ =\ 8;}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ densities\ =\ local\_density\_knn<double,3>(pts,\ k);}
-
-\end{DoxyCode}
-\hypertarget{namespaceps_autotoc_md11}{}\doxysubsubsubsection{\texorpdfstring{Notes}{Notes}}\label{namespaceps_autotoc_md11}
-
-\begin{DoxyItemize}
-\item Works in any dimension (N).
-\item High k gives smoother density estimates, low k captures local fluctuations.
-\item The resulting density units are “points per unit volume” in N dimensions.
-\end{DoxyItemize}
-
- \Hypertarget{namespaceps_a677f90d97b1dcfeaa2ecc299ee37f5bf}\label{namespaceps_a677f90d97b1dcfeaa2ecc299ee37f5bf} 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2metrics_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/metrics.\+hpp}}.\end{Desc}
+\Hypertarget{namespaceps_a677f90d97b1dcfeaa2ecc299ee37f5bf}\label{namespaceps_a677f90d97b1dcfeaa2ecc299ee37f5bf} 
 \index{ps@{ps}!merge\_by\_dimension@{merge\_by\_dimension}}
 \index{merge\_by\_dimension@{merge\_by\_dimension}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{merge\_by\_dimension()}{merge\_by\_dimension()}}
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::merge\+\_\+by\+\_\+dimension (\begin{DoxyParamCaption}\item[{const std\+::array$<$ std\+::vector$<$ T $>$, N $>$ \&}]{components }\end{DoxyParamCaption})}
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2utils_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/utils.\+hpp}}.\end{Desc}
 \Hypertarget{namespaceps_ac29744e12116f882d8a620a3fd02d72d}\label{namespaceps_ac29744e12116f882d8a620a3fd02d72d} 
 \index{ps@{ps}!nearest\_neighbors\_indices@{nearest\_neighbors\_indices}}
 \index{nearest\_neighbors\_indices@{nearest\_neighbors\_indices}!ps@{ps}}
@@ -1150,6 +760,9 @@ The KD-\/tree is rebuilt internally for the search.
 \end{DoxyCode}
  
 \end{DoxyParagraph}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2metrics_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/metrics.\+hpp}}.\end{Desc}
 \Hypertarget{namespaceps_a172358f05108b5cabdac4e43ab309ab2}\label{namespaceps_a172358f05108b5cabdac4e43ab309ab2} 
 \index{ps@{ps}!normalize\_points@{normalize\_points}}
 \index{normalize\_points@{normalize\_points}!ps@{ps}}
@@ -1188,13 +801,19 @@ If all points have the same value along a given axis, the corresponding normaliz
 \DoxyCodeLine{\textcolor{comment}{//\ Now\ points\ coordinates\ are\ scaled\ in\ [0,\ 1]\ along\ each\ axis}}
 
 \end{DoxyCode}
- \Hypertarget{namespaceps_a7de6090e2c8291401816be9bc6cda914}\label{namespaceps_a7de6090e2c8291401816be9bc6cda914} 
+ \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2utils_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/utils.\+hpp}}.\end{Desc}
+\Hypertarget{namespaceps_a7de6090e2c8291401816be9bc6cda914}\label{namespaceps_a7de6090e2c8291401816be9bc6cda914} 
 \index{ps@{ps}!normalized@{normalized}}
 \index{normalized@{normalized}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{normalized()}{normalized()}}
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ ps\+::normalized (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{a }\end{DoxyParamCaption})}
 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2relaxation_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/relaxation.\+hpp}}.\end{Desc}
 \Hypertarget{namespaceps_a6fd3a6df3727a04f9baba3b8b87a903b}\label{namespaceps_a6fd3a6df3727a04f9baba3b8b87a903b} 
 \index{ps@{ps}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
 \index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!ps@{ps}}
@@ -1272,41 +891,10 @@ If all points have the same value along a given axis, the corresponding normaliz
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 std\+::vector$<$ int $>$ ps\+::percolation\+\_\+clustering (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{T}]{connection\+\_\+radius }\end{DoxyParamCaption})}
 
-
-
-Analyze percolation clusters from a set of points using a radius-\/based neighbor graph. 
-
-Builds a graph where edges exist if points are within {\ttfamily connection\+\_\+radius}, then finds connected components (clusters).
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T} & Scalar type (e.\+g., float, double). \\
-\hline
-{\em N} & Dimension. \\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em points} & Input set of points. \\
-\hline
-{\em connection\+\_\+radius} & Maximum distance for connectivity between points. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-A vector of cluster labels, size = points.\+size(). Label = -\/1 if unassigned.
-\end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md13}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md13}
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\ std::vector<Point<double,2>>\ pts\ =\ \{\ \{0.1,0.2\},\ \{0.15,0.22\},\ \{0.9,0.9\}}
-\DoxyCodeLine{\};}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ labels\ =\ analyze\_percolation\_clusters<double,2>(pts,\ 0.1);}
-\DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{comment}{//\ labels\ might\ be\ \{0,0,1\},\ meaning\ the\ first\ two\ form\ a\ cluster,\ third\ is}}
-\DoxyCodeLine{separate.}
-
-\end{DoxyCode}
- \Hypertarget{namespaceps_a5b1e932ba8a20e05cd8c113179aa77c8}\label{namespaceps_a5b1e932ba8a20e05cd8c113179aa77c8} 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2percolation_clustering_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/percolation\+\_\+clustering.\+hpp}}.\end{Desc}
+\Hypertarget{namespaceps_a5b1e932ba8a20e05cd8c113179aa77c8}\label{namespaceps_a5b1e932ba8a20e05cd8c113179aa77c8} 
 \index{ps@{ps}!poisson\_disk\_sampling@{poisson\_disk\_sampling}}
 \index{poisson\_disk\_sampling@{poisson\_disk\_sampling}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{poisson\_disk\_sampling()}{poisson\_disk\_sampling()}}
@@ -1327,64 +915,10 @@ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 std\+::pair$<$ std\+::vector$<$ T $>$, std\+::vector$<$ T $>$ $>$ ps\+::radial\+\_\+distribution (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{axis\+\_\+ranges,  }\item[{T}]{bin\+\_\+width,  }\item[{T}]{max\+\_\+distance }\end{DoxyParamCaption})}
 
-
-
-Compute the normalized radial distribution function g(r). 
-
-The radial distribution function (RDF) describes how the density of points varies as a function of distance from a reference point.
-
-
-\begin{DoxyItemize}
-\item g(r) ≈ 1 → uniform / random distribution at distance r
-\item g(r) \texorpdfstring{$>$}{>} 1 → clustering / aggregation (excess probability of finding neighbors)
-\item g(r) \texorpdfstring{$<$}{<} 1 → depletion / exclusion (points repel or avoid each other)
-\end{DoxyItemize}
-
-This function normalizes the observed pair distances against the expected density in the domain (given by axis\+\_\+ranges).
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T} & Numeric type (float, double, ...) \\
-\hline
-{\em N} & Dimension of points \\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em points} & Vector of points \\
-\hline
-{\em axis\+\_\+ranges} & Axis-\/aligned domain ranges for each dimension \\
-\hline
-{\em bin\+\_\+width} & Width of distance bins \\
-\hline
-{\em max\+\_\+distance} & Maximum distance to consider \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-std\+::pair\texorpdfstring{$<$}{<}std\+::vector$<$\+T$>$, std\+::vector$<$\+T$>$\texorpdfstring{$>$}{>}
-\begin{DoxyItemize}
-\item First\+: radii (bin centers)
-\item Second\+: normalized RDF values g(r)
-\end{DoxyItemize}
-\end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md12}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md12}
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{std::vector<Point<double,\ 2>>\ pts\ =\ \{}
-\DoxyCodeLine{\ \ \ \ \{0.0,\ 0.0\},\ \{1.0,\ 0.0\},\ \{0.0,\ 1.0\},\ \{1.0,\ 1.0\}}
-\DoxyCodeLine{\};}
-\DoxyCodeLine{}
-\DoxyCodeLine{std::array<std::pair<double,double>,2>\ ranges\ =\ \{}
-\DoxyCodeLine{\ \ \ \ std::make\_pair(0.0,\ 1.0),\ std::make\_pair(0.0,\ 1.0)}
-\DoxyCodeLine{\};}
-\DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keyword}{auto}\ [r,\ g]\ =\ \mbox{\hyperlink{namespaceps_a8d80a56ea4774726e748b48e1ecf0a8d}{radial\_distribution}}(pts,\ ranges,\ 0.1,\ 2.0);}
-\DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ r.size();\ ++i)}
-\DoxyCodeLine{\ \ std::cout\ <<\ \textcolor{stringliteral}{"{}r="{}}\ <<\ r[i]\ <<\ \textcolor{stringliteral}{"{}\ g(r)="{}}\ <<\ g[i]\ <<\ std::endl;}
-
-\end{DoxyCode}
- \Hypertarget{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}\label{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69} 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2metrics_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/metrics.\+hpp}}.\end{Desc}
+\Hypertarget{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}\label{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69} 
 \index{ps@{ps}!random@{random}}
 \index{random@{random}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{random()}{random()}}
@@ -1575,41 +1109,9 @@ A vector of generated filament points.
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 void ps\+::refit\+\_\+points\+\_\+to\+\_\+range (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{target\+\_\+ranges }\end{DoxyParamCaption})}
 
-
-
-Linearly remap a set of points to fit within the specified axis-\/aligned ranges. 
-
-This function computes the axis-\/aligned bounding box (AABB) of the input points and linearly rescales each point so that all dimensions lie in the given {\ttfamily target\+\_\+ranges}.
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T} & Numeric type (e.\+g., float or double). \\
-\hline
-{\em N} & Number of dimensions.\\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in,out}}  & {\em points} & Vector of input points to modify in-\/place. \\
-\hline
-\mbox{\texttt{ in}}  & {\em target\+\_\+ranges} & Desired output min/max per dimension.\\
-\hline
-\end{DoxyParams}
-\hypertarget{namespaceps_autotoc_md14}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md14}
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\ std::vector<Point<float,\ 2>>\ pts\ =\ generate\_random\_points<float,}
-\DoxyCodeLine{2>(100,\ \{\ \{}
-\DoxyCodeLine{\{0.f,\ 1.f\},\ \{0.f,\ 1.f\}\ \}\ \},\ 42);}
-\DoxyCodeLine{\textcolor{comment}{//\ Refit\ to\ a\ new\ range:\ [10,\ 20]\ ×\ [50,\ 100]\ refit\_points\_to\_range<float,}}
-\DoxyCodeLine{2>(pts,\ \{\ \{\ \{10.f,\ 20.f\},\ \{50.f,\ 100.f\}\ \}\ \});}
-
-\end{DoxyCode}
-
-
-\begin{DoxyNote}{Note}
-If a dimension has constant value (min == max), the center of the target range is used. 
-\end{DoxyNote}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2range_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/range.\+hpp}}.\end{Desc}
 \Hypertarget{namespaceps_a29ab0a94bbe26a22cb87bf8f44703527}\label{namespaceps_a29ab0a94bbe26a22cb87bf8f44703527} 
 \index{ps@{ps}!rejection\_sampling@{rejection\_sampling}}
 \index{rejection\_sampling@{rejection\_sampling}!ps@{ps}}
@@ -1617,66 +1119,9 @@ If a dimension has constant value (min == max), the center of the target range i
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N, typename Density\+Fn $>$ \\
 std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ ps\+::rejection\+\_\+sampling (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{count,  }\item[{const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&}]{axis\+\_\+ranges,  }\item[{Density\+Fn}]{density\+\_\+fn,  }\item[{std\+::optional$<$ unsigned int $>$}]{seed = {\ttfamily std\+:\+:nullopt} }\end{DoxyParamCaption})}
 
-
-
-Generates random points using rejection sampling based on a user-\/defined density function. 
-
-This function uniformly samples candidate points within the given axis-\/aligned bounds and retains them based on the output of a user-\/provided density function. The {\ttfamily density\+\_\+fn} should return a probability in the range \mbox{[}0, 1\mbox{]} for each point.
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T} & Numeric type (e.\+g., float or double). \\
-\hline
-{\em N} & Number of dimensions. \\
-\hline
-{\em Density\+Fn} & Callable with signature T(\+Point$<$\+T, N$>$) returning a probability in \mbox{[}0, 1\mbox{]}.\\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}{Parameters}
-{\em count} & Desired number of accepted points. \\
-\hline
-{\em axis\+\_\+ranges} & Ranges for each axis in the form of an array of (min, max) pairs. \\
-\hline
-{\em density\+\_\+fn} & Function that returns a probability for accepting a point. \\
-\hline
-{\em seed} & Optional seed for reproducibility.\\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of accepted points based on rejection sampling.
-\end{DoxyReturn}
-
-\begin{DoxyExceptions}{Exceptions}
-{\em std\+::invalid\+\_\+argumentifanyaxisrangeisinvalid(min$>$max).} & \\
-\hline
-\end{DoxyExceptions}
-\hypertarget{namespaceps_autotoc_md15}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md15}
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{rejection__sampling_8hpp}{point\_sampler/rejection\_sampling.hpp}}"{}}}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keywordtype}{float}\ radial\_density(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<float,\ 2>}}\&\ p)}
-\DoxyCodeLine{\{}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{float}\ r2\ =\ p[0]\ *\ p[0]\ +\ p[1]\ *\ p[1];}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ std::exp(-\/r2);\ \textcolor{comment}{//\ higher\ near\ origin,\ drops\ with\ radius}}
-\DoxyCodeLine{\}}
-\DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keywordtype}{int}\ main()\ \{}
-\DoxyCodeLine{\ \ \ \ std::array<std::pair<float,\ float>,\ 2>\ bounds\ =\ \{\ \{\ \{-\/2.0f,\ 2.0f\},}
-\DoxyCodeLine{\{-\/2.0f,\ 2.0f\}\ \}\ \};}
-\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ pts\ =\ ps::rejection\_sampling<float,\ 2>(1000,\ bounds,\ radial\_density,}
-\DoxyCodeLine{42);}
-\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Generated\ "{}}\ <<\ pts.size()\ <<\ \textcolor{stringliteral}{"{}\ points.\(\backslash\)n"{}};}
-\DoxyCodeLine{\}}
-
-\end{DoxyCode}
-
-
-\begin{DoxyNote}{Note}
-Rejection sampling can be inefficient if {\ttfamily density\+\_\+fn} returns low values over most of the domain, as many candidate samples will be discarded. 
-\end{DoxyNote}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2rejection_sampling_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/rejection\+\_\+sampling.\+hpp}}.\end{Desc}
 \Hypertarget{namespaceps_aed8a3217a801c5b5706f4bcc3306bb18}\label{namespaceps_aed8a3217a801c5b5706f4bcc3306bb18} 
 \index{ps@{ps}!relaxation\_ktree@{relaxation\_ktree}}
 \index{relaxation\_ktree@{relaxation\_ktree}!ps@{ps}}
@@ -1684,60 +1129,10 @@ Rejection sampling can be inefficient if {\ttfamily density\+\_\+fn} returns low
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 void ps\+::relaxation\+\_\+ktree (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{size\+\_\+t}]{k\+\_\+neighbors = {\ttfamily 8},  }\item[{T}]{step\+\_\+size = {\ttfamily T(0.1)},  }\item[{size\+\_\+t}]{iterations = {\ttfamily 10} }\end{DoxyParamCaption})}
 
-
-
-Relax a point set using a k-\/nearest neighbor repulsion algorithm with a KD-\/tree. 
-
-This function performs iterative relaxation on a set of N-\/dimensional points by pushing each point away from its nearest neighbors. It uses a KD-\/tree for efficient neighbor lookup. The goal is to reduce clustering and obtain a more uniform or blue-\/noise-\/like distribution.
-
-Each point is offset based on inverse-\/distance-\/weighted repulsion from its k-\/nearest neighbors, normalized and scaled by a step size. The point set is updated over a number of iterations.
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T} & Numeric type for coordinates (e.\+g., float or double). \\
-\hline
-{\em N} & Number of dimensions.\\
-\hline
-\end{DoxyTemplParams}
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in,out}}  & {\em points} & The point set to relax. This vector will be modified in place. \\
-\hline
-\mbox{\texttt{ in}}  & {\em k\+\_\+neighbors} & Number of neighbors to consider (default is 8). \\
-\hline
-\mbox{\texttt{ in}}  & {\em step\+\_\+size} & How far to move a point per iteration (default is 0.\+1). \\
-\hline
-\mbox{\texttt{ in}}  & {\em iterations} & Number of relaxation iterations (default is 10).\\
-\hline
-\end{DoxyParams}
-\begin{DoxyNote}{Note}
-The KD-\/tree is rebuilt on each iteration to reflect the updated positions.
-\end{DoxyNote}
-\hypertarget{namespaceps_autotoc_md16}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md16}
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{relaxation_8hpp}{point\_sampler/relaxation.hpp}}>}}
-\DoxyCodeLine{}
-\DoxyCodeLine{std::vector<Point<float,\ 2>>\ pts\ =\ generate\_random\_points<float,\ 2>(}
-\DoxyCodeLine{\ \ \ \ 1000,\ \{\ \{\ \{0.f,\ 1.f\},\ \{0.f,\ 1.f\}\ \}\ \},\ 42);}
-\DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{comment}{//\ Apply\ 10\ iterations\ of\ relaxation\ relaxation\_ktree<float,\ 2>(pts,\ 8,\ 0.1f,}}
-\DoxyCodeLine{10);}
-
-\end{DoxyCode}
-\hypertarget{namespaceps_autotoc_md17}{}\doxysubsubsubsection{\texorpdfstring{How it works\+:}{How it works:}}\label{namespaceps_autotoc_md17}
-
-\begin{DoxyItemize}
-\item For each point\+:
-\begin{DoxyItemize}
-\item Find its {\ttfamily k\+\_\+neighbors} nearest neighbors using a KD-\/tree.
-\item Compute offset vectors from the current point to each neighbor.
-\item Weight the vectors by the inverse square distance (stronger push from closer neighbors).
-\item Accumulate the offset, normalize, and scale by {\ttfamily step\+\_\+size}.
-\item Apply the movement to each point.
-\end{DoxyItemize}
-\item Repeat for {\ttfamily iterations} steps. 
-\end{DoxyItemize}\Hypertarget{namespaceps_a7addf1455112b7895f8de7c475eed850}\label{namespaceps_a7addf1455112b7895f8de7c475eed850} 
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2relaxation_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/relaxation.\+hpp}}.\end{Desc}
+\Hypertarget{namespaceps_a7addf1455112b7895f8de7c475eed850}\label{namespaceps_a7addf1455112b7895f8de7c475eed850} 
 \index{ps@{ps}!rescale\_points@{rescale\_points}}
 \index{rescale\_points@{rescale\_points}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{rescale\_points()}{rescale\_points()}}
@@ -1777,6 +1172,9 @@ Each coordinate in every point is mapped from \mbox{[}0, 1\mbox{]} to a new rang
 \begin{DoxyNote}{Note}
 Assumes points are in \mbox{[}0, 1\mbox{]}\texorpdfstring{$^\wedge$}{\string^}N. Does not check bounds. 
 \end{DoxyNote}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2halton_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/halton.\+hpp}}, \mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2hammersley_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/hammersley.\+hpp}}, and \mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2range_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/range.\+hpp}}.\end{Desc}
 \Hypertarget{namespaceps_a802637e81218193c0e65266c8075f002}\label{namespaceps_a802637e81218193c0e65266c8075f002} 
 \index{ps@{ps}!save\_points\_to\_csv@{save\_points\_to\_csv}}
 \index{save\_points\_to\_csv@{save\_points\_to\_csv}!ps@{ps}}
@@ -1809,6 +1207,9 @@ The output file will contain one point per line, with each coordinate separated 
 \begin{DoxyReturn}{Returns}
 true if the file was successfully written, false otherwise. 
 \end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2utils_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/utils.\+hpp}}.\end{Desc}
 \Hypertarget{namespaceps_a5b92b660faab5030374ba2dee9f89810}\label{namespaceps_a5b92b660faab5030374ba2dee9f89810} 
 \index{ps@{ps}!save\_vector\_to\_csv@{save\_vector\_to\_csv}}
 \index{save\_vector\_to\_csv@{save\_vector\_to\_csv}!ps@{ps}}
@@ -1855,7 +1256,10 @@ The file will be overwritten if it already exists.
 \DoxyCodeLine{\textcolor{comment}{//\ 3.7}}
 
 \end{DoxyCode}
- \Hypertarget{namespaceps_af6737277b9cc05d5f2ab248f17baea3b}\label{namespaceps_af6737277b9cc05d5f2ab248f17baea3b} 
+ \begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2utils_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/utils.\+hpp}}.\end{Desc}
+\Hypertarget{namespaceps_af6737277b9cc05d5f2ab248f17baea3b}\label{namespaceps_af6737277b9cc05d5f2ab248f17baea3b} 
 \index{ps@{ps}!split\_by\_dimension@{split\_by\_dimension}}
 \index{split\_by\_dimension@{split\_by\_dimension}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{split\_by\_dimension()}{split\_by\_dimension()}}
@@ -1890,3 +1294,6 @@ For example, given 3D points\+: \mbox{[}(1,2,3), (4,5,6), (7,8,9)\mbox{]}, the r
 \begin{DoxyReturn}{Returns}
 An array of N vectors, each containing the values for one coordinate axis. 
 \end{DoxyReturn}
+\begin{Desc}
+\item[Examples]\par
+\mbox{\hyperlink{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2utils_8hpp-example}{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/utils.\+hpp}}.\end{Desc}

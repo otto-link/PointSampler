@@ -1,0 +1,155 @@
+\doxysection{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/range.\+hpp}
+\hypertarget{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2range_8hpp-example}{}\label{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2range_8hpp-example}Linearly remap a set of points to fit within the specified axis-\/aligned ranges.
+
+Linearly remap a set of points to fit within the specified axis-\/aligned ranges.\+This function computes the axis-\/aligned bounding box (AABB) of the input points and linearly rescales each point so that all dimensions lie in the given {\ttfamily target\+\_\+ranges}.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Numeric type (e.\+g., float or double). \\
+\hline
+{\em N} & Number of dimensions.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em points} & Vector of input points to modify in-\/place. \\
+\hline
+\mbox{\texttt{ in}}  & {\em target\+\_\+ranges} & Desired output min/max per dimension.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ std::vector<Point<float,\ 2>>\ pts\ =\ generate\_random\_points<float,}
+\DoxyCodeLine{2>(100,\ \{\ \{}
+\DoxyCodeLine{\{0.f,\ 1.f\},\ \{0.f,\ 1.f\}\ \}\ \},\ 42);}
+\DoxyCodeLine{\textcolor{comment}{//\ Refit\ to\ a\ new\ range:\ [10,\ 20]\ ×\ [50,\ 100]\ refit\_points\_to\_range<float,}}
+\DoxyCodeLine{2>(pts,\ \{\ \{\ \{10.f,\ 20.f\},\ \{50.f,\ 100.f\}\ \}\ \});}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+If a dimension has constant value (min == max), the center of the target range is used.
+\end{DoxyNote}
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{comment}{/*\ Copyright\ (c)\ 2025\ Otto\ Link.\ Distributed\ under\ the\ terms\ of\ the\ GNU\ General}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ Public\ License.\ The\ full\ license\ is\ in\ the\ file\ LICENSE,\ distributed\ with}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ this\ software.\ */}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{point_8hpp}{point\_sampler/point.hpp}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a9c8c5679d987d3023b9d3beffd81e6df}{filter\_points\_in\_range}}(}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ std::vector<Point<T,\ N>>\ \ \ \ \ \ \ \&points,}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ N>\ \&axis\_ranges)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ std::vector<Point<T,\ N>>\ filtered;}
+\DoxyCodeLine{\ \ filtered.reserve(points.size());}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ :\ points)}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{bool}\ inside\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ N;\ ++i)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&[min\_val,\ max\_val]\ =\ axis\_ranges[i];}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{if}\ (p[i]\ <\ min\_val\ ||\ p[i]\ >\ max\_val)}
+\DoxyCodeLine{\ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ inside\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (inside)}
+\DoxyCodeLine{\ \ \ \ \ \ filtered.push\_back(p);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ filtered;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N,\ \textcolor{keyword}{typename}\ Func>}
+\DoxyCodeLine{std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a5350b843397a5bf2a748115108ffa21a}{filter\_points\_function}}(\textcolor{keyword}{const}\ std::vector<Point<T,\ N>>\ \&points,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Func\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fn)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ std::vector<Point<T,\ N>>\ filtered;}
+\DoxyCodeLine{\ \ filtered.reserve(points.size());}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ :\ points)}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (fn(p)\ !=\ T(0))\ \textcolor{comment}{//\ keep\ point\ if\ function\ value\ is\ not\ zero}}
+\DoxyCodeLine{\ \ \ \ \ \ filtered.push\_back(p);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ filtered;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceps_a2b8197901114d1c4fd6cfe19efcd3862}{refit\_points\_to\_range}}(std::vector<Point<T,\ N>>\ \ \ \ \ \ \ \ \ \ \ \ \ \&points,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ N>\ \&target\_ranges)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (points.empty())}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ std::array<T,\ N>\ min\_vals,\ max\_vals;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ Initialize\ min/max}}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ min\_vals[d]\ =\ points[0][d];}
+\DoxyCodeLine{\ \ \ \ max\_vals[d]\ =\ points[0][d];}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ Compute\ bounding\ box}}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ :\ points)}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ min\_vals[d]\ =\ std::min(min\_vals[d],\ p[d]);}
+\DoxyCodeLine{\ \ \ \ \ \ max\_vals[d]\ =\ std::max(max\_vals[d],\ p[d]);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ Apply\ linear\ mapping\ to\ each\ point}}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&p\ :\ points)}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{const}\ T\ in\_min\ =\ min\_vals[d];}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{const}\ T\ in\_max\ =\ max\_vals[d];}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{const}\ T\ out\_min\ =\ target\_ranges[d].first;}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{const}\ T\ out\_max\ =\ target\_ranges[d].second;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{if}\ (std::abs(in\_max\ -\/\ in\_min)\ <\ T(1e-\/12))}
+\DoxyCodeLine{\ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Degenerate\ axis:\ center\ the\ target\ range}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ p[d]\ =\ (out\_min\ +\ out\_max)\ /\ T(2);}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ T\ t\ =\ (p[d]\ -\/\ in\_min)\ /\ (in\_max\ -\/\ in\_min);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ p[d]\ =\ out\_min\ +\ t\ *\ (out\_max\ -\/\ out\_min);}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceps_a7addf1455112b7895f8de7c475eed850}{rescale\_points}}(std::vector<Point<T,\ N>>\ \ \ \ \ \ \ \ \ \ \ \ \ \&points,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ N>\ \&ranges)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&pt\ :\ points)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{\ \ \ \ \ \ pt[d]\ =\ ranges[d].first\ +\ pt[d]\ *\ (ranges[d].second\ -\/\ ranges[d].first);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}\ \textcolor{comment}{//\ namespace\ ps}}
+
+\end{DoxyCodeInclude}
+ 

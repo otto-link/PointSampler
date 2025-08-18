@@ -97,14 +97,12 @@ Typedefs</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a5d453a5cb2885c1a8d264ff96303f627" id="r_a5d453a5cb2885c1a8d264ff96303f627"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:a5d453a5cb2885c1a8d264ff96303f627"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a5d453a5cb2885c1a8d264ff96303f627">dbscan_clustering</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, T eps, size_t min_pts)</td></tr>
-<tr class="memdesc:a5d453a5cb2885c1a8d264ff96303f627"><td class="mdescLeft">&#160;</td><td class="mdescRight">Density-Based Spatial Clustering of Applications with Noise (DBSCAN).  <br /></td></tr>
 <tr class="separator:a5d453a5cb2885c1a8d264ff96303f627"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1f4a1110a40bf1c6a687182db6b4b94" id="r_ad1f4a1110a40bf1c6a687182db6b4b94"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
 <tr class="memitem:ad1f4a1110a40bf1c6a687182db6b4b94"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#ad1f4a1110a40bf1c6a687182db6b4b94">distance_rejection_filter</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, T min_dist)</td></tr>
 <tr class="separator:ad1f4a1110a40bf1c6a687182db6b4b94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af23d114903fd5cb3ccb19d3e64183632" id="r_af23d114903fd5cb3ccb19d3e64183632"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N, typename ScaleFn &gt; </td></tr>
 <tr class="memitem:af23d114903fd5cb3ccb19d3e64183632"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#af23d114903fd5cb3ccb19d3e64183632">distance_rejection_filter_warped</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, T base_min_dist, ScaleFn scale_fn)</td></tr>
-<tr class="memdesc:af23d114903fd5cb3ccb19d3e64183632"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filters points based on spatially-varying minimal distance constraints.  <br /></td></tr>
 <tr class="separator:af23d114903fd5cb3ccb19d3e64183632"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e4055582214237ee9f21369133e6194" id="r_a0e4055582214237ee9f21369133e6194"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N, typename DensityFn &gt; </td></tr>
 <tr class="memitem:a0e4055582214237ee9f21369133e6194"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a0e4055582214237ee9f21369133e6194">function_rejection_filter</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, DensityFn density_fn, std::optional&lt; unsigned int &gt; seed=std::nullopt)</td></tr>
@@ -112,37 +110,30 @@ Functions</h2></td></tr>
 <tr class="separator:a0e4055582214237ee9f21369133e6194"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a913ab9d687ee42d04488e5eb0373e23a" id="r_a913ab9d687ee42d04488e5eb0373e23a"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:a913ab9d687ee42d04488e5eb0373e23a"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a913ab9d687ee42d04488e5eb0373e23a">gaussian_clusters</a> (std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; cluster_centers, size_t points_per_cluster, T spread, std::optional&lt; unsigned int &gt; seed=std::nullopt)</td></tr>
-<tr class="memdesc:a913ab9d687ee42d04488e5eb0373e23a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates clustered points around provided cluster centers using a Gaussian distribution.  <br /></td></tr>
 <tr class="separator:a913ab9d687ee42d04488e5eb0373e23a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0efaff8017d5a171ffdf0ed0201bd65d" id="r_a0efaff8017d5a171ffdf0ed0201bd65d"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:a0efaff8017d5a171ffdf0ed0201bd65d"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a0efaff8017d5a171ffdf0ed0201bd65d">gaussian_clusters</a> (size_t cluster_count, size_t points_per_cluster, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, T spread, std::optional&lt; unsigned int &gt; seed=std::nullopt)</td></tr>
-<tr class="memdesc:a0efaff8017d5a171ffdf0ed0201bd65d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates clustered points around random centers uniformly sampled in a bounding box.  <br /></td></tr>
 <tr class="separator:a0efaff8017d5a171ffdf0ed0201bd65d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa8c3b3b3367276f9a194938599d2463b" id="r_aa8c3b3b3367276f9a194938599d2463b"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:aa8c3b3b3367276f9a194938599d2463b"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#aa8c3b3b3367276f9a194938599d2463b">halton_sequence</a> (size_t count, size_t shift)</td></tr>
 <tr class="separator:aa8c3b3b3367276f9a194938599d2463b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a81b18395a05f0bb4d483406e79aa9524" id="r_a81b18395a05f0bb4d483406e79aa9524"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:a81b18395a05f0bb4d483406e79aa9524"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a81b18395a05f0bb4d483406e79aa9524">halton</a> (size_t count, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, std::optional&lt; unsigned int &gt; seed=std::nullopt)</td></tr>
-<tr class="memdesc:a81b18395a05f0bb4d483406e79aa9524"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a set of quasi-random points using the Halton sequence in N dimensions.  <br /></td></tr>
 <tr class="separator:a81b18395a05f0bb4d483406e79aa9524"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae21a8c51533330ead4ebe76eed3e72b3" id="r_ae21a8c51533330ead4ebe76eed3e72b3"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:ae21a8c51533330ead4ebe76eed3e72b3"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#ae21a8c51533330ead4ebe76eed3e72b3">hammersley_sequence</a> (size_t count, size_t shift)</td></tr>
 <tr class="separator:ae21a8c51533330ead4ebe76eed3e72b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad0cc7bc81f7cac9f0be26177b9986a6" id="r_aad0cc7bc81f7cac9f0be26177b9986a6"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:aad0cc7bc81f7cac9f0be26177b9986a6"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#aad0cc7bc81f7cac9f0be26177b9986a6">hammersley</a> (size_t count, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, std::optional&lt; unsigned int &gt; seed=std::nullopt)</td></tr>
-<tr class="memdesc:aad0cc7bc81f7cac9f0be26177b9986a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a set of quasi-random points using the Hammersley sequence in N dimensions.  <br /></td></tr>
 <tr class="separator:aad0cc7bc81f7cac9f0be26177b9986a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a932640b18d76a7e336fc760e9cf5511b" id="r_a932640b18d76a7e336fc760e9cf5511b"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N, typename DensityFn &gt; </td></tr>
 <tr class="memitem:a932640b18d76a7e336fc760e9cf5511b"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a932640b18d76a7e336fc760e9cf5511b">importance_resampling</a> (size_t count, size_t oversampling_ratio, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, DensityFn density_fn, std::optional&lt; unsigned int &gt; seed=std::nullopt)</td></tr>
-<tr class="memdesc:a932640b18d76a7e336fc760e9cf5511b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a point set via importance resampling from a quasi-random oversampled grid.  <br /></td></tr>
 <tr class="separator:a932640b18d76a7e336fc760e9cf5511b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8525c124fef24618bf574b9b7b1ece8" id="r_ad8525c124fef24618bf574b9b7b1ece8"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:ad8525c124fef24618bf574b9b7b1ece8"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#ad8525c124fef24618bf574b9b7b1ece8">jittered_grid</a> (size_t count, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, const std::array&lt; T, N &gt; &amp;jitter_amount, const std::array&lt; T, N &gt; &amp;stagger_ratio, std::optional&lt; unsigned int &gt; seed=std::nullopt)</td></tr>
-<tr class="memdesc:ad8525c124fef24618bf574b9b7b1ece8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a point set on a jittered and optionally staggered grid.  <br /></td></tr>
 <tr class="separator:ad8525c124fef24618bf574b9b7b1ece8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae90df8db8e751ff4b61298114f092714" id="r_ae90df8db8e751ff4b61298114f092714"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:ae90df8db8e751ff4b61298114f092714"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#ae90df8db8e751ff4b61298114f092714">jittered_grid</a> (size_t count, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, std::optional&lt; unsigned int &gt; seed=std::nullopt)</td></tr>
-<tr class="memdesc:ae90df8db8e751ff4b61298114f092714"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a jittered grid of points with full jitter and no stagger.  <br /></td></tr>
 <tr class="separator:ae90df8db8e751ff4b61298114f092714"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbef03daefffe13bd08b9b4c0952c00d" id="r_acbef03daefffe13bd08b9b4c0952c00d"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:acbef03daefffe13bd08b9b4c0952c00d"><td class="memTemplItemLeft" align="right" valign="top">std::pair&lt; std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;, std::vector&lt; size_t &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#acbef03daefffe13bd08b9b4c0952c00d">kmeans_clustering</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, size_t k_clusters, bool normalize_data=true, size_t max_iterations=100)</td></tr>
@@ -153,7 +144,6 @@ Functions</h2></td></tr>
 <tr class="separator:a9ca14831de223ff62a6c3ec93e96a7c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae96771d03336a56988d82df95e8a797a" id="r_ae96771d03336a56988d82df95e8a797a"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:ae96771d03336a56988d82df95e8a797a"><td class="memTemplItemLeft" align="right" valign="top">std::pair&lt; std::vector&lt; T &gt;, std::vector&lt; T &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#ae96771d03336a56988d82df95e8a797a">angle_distribution_neighbors</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, T bin_width, size_t k_neighbors=8)</td></tr>
-<tr class="memdesc:ae96771d03336a56988d82df95e8a797a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the angular distribution function (ADF) using nearest neighbors.  <br /></td></tr>
 <tr class="separator:ae96771d03336a56988d82df95e8a797a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a824a8963ef7b15c01da0f1f9c90eee" id="r_a9a824a8963ef7b15c01da0f1f9c90eee"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:a9a824a8963ef7b15c01da0f1f9c90eee"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a9a824a8963ef7b15c01da0f1f9c90eee">distance_to_boundary</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges)</td></tr>
@@ -165,7 +155,6 @@ Functions</h2></td></tr>
 <tr class="separator:a91a0bac33731ed899845c6081c117db2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:accc008d79bdad63b0acf9a4e627cc479" id="r_accc008d79bdad63b0acf9a4e627cc479"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:accc008d79bdad63b0acf9a4e627cc479"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#accc008d79bdad63b0acf9a4e627cc479">local_density_knn</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, size_t k=8)</td></tr>
-<tr class="memdesc:accc008d79bdad63b0acf9a4e627cc479"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute local point density based on k-nearest neighbors in N dimensions.  <br /></td></tr>
 <tr class="separator:accc008d79bdad63b0acf9a4e627cc479"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac29744e12116f882d8a620a3fd02d72d" id="r_ac29744e12116f882d8a620a3fd02d72d"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:ac29744e12116f882d8a620a3fd02d72d"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; size_t &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#ac29744e12116f882d8a620a3fd02d72d">nearest_neighbors_indices</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, size_t k_neighbors=8)</td></tr>
@@ -173,11 +162,9 @@ Functions</h2></td></tr>
 <tr class="separator:ac29744e12116f882d8a620a3fd02d72d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d80a56ea4774726e748b48e1ecf0a8d" id="r_a8d80a56ea4774726e748b48e1ecf0a8d"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:a8d80a56ea4774726e748b48e1ecf0a8d"><td class="memTemplItemLeft" align="right" valign="top">std::pair&lt; std::vector&lt; T &gt;, std::vector&lt; T &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a8d80a56ea4774726e748b48e1ecf0a8d">radial_distribution</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, T bin_width, T max_distance)</td></tr>
-<tr class="memdesc:a8d80a56ea4774726e748b48e1ecf0a8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the normalized radial distribution function g(r).  <br /></td></tr>
 <tr class="separator:a8d80a56ea4774726e748b48e1ecf0a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a340aa5c812057b97017e88a974e452d8" id="r_a340aa5c812057b97017e88a974e452d8"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:a340aa5c812057b97017e88a974e452d8"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a340aa5c812057b97017e88a974e452d8">percolation_clustering</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, T connection_radius)</td></tr>
-<tr class="memdesc:a340aa5c812057b97017e88a974e452d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Analyze percolation clusters from a set of points using a radius-based neighbor graph.  <br /></td></tr>
 <tr class="separator:a340aa5c812057b97017e88a974e452d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9ee1cf5d335276b7fabe6f1daddf1b0" id="r_af9ee1cf5d335276b7fabe6f1daddf1b0"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:af9ee1cf5d335276b7fabe6f1daddf1b0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#af9ee1cf5d335276b7fabe6f1daddf1b0">operator+</a> (const <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &amp;a, const <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &amp;b)</td></tr>
@@ -271,7 +258,6 @@ Functions</h2></td></tr>
 <tr class="separator:a5350b843397a5bf2a748115108ffa21a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b8197901114d1c4fd6cfe19efcd3862" id="r_a2b8197901114d1c4fd6cfe19efcd3862"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:a2b8197901114d1c4fd6cfe19efcd3862"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a2b8197901114d1c4fd6cfe19efcd3862">refit_points_to_range</a> (std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;target_ranges)</td></tr>
-<tr class="memdesc:a2b8197901114d1c4fd6cfe19efcd3862"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linearly remap a set of points to fit within the specified axis-aligned ranges.  <br /></td></tr>
 <tr class="separator:a2b8197901114d1c4fd6cfe19efcd3862"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7addf1455112b7895f8de7c475eed850" id="r_a7addf1455112b7895f8de7c475eed850"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:a7addf1455112b7895f8de7c475eed850"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a7addf1455112b7895f8de7c475eed850">rescale_points</a> (std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;ranges)</td></tr>
@@ -279,11 +265,9 @@ Functions</h2></td></tr>
 <tr class="separator:a7addf1455112b7895f8de7c475eed850"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29ab0a94bbe26a22cb87bf8f44703527" id="r_a29ab0a94bbe26a22cb87bf8f44703527"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N, typename DensityFn &gt; </td></tr>
 <tr class="memitem:a29ab0a94bbe26a22cb87bf8f44703527"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a29ab0a94bbe26a22cb87bf8f44703527">rejection_sampling</a> (size_t count, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, DensityFn density_fn, std::optional&lt; unsigned int &gt; seed=std::nullopt)</td></tr>
-<tr class="memdesc:a29ab0a94bbe26a22cb87bf8f44703527"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates random points using rejection sampling based on a user-defined density function.  <br /></td></tr>
 <tr class="separator:a29ab0a94bbe26a22cb87bf8f44703527"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed8a3217a801c5b5706f4bcc3306bb18" id="r_aed8a3217a801c5b5706f4bcc3306bb18"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:aed8a3217a801c5b5706f4bcc3306bb18"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#aed8a3217a801c5b5706f4bcc3306bb18">relaxation_ktree</a> (std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, size_t k_neighbors=8, T step_size=T(0.1), size_t iterations=10)</td></tr>
-<tr class="memdesc:aed8a3217a801c5b5706f4bcc3306bb18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Relax a point set using a k-nearest neighbor repulsion algorithm with a KD-tree.  <br /></td></tr>
 <tr class="separator:aed8a3217a801c5b5706f4bcc3306bb18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a802637e81218193c0e65266c8075f002" id="r_a802637e81218193c0e65266c8075f002"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:a802637e81218193c0e65266c8075f002"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a802637e81218193c0e65266c8075f002">save_points_to_csv</a> (const std::string &amp;filename, const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, bool write_header=true)</td></tr>
@@ -299,7 +283,6 @@ Functions</h2></td></tr>
 <tr class="separator:a964f314c19f0b1300d513bce618c5954"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac42b8f3f26e63374a7a724a0cd3d9356" id="r_ac42b8f3f26e63374a7a724a0cd3d9356"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:ac42b8f3f26e63374a7a724a0cd3d9356"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#ac42b8f3f26e63374a7a724a0cd3d9356">extract_clusters</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, const std::vector&lt; int &gt; &amp;labels)</td></tr>
-<tr class="memdesc:ac42b8f3f26e63374a7a724a0cd3d9356"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract clusters of points given DBSCAN (or any clustering) labels.  <br /></td></tr>
 <tr class="separator:ac42b8f3f26e63374a7a724a0cd3d9356"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a677f90d97b1dcfeaa2ecc299ee37f5bf" id="r_a677f90d97b1dcfeaa2ecc299ee37f5bf"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:a677f90d97b1dcfeaa2ecc299ee37f5bf"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a677f90d97b1dcfeaa2ecc299ee37f5bf">merge_by_dimension</a> (const std::array&lt; std::vector&lt; T &gt;, N &gt; &amp;components)</td></tr>
@@ -389,7 +372,9 @@ template&lt;typename T , size_t N&gt; </div>
 <div class="line"><span class="keyword">auto</span> points3D = <a class="code hl_function" href="namespaceps.html#a964f314c19f0b1300d513bce618c5954">add_dimension</a>(points, z_values);</div>
 <div class="line"><span class="comment">// points3D now contains {{1.0f, 2.0f, 10.0f}}, {{3.0f, 4.0f, 20.0f}}</span></div>
 <div class="ttc" id="anamespaceps_html_a964f314c19f0b1300d513bce618c5954"><div class="ttname"><a href="namespaceps.html#a964f314c19f0b1300d513bce618c5954">ps::add_dimension</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N+1 &gt; &gt; add_dimension(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, const std::vector&lt; T &gt; &amp;new_dimension)</div><div class="ttdoc">Add a new dimension to a set of points.</div><div class="ttdef"><b>Definition</b> utils.hpp:141</div></div>
-</div><!-- fragment --> 
+</div><!-- fragment --> <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2utils_8hpp-example.html#a2">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/utils.hpp</a>.</dd>
+</dl>
+
 </div>
 </div>
 <a id="ae96771d03336a56988d82df95e8a797a" name="ae96771d03336a56988d82df95e8a797a"></a>
@@ -425,46 +410,9 @@ template&lt;typename T , size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2metrics_8hpp-example.html#a0">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/metrics.hpp</a>.</dd>
+</dl>
 
-<p>Compute the angular distribution function (ADF) using nearest neighbors. </p>
-<p>The angular distribution function (ADF) measures the distribution of bond angles formed by a point and pairs of its nearest neighbors.</p>
-<ul>
-<li>Flat distribution → random uniform points.</li>
-<li>Peaks at characteristic angles → local order (e.g. hexagonal lattice peaks at 60°).</li>
-<li>Depletions → angular avoidance due to constraints or repulsion.</li>
-</ul>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Numeric type (float, double, ...) </td></tr>
-    <tr><td class="paramname">N</td><td>Dimension of points (N &gt;= 2) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">points</td><td>Vector of points </td></tr>
-    <tr><td class="paramname">bin_width</td><td>Width of angle bins (in radians) </td></tr>
-    <tr><td class="paramname">k_neighbors</td><td>Number of neighbors used for angle calculation (default: 8) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::pair&lt;std::vector&lt;T&gt;, std::vector&lt;T&gt;&gt;<ul>
-<li>First: bin centers (angles in radians)</li>
-<li>Second: normalized ADF values</li>
-</ul>
-</dd></dl>
-<h3><a class="anchor" id="autotoc_md9"></a>
-Example</h3>
-<div class="fragment"><div class="line">std::vector&lt;Point&lt;double, 2&gt;&gt; pts = {</div>
-<div class="line">    {0.0, 0.0}, {1.0, 0.0}, {0.0, 1.0}, {1.0, 1.0}</div>
-<div class="line">};</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">auto</span> [theta, g_theta] = <a class="code hl_function" href="namespaceps.html#ae96771d03336a56988d82df95e8a797a">angle_distribution_neighbors</a>(pts, 0.1, 6);</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; theta.size(); ++i)</div>
-<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;θ=&quot;</span> &lt;&lt; theta[i] &lt;&lt; <span class="stringliteral">&quot;g(θ)=&quot;</span> &lt;&lt; g_theta[i] &lt;&lt; std::endl;</div>
-<div class="ttc" id="anamespaceps_html_ae96771d03336a56988d82df95e8a797a"><div class="ttname"><a href="namespaceps.html#ae96771d03336a56988d82df95e8a797a">ps::angle_distribution_neighbors</a></div><div class="ttdeci">std::pair&lt; std::vector&lt; T &gt;, std::vector&lt; T &gt; &gt; angle_distribution_neighbors(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, T bin_width, size_t k_neighbors=8)</div><div class="ttdoc">Compute the angular distribution function (ADF) using nearest neighbors.</div><div class="ttdef"><b>Definition</b> metrics.hpp:49</div></div>
-</div><!-- fragment --> 
 </div>
 </div>
 <a id="adb0bd4806c7e79eddef0e1263740ae28" name="adb0bd4806c7e79eddef0e1263740ae28"></a>
@@ -536,29 +484,8 @@ template&lt;typename T , size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Density-Based Spatial Clustering of Applications with Noise (DBSCAN). </p>
-<p>Groups points into clusters based on density: a point is a core if it has at least <code>min_pts</code> neighbors within distance <code>eps</code>. Clusters are formed by expanding from core points. Noise points remain unclustered.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Scalar type (float/double). </td></tr>
-    <tr><td class="paramname">N</td><td>Dimension. </td></tr>
-  </table>
-  </dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2dbscan_clustering_8hpp-example.html#a0">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/dbscan_clustering.hpp</a>.</dd>
 </dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">points</td><td>Input point cloud. </td></tr>
-    <tr><td class="paramname">eps</td><td>Neighborhood radius for density check. </td></tr>
-    <tr><td class="paramname">min_pts</td><td>Minimum neighbors (including self) to be a core point. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A vector of cluster labels (-1 = noise, 0..k = cluster IDs).</dd></dl>
-<h3><a class="anchor" id="autotoc_md0"></a>
-Example</h3>
-<div class="fragment"><div class="line"><span class="keyword">auto</span> labels = dbscan&lt;double,2&gt;(points, 0.05, 5);</div>
-</div><!-- fragment --><p>This assigns each 2D point either to a cluster ID or -1 (noise). </p>
 
 </div>
 </div>
@@ -589,6 +516,8 @@ template&lt;typename T , size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2metrics_8hpp-example.html#a8">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/metrics.hpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -619,6 +548,8 @@ template&lt;typename T , std::size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2distance_rejection_filter_8hpp-example.html#a1">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/distance_rejection_filter.hpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -655,38 +586,9 @@ template&lt;typename T , std::size_t N, typename ScaleFn &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2distance_rejection_filter_8hpp-example.html#a0">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/distance_rejection_filter.hpp</a>.</dd>
+</dl>
 
-<p>Filters points based on spatially-varying minimal distance constraints. </p>
-<p>A scale function is used to modulate the minimum allowed distance for each point. The base distance <code>base_min_dist</code> is scaled by the value returned by <code>scale_fn(p)</code>, allowing for adaptive sampling densities.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Scalar type (e.g., float or double) </td></tr>
-    <tr><td class="paramname">N</td><td>Dimensionality of the space </td></tr>
-    <tr><td class="paramname">ScaleFn</td><td>Callable returning a scalar scale factor for a given point</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">points</td><td>Vector of candidate points </td></tr>
-    <tr><td class="paramname">base_min_dist</td><td>Base minimum allowed distance </td></tr>
-    <tr><td class="paramname">scale_fn</td><td>Function providing a local scale factor per point </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; A filtered set of points with variable spacing</dd></dl>
-<h3><a class="anchor" id="autotoc_md1"></a>
-Example</h3>
-<div class="fragment"><div class="line"> <span class="keyword">auto</span> scale_fn = [](<span class="keyword">const</span> <a class="code hl_struct" href="structps_1_1Point.html">Point&lt;float, 2&gt;</a>&amp; p) {</div>
-<div class="line">    <span class="keywordflow">return</span> 0.5f + 0.5f * std::sin(p[0] * 3.1415f); <span class="comment">// Varies between 0.5 and</span></div>
-<div class="line">1</div>
-<div class="line">};</div>
-<div class="line"> </div>
-<div class="line">std::vector&lt;Point&lt;float, 2&gt;&gt; pts = ps::random&lt;float, 2&gt;(1000, {{0,1},{0,1}});</div>
-<div class="line"><span class="keyword">auto</span> filtered = <a class="code hl_function" href="namespaceps.html#af23d114903fd5cb3ccb19d3e64183632">ps::distance_rejection_filter_warped</a>(pts, 0.05f, scale_fn);</div>
-<div class="ttc" id="anamespaceps_html_af23d114903fd5cb3ccb19d3e64183632"><div class="ttname"><a href="namespaceps.html#af23d114903fd5cb3ccb19d3e64183632">ps::distance_rejection_filter_warped</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; distance_rejection_filter_warped(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, T base_min_dist, ScaleFn scale_fn)</div><div class="ttdoc">Filters points based on spatially-varying minimal distance constraints.</div><div class="ttdef"><b>Definition</b> distance_rejection_filter.hpp:95</div></div>
-<div class="ttc" id="astructps_1_1Point_html"><div class="ttname"><a href="structps_1_1Point.html">ps::Point</a></div><div class="ttdoc">A fixed-size N-dimensional point/vector class.</div><div class="ttdef"><b>Definition</b> point.hpp:37</div></div>
-</div><!-- fragment --> 
 </div>
 </div>
 <a id="aecf2b150ec16bf286e6a7b462c4d5808" name="aecf2b150ec16bf286e6a7b462c4d5808"></a>
@@ -771,7 +673,9 @@ template&lt;typename T , size_t N&gt; </div>
 <div class="line"><span class="comment">// distances[0] -&gt; 0.2</span></div>
 <div class="line"><span class="comment">// distances[1] -&gt; 0.1</span></div>
 <div class="ttc" id="anamespaceps_html_a9a824a8963ef7b15c01da0f1f9c90eee"><div class="ttname"><a href="namespaceps.html#a9a824a8963ef7b15c01da0f1f9c90eee">ps::distance_to_boundary</a></div><div class="ttdeci">std::vector&lt; T &gt; distance_to_boundary(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges)</div><div class="ttdoc">Compute the distance of each point to the domain boundary.</div><div class="ttdef"><b>Definition</b> metrics.hpp:152</div></div>
-</div><!-- fragment --> 
+</div><!-- fragment --> <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2metrics_8hpp-example.html#a3">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/metrics.hpp</a>.</dd>
+</dl>
+
 </div>
 </div>
 <a id="ace7642868199df621df9139e5179767b" name="ace7642868199df621df9139e5179767b"></a>
@@ -801,6 +705,8 @@ template&lt;typename T , size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2metrics_8hpp-example.html#a2">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/metrics.hpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -831,29 +737,9 @@ template&lt;typename T , size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2utils_8hpp-example.html#a3">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/utils.hpp</a>.</dd>
+</dl>
 
-<p>Extract clusters of points given DBSCAN (or any clustering) labels. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Scalar type. </td></tr>
-    <tr><td class="paramname">N</td><td>Dimension. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">points</td><td>Input point cloud. </td></tr>
-    <tr><td class="paramname">labels</td><td>Cluster labels (-2 = noise, -1 = unvisited, 0..k = cluster IDs). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A vector of clusters, each cluster is a vector of points.</dd></dl>
-<h3><a class="anchor" id="autotoc_md18"></a>
-Example</h3>
-<div class="fragment"><div class="line"> <span class="keyword">auto</span> labels   = dbscan&lt;double,2&gt;(points, 0.05, 5);</div>
-<div class="line"><span class="keyword">auto</span> clusters = <a class="code hl_function" href="namespaceps.html#ac42b8f3f26e63374a7a724a0cd3d9356">extract_clusters</a>(points, labels);</div>
-<div class="ttc" id="anamespaceps_html_ac42b8f3f26e63374a7a724a0cd3d9356"><div class="ttname"><a href="namespaceps.html#ac42b8f3f26e63374a7a724a0cd3d9356">ps::extract_clusters</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; Point&lt; T, N &gt; &gt; &gt; extract_clusters(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, const std::vector&lt; int &gt; &amp;labels)</div><div class="ttdoc">Extract clusters of points given DBSCAN (or any clustering) labels.</div><div class="ttdef"><b>Definition</b> utils.hpp:178</div></div>
-</div><!-- fragment --> 
 </div>
 </div>
 <a id="a5350b843397a5bf2a748115108ffa21a" name="a5350b843397a5bf2a748115108ffa21a"></a>
@@ -907,7 +793,9 @@ template&lt;typename T , std::size_t N, typename Func &gt; </div>
 <div class="line"><span class="keyword">auto</span> filtered = ps::filter_points_function&lt;float, 2&gt;(pts, [](<span class="keyword">const</span></div>
 <div class="line">Point&lt;float, 2&gt; &amp;p) { <span class="keywordflow">return</span> (p[0] + p[1] &lt; 2.5f) ? 1.f : 0.f; });</div>
 <div class="line"><span class="comment">// Keeps only { {0.f, 0.f}, {1.f, 1.f} }</span></div>
-</div><!-- fragment --> 
+</div><!-- fragment --> <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2range_8hpp-example.html#a1">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/range.hpp</a>.</dd>
+</dl>
+
 </div>
 </div>
 <a id="a9c8c5679d987d3023b9d3beffd81e6df" name="a9c8c5679d987d3023b9d3beffd81e6df"></a>
@@ -965,7 +853,9 @@ template&lt;typename T , size_t N&gt; </div>
 <div class="line"><span class="keyword">auto</span> filtered = ps::filter_points_in_range&lt;float, 2&gt;(pts, { {{0.f, 1.f},</div>
 <div class="line">{0.f, 1.f}} });</div>
 <div class="line"><span class="comment">// filtered now contains only { {0.5f, 0.5f} }</span></div>
-</div><!-- fragment --> 
+</div><!-- fragment --> <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2range_8hpp-example.html#a0">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/range.hpp</a>.</dd>
+</dl>
+
 </div>
 </div>
 <a id="a91a0bac33731ed899845c6081c117db2" name="a91a0bac33731ed899845c6081c117db2"></a>
@@ -1020,7 +910,10 @@ template&lt;typename T , size_t N&gt; </div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// distances_sq[i] contains the squared distance to the closest neighbor of points[i].</span></div>
 <div class="ttc" id="anamespaceps_html_a91a0bac33731ed899845c6081c117db2"><div class="ttname"><a href="namespaceps.html#a91a0bac33731ed899845c6081c117db2">ps::first_neighbor_distance_squared</a></div><div class="ttdeci">std::vector&lt; T &gt; first_neighbor_distance_squared(std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points)</div><div class="ttdoc">Computes the squared distance to the nearest neighbor for each point.</div><div class="ttdef"><b>Definition</b> metrics.hpp:216</div></div>
-</div><!-- fragment --> 
+<div class="ttc" id="astructps_1_1Point_html"><div class="ttname"><a href="structps_1_1Point.html">ps::Point</a></div><div class="ttdoc">A fixed-size N-dimensional point/vector class.</div><div class="ttdef"><b>Definition</b> point.hpp:37</div></div>
+</div><!-- fragment --> <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2metrics_8hpp-example.html#a4">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/metrics.hpp</a>.</dd>
+</dl>
+
 </div>
 </div>
 <a id="a0e4055582214237ee9f21369133e6194" name="a0e4055582214237ee9f21369133e6194"></a>
@@ -1130,33 +1023,6 @@ template&lt;typename T , size_t N&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Generates clustered points around random centers uniformly sampled in a bounding box. </p>
-<p>Cluster centers are randomly sampled within the provided <code>axis_ranges</code>, and each cluster then has <code>points_per_cluster</code> points sampled from a Gaussian distribution centered at the cluster's location, with a specified standard deviation <code>spread</code>.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Scalar type (e.g., float or double) </td></tr>
-    <tr><td class="paramname">N</td><td>Dimensionality of the space </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">cluster_count</td><td>Number of cluster centers to generate </td></tr>
-    <tr><td class="paramname">points_per_cluster</td><td>Number of points per cluster </td></tr>
-    <tr><td class="paramname">axis_ranges</td><td>Axis-aligned bounding box ranges for each dimension </td></tr>
-    <tr><td class="paramname">spread</td><td>Standard deviation of the Gaussian spread </td></tr>
-    <tr><td class="paramname">seed</td><td>Optional random seed </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; A vector of clustered points</dd></dl>
-<h3><a class="anchor" id="autotoc_md3"></a>
-Example</h3>
-<div class="fragment"><div class="line"> <span class="keyword">auto</span> clustered = ps::gaussian_clusters&lt;float, 2&gt;(</div>
-<div class="line">    5, 100,</div>
-<div class="line">    {{{0,1}, {0,1}}}, 0.03f</div>
-<div class="line">);</div>
-</div><!-- fragment --> 
 </div>
 </div>
 <a id="a913ab9d687ee42d04488e5eb0373e23a" name="a913ab9d687ee42d04488e5eb0373e23a"></a>
@@ -1198,35 +1064,9 @@ template&lt;typename T , size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2gaussian_clusters_8hpp-example.html#a0">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/gaussian_clusters.hpp</a>.</dd>
+</dl>
 
-<p>Generates clustered points around provided cluster centers using a Gaussian distribution. </p>
-<p>For each cluster center, this function generates <code>points_per_cluster</code> points where each coordinate is sampled from a normal distribution centered at the coordinate of the cluster center with standard deviation <code>spread</code>.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Scalar type (e.g., float or double) </td></tr>
-    <tr><td class="paramname">N</td><td>Dimensionality of the space </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">cluster_centers</td><td>A vector of cluster center points </td></tr>
-    <tr><td class="paramname">points_per_cluster</td><td>Number of points to generate per cluster </td></tr>
-    <tr><td class="paramname">spread</td><td>Standard deviation of the Gaussian spread </td></tr>
-    <tr><td class="paramname">seed</td><td>Optional random seed </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; A vector of clustered points</dd></dl>
-<h3><a class="anchor" id="autotoc_md2"></a>
-Example</h3>
-<div class="fragment"><div class="line"> std::vector&lt;Point&lt;float, 2&gt;&gt; centers = {</div>
-<div class="line">    {0.2f, 0.2f},</div>
-<div class="line">    {0.8f, 0.8f}</div>
-<div class="line">};</div>
-<div class="line"><span class="keyword">auto</span> clustered = <a class="code hl_function" href="namespaceps.html#a913ab9d687ee42d04488e5eb0373e23a">ps::gaussian_clusters</a>(centers, 100, 0.05f);</div>
-<div class="ttc" id="anamespaceps_html_a913ab9d687ee42d04488e5eb0373e23a"><div class="ttname"><a href="namespaceps.html#a913ab9d687ee42d04488e5eb0373e23a">ps::gaussian_clusters</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; gaussian_clusters(std::vector&lt; Point&lt; T, N &gt; &gt; cluster_centers, size_t points_per_cluster, T spread, std::optional&lt; unsigned int &gt; seed=std::nullopt)</div><div class="ttdoc">Generates clustered points around provided cluster centers using a Gaussian distribution.</div><div class="ttdef"><b>Definition</b> gaussian_clusters.hpp:39</div></div>
-</div><!-- fragment --> 
 </div>
 </div>
 <a id="a898bca65491a14a41bfdd50fdc6230b8" name="a898bca65491a14a41bfdd50fdc6230b8"></a>
@@ -1304,32 +1144,9 @@ template&lt;typename T , size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2halton_8hpp-example.html#a1">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/halton.hpp</a>.</dd>
+</dl>
 
-<p>Generates a set of quasi-random points using the Halton sequence in N dimensions. </p>
-<p>This function generates <code>count</code> points in the unit hypercube using the Halton sequence, then rescales them to fit within the specified axis-aligned bounding box. An optional <code>seed</code> is used as a starting index offset (i.e., a shift) in the sequence to decorrelate multiple calls.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Scalar type (e.g., float or double) </td></tr>
-    <tr><td class="paramname">N</td><td>Dimensionality of the space </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">count</td><td>Number of points to generate </td></tr>
-    <tr><td class="paramname">axis_ranges</td><td>Axis-aligned bounding box for each dimension, as min/max pairs </td></tr>
-    <tr><td class="paramname">seed</td><td>Optional seed that offsets the sequence start index </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; The generated Halton points rescaled to the bounding box</dd></dl>
-<h3><a class="anchor" id="autotoc_md4"></a>
-Example</h3>
-<div class="fragment"><div class="line"> <span class="keyword">auto</span> points = ps::halton&lt;float, 2&gt;(</div>
-<div class="line">    1000,</div>
-<div class="line">    {{{0, 1}, {0, 1}}}, 42</div>
-<div class="line">);</div>
-</div><!-- fragment --> 
 </div>
 </div>
 <a id="aa8c3b3b3367276f9a194938599d2463b" name="aa8c3b3b3367276f9a194938599d2463b"></a>
@@ -1359,6 +1176,8 @@ template&lt;typename T , size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2halton_8hpp-example.html#a0">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/halton.hpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -1395,32 +1214,9 @@ template&lt;typename T , size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2hammersley_8hpp-example.html#a1">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/hammersley.hpp</a>.</dd>
+</dl>
 
-<p>Generates a set of quasi-random points using the Hammersley sequence in N dimensions. </p>
-<p>This function generates <code>count</code> points in the unit hypercube using the Hammersley sequence, then rescales them to fit within the specified axis-aligned bounding box. An optional <code>seed</code> can be used as a starting index offset (i.e., a shift) to decorrelate multiple calls or introduce variation.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Scalar type (e.g., float or double) </td></tr>
-    <tr><td class="paramname">N</td><td>Dimensionality of the space </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">count</td><td>Number of points to generate </td></tr>
-    <tr><td class="paramname">axis_ranges</td><td>Axis-aligned bounding box for each dimension, as min/max pairs </td></tr>
-    <tr><td class="paramname">seed</td><td>Optional seed that offsets the sequence start index </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; The generated Hammersley points rescaled to the bounding box</dd></dl>
-<h3><a class="anchor" id="autotoc_md5"></a>
-Example</h3>
-<div class="fragment"><div class="line"> <span class="keyword">auto</span> points = ps::hammersley&lt;float, 3&gt;(</div>
-<div class="line">    512,</div>
-<div class="line">    {{{-1, 1}, {-1, 1}, {0, 1}}}, 7</div>
-<div class="line">);</div>
-</div><!-- fragment --> 
 </div>
 </div>
 <a id="ae21a8c51533330ead4ebe76eed3e72b3" name="ae21a8c51533330ead4ebe76eed3e72b3"></a>
@@ -1450,6 +1246,8 @@ template&lt;typename T , size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2hammersley_8hpp-example.html#a0">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/hammersley.hpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -1498,40 +1296,9 @@ template&lt;typename T , size_t N, typename DensityFn &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2importance_resampling_8hpp-example.html#a0">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/importance_resampling.hpp</a>.</dd>
+</dl>
 
-<p>Generates a point set via importance resampling from a quasi-random oversampled grid. </p>
-<p>This function uses a Halton sequence to create an oversampled set of candidate points in the domain. Each point is assigned a weight based on the provided density function. A discrete distribution is then used to resample <code>count</code> points according to these weights.</p>
-<p>The higher the <code>oversampling_ratio</code>, the better the approximation to the target density, at the cost of performance.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Scalar type (e.g., float or double) </td></tr>
-    <tr><td class="paramname">N</td><td>Dimensionality of the space </td></tr>
-    <tr><td class="paramname">DensityFn</td><td>A callable with signature <code>T(const <a class="el" href="structps_1_1Point.html" title="A fixed-size N-dimensional point/vector class.">Point</a>&lt;T, N&gt;&amp;)</code> returning a non-negative density value </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">count</td><td>Number of points to return after resampling </td></tr>
-    <tr><td class="paramname">oversampling_ratio</td><td>Number of candidate points to generate as a multiple of <code>count</code> </td></tr>
-    <tr><td class="paramname">axis_ranges</td><td>Axis-aligned bounding box defining the domain of the points </td></tr>
-    <tr><td class="paramname">density_fn</td><td>Function mapping a point to a (non-negative) density value </td></tr>
-    <tr><td class="paramname">seed</td><td>Optional seed to control the random number generator </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; The resulting resampled point set</dd></dl>
-<h3><a class="anchor" id="autotoc_md6"></a>
-Example</h3>
-<div class="fragment"><div class="line"> <span class="keyword">auto</span> density = [](<span class="keyword">const</span> <a class="code hl_struct" href="structps_1_1Point.html">Point&lt;float, 2&gt;</a> &amp;p) {</div>
-<div class="line">    <span class="keywordflow">return</span> std::exp(-10.0f * (p[0]*p[0] + p[1]*p[1]));</div>
-<div class="line">};</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">auto</span> points = ps::importance_resampling&lt;float, 2&gt;(</div>
-<div class="line">    500, 5,</div>
-<div class="line">    {{{-1, 1}, {-1, 1}}}, density, 42</div>
-<div class="line">);</div>
-</div><!-- fragment --> 
 </div>
 </div>
 <a id="aedb5908eae325f054e4f3dd6b9b223af" name="aedb5908eae325f054e4f3dd6b9b223af"></a>
@@ -1627,37 +1394,9 @@ template&lt;typename T , size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2jittered_grid_8hpp-example.html#a0">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/jittered_grid.hpp</a>.</dd>
+</dl>
 
-<p>Generates a point set on a jittered and optionally staggered grid. </p>
-<p>This function divides the domain into a grid and places one point in each selected cell. Each point is jittered within its cell, and staggered offsets may be applied depending on the index of higher-dimensional axes. The result is a semi-regular sampling pattern with randomness.</p>
-<p>Jittering prevents aliasing, and staggering introduces a controlled shift between alternating cells to improve uniformity and avoid alignment artifacts.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Scalar type (e.g., float or double) </td></tr>
-    <tr><td class="paramname">N</td><td>Dimensionality of the space </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">count</td><td>Number of output points (best effort, may be capped by total available cells) </td></tr>
-    <tr><td class="paramname">axis_ranges</td><td>Axis-aligned bounding box defining the sampling domain </td></tr>
-    <tr><td class="paramname">jitter_amount</td><td>Per-dimension jitter factor ∈ [0, 1]. A value of 1.0 means full jitter in the cell. </td></tr>
-    <tr><td class="paramname">stagger_ratio</td><td>Per-dimension stagger ratio, indicating how much to offset points based on higher dimension parity </td></tr>
-    <tr><td class="paramname">seed</td><td>Optional seed for deterministic jittering and shuffling </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; Sampled points</dd></dl>
-<h3><a class="anchor" id="autotoc_md7"></a>
-Example</h3>
-<div class="fragment"><div class="line"> std::array&lt;std::pair&lt;float, float&gt;, 2&gt; bounds = {{{0.0f, 1.0f}, {0.0f,</div>
-<div class="line">1.0f}}};</div>
-<div class="line">std::array&lt;float, 2&gt; jitter = {0.8f, 0.8f};</div>
-<div class="line">std::array&lt;float, 2&gt; stagger = {0.2f, 0.0f};</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">auto</span> samples = ps::jittered_grid&lt;float, 2&gt;(256, bounds, jitter, stagger, 42);</div>
-</div><!-- fragment --> 
 </div>
 </div>
 <a id="ae90df8db8e751ff4b61298114f092714" name="ae90df8db8e751ff4b61298114f092714"></a>
@@ -1694,30 +1433,6 @@ template&lt;typename T , size_t N&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Generates a jittered grid of points with full jitter and no stagger. </p>
-<p>This overload defaults to jittering each dimension fully within its cell and applies no staggering. It is equivalent to calling the full version with <code>jitter_amount</code> filled with 1.0 and <code>stagger_ratio</code> filled with 0.0.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Scalar type (e.g., float or double) </td></tr>
-    <tr><td class="paramname">N</td><td>Dimensionality of the space </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">count</td><td>Number of points to generate </td></tr>
-    <tr><td class="paramname">axis_ranges</td><td>Axis-aligned bounding box defining the sampling domain </td></tr>
-    <tr><td class="paramname">seed</td><td>Optional seed for deterministic jittering </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; Jittered point samples</dd></dl>
-<h3><a class="anchor" id="autotoc_md8"></a>
-Example</h3>
-<div class="fragment"><div class="line"> std::array&lt;std::pair&lt;double, double&gt;, 3&gt; bounds = {{{0, 1}, {0, 1}, {0,</div>
-<div class="line">1}}};</div>
-<div class="line"><span class="keyword">auto</span> points = ps::jittered_grid&lt;double, 3&gt;(1000, bounds, 1234);</div>
-</div><!-- fragment --> 
 </div>
 </div>
 <a id="acbef03daefffe13bd08b9b4c0952c00d" name="acbef03daefffe13bd08b9b4c0952c00d"></a>
@@ -1865,6 +1580,8 @@ template&lt;typename T , size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2metrics_8hpp-example.html#a5">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/metrics.hpp</a>, and <a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2relaxation_8hpp-example.html#a1">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/relaxation.hpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -1931,50 +1648,9 @@ template&lt;typename T , size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2metrics_8hpp-example.html#a6">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/metrics.hpp</a>.</dd>
+</dl>
 
-<p>Compute local point density based on k-nearest neighbors in N dimensions. </p>
-<p>The density at each point is estimated as:  </p><p class="formulaDsp">
-<picture><source srcset="form_0_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
-\rho_i = \frac{k}{V_N r_i^N}
-\]" src="form_0.png"/></picture>
-</p>
-<p> where (r_i) is the distance to the k-th nearest neighbor, (V_N) is the volume of the unit N-ball:  </p><p class="formulaDsp">
-<picture><source srcset="form_1_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
-V_N = \frac{\pi^{N/2}}{\Gamma(N/2 + 1)}
-\]" src="form_1.png"/></picture>
-</p>
-<p> and (\Gamma) is the gamma function. This generalizes to any dimension.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Scalar type (e.g., float, double). </td></tr>
-    <tr><td class="paramname">N</td><td>Dimension of the points. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">points</td><td>Vector of points in N-dimensional space. </td></tr>
-    <tr><td class="paramname">k</td><td>Number of nearest neighbors to use for density estimation (should be &gt;= 1). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Vector of local densities for each point.</dd></dl>
-<h3><a class="anchor" id="autotoc_md10"></a>
-Example</h3>
-<div class="fragment"><div class="line">std::vector&lt;Point&lt;double,3&gt;&gt; pts = ...; <span class="comment">// 3D points</span></div>
-<div class="line"><span class="keywordtype">size_t</span> k = 8;</div>
-<div class="line"><span class="keyword">auto</span> densities = local_density_knn&lt;double,3&gt;(pts, k);</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md11"></a>
-Notes</h3>
-<ul>
-<li>Works in any dimension (N).</li>
-<li>High k gives smoother density estimates, low k captures local fluctuations.</li>
-<li>The resulting density units are “points per unit volume” in N dimensions.</li>
-</ul>
-<div class="image">
-<img src="metrics_local_density_knn.jpg" alt=""/>
-</div>
- 
 </div>
 </div>
 <a id="a677f90d97b1dcfeaa2ecc299ee37f5bf" name="a677f90d97b1dcfeaa2ecc299ee37f5bf"></a>
@@ -1994,6 +1670,8 @@ template&lt;typename T , size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2utils_8hpp-example.html#a4">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/utils.hpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -2055,6 +1733,8 @@ template&lt;typename T , size_t N&gt; </div>
 <div class="line"><span class="comment">// neighbors[1] might contain {0, 3}</span></div>
 <div class="ttc" id="anamespaceps_html_ac29744e12116f882d8a620a3fd02d72d"><div class="ttname"><a href="namespaceps.html#ac29744e12116f882d8a620a3fd02d72d">ps::nearest_neighbors_indices</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; size_t &gt; &gt; nearest_neighbors_indices(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, size_t k_neighbors=8)</div><div class="ttdoc">Finds the nearest neighbors for each point in a set.</div><div class="ttdef"><b>Definition</b> metrics.hpp:356</div></div>
 </div><!-- fragment --> </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2metrics_8hpp-example.html#a1">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/metrics.hpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -2099,7 +1779,9 @@ template&lt;typename T , size_t N&gt; </div>
 <div class="line"><a class="code hl_function" href="namespaceps.html#a172358f05108b5cabdac4e43ab309ab2">normalize_points</a>(points);</div>
 <div class="line"><span class="comment">// Now points coordinates are scaled in [0, 1] along each axis</span></div>
 <div class="ttc" id="anamespaceps_html_a172358f05108b5cabdac4e43ab309ab2"><div class="ttname"><a href="namespaceps.html#a172358f05108b5cabdac4e43ab309ab2">ps::normalize_points</a></div><div class="ttdeci">void normalize_points(std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points)</div><div class="ttdoc">Normalize the coordinates of a set of points along each axis to the range [0, 1].</div><div class="ttdef"><b>Definition</b> utils.hpp:292</div></div>
-</div><!-- fragment --> 
+</div><!-- fragment --> <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2utils_8hpp-example.html#a5">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/utils.hpp</a>.</dd>
+</dl>
+
 </div>
 </div>
 <a id="a7de6090e2c8291401816be9bc6cda914" name="a7de6090e2c8291401816be9bc6cda914"></a>
@@ -2119,6 +1801,8 @@ template&lt;typename T , size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2relaxation_8hpp-example.html#a2">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/relaxation.hpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -2449,33 +2133,9 @@ template&lt;typename T , size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2percolation_clustering_8hpp-example.html#a0">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/percolation_clustering.hpp</a>.</dd>
+</dl>
 
-<p>Analyze percolation clusters from a set of points using a radius-based neighbor graph. </p>
-<p>Builds a graph where edges exist if points are within <code>connection_radius</code>, then finds connected components (clusters).</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Scalar type (e.g., float, double). </td></tr>
-    <tr><td class="paramname">N</td><td>Dimension. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">points</td><td>Input set of points. </td></tr>
-    <tr><td class="paramname">connection_radius</td><td>Maximum distance for connectivity between points. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A vector of cluster labels, size = points.size(). Label = -1 if unassigned.</dd></dl>
-<h3><a class="anchor" id="autotoc_md13"></a>
-Example</h3>
-<div class="fragment"><div class="line"> std::vector&lt;Point&lt;double,2&gt;&gt; pts = { {0.1,0.2}, {0.15,0.22}, {0.9,0.9}</div>
-<div class="line">};</div>
-<div class="line"><span class="keyword">auto</span> labels = analyze_percolation_clusters&lt;double,2&gt;(pts, 0.1);</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// labels might be {0,0,1}, meaning the first two form a cluster, third is</span></div>
-<div class="line">separate.</div>
-</div><!-- fragment --> 
 </div>
 </div>
 <a id="a5b1e932ba8a20e05cd8c113179aa77c8" name="a5b1e932ba8a20e05cd8c113179aa77c8"></a>
@@ -2619,52 +2279,9 @@ template&lt;typename T , size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2metrics_8hpp-example.html#a7">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/metrics.hpp</a>.</dd>
+</dl>
 
-<p>Compute the normalized radial distribution function g(r). </p>
-<p>The radial distribution function (RDF) describes how the density of points varies as a function of distance from a reference point.</p>
-<ul>
-<li>g(r) ≈ 1 → uniform / random distribution at distance r</li>
-<li>g(r) &gt; 1 → clustering / aggregation (excess probability of finding neighbors)</li>
-<li>g(r) &lt; 1 → depletion / exclusion (points repel or avoid each other)</li>
-</ul>
-<p>This function normalizes the observed pair distances against the expected density in the domain (given by axis_ranges).</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Numeric type (float, double, ...) </td></tr>
-    <tr><td class="paramname">N</td><td>Dimension of points </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">points</td><td>Vector of points </td></tr>
-    <tr><td class="paramname">axis_ranges</td><td>Axis-aligned domain ranges for each dimension </td></tr>
-    <tr><td class="paramname">bin_width</td><td>Width of distance bins </td></tr>
-    <tr><td class="paramname">max_distance</td><td>Maximum distance to consider </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::pair&lt;std::vector&lt;T&gt;, std::vector&lt;T&gt;&gt;<ul>
-<li>First: radii (bin centers)</li>
-<li>Second: normalized RDF values g(r)</li>
-</ul>
-</dd></dl>
-<h3><a class="anchor" id="autotoc_md12"></a>
-Example</h3>
-<div class="fragment"><div class="line">std::vector&lt;Point&lt;double, 2&gt;&gt; pts = {</div>
-<div class="line">    {0.0, 0.0}, {1.0, 0.0}, {0.0, 1.0}, {1.0, 1.0}</div>
-<div class="line">};</div>
-<div class="line"> </div>
-<div class="line">std::array&lt;std::pair&lt;double,double&gt;,2&gt; ranges = {</div>
-<div class="line">    std::make_pair(0.0, 1.0), std::make_pair(0.0, 1.0)</div>
-<div class="line">};</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">auto</span> [r, g] = <a class="code hl_function" href="namespaceps.html#a8d80a56ea4774726e748b48e1ecf0a8d">radial_distribution</a>(pts, ranges, 0.1, 2.0);</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; r.size(); ++i)</div>
-<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;r=&quot;</span> &lt;&lt; r[i] &lt;&lt; <span class="stringliteral">&quot; g(r)=&quot;</span> &lt;&lt; g[i] &lt;&lt; std::endl;</div>
-<div class="ttc" id="anamespaceps_html_a8d80a56ea4774726e748b48e1ecf0a8d"><div class="ttname"><a href="namespaceps.html#a8d80a56ea4774726e748b48e1ecf0a8d">ps::radial_distribution</a></div><div class="ttdeci">std::pair&lt; std::vector&lt; T &gt;, std::vector&lt; T &gt; &gt; radial_distribution(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, T bin_width, T max_distance)</div><div class="ttdoc">Compute the normalized radial distribution function g(r).</div><div class="ttdef"><b>Definition</b> metrics.hpp:431</div></div>
-</div><!-- fragment --> 
 </div>
 </div>
 <a id="a10763ef2a872aa9eddb48ea341cd6f69" name="a10763ef2a872aa9eddb48ea341cd6f69"></a>
@@ -2979,31 +2596,8 @@ template&lt;typename T , size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Linearly remap a set of points to fit within the specified axis-aligned ranges. </p>
-<p>This function computes the axis-aligned bounding box (AABB) of the input points and linearly rescales each point so that all dimensions lie in the given <code>target_ranges</code>.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Numeric type (e.g., float or double). </td></tr>
-    <tr><td class="paramname">N</td><td>Number of dimensions.</td></tr>
-  </table>
-  </dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2range_8hpp-example.html#a2">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/range.hpp</a>.</dd>
 </dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">points</td><td>Vector of input points to modify in-place. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">target_ranges</td><td>Desired output min/max per dimension.</td></tr>
-  </table>
-  </dd>
-</dl>
-<h3><a class="anchor" id="autotoc_md14"></a>
-Example</h3>
-<div class="fragment"><div class="line"> std::vector&lt;Point&lt;float, 2&gt;&gt; pts = generate_random_points&lt;float,</div>
-<div class="line">2&gt;(100, { {</div>
-<div class="line">{0.f, 1.f}, {0.f, 1.f} } }, 42);</div>
-<div class="line"><span class="comment">// Refit to a new range: [10, 20] × [50, 100] refit_points_to_range&lt;float,</span></div>
-<div class="line">2&gt;(pts, { { {10.f, 20.f}, {50.f, 100.f} } });</div>
-</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>If a dimension has constant value (min == max), the center of the target range is used. </dd></dl>
 
 </div>
 </div>
@@ -3046,53 +2640,8 @@ template&lt;typename T , size_t N, typename DensityFn &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Generates random points using rejection sampling based on a user-defined density function. </p>
-<p>This function uniformly samples candidate points within the given axis-aligned bounds and retains them based on the output of a user-provided density function. The <code>density_fn</code> should return a probability in the range [0, 1] for each point.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Numeric type (e.g., float or double). </td></tr>
-    <tr><td class="paramname">N</td><td>Number of dimensions. </td></tr>
-    <tr><td class="paramname">DensityFn</td><td>Callable with signature T(Point&lt;T, N&gt;) returning a probability in [0, 1].</td></tr>
-  </table>
-  </dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2rejection_sampling_8hpp-example.html#a0">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/rejection_sampling.hpp</a>.</dd>
 </dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">count</td><td>Desired number of accepted points. </td></tr>
-    <tr><td class="paramname">axis_ranges</td><td>Ranges for each axis in the form of an array of (min, max) pairs. </td></tr>
-    <tr><td class="paramname">density_fn</td><td>Function that returns a probability for accepting a point. </td></tr>
-    <tr><td class="paramname">seed</td><td>Optional seed for reproducibility.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; A vector of accepted points based on rejection sampling.</dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">std::invalid_argumentifanyaxisrangeisinvalid(min&gt;max).</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<h3><a class="anchor" id="autotoc_md15"></a>
-Example</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="rejection__sampling_8hpp.html">point_sampler/rejection_sampling.hpp</a>&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">float</span> radial_density(<span class="keyword">const</span> <a class="code hl_struct" href="structps_1_1Point.html">Point&lt;float, 2&gt;</a>&amp; p)</div>
-<div class="line">{</div>
-<div class="line">    <span class="keywordtype">float</span> r2 = p[0] * p[0] + p[1] * p[1];</div>
-<div class="line">    <span class="keywordflow">return</span> std::exp(-r2); <span class="comment">// higher near origin, drops with radius</span></div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    std::array&lt;std::pair&lt;float, float&gt;, 2&gt; bounds = { { {-2.0f, 2.0f},</div>
-<div class="line">{-2.0f, 2.0f} } };</div>
-<div class="line">    <span class="keyword">auto</span> pts = ps::rejection_sampling&lt;float, 2&gt;(1000, bounds, radial_density,</div>
-<div class="line">42);</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Generated &quot;</span> &lt;&lt; pts.size() &lt;&lt; <span class="stringliteral">&quot; points.\n&quot;</span>;</div>
-<div class="line">}</div>
-<div class="ttc" id="arejection__sampling_8hpp_html"><div class="ttname"><a href="rejection__sampling_8hpp.html">rejection_sampling.hpp</a></div></div>
-</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>Rejection sampling can be inefficient if <code>density_fn</code> returns low values over most of the domain, as many candidate samples will be discarded. </dd></dl>
 
 </div>
 </div>
@@ -3135,50 +2684,8 @@ template&lt;typename T , size_t N&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Relax a point set using a k-nearest neighbor repulsion algorithm with a KD-tree. </p>
-<p>This function performs iterative relaxation on a set of N-dimensional points by pushing each point away from its nearest neighbors. It uses a KD-tree for efficient neighbor lookup. The goal is to reduce clustering and obtain a more uniform or blue-noise-like distribution.</p>
-<p>Each point is offset based on inverse-distance-weighted repulsion from its k-nearest neighbors, normalized and scaled by a step size. The point set is updated over a number of iterations.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Numeric type for coordinates (e.g., float or double). </td></tr>
-    <tr><td class="paramname">N</td><td>Number of dimensions.</td></tr>
-  </table>
-  </dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2relaxation_8hpp-example.html#a0">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/relaxation.hpp</a>.</dd>
 </dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">points</td><td>The point set to relax. This vector will be modified in place. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">k_neighbors</td><td>Number of neighbors to consider (default is 8). </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">step_size</td><td>How far to move a point per iteration (default is 0.1). </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">iterations</td><td>Number of relaxation iterations (default is 10).</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>The KD-tree is rebuilt on each iteration to reflect the updated positions.</dd></dl>
-<h3><a class="anchor" id="autotoc_md16"></a>
-Example</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="relaxation_8hpp.html">point_sampler/relaxation.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line">std::vector&lt;Point&lt;float, 2&gt;&gt; pts = generate_random_points&lt;float, 2&gt;(</div>
-<div class="line">    1000, { { {0.f, 1.f}, {0.f, 1.f} } }, 42);</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// Apply 10 iterations of relaxation relaxation_ktree&lt;float, 2&gt;(pts, 8, 0.1f,</span></div>
-<div class="line">10);</div>
-<div class="ttc" id="arelaxation_8hpp_html"><div class="ttname"><a href="relaxation_8hpp.html">relaxation.hpp</a></div></div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md17"></a>
-How it works:</h3>
-<ul>
-<li>For each point:<ul>
-<li>Find its <code>k_neighbors</code> nearest neighbors using a KD-tree.</li>
-<li>Compute offset vectors from the current point to each neighbor.</li>
-<li>Weight the vectors by the inverse square distance (stronger push from closer neighbors).</li>
-<li>Accumulate the offset, normalize, and scale by <code>step_size</code>.</li>
-<li>Apply the movement to each point.</li>
-</ul>
-</li>
-<li>Repeat for <code>iterations</code> steps. </li>
-</ul>
 
 </div>
 </div>
@@ -3231,6 +2738,8 @@ template&lt;typename T , size_t N&gt; </div>
 <div class="line">ps::rescale_points&lt;float, 2&gt;(pts, { { {10.f, 20.f}, {100.f, 200.f} } });</div>
 <div class="line"><span class="comment">// pts is now { {10.f, 100.f}, {20.f, 200.f}, {15.f, 150.f} }</span></div>
 </div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>Assumes points are in [0, 1]^N. Does not check bounds. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2halton_8hpp-example.html#a2">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/halton.hpp</a>, <a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2hammersley_8hpp-example.html#a2">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/hammersley.hpp</a>, and <a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2range_8hpp-example.html#a3">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/range.hpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -3286,6 +2795,8 @@ template&lt;typename T , size_t N&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the file was successfully written, false otherwise. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2utils_8hpp-example.html#a0">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/utils.hpp</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -3356,7 +2867,9 @@ template&lt;typename T &gt; </div>
 <div class="line"><span class="comment">// 2.5</span></div>
 <div class="line"><span class="comment">// 3.7</span></div>
 <div class="ttc" id="anamespaceps_html_a5b92b660faab5030374ba2dee9f89810"><div class="ttname"><a href="namespaceps.html#a5b92b660faab5030374ba2dee9f89810">ps::save_vector_to_csv</a></div><div class="ttdeci">bool save_vector_to_csv(const std::string &amp;filename, const std::vector&lt; T &gt; &amp;values, bool write_header=true, const std::string &amp;header_name=&quot;value&quot;)</div><div class="ttdoc">Save a 1D vector of values to a CSV file.</div><div class="ttdef"><b>Definition</b> utils.hpp:95</div></div>
-</div><!-- fragment --> 
+</div><!-- fragment --> <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2utils_8hpp-example.html#a1">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/utils.hpp</a>.</dd>
+</dl>
+
 </div>
 </div>
 <a id="af6737277b9cc05d5f2ab248f17baea3b" name="af6737277b9cc05d5f2ab248f17baea3b"></a>
@@ -3398,6 +2911,8 @@ template&lt;typename T , size_t N&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>An array of N vectors, each containing the values for one coordinate axis. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2utils_8hpp-example.html#a6">/home/runner/work/PointSampler/PointSampler/PointSampler/include/point_sampler/utils.hpp</a>.</dd>
+</dl>
 
 </div>
 </div>

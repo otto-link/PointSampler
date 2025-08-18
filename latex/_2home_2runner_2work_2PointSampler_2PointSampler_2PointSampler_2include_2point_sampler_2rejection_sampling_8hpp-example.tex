@@ -1,0 +1,104 @@
+\doxysection{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/rejection\+\_\+sampling.\+hpp}
+\hypertarget{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2rejection_sampling_8hpp-example}{}\label{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2rejection_sampling_8hpp-example}Generates random points using rejection sampling based on a user-\/defined density function.
+
+Generates random points using rejection sampling based on a user-\/defined density function.\+This function uniformly samples candidate points within the given axis-\/aligned bounds and retains them based on the output of a user-\/provided density function. The {\ttfamily density\+\_\+fn} should return a probability in the range \mbox{[}0, 1\mbox{]} for each point.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Numeric type (e.\+g., float or double). \\
+\hline
+{\em N} & Number of dimensions. \\
+\hline
+{\em Density\+Fn} & Callable with signature T(\+Point$<$\+T, N$>$) returning a probability in \mbox{[}0, 1\mbox{]}.\\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em count} & Desired number of accepted points. \\
+\hline
+{\em axis\+\_\+ranges} & Ranges for each axis in the form of an array of (min, max) pairs. \\
+\hline
+{\em density\+\_\+fn} & Function that returns a probability for accepting a point. \\
+\hline
+{\em seed} & Optional seed for reproducibility.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of accepted points based on rejection sampling.
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argumentifanyaxisrangeisinvalid(min$>$max).} & \\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{rejection__sampling_8hpp}{point\_sampler/rejection\_sampling.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{float}\ radial\_density(\textcolor{keyword}{const}\ Point<float,\ 2>\&\ p)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{float}\ r2\ =\ p[0]\ *\ p[0]\ +\ p[1]\ *\ p[1];}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ std::exp(-\/r2);\ \textcolor{comment}{//\ higher\ near\ origin,\ drops\ with\ radius}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ main()\ \{}
+\DoxyCodeLine{\ \ \ \ std::array<std::pair<float,\ float>,\ 2>\ bounds\ =\ \{\ \{\ \{-\/2.0f,\ 2.0f\},}
+\DoxyCodeLine{\{-\/2.0f,\ 2.0f\}\ \}\ \};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ pts\ =\ ps::rejection\_sampling<float,\ 2>(1000,\ bounds,\ radial\_density,}
+\DoxyCodeLine{42);}
+\DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Generated\ "{}}\ <<\ pts.size()\ <<\ \textcolor{stringliteral}{"{}\ points.\(\backslash\)n"{}};}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+\begin{DoxyNote}{Note}
+Rejection sampling can be inefficient if {\ttfamily density\+\_\+fn} returns low values over most of the domain, as many candidate samples will be discarded.
+\end{DoxyNote}
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{comment}{/*\ Copyright\ (c)\ 2025\ Otto\ Link.\ Distributed\ under\ the\ terms\ of\ the\ GNU\ General}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ Public\ License.\ The\ full\ license\ is\ in\ the\ file\ LICENSE,\ distributed\ with}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ this\ software.\ */}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{function__rejection__filter_8hpp}{point\_sampler/function\_rejection\_filter.hpp}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N,\ \textcolor{keyword}{typename}\ DensityFn>}
+\DoxyCodeLine{std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a29ab0a94bbe26a22cb87bf8f44703527}{rejection\_sampling}}(}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ count,}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ N>\ \&axis\_ranges,}
+\DoxyCodeLine{\ \ \ \ DensityFn\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ density\_fn,}
+\DoxyCodeLine{\ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ \ \ \ \ \ \ seed\ =\ std::nullopt)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ std::mt19937\ gen(seed\ ?\ *seed\ :\ std::random\_device\{\}());}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ std::array<std::uniform\_real\_distribution<T>,\ N>\ coord\_dists;}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ N;\ ++i)}
+\DoxyCodeLine{\ \ \ \ coord\_dists[i]\ =\ std::uniform\_real\_distribution<T>(axis\_ranges[i].first,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ axis\_ranges[i].second);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ std::vector<Point<T,\ N>>\ candidates;}
+\DoxyCodeLine{\ \ candidates.reserve(count\ *\ 2);\ \textcolor{comment}{//\ overgenerate}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{while}\ (candidates.size()\ <\ count\ *\ 2)}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ Point<T,\ N>\ p;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ N;\ ++i)}
+\DoxyCodeLine{\ \ \ \ \ \ p[i]\ =\ coord\_dists[i](gen);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ candidates.push\_back(p);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ function\_rejection\_filter<T,\ N>(candidates,\ density\_fn,\ seed);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}\ \textcolor{comment}{//\ namespace\ ps}}
+
+\end{DoxyCodeInclude}
+ 

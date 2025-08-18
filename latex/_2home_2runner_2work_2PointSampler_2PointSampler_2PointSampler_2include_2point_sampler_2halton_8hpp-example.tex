@@ -1,0 +1,92 @@
+\doxysection{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/halton.\+hpp}
+\hypertarget{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2halton_8hpp-example}{}\label{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2halton_8hpp-example}Generates a set of quasi-\/random points using the Halton sequence in N dimensions.
+
+Generates a set of quasi-\/random points using the Halton sequence in N dimensions.\+This function generates {\ttfamily count} points in the unit hypercube using the Halton sequence, then rescales them to fit within the specified axis-\/aligned bounding box. An optional {\ttfamily seed} is used as a starting index offset (i.\+e., a shift) in the sequence to decorrelate multiple calls.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Scalar type (e.\+g., float or double) \\
+\hline
+{\em N} & Dimensionality of the space \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em count} & Number of points to generate \\
+\hline
+{\em axis\+\_\+ranges} & Axis-\/aligned bounding box for each dimension, as min/max pairs \\
+\hline
+{\em seed} & Optional seed that offsets the sequence start index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$\+Point$<$\+T, N$>$$>$ The generated Halton points rescaled to the bounding box
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \textcolor{keyword}{auto}\ points\ =\ ps::halton<float,\ 2>(}
+\DoxyCodeLine{\ \ \ \ 1000,}
+\DoxyCodeLine{\ \ \ \ \{\{\{0,\ 1\},\ \{0,\ 1\}\}\},\ 42}
+\DoxyCodeLine{);}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{comment}{/*\ Copyright\ (c)\ 2025\ Otto\ Link.\ Distributed\ under\ the\ terms\ of\ the\ GNU\ General}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ Public\ License.\ The\ full\ license\ is\ in\ the\ file\ LICENSE,\ distributed\ with}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ this\ software.\ */}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <optional>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{point_8hpp}{point\_sampler/point.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{range_8hpp}{point\_sampler/range.hpp}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_aa8c3b3b3367276f9a194938599d2463b}{halton\_sequence}}(\textcolor{keywordtype}{size\_t}\ count,\ \textcolor{keywordtype}{size\_t}\ shift)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceps_a81b18395a05f0bb4d483406e79aa9524}{halton}}\ =\ [](\textcolor{keywordtype}{size\_t}\ index,\ \textcolor{keywordtype}{size\_t}\ base)\ -\/>\ T}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ T\ result\ =\ 0;}
+\DoxyCodeLine{\ \ \ \ T\ f\ =\ 1;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{while}\ (index\ >\ 0)}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ f\ =\ f\ /\ base;}
+\DoxyCodeLine{\ \ \ \ \ \ result\ +=\ f\ *\ (index\ \%\ base);}
+\DoxyCodeLine{\ \ \ \ \ \ index\ =\ index\ /\ base;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ primes[15]\ =\ \{2,\ 3,\ 5,\ 7,\ 11,\ 13,\ 17,\ 19,\ 23,\ 29,\ 31,\ 37,\ 41,\ 43,\ 47\};}
+\DoxyCodeLine{\ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ n\_primes\ =\ 15;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ std::vector<Point<T,\ N>>\ points(count);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ count;\ ++i)}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{\ \ \ \ \ \ points[i][d]\ =\ \mbox{\hyperlink{namespaceps_a81b18395a05f0bb4d483406e79aa9524}{halton}}(i\ +\ 1\ +\ shift,\ primes[std::min(n\_primes\ -\/\ 1,\ d)]);}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ points;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a81b18395a05f0bb4d483406e79aa9524}{halton}}(\textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ count,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ N>\ \&axis\_ranges,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ \ \ \ \ \ \ seed\ =\ std::nullopt)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ seed-\/like\ effect...}}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{size\_t}\ shift\ =\ seed\ ?\ *seed\ :\ 0;}
+\DoxyCodeLine{\ \ \textcolor{keyword}{auto}\ \ \ points\ =\ halton\_sequence<T,\ N>(count,\ shift);}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{namespaceps_a7addf1455112b7895f8de7c475eed850}{rescale\_points}}(points,\ axis\_ranges);}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ points;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}\ \textcolor{comment}{//\ namespace\ ps}}
+
+\end{DoxyCodeInclude}
+ 

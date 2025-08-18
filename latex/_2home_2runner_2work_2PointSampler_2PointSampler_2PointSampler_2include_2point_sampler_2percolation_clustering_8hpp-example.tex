@@ -1,0 +1,112 @@
+\doxysection{/home/runner/work/\+Point\+Sampler/\+Point\+Sampler/\+Point\+Sampler/include/point\+\_\+sampler/percolation\+\_\+clustering.\+hpp}
+\hypertarget{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2percolation_clustering_8hpp-example}{}\label{_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2percolation_clustering_8hpp-example}Analyze percolation clusters from a set of points using a radius-\/based neighbor graph.
+
+Analyze percolation clusters from a set of points using a radius-\/based neighbor graph.\+Builds a graph where edges exist if points are within {\ttfamily connection\+\_\+radius}, then finds connected components (clusters).
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Scalar type (e.\+g., float, double). \\
+\hline
+{\em N} & Dimension. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em points} & Input set of points. \\
+\hline
+{\em connection\+\_\+radius} & Maximum distance for connectivity between points. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of cluster labels, size = points.\+size(). Label = -\/1 if unassigned.
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ std::vector<Point<double,2>>\ pts\ =\ \{\ \{0.1,0.2\},\ \{0.15,0.22\},\ \{0.9,0.9\}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ labels\ =\ analyze\_percolation\_clusters<double,2>(pts,\ 0.1);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ labels\ might\ be\ \{0,0,1\},\ meaning\ the\ first\ two\ form\ a\ cluster,\ third\ is}}
+\DoxyCodeLine{separate.}
+
+\end{DoxyCode}
+
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{comment}{/*\ Copyright\ (c)\ 2025\ Otto\ Link.\ Distributed\ under\ the\ terms\ of\ the\ GNU\ General}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ Public\ License.\ The\ full\ license\ is\ in\ the\ file\ LICENSE,\ distributed\ with}}
+\DoxyCodeLine{\textcolor{comment}{\ \ \ this\ software.\ */}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{nanoflann__adaptator_8hpp}{point\_sampler/internal/nanoflann\_adaptator.hpp}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{point_8hpp}{point\_sampler/point.hpp}}"{}}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{std::vector<int>\ \mbox{\hyperlink{namespaceps_a340aa5c812057b97017e88a974e452d8}{percolation\_clustering}}(\textcolor{keyword}{const}\ std::vector<Point<T,\ N>>\ \&points,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ connection\_radius)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{if}\ (points.empty())}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{comment}{//\ KD-\/tree\ for\ neighbor\ search}}
+\DoxyCodeLine{\ \ PointCloudAdaptor<T,\ N>\ adaptor(points);}
+\DoxyCodeLine{\ \ KDTree<T,\ N>\ \ \ \ \ \ \ \ \ \ \ \ index(N,\ adaptor);}
+\DoxyCodeLine{\ \ index.buildIndex();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ std::vector<int>\ labels(points.size(),\ -\/1);}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ current\_cluster\ =\ 0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ points.size();\ ++i)}
+\DoxyCodeLine{\ \ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (labels[i]\ !=\ -\/1)}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{continue};\ \textcolor{comment}{//\ already\ assigned}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ Start\ BFS/DFS\ for\ new\ cluster}}
+\DoxyCodeLine{\ \ \ \ std::queue<size\_t>\ q;}
+\DoxyCodeLine{\ \ \ \ q.push(i);}
+\DoxyCodeLine{\ \ \ \ labels[i]\ =\ current\_cluster;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{while}\ (!q.empty())}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ p\_idx\ =\ q.front();}
+\DoxyCodeLine{\ \ \ \ \ \ q.pop();}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{comment}{//\ Radius\ search\ around\ p\_idx}}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{const}\ Point<T,\ N>\ \&p\ =\ points[p\_idx];}
+\DoxyCodeLine{\ \ \ \ \ \ std::array<T,\ N>\ \ \ query;}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ query[d]\ =\ p[d];}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ std::vector<nanoflann::ResultItem<unsigned\ int,\ T>>\ ret\_matches;}
+\DoxyCodeLine{\ \ \ \ \ \ nanoflann::SearchParameters\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ params;}
+\DoxyCodeLine{\ \ \ \ \ \ index.radiusSearch(query.data(),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ connection\_radius\ *\ connection\_radius,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ret\_matches,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ params);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&m\ :\ ret\_matches)}
+\DoxyCodeLine{\ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ neighbor\ =\ m.first;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (labels[neighbor]\ ==\ -\/1)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ labels[neighbor]\ =\ current\_cluster;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ q.push(neighbor);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ ++current\_cluster;}
+\DoxyCodeLine{\ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ labels;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}\ \textcolor{comment}{//\ namespace\ ps}}
+
+\end{DoxyCodeInclude}
+ 
