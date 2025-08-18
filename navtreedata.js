@@ -45,15 +45,14 @@ var NAVTREE =
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ]
-    ] ],
-    [ "Examples", "examples.html", "examples" ]
+    ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"_2home_2runner_2work_2PointSampler_2PointSampler_2PointSampler_2include_2point_sampler_2dbscan_clustering_8hpp-example.html",
-"structps_1_1PointCloudAdaptor.html"
+"annotated.html",
+"utils_8hpp.html#a964f314c19f0b1300d513bce618c5954"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

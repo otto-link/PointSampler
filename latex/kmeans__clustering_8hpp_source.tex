@@ -16,47 +16,47 @@
 \DoxyCodeLine{00012\ }
 \DoxyCodeLine{00037\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
 \DoxyCodeLine{00038\ std::pair<std::vector<Point<T,\ N>>,\ std::vector<size\_t>>\ \mbox{\hyperlink{namespaceps_acbef03daefffe13bd08b9b4c0952c00d}{kmeans\_clustering}}(}
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k\_clusters,}
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ normalize\_data\ =\ \textcolor{keyword}{true},}
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ max\_iterations\ =\ 100)}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}},}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{k\_clusters}},}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{normalize\_data}}\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{max\_iterations}}\ =\ 100)}
 \DoxyCodeLine{00043\ \{}
-\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{using\ }DKMPoint\ =\ std::array<T,\ N>;}
-\DoxyCodeLine{00045\ \ \ std::vector<DKMPoint>\ data;}
-\DoxyCodeLine{00046\ \ \ data.reserve(points.size());}
+\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{DKMPoint}}\ =\ std::array<T,\ N>;}
+\DoxyCodeLine{00045\ \ \ std::vector<DKMPoint>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{data}};}
+\DoxyCodeLine{00046\ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{data}}.reserve(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}.size());}
 \DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \ \ \textcolor{keywordflow}{if}\ (normalize\_data)}
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{normalize\_data}})}
 \DoxyCodeLine{00049\ \ \ \{}
-\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{auto}\ points\_normalized\ =\ points;}
-\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{namespaceps_a172358f05108b5cabdac4e43ab309ab2}{normalize\_points}}(points\_normalized);}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points\_normalized}}\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}};}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{namespaceps_a172358f05108b5cabdac4e43ab309ab2}{normalize\_points}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points\_normalized}});}
 \DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ :\ points\_normalized)}
-\DoxyCodeLine{00054\ \ \ \ \ \ \ data.push\_back(p.coords);}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}}\ :\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points\_normalized}})}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{data}}.push\_back(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}}.coords);}
 \DoxyCodeLine{00055\ \ \ \}}
 \DoxyCodeLine{00056\ \ \ \textcolor{keywordflow}{else}}
 \DoxyCodeLine{00057\ \ \ \{}
-\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ :\ points)}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ data.push\_back(p.coords);}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}}\ :\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}})}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{data}}.push\_back(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}}.coords);}
 \DoxyCodeLine{00060\ \ \ \}}
 \DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{auto}\ result\ =\ dkm::kmeans\_lloyd<T>(data,\ k\_clusters,\ max\_iterations);}
+\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}}\ =\ dkm::kmeans\_lloyd<T>(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{data}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{k\_clusters}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{max\_iterations}});}
 \DoxyCodeLine{00063\ }
-\DoxyCodeLine{00064\ \ \ \textcolor{keyword}{auto}\ \&centroids\_dkm\ =\ std::get<0>(result);}
-\DoxyCodeLine{00065\ \ \ \textcolor{keyword}{auto}\ \&labels\_dkm\_u32\ =\ std::get<1>(result);\ \textcolor{comment}{//\ uint32\_t\ labels\ from\ DKM}}
+\DoxyCodeLine{00064\ \ \ \textcolor{keyword}{auto}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{centroids\_dkm}}\ =\ std::get<0>(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}});}
+\DoxyCodeLine{00065\ \ \ \textcolor{keyword}{auto}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{labels\_dkm\_u32}}\ =\ std::get<1>(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}});\ \textcolor{comment}{//\ uint32\_t\ labels\ from\ DKM}}
 \DoxyCodeLine{00066\ }
 \DoxyCodeLine{00067\ \ \ \textcolor{comment}{//\ Convert\ centroids}}
-\DoxyCodeLine{00068\ \ \ std::vector<Point<T,\ N>>\ centroids;}
-\DoxyCodeLine{00069\ \ \ centroids.reserve(centroids\_dkm.size());}
-\DoxyCodeLine{00070\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&c\ :\ centroids\_dkm)}
-\DoxyCodeLine{00071\ \ \ \ \ centroids.emplace\_back(c);}
+\DoxyCodeLine{00068\ \ \ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{centroids}};}
+\DoxyCodeLine{00069\ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{centroids}}.reserve(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{centroids\_dkm}}.size());}
+\DoxyCodeLine{00070\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{c}}\ :\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{centroids\_dkm}})}
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{centroids}}.emplace\_back(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{c}});}
 \DoxyCodeLine{00072\ }
 \DoxyCodeLine{00073\ \ \ \textcolor{comment}{//\ Convert\ labels\ to\ size\_t}}
-\DoxyCodeLine{00074\ \ \ std::vector<size\_t>\ labels;}
-\DoxyCodeLine{00075\ \ \ labels.reserve(labels\_dkm\_u32.size());}
-\DoxyCodeLine{00076\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ v\ :\ labels\_dkm\_u32)}
-\DoxyCodeLine{00077\ \ \ \ \ labels.push\_back(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(v));}
+\DoxyCodeLine{00074\ \ \ std::vector<size\_t>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{labels}};}
+\DoxyCodeLine{00075\ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{labels}}.reserve(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{labels\_dkm\_u32}}.size());}
+\DoxyCodeLine{00076\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{v}}\ :\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{labels\_dkm\_u32}})}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{labels}}.push\_back(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{v}}));}
 \DoxyCodeLine{00078\ }
-\DoxyCodeLine{00079\ \ \ \textcolor{keywordflow}{return}\ \{std::move(centroids),\ std::move(labels)\};}
+\DoxyCodeLine{00079\ \ \ \textcolor{keywordflow}{return}\ \{std::move(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{centroids}}),\ std::move(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{labels}})\};}
 \DoxyCodeLine{00080\ \}}
 \DoxyCodeLine{00081\ }
 \DoxyCodeLine{00082\ \}\ \textcolor{comment}{//\ namespace\ ps}}

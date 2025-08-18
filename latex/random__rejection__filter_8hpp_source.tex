@@ -16,39 +16,39 @@
 \DoxyCodeLine{00012\ \{}
 \DoxyCodeLine{00013\ }
 \DoxyCodeLine{00034\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00035\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_ab818126518017939773c8a43bd92fc42}{random\_rejection\_filter}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ target\_count)}
+\DoxyCodeLine{00035\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_ab818126518017939773c8a43bd92fc42}{random\_rejection\_filter}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}},}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{target\_count}})}
 \DoxyCodeLine{00037\ \{}
-\DoxyCodeLine{00038\ \ \ \textcolor{keywordflow}{if}\ (target\_count\ >=\ points.size())}
+\DoxyCodeLine{00038\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{target\_count}}\ >=\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}.size())}
 \DoxyCodeLine{00039\ \ \ \{}
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{return}\ points;\ \textcolor{comment}{//\ nothing\ to\ remove}}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}};\ \textcolor{comment}{//\ nothing\ to\ remove}}
 \DoxyCodeLine{00041\ \ \ \}}
 \DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \ \ std::vector<std::size\_t>\ indices(points.size());}
-\DoxyCodeLine{00044\ \ \ std::iota(indices.begin(),\ indices.end(),\ 0);}
+\DoxyCodeLine{00043\ \ \ std::vector<std::size\_t>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{indices}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}.size());}
+\DoxyCodeLine{00044\ \ \ std::iota(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{indices}}.begin(),\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{indices}}.end(),\ 0);}
 \DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \ \ std::random\_device\ rd;}
-\DoxyCodeLine{00047\ \ \ std::mt19937\ \ \ \ \ \ \ gen(rd());}
-\DoxyCodeLine{00048\ \ \ std::shuffle(indices.begin(),\ indices.end(),\ gen);}
+\DoxyCodeLine{00046\ \ \ std::random\_device\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{rd}};}
+\DoxyCodeLine{00047\ \ \ std::mt19937\ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{gen}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{rd}}());}
+\DoxyCodeLine{00048\ \ \ std::shuffle(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{indices}}.begin(),\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{indices}}.end(),\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{gen}});}
 \DoxyCodeLine{00049\ }
 \DoxyCodeLine{00050\ \ \ \textcolor{comment}{//\ Take\ the\ first\ \`{}target\_count`\ shuffled\ indices}}
-\DoxyCodeLine{00051\ \ \ std::vector<Point<T,\ N>>\ result;}
-\DoxyCodeLine{00052\ \ \ result.reserve(target\_count);}
-\DoxyCodeLine{00053\ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ target\_count;\ ++i)}
+\DoxyCodeLine{00051\ \ \ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
+\DoxyCodeLine{00052\ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}}.reserve(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{target\_count}});}
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{target\_count}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
 \DoxyCodeLine{00054\ \ \ \{}
-\DoxyCodeLine{00055\ \ \ \ \ result.push\_back(points[indices[i]]);}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}}.push\_back(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{indices}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]]);}
 \DoxyCodeLine{00056\ \ \ \}}
 \DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00058\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
 \DoxyCodeLine{00059\ \}}
 \DoxyCodeLine{00060\ }
 \DoxyCodeLine{00081\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00082\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_ab818126518017939773c8a43bd92fc42}{random\_rejection\_filter}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ keep\_fraction)}
+\DoxyCodeLine{00082\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_ab818126518017939773c8a43bd92fc42}{random\_rejection\_filter}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}},}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{keep\_fraction}})}
 \DoxyCodeLine{00084\ \{}
-\DoxyCodeLine{00085\ \ \ assert(keep\_fraction\ >=\ 0.0\ \&\&\ keep\_fraction\ <=\ 1.0);}
-\DoxyCodeLine{00086\ \ \ std::size\_t\ target\_count\ =\ \textcolor{keyword}{static\_cast<}std::size\_t\textcolor{keyword}{>}(keep\_fraction\ *\ points.size());}
-\DoxyCodeLine{00087\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_ab818126518017939773c8a43bd92fc42}{random\_rejection\_filter}}(points,\ target\_count);}
+\DoxyCodeLine{00085\ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{assert}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{keep\_fraction}}\ >=\ 0.0\ \&\&\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{keep\_fraction}}\ <=\ 1.0);}
+\DoxyCodeLine{00086\ \ \ std::size\_t\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{target\_count}}\ =\ \textcolor{keyword}{static\_cast<}std::size\_t\textcolor{keyword}{>}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{keep\_fraction}}\ *\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}.size());}
+\DoxyCodeLine{00087\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_ab818126518017939773c8a43bd92fc42}{random\_rejection\_filter}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{target\_count}});}
 \DoxyCodeLine{00088\ \}}
 \DoxyCodeLine{00089\ }
 \DoxyCodeLine{00090\ \}\ \textcolor{comment}{//\ namespace\ ps}}

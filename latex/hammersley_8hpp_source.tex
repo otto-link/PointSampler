@@ -15,44 +15,44 @@
 \DoxyCodeLine{00011\ \{}
 \DoxyCodeLine{00012\ }
 \DoxyCodeLine{00013\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00014\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_ae21a8c51533330ead4ebe76eed3e72b3}{hammersley\_sequence}}(\textcolor{keywordtype}{size\_t}\ count,\ \textcolor{keywordtype}{size\_t}\ shift)}
+\DoxyCodeLine{00014\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_ae21a8c51533330ead4ebe76eed3e72b3}{hammersley\_sequence}}(\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{count}},\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{shift}})}
 \DoxyCodeLine{00015\ \{}
-\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{auto}\ van\_der\_corput\ =\ [](\textcolor{keywordtype}{size\_t}\ n,\ \textcolor{keywordtype}{size\_t}\ base)\ -\/>\ T}
+\DoxyCodeLine{00016\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{van\_der\_corput}}\ =\ [](\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{n}},\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{base}})\ -\/>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}}
 \DoxyCodeLine{00017\ \ \ \{}
-\DoxyCodeLine{00018\ \ \ \ \ T\ q\ =\ 0;}
-\DoxyCodeLine{00019\ \ \ \ \ T\ bk\ =\ 1.0\ /\ base;}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{while}\ (n\ >\ 0)}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{q}}\ =\ 0;}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{bk}}\ =\ 1.0\ /\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{base}};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordflow}{while}\ (\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{n}}\ >\ 0)}
 \DoxyCodeLine{00021\ \ \ \ \ \{}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ q\ +=\ T(n\ \%\ base)\ *\ bk;}
-\DoxyCodeLine{00023\ \ \ \ \ \ \ n\ /=\ base;}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ bk\ /=\ base;}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{q}}\ +=\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{n}}\ \%\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{base}})\ *\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{bk}};}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{n}}\ /=\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{base}};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{bk}}\ /=\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{base}};}
 \DoxyCodeLine{00025\ \ \ \ \ \}}
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{return}\ q;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{q}};}
 \DoxyCodeLine{00027\ \ \ \};}
 \DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ primes[15]\ =\ \{2,\ 3,\ 5,\ 7,\ 11,\ 13,\ 17,\ 19,\ 23,\ 29,\ 31,\ 37,\ 41,\ 43,\ 47\};}
-\DoxyCodeLine{00030\ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ n\_primes\ =\ 15;}
+\DoxyCodeLine{00029\ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{primes}}[15]\ =\ \{2,\ 3,\ 5,\ 7,\ 11,\ 13,\ 17,\ 19,\ 23,\ 29,\ 31,\ 37,\ 41,\ 43,\ 47\};}
+\DoxyCodeLine{00030\ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{n\_primes}}\ =\ 15;}
 \DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ std::vector<Point<T,\ N>>\ points(count);}
-\DoxyCodeLine{00033\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ count;\ ++i)}
+\DoxyCodeLine{00032\ \ \ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{count}});}
+\DoxyCodeLine{00033\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{count}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
 \DoxyCodeLine{00034\ \ \ \{}
-\DoxyCodeLine{00035\ \ \ \ \ points[i][0]\ =\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(i)\ /\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(count);}
-\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 1;\ d\ <\ N;\ ++d)}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ points[i][d]\ =\ van\_der\_corput(i\ +\ shift,\ primes[std::min(n\_primes\ -\/\ 1,\ d\ -\/\ 1)]);}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}][0]\ =\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\textcolor{keyword}{>}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})\ /\ \textcolor{keyword}{static\_cast<}\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\textcolor{keyword}{>}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{count}});}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{d}}\ =\ 1;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{d}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{d}})}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}][\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{d}}]\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{van\_der\_corput}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ +\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{shift}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{primes}}[std::min(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{n\_primes}}\ -\/\ 1,\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{d}}\ -\/\ 1)]);}
 \DoxyCodeLine{00038\ \ \ \}}
-\DoxyCodeLine{00039\ \ \ \textcolor{keywordflow}{return}\ points;}
+\DoxyCodeLine{00039\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}};}
 \DoxyCodeLine{00040\ \}}
 \DoxyCodeLine{00041\ }
 \DoxyCodeLine{00067\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00068\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_aad0cc7bc81f7cac9f0be26177b9986a6}{hammersley}}(\textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ count,}
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ N>\ \&axis\_ranges,}
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<unsigned\ int>\ seed\ =\ std::nullopt)}
+\DoxyCodeLine{00068\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_aad0cc7bc81f7cac9f0be26177b9986a6}{hammersley}}(\textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{count}},}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}}>\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{axis\_ranges}},}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<unsigned\ int>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{seed}}\ =\ std::nullopt)}
 \DoxyCodeLine{00071\ \{}
 \DoxyCodeLine{00072\ \ \ \textcolor{comment}{//\ seed-\/like\ effect...}}
-\DoxyCodeLine{00073\ \ \ \textcolor{keywordtype}{size\_t}\ shift\ =\ seed\ ?\ *seed\ :\ 0;}
-\DoxyCodeLine{00074\ \ \ \textcolor{keyword}{auto}\ \ \ points\ =\ hammersley\_sequence<T,\ N>(count,\ shift);}
-\DoxyCodeLine{00075\ \ \ \mbox{\hyperlink{namespaceps_a7addf1455112b7895f8de7c475eed850}{rescale\_points}}(points,\ axis\_ranges);}
-\DoxyCodeLine{00076\ \ \ \textcolor{keywordflow}{return}\ points;}
+\DoxyCodeLine{00073\ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{shift}}\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{seed}}\ ?\ *\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{seed}}\ :\ 0;}
+\DoxyCodeLine{00074\ \ \ \textcolor{keyword}{auto}\ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{hammersley\_sequence<T,\ N>}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{count}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{shift}});}
+\DoxyCodeLine{00075\ \ \ \mbox{\hyperlink{namespaceps_a7addf1455112b7895f8de7c475eed850}{rescale\_points}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{axis\_ranges}});}
+\DoxyCodeLine{00076\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}};}
 \DoxyCodeLine{00077\ \}}
 \DoxyCodeLine{00078\ }
 \DoxyCodeLine{00079\ \}\ \textcolor{comment}{//\ namespace\ ps}}
