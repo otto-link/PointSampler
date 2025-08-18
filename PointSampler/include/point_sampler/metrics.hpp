@@ -256,7 +256,7 @@ std::vector<T> first_neighbor_distance_squared(std::vector<Point<T, N>> &points)
 }
 
 /**
- * \brief Compute local point density based on k-nearest neighbors in N dimensions.
+ * @brief Compute local point density based on k-nearest neighbors in N dimensions.
  *
  * The density at each point is estimated as:
  * \f[
@@ -269,11 +269,11 @@ std::vector<T> first_neighbor_distance_squared(std::vector<Point<T, N>> &points)
  * \f]
  * and \(\Gamma\) is the gamma function. This generalizes to any dimension.
  *
- * \tparam T Scalar type (e.g., float, double).
- * \tparam N Dimension of the points.
- * \param points Vector of points in N-dimensional space.
- * \param k Number of nearest neighbors to use for density estimation (should be >= 1).
- * \return Vector of local densities for each point.
+ * @tparam T Scalar type (e.g., float, double).
+ * @tparam N Dimension of the points.
+ * @param points Vector of points in N-dimensional space.
+ * @param k Number of nearest neighbors to use for density estimation (should be >= 1).
+ * @return Vector of local densities for each point.
  *
  * @example
  * ```cpp

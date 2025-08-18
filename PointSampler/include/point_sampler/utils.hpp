@@ -160,14 +160,14 @@ std::vector<Point<T, N + 1>> add_dimension(const std::vector<Point<T, N>> &point
 }
 
 /**
- * \brief Extract clusters of points given DBSCAN (or any clustering) labels.
+ * @brief Extract clusters of points given DBSCAN (or any clustering) labels.
  *
- * \tparam T Scalar type.
- * \tparam N Dimension.
- * \param points Input point cloud.
- * \param labels Cluster labels (-2 = noise, -1 = unvisited, 0..k = cluster
+ * @tparam T Scalar type.
+ * @tparam N Dimension.
+ * @param points Input point cloud.
+ * @param labels Cluster labels (-2 = noise, -1 = unvisited, 0..k = cluster
  * IDs).
- * \return A vector of clusters, each cluster is a vector of points.
+ * @return A vector of clusters, each cluster is a vector of points.
  *
  * @example
  * ```cpp auto labels   = dbscan<double,2>(points, 0.05, 5);

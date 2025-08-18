@@ -11,18 +11,18 @@ namespace ps
 {
 
 /**
- * \brief Density-Based Spatial Clustering of Applications with Noise (DBSCAN).
+ * @brief Density-Based Spatial Clustering of Applications with Noise (DBSCAN).
  *
  * Groups points into clusters based on density: a point is a core if it has at
  * least `min_pts` neighbors within distance `eps`. Clusters are formed by
  * expanding from core points. Noise points remain unclustered.
  *
- * \tparam T Scalar type (float/double).
- * \tparam N Dimension.
- * \param points Input point cloud.
- * \param eps Neighborhood radius for density check.
- * \param min_pts Minimum neighbors (including self) to be a core point.
- * \return A vector of cluster labels (-1 = noise, 0..k = cluster IDs).
+ * @tparam T Scalar type (float/double).
+ * @tparam N Dimension.
+ * @param points Input point cloud.
+ * @param eps Neighborhood radius for density check.
+ * @param min_pts Minimum neighbors (including self) to be a core point.
+ * @return A vector of cluster labels (-1 = noise, 0..k = cluster IDs).
  *
  * @example
  * ```cpp auto labels = dbscan<double,2>(points, 0.05, 5);

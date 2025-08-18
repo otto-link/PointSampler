@@ -17,21 +17,21 @@ namespace ps
  * each step, additional points can be sampled from a Gaussian distribution to
  * form a "thick" filament.
  *
- * \tparam T Scalar type (e.g., float, double).
- * \tparam N Dimension.
- * \param n_filaments Number of separate filaments.
- * \param filament_count Number of points per filament.
- * \param step_size Average step length.
- * \param ranges Bounding box for clamping.
- * \param seed Optional RNG seed.
- * \param persistence Correlation between steps (0 = totally random, 1 =
+ * @tparam T Scalar type (e.g., float, double).
+ * @tparam N Dimension.
+ * @param n_filaments Number of separate filaments.
+ * @param filament_count Number of points per filament.
+ * @param step_size Average step length.
+ * @param ranges Bounding box for clamping.
+ * @param seed Optional RNG seed.
+ * @param persistence Correlation between steps (0 = totally random, 1 =
  * straight line).
- * \param gaussian_sigma Standard deviation of Gaussian scatter around the
+ * @param gaussian_sigma Standard deviation of Gaussian scatter around the
  * filament (0 = no scatter, >0 = thick filament).
- * \param gaussian_samples Number of samples drawn per step for thickness.
- * \param p_distances Optional output vector to store p_distances of each point
+ * @param gaussian_samples Number of samples drawn per step for thickness.
+ * @param p_distances Optional output vector to store p_distances of each point
  * from the filament center (0 for core filament points).
- * \return A vector of generated filament points.
+ * @return A vector of generated filament points.
  */
 template <typename T, size_t N>
 std::vector<Point<T, N>> random_walk_filaments(

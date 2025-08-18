@@ -487,10 +487,10 @@ struct Metric
  * high-dimensionality data sets). Corresponding distance traits:
  * nanoflann::metric_L1
  *
- * \tparam T Type of the elements (e.g. double, float, uint8_t)
- * \tparam DataSource Source of the data, i.e. where the vectors are stored
- * \tparam _DistanceType Type of distance variables (must be signed)
- * \tparam IndexType Type of the arguments with which the data can be
+ * @tparam T Type of the elements (e.g. double, float, uint8_t)
+ * @tparam DataSource Source of the data, i.e. where the vectors are stored
+ * @tparam _DistanceType Type of distance variables (must be signed)
+ * @tparam IndexType Type of the arguments with which the data can be
  * accessed (e.g. float, double, int64_t, T*)
  */
 template <
@@ -549,10 +549,10 @@ struct L1_Adaptor
  * high-dimensionality data sets). Corresponding distance traits:
  * nanoflann::metric_L2
  *
- * \tparam T Type of the elements (e.g. double, float, uint8_t)
- * \tparam DataSource Source of the data, i.e. where the vectors are stored
- * \tparam _DistanceType Type of distance variables (must be signed)
- * \tparam IndexType Type of the arguments with which the data can be
+ * @tparam T Type of the elements (e.g. double, float, uint8_t)
+ * @tparam DataSource Source of the data, i.e. where the vectors are stored
+ * @tparam _DistanceType Type of distance variables (must be signed)
+ * @tparam IndexType Type of the arguments with which the data can be
  * accessed (e.g. float, double, int64_t, T*)
  */
 template <
@@ -614,10 +614,10 @@ struct L2_Adaptor
  * datasets, like 2D or 3D point clouds) Corresponding distance traits:
  * nanoflann::metric_L2_Simple
  *
- * \tparam T Type of the elements (e.g. double, float, uint8_t)
- * \tparam DataSource Source of the data, i.e. where the vectors are stored
- * \tparam _DistanceType Type of distance variables (must be signed)
- * \tparam IndexType Type of the arguments with which the data can be
+ * @tparam T Type of the elements (e.g. double, float, uint8_t)
+ * @tparam DataSource Source of the data, i.e. where the vectors are stored
+ * @tparam _DistanceType Type of distance variables (must be signed)
+ * @tparam IndexType Type of the arguments with which the data can be
  * accessed (e.g. float, double, int64_t, T*)
  */
 template <
@@ -658,11 +658,11 @@ struct L2_Simple_Adaptor
 /** SO2 distance functor
  *  Corresponding distance traits: nanoflann::metric_SO2
  *
- * \tparam T Type of the elements (e.g. double, float, uint8_t)
- * \tparam DataSource Source of the data, i.e. where the vectors are stored
- * \tparam _DistanceType Type of distance variables (must be signed) (e.g.
+ * @tparam T Type of the elements (e.g. double, float, uint8_t)
+ * @tparam DataSource Source of the data, i.e. where the vectors are stored
+ * @tparam _DistanceType Type of distance variables (must be signed) (e.g.
  * float, double) orientation is constrained to be in [-pi, pi]
- * \tparam IndexType Type of the arguments with which the data can be
+ * @tparam IndexType Type of the arguments with which the data can be
  * accessed (e.g. float, double, int64_t, T*)
  */
 template <
@@ -703,11 +703,11 @@ struct SO2_Adaptor
 /** SO3 distance functor (Uses L2_Simple)
  *  Corresponding distance traits: nanoflann::metric_SO3
  *
- * \tparam T Type of the elements (e.g. double, float, uint8_t)
- * \tparam DataSource Source of the data, i.e. where the vectors are stored
- * \tparam _DistanceType Type of distance variables (must be signed) (e.g.
+ * @tparam T Type of the elements (e.g. double, float, uint8_t)
+ * @tparam DataSource Source of the data, i.e. where the vectors are stored
+ * @tparam _DistanceType Type of distance variables (must be signed) (e.g.
  * float, double)
- * \tparam IndexType Type of the arguments with which the data can be
+ * @tparam IndexType Type of the arguments with which the data can be
  * accessed (e.g. float, double, int64_t, T*)
  */
 template <
@@ -995,13 +995,13 @@ struct array_or_vector<-1, T>
  * Contains the member functions common to the classes KDTreeSingleIndexAdaptor
  * and KDTreeSingleIndexDynamicAdaptor_.
  *
- * \tparam Derived The name of the class which inherits this class.
- * \tparam DatasetAdaptor The user-provided adaptor, which must be ensured to
+ * @tparam Derived The name of the class which inherits this class.
+ * @tparam DatasetAdaptor The user-provided adaptor, which must be ensured to
  *         have a lifetime equal or longer than the instance of this class.
- * \tparam Distance The distance metric to use, these are all classes derived
+ * @tparam Distance The distance metric to use, these are all classes derived
  * from nanoflann::Metric
- * \tparam DIM Dimensionality of data points (e.g. 3 for 3D points)
- * \tparam IndexType Type of the arguments with which the data can be
+ * @tparam DIM Dimensionality of data points (e.g. 3 for 3D points)
+ * @tparam IndexType Type of the arguments with which the data can be
  * accessed (e.g. float, double, int64_t, T*)
  */
 template <
@@ -1532,11 +1532,11 @@ class KDTreeBaseClass
  *
  *  \endcode
  *
- * \tparam DatasetAdaptor The user-provided adaptor, which must be ensured to
+ * @tparam DatasetAdaptor The user-provided adaptor, which must be ensured to
  *         have a lifetime equal or longer than the instance of this class.
- * \tparam Distance The distance metric to use: nanoflann::metric_L1,
- * nanoflann::metric_L2, nanoflann::metric_L2_Simple, etc. \tparam DIM
- * Dimensionality of data points (e.g. 3 for 3D points) \tparam IndexType Will
+ * @tparam Distance The distance metric to use: nanoflann::metric_L1,
+ * nanoflann::metric_L2, nanoflann::metric_L2_Simple, etc. @tparam DIM
+ * Dimensionality of data points (e.g. 3 for 3D points) @tparam IndexType Will
  * be typically size_t or int
  */
 template <
@@ -1697,8 +1697,8 @@ class KDTreeSingleIndexAdaptor
      * nearest-neighbors are stored vec = the vector for which to search the
      * nearest neighbors
      *
-     * \tparam RESULTSET Should be any ResultSet<DistanceType>
-     * \return  True if the requested neighbors could be found.
+     * @tparam RESULTSET Should be any ResultSet<DistanceType>
+     * @return  True if the requested neighbors could be found.
      * \sa knnSearch, radiusSearch
      *
      * \note If L2 norms are used, all returned distances are actually squared
@@ -1736,7 +1736,7 @@ class KDTreeSingleIndexAdaptor
      * array/vector.
      *
      * \sa radiusSearch, findNeighbors
-     * \return Number `N` of valid points in the result set.
+     * @return Number `N` of valid points in the result set.
      *
      * \note If L2 norms are used, all returned distances are actually squared
      *       distances.
@@ -1768,7 +1768,7 @@ class KDTreeSingleIndexAdaptor
      * vector if you have any wild guess about the number of expected matches.
      *
      *  \sa knnSearch, findNeighbors, radiusSearchCustomCallback
-     * \return The number of points within the given radius (i.e. indices.size()
+     * @return The number of points within the given radius (i.e. indices.size()
      * or dists.size() )
      *
      * \note If L2 norms are used, search radius and all returned distances
@@ -1807,7 +1807,7 @@ class KDTreeSingleIndexAdaptor
      * Previous contents of \a IndicesDists are cleared.
      *
      * \sa radiusSearch, findNeighbors
-     * \return Number `N` of valid points in the result set.
+     * @return Number `N` of valid points in the result set.
      *
      * \note If L2 norms are used, all returned distances are actually squared
      *       distances.
@@ -1877,8 +1877,8 @@ class KDTreeSingleIndexAdaptor
 
     /**
      * Performs an exact search in the tree starting from a node.
-     * \tparam RESULTSET Should be any ResultSet<DistanceType>
-     * \return true if the search should be continued, false if the results are
+     * @tparam RESULTSET Should be any ResultSet<DistanceType>
+     * @return true if the search should be continued, false if the results are
      * sufficient
      */
     template <class RESULTSET>
@@ -2009,11 +2009,11 @@ class KDTreeSingleIndexAdaptor
  *
  *  \endcode
  *
- * \tparam DatasetAdaptor The user-provided adaptor (see comments above).
- * \tparam Distance The distance metric to use: nanoflann::metric_L1,
+ * @tparam DatasetAdaptor The user-provided adaptor (see comments above).
+ * @tparam Distance The distance metric to use: nanoflann::metric_L1,
  * nanoflann::metric_L2, nanoflann::metric_L2_Simple, etc.
- * \tparam DIM Dimensionality of data points (e.g. 3 for 3D points)
- * \tparam IndexType Type of the arguments with which the data can be
+ * @tparam DIM Dimensionality of data points (e.g. 3 for 3D points)
+ * @tparam IndexType Type of the arguments with which the data can be
  * accessed (e.g. float, double, int64_t, T*)
  */
 template <
@@ -2162,14 +2162,14 @@ class KDTreeSingleIndexDynamicAdaptor_
      * This is the core search function, all others are wrappers around this
      * one.
      *
-     * \param result The result object in which the indices of the
+     * @param result The result object in which the indices of the
      *               nearest-neighbors are stored.
-     * \param vec    The vector of the query point for which to search the
+     * @param vec    The vector of the query point for which to search the
      *               nearest neighbors.
-     * \param searchParams Optional parameters for the search.
+     * @param searchParams Optional parameters for the search.
      *
-     * \tparam RESULTSET Should be any ResultSet<DistanceType>
-     * \return True if the requested neighbors could be found.
+     * @tparam RESULTSET Should be any ResultSet<DistanceType>
+     * @return True if the requested neighbors could be found.
      *
      * \sa knnSearch(), radiusSearch(), radiusSearchCustomCallback()
      *
@@ -2201,7 +2201,7 @@ class KDTreeSingleIndexDynamicAdaptor_
      * Find the "num_closest" nearest neighbors to the \a query_point[0:dim-1].
      * Their indices are stored inside the result object. \sa radiusSearch,
      * findNeighbors
-     * \return Number `N` of valid points in
+     * @return Number `N` of valid points in
      * the result set.
      *
      * \note If L2 norms are used, all returned distances are actually squared
@@ -2235,7 +2235,7 @@ class KDTreeSingleIndexDynamicAdaptor_
      * vector if you have any wild guess about the number of expected matches.
      *
      *  \sa knnSearch, findNeighbors, radiusSearchCustomCallback
-     * \return The number of points within the given radius (i.e. indices.size()
+     * @return The number of points within the given radius (i.e. indices.size()
      * or dists.size() )
      *
      * \note If L2 norms are used, search radius and all returned distances
@@ -2306,7 +2306,7 @@ class KDTreeSingleIndexDynamicAdaptor_
 
     /**
      * Performs an exact search in the tree starting from a node.
-     * \tparam RESULTSET Should be any ResultSet<DistanceType>
+     * @tparam RESULTSET Should be any ResultSet<DistanceType>
      */
     template <class RESULTSET>
     void searchLevel(
@@ -2402,10 +2402,10 @@ class KDTreeSingleIndexDynamicAdaptor_
  *  Example of usage:
  *  examples/dynamic_pointcloud_example.cpp
  *
- * \tparam DatasetAdaptor The user-provided adaptor (see comments above).
- * \tparam Distance The distance metric to use: nanoflann::metric_L1,
- * nanoflann::metric_L2, nanoflann::metric_L2_Simple, etc. \tparam DIM
- * Dimensionality of data points (e.g. 3 for 3D points) \tparam IndexType
+ * @tparam DatasetAdaptor The user-provided adaptor (see comments above).
+ * @tparam Distance The distance metric to use: nanoflann::metric_L1,
+ * nanoflann::metric_L2, nanoflann::metric_L2_Simple, etc. @tparam DIM
+ * Dimensionality of data points (e.g. 3 for 3D points) @tparam IndexType
  * Will be typically size_t or int
  */
 template <
@@ -2578,8 +2578,8 @@ class KDTreeSingleIndexDynamicAdaptor
      * nearest-neighbors are stored vec = the vector for which to search the
      * nearest neighbors
      *
-     * \tparam RESULTSET Should be any ResultSet<DistanceType>
-     * \return  True if the requested neighbors could be found.
+     * @tparam RESULTSET Should be any ResultSet<DistanceType>
+     * @return  True if the requested neighbors could be found.
      * \sa knnSearch, radiusSearch
      *
      * \note If L2 norms are used, all returned distances are actually squared
@@ -2615,11 +2615,11 @@ class KDTreeSingleIndexDynamicAdaptor
  * mat_index.index->...
  * \endcode
  *
- *  \tparam DIM If set to >0, it specifies a compile-time fixed dimensionality
+ *  @tparam DIM If set to >0, it specifies a compile-time fixed dimensionality
  * for the points in the data set, allowing more compiler optimizations.
- * \tparam Distance The distance metric to use: nanoflann::metric_L1,
+ * @tparam Distance The distance metric to use: nanoflann::metric_L1,
  * nanoflann::metric_L2, nanoflann::metric_L2_Simple, etc.
- * \tparam row_major If set to true the rows of the matrix are used as the
+ * @tparam row_major If set to true the rows of the matrix are used as the
  *         points, if set to false  the columns of the matrix are used as the
  *         points.
  */

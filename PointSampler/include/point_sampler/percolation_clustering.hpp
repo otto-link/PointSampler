@@ -11,17 +11,17 @@ namespace ps
 {
 
 /**
- * \brief Analyze percolation clusters from a set of points using a radius-based
+ * @brief Analyze percolation clusters from a set of points using a radius-based
  * neighbor graph.
  *
  * Builds a graph where edges exist if points are within `connection_radius`,
  * then finds connected components (clusters).
  *
- * \tparam T Scalar type (e.g., float, double).
- * \tparam N Dimension.
- * \param points Input set of points.
- * \param connection_radius Maximum distance for connectivity between points.
- * \return A vector of cluster labels, size = points.size(). Label = -1 if
+ * @tparam T Scalar type (e.g., float, double).
+ * @tparam N Dimension.
+ * @param points Input set of points.
+ * @param connection_radius Maximum distance for connectivity between points.
+ * @return A vector of cluster labels, size = points.size(). Label = -1 if
  * unassigned.
  *
  * @example

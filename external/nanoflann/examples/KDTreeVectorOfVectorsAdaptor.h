@@ -41,12 +41,12 @@
 /** A simple vector-of-vectors adaptor for nanoflann, without duplicating the
  * storage. The i'th vector represents a point in the state space.
  *
- *  \tparam DIM If set to >0, it specifies a compile-time fixed dimensionality
+ *  @tparam DIM If set to >0, it specifies a compile-time fixed dimensionality
  *      for the points in the data set, allowing more compiler optimizations.
- *  \tparam num_t The type of the point coordinates (typ. double or float).
- *  \tparam Distance The distance metric to use: nanoflann::metric_L1,
+ *  @tparam num_t The type of the point coordinates (typ. double or float).
+ *  @tparam Distance The distance metric to use: nanoflann::metric_L1,
  *          nanoflann::metric_L2, nanoflann::metric_L2_Simple, etc.
- *  \tparam IndexType The type for indices in the KD-tree index
+ *  @tparam IndexType The type for indices in the KD-tree index
  *         (typically, size_t of int)
  */
 template <
