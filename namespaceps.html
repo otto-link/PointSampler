@@ -671,8 +671,17 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; of filtered points</dd></dl>
-<dl class="section user"><dt>Example std::vector&lt;Point&lt;float, 2&gt;&gt; pts = ps::random&lt;float, 2&gt;(1000,</dt><dd>{{0,1},{0,1}}); auto filtered = <a class="el" href="namespaceps.html#ad1f4a1110a40bf1c6a687182db6b4b94" title="Filters a set of points using a greedy distance-based rejection.">ps::distance_rejection_filter</a>(pts, 0.05f); </dd></dl>
-
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line">std::vector&lt;Point&lt;float, 2&gt;&gt; pts = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::random&lt;float, 2&gt;</a>(1000, {{0,1},{0,1}});</div>
+<div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">filtered</a> = <a class="code hl_function" href="namespaceps.html#ad1f4a1110a40bf1c6a687182db6b4b94">ps::distance_rejection_filter</a>(pts, 0.05f);</div>
+<div class="ttc" id="anamespaceps_html_ad1f4a1110a40bf1c6a687182db6b4b94"><div class="ttname"><a href="namespaceps.html#ad1f4a1110a40bf1c6a687182db6b4b94">ps::distance_rejection_filter</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; distance_rejection_filter(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, T min_dist)</div><div class="ttdoc">Filters a set of points using a greedy distance-based rejection.</div><div class="ttdef"><b>Definition</b> distance_rejection_filter.hpp:36</div></div>
+</div><!-- fragment --></dd></dl>
+<div class="image">
+<img src="out_distance_rejection_filter.csv.jpg" alt=""/>
+</div>
+ <div class="image">
+<img src="out_distance_rejection_filter_warped.csv.jpg" alt=""/>
+</div>
+ 
 </div>
 </div>
 <a id="af23d114903fd5cb3ccb19d3e64183632" name="af23d114903fd5cb3ccb19d3e64183632"></a>
@@ -735,7 +744,7 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
 <div class="line"> </div>
 <div class="line">std::vector&lt;Point&lt;float, 2&gt;&gt; pts = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::random&lt;float, 2&gt;</a>(1000, {{0,1},{0,1}});</div>
 <div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">filtered</a> = <a class="code hl_function" href="namespaceps.html#af23d114903fd5cb3ccb19d3e64183632">ps::distance_rejection_filter_warped</a>(pts, 0.05f, <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">scale_fn</a>);</div>
-<div class="ttc" id="anamespaceps_html_af23d114903fd5cb3ccb19d3e64183632"><div class="ttname"><a href="namespaceps.html#af23d114903fd5cb3ccb19d3e64183632">ps::distance_rejection_filter_warped</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; distance_rejection_filter_warped(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, T base_min_dist, ScaleFn scale_fn)</div><div class="ttdoc">Filters points based on spatially-varying minimal distance constraints.</div><div class="ttdef"><b>Definition</b> distance_rejection_filter.hpp:95</div></div>
+<div class="ttc" id="anamespaceps_html_af23d114903fd5cb3ccb19d3e64183632"><div class="ttname"><a href="namespaceps.html#af23d114903fd5cb3ccb19d3e64183632">ps::distance_rejection_filter_warped</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; distance_rejection_filter_warped(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, T base_min_dist, ScaleFn scale_fn)</div><div class="ttdoc">Filters points based on spatially-varying minimal distance constraints.</div><div class="ttdef"><b>Definition</b> distance_rejection_filter.hpp:100</div></div>
 <div class="ttc" id="astructps_1_1Point_html"><div class="ttname"><a href="structps_1_1Point.html">ps::Point</a></div><div class="ttdoc">A fixed-size N-dimensional point/vector class.</div><div class="ttdef"><b>Definition</b> point.hpp:37</div></div>
 </div><!-- fragment --> </dd></dl>
 

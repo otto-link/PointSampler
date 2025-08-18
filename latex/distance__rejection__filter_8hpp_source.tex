@@ -15,80 +15,80 @@
 \DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
 \DoxyCodeLine{00012\ \{}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00030\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00031\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_ad1f4a1110a40bf1c6a687182db6b4b94}{distance\_rejection\_filter}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ min\_dist)}
-\DoxyCodeLine{00033\ \{}
-\DoxyCodeLine{00034\ \ \ \textcolor{keywordflow}{if}\ (points.empty())}
-\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ std::vector<Point<T,\ N>>\ result;}
-\DoxyCodeLine{00038\ \ \ result.reserve(points.size());}
-\DoxyCodeLine{00039\ \ \ result.push\_back(points.front());}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 1;\ i\ <\ points.size();\ ++i)}
-\DoxyCodeLine{00042\ \ \ \{}
-\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ =\ points[i];}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{PointCloudAdaptor<T,\ N>}}\ adaptor(result);}
-\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{namespaceps_ac9ecfd54020ea95c133d1fc99cf4f75a}{KDTree<T,\ N>}}\ \ \ \ \ \ \ \ \ \ \ \ index(N,\ adaptor);}
-\DoxyCodeLine{00047\ \ \ \ \ index.buildIndex();}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ \ \ \ \ std::array<T,\ N>\ query;}
-\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ d\ =\ 0;\ d\ <\ N;\ ++d)}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ query[d]\ =\ p[d];}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \ \ \ \ std::vector<nanoflann::ResultItem<unsigned\ int,\ T>>\ matches;}
-\DoxyCodeLine{00054\ \ \ \ \ nanoflann::SearchParameters\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ params;}
-\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{const}\ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ radius\ =\ min\_dist\ *\ min\_dist;}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ found\ =\ index.radiusSearch(query.data(),\ radius,\ matches,\ params);}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordflow}{if}\ (found\ ==\ 0)}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ result.push\_back(p);}
-\DoxyCodeLine{00061\ \ \ \}}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \ \ \textcolor{keywordflow}{return}\ result;}
-\DoxyCodeLine{00064\ \}}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00094\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N,\ \textcolor{keyword}{typename}\ ScaleFn>}
-\DoxyCodeLine{00095\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_af23d114903fd5cb3ccb19d3e64183632}{distance\_rejection\_filter\_warped}}(}
-\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
-\DoxyCodeLine{00097\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ base\_min\_dist,}
-\DoxyCodeLine{00098\ \ \ \ \ ScaleFn\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ scale\_fn)}
-\DoxyCodeLine{00099\ \{}
-\DoxyCodeLine{00100\ \ \ \textcolor{keywordflow}{if}\ (points.empty())}
-\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
-\DoxyCodeLine{00102\ }
-\DoxyCodeLine{00103\ \ \ std::vector<Point<T,\ N>>\ result;}
-\DoxyCodeLine{00104\ \ \ result.reserve(points.size());}
-\DoxyCodeLine{00105\ \ \ result.push\_back(points.front());}
-\DoxyCodeLine{00106\ }
-\DoxyCodeLine{00107\ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 1;\ i\ <\ points.size();\ ++i)}
-\DoxyCodeLine{00108\ \ \ \{}
-\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ =\ points[i];}
-\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keyword}{const}\ T\ \ \ \ \ local\_min\_dist\ =\ base\_min\_dist\ *\ scale\_fn(p);}
+\DoxyCodeLine{00035\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00036\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_ad1f4a1110a40bf1c6a687182db6b4b94}{distance\_rejection\_filter}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ min\_dist)}
+\DoxyCodeLine{00038\ \{}
+\DoxyCodeLine{00039\ \ \ \textcolor{keywordflow}{if}\ (points.empty())}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ std::vector<Point<T,\ N>>\ result;}
+\DoxyCodeLine{00043\ \ \ result.reserve(points.size());}
+\DoxyCodeLine{00044\ \ \ result.push\_back(points.front());}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 1;\ i\ <\ points.size();\ ++i)}
+\DoxyCodeLine{00047\ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ =\ points[i];}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{PointCloudAdaptor<T,\ N>}}\ adaptor(result);}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{namespaceps_ac9ecfd54020ea95c133d1fc99cf4f75a}{KDTree<T,\ N>}}\ \ \ \ \ \ \ \ \ \ \ \ index(N,\ adaptor);}
+\DoxyCodeLine{00052\ \ \ \ \ index.buildIndex();}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ std::array<T,\ N>\ query;}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ query[d]\ =\ p[d];}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ std::vector<nanoflann::ResultItem<unsigned\ int,\ T>>\ matches;}
+\DoxyCodeLine{00059\ \ \ \ \ nanoflann::SearchParameters\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ params;}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{const}\ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ radius\ =\ min\_dist\ *\ min\_dist;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ found\ =\ index.radiusSearch(query.data(),\ radius,\ matches,\ params);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordflow}{if}\ (found\ ==\ 0)}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ result.push\_back(p);}
+\DoxyCodeLine{00066\ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00069\ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00099\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ std::\textcolor{keywordtype}{size\_t}\ N,\ \textcolor{keyword}{typename}\ ScaleFn>}
+\DoxyCodeLine{00100\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_af23d114903fd5cb3ccb19d3e64183632}{distance\_rejection\_filter\_warped}}(}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
+\DoxyCodeLine{00102\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ base\_min\_dist,}
+\DoxyCodeLine{00103\ \ \ \ \ ScaleFn\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ scale\_fn)}
+\DoxyCodeLine{00104\ \{}
+\DoxyCodeLine{00105\ \ \ \textcolor{keywordflow}{if}\ (points.empty())}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ std::vector<Point<T,\ N>>\ result;}
+\DoxyCodeLine{00109\ \ \ result.reserve(points.size());}
+\DoxyCodeLine{00110\ \ \ result.push\_back(points.front());}
 \DoxyCodeLine{00111\ }
-\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{PointCloudAdaptor<T,\ N>}}\ adaptor(result);}
-\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{namespaceps_ac9ecfd54020ea95c133d1fc99cf4f75a}{KDTree<T,\ N>}}\ \ \ \ \ \ \ \ \ \ \ \ index(N,\ adaptor);}
-\DoxyCodeLine{00114\ \ \ \ \ index.buildIndex();}
-\DoxyCodeLine{00115\ }
-\DoxyCodeLine{00116\ \ \ \ \ std::array<T,\ N>\ query;}
-\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ d\ =\ 0;\ d\ <\ N;\ ++d)}
-\DoxyCodeLine{00118\ \ \ \ \ \ \ query[d]\ =\ p[d];}
-\DoxyCodeLine{00119\ }
-\DoxyCodeLine{00120\ \ \ \ \ std::vector<nanoflann::ResultItem<unsigned\ int,\ T>>\ matches;}
-\DoxyCodeLine{00121\ \ \ \ \ nanoflann::SearchParameters\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ params;}
-\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keyword}{const}\ T\ radius\ =\ local\_min\_dist\ *\ local\_min\_dist;}
-\DoxyCodeLine{00123\ }
-\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ found\ =\ index.radiusSearch(query.data(),\ radius,\ matches,\ params);}
-\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{if}\ (found\ ==\ 0)}
-\DoxyCodeLine{00126\ \ \ \ \ \ \ result.push\_back(p);}
-\DoxyCodeLine{00127\ \ \ \}}
+\DoxyCodeLine{00112\ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 1;\ i\ <\ points.size();\ ++i)}
+\DoxyCodeLine{00113\ \ \ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ =\ points[i];}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{const}\ T\ \ \ \ \ local\_min\_dist\ =\ base\_min\_dist\ *\ scale\_fn(p);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{PointCloudAdaptor<T,\ N>}}\ adaptor(result);}
+\DoxyCodeLine{00118\ \ \ \ \ \mbox{\hyperlink{namespaceps_ac9ecfd54020ea95c133d1fc99cf4f75a}{KDTree<T,\ N>}}\ \ \ \ \ \ \ \ \ \ \ \ index(N,\ adaptor);}
+\DoxyCodeLine{00119\ \ \ \ \ index.buildIndex();}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ std::array<T,\ N>\ query;}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ query[d]\ =\ p[d];}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ std::vector<nanoflann::ResultItem<unsigned\ int,\ T>>\ matches;}
+\DoxyCodeLine{00126\ \ \ \ \ nanoflann::SearchParameters\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ params;}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{const}\ T\ radius\ =\ local\_min\_dist\ *\ local\_min\_dist;}
 \DoxyCodeLine{00128\ }
-\DoxyCodeLine{00129\ \ \ \textcolor{keywordflow}{return}\ result;}
-\DoxyCodeLine{00130\ \}}
-\DoxyCodeLine{00131\ }
-\DoxyCodeLine{00132\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{size\_t}\ found\ =\ index.radiusSearch(query.data(),\ radius,\ matches,\ params);}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordflow}{if}\ (found\ ==\ 0)}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ result.push\_back(p);}
+\DoxyCodeLine{00132\ \ \ \}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00135\ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \}\ \textcolor{comment}{//\ namespace\ ps}}
 
 \end{DoxyCode}
