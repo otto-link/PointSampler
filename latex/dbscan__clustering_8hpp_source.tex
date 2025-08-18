@@ -14,86 +14,86 @@
 \DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
 \DoxyCodeLine{00011\ \{}
 \DoxyCodeLine{00012\ }
-\DoxyCodeLine{00033\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00034\ std::vector<int>\ \mbox{\hyperlink{namespaceps_a5d453a5cb2885c1a8d264ff96303f627}{dbscan\_clustering}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ eps,}
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ min\_pts)}
-\DoxyCodeLine{00037\ \{}
-\DoxyCodeLine{00038\ \ \ \textcolor{keywordflow}{if}\ (points.empty())}
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{PointCloudAdaptor<T,\ N>}}\ adaptor(points);}
-\DoxyCodeLine{00042\ \ \ \mbox{\hyperlink{namespaceps_ac9ecfd54020ea95c133d1fc99cf4f75a}{KDTree<T,\ N>}}\ \ \ \ \ \ \ \ \ \ \ \ index(N,\ adaptor);}
-\DoxyCodeLine{00043\ \ \ index.buildIndex();}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ std::vector<int>\ labels(points.size(),\ -\/1);\ \textcolor{comment}{//\ -\/1\ =\ unvisited/noise}}
-\DoxyCodeLine{00046\ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ cluster\_id\ =\ 0;}
+\DoxyCodeLine{00036\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00037\ std::vector<int>\ \mbox{\hyperlink{namespaceps_a5d453a5cb2885c1a8d264ff96303f627}{dbscan\_clustering}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ eps,}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ min\_pts)}
+\DoxyCodeLine{00040\ \{}
+\DoxyCodeLine{00041\ \ \ \textcolor{keywordflow}{if}\ (points.empty())}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{PointCloudAdaptor<T,\ N>}}\ adaptor(points);}
+\DoxyCodeLine{00045\ \ \ \mbox{\hyperlink{namespaceps_ac9ecfd54020ea95c133d1fc99cf4f75a}{KDTree<T,\ N>}}\ \ \ \ \ \ \ \ \ \ \ \ index(N,\ adaptor);}
+\DoxyCodeLine{00046\ \ \ index.buildIndex();}
 \DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ points.size();\ ++i)}
-\DoxyCodeLine{00049\ \ \ \{}
-\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{if}\ (labels[i]\ !=\ -\/1)}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};\ \textcolor{comment}{//\ already\ assigned}}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//\ Query\ neighbors\ within\ radius}}
-\DoxyCodeLine{00054\ \ \ \ \ std::vector<nanoflann::ResultItem<unsigned\ int,\ T>>\ ret\_matches;}
-\DoxyCodeLine{00055\ \ \ \ \ nanoflann::SearchParameters\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ params;}
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{const}\ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ eps\_sq\ =\ eps\ *\ eps;}
-\DoxyCodeLine{00057\ \ \ \ \ std::array<T,\ N>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ query;}
-\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ query[d]\ =\ points[i][d];}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \ \ \ \ index.radiusSearch(query.data(),\ eps\_sq,\ ret\_matches,\ params);}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{if}\ (ret\_matches.size()\ <\ min\_pts)}
-\DoxyCodeLine{00064\ \ \ \ \ \{}
-\DoxyCodeLine{00065\ \ \ \ \ \ \ labels[i]\ =\ -\/2;\ \textcolor{comment}{//\ mark\ as\ noise}}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{00067\ \ \ \ \ \}}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{//\ Start\ new\ cluster}}
-\DoxyCodeLine{00070\ \ \ \ \ labels[i]\ =\ cluster\_id;}
+\DoxyCodeLine{00048\ \ \ std::vector<int>\ labels(points.size(),\ -\/1);\ \textcolor{comment}{//\ -\/1\ =\ unvisited/noise}}
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ cluster\_id\ =\ 0;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ points.size();\ ++i)}
+\DoxyCodeLine{00052\ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{if}\ (labels[i]\ !=\ -\/1)}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};\ \textcolor{comment}{//\ already\ assigned}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//\ Query\ neighbors\ within\ radius}}
+\DoxyCodeLine{00057\ \ \ \ \ std::vector<nanoflann::ResultItem<unsigned\ int,\ T>>\ ret\_matches;}
+\DoxyCodeLine{00058\ \ \ \ \ nanoflann::SearchParameters\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ params;}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{const}\ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ eps\_sq\ =\ eps\ *\ eps;}
+\DoxyCodeLine{00060\ \ \ \ \ std::array<T,\ N>\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ query;}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ query[d]\ =\ points[i][d];}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ index.radiusSearch(query.data(),\ eps\_sq,\ ret\_matches,\ params);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordflow}{if}\ (ret\_matches.size()\ <\ min\_pts)}
+\DoxyCodeLine{00067\ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ labels[i]\ =\ -\/2;\ \textcolor{comment}{//\ mark\ as\ noise}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00070\ \ \ \ \ \}}
 \DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \ \ \ \ std::vector<size\_t>\ seed\_set;}
-\DoxyCodeLine{00073\ \ \ \ \ seed\_set.reserve(ret\_matches.size());}
-\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&m\ :\ ret\_matches)}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m.first\ !=\ i)}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ seed\_set.push\_back(m.first);}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ seed\_set.size();\ ++j)}
-\DoxyCodeLine{00079\ \ \ \ \ \{}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ neighbor\_idx\ =\ seed\_set[j];}
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (labels[neighbor\_idx]\ ==\ -\/2)}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ labels[neighbor\_idx]\ =\ cluster\_id;\ \textcolor{comment}{//\ was}}
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ noise,}}
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ now}}
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ border}}
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (labels[neighbor\_idx]\ !=\ -\/1)}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};\ \textcolor{comment}{//\ already}}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ assigned}}
-\DoxyCodeLine{00089\ }
-\DoxyCodeLine{00090\ \ \ \ \ \ \ labels[neighbor\_idx]\ =\ cluster\_id;}
-\DoxyCodeLine{00091\ }
-\DoxyCodeLine{00092\ \ \ \ \ \ \ \textcolor{comment}{//\ Expand\ cluster\ if\ neighbor\ is\ a\ core}}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ std::array<T,\ N>\ nq;}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ nq[d]\ =\ points[neighbor\_idx][d];}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ std::vector<nanoflann::ResultItem<unsigned\ int,\ T>>\ n\_matches;}
-\DoxyCodeLine{00097\ \ \ \ \ \ \ index.radiusSearch(nq.data(),\ eps\_sq,\ n\_matches,\ params);}
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n\_matches.size()\ >=\ min\_pts)}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&nm\ :\ n\_matches)}
-\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (labels[nm.first]\ ==\ -\/1)}
-\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ seed\_set.push\_back(nm.first);}
-\DoxyCodeLine{00104\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00105\ \ \ \ \ \}}
-\DoxyCodeLine{00106\ }
-\DoxyCodeLine{00107\ \ \ \ \ cluster\_id++;}
-\DoxyCodeLine{00108\ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{comment}{//\ Start\ new\ cluster}}
+\DoxyCodeLine{00073\ \ \ \ \ labels[i]\ =\ cluster\_id;}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ std::vector<size\_t>\ seed\_set;}
+\DoxyCodeLine{00076\ \ \ \ \ seed\_set.reserve(ret\_matches.size());}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&m\ :\ ret\_matches)}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (m.first\ !=\ i)}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ seed\_set.push\_back(m.first);}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ seed\_set.size();\ ++j)}
+\DoxyCodeLine{00082\ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ neighbor\_idx\ =\ seed\_set[j];}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (labels[neighbor\_idx]\ ==\ -\/2)}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ labels[neighbor\_idx]\ =\ cluster\_id;\ \textcolor{comment}{//\ was}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ noise,}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ now}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ border}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (labels[neighbor\_idx]\ !=\ -\/1)}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};\ \textcolor{comment}{//\ already}}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ assigned}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ labels[neighbor\_idx]\ =\ cluster\_id;}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \textcolor{comment}{//\ Expand\ cluster\ if\ neighbor\ is\ a\ core}}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ std::array<T,\ N>\ nq;}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ nq[d]\ =\ points[neighbor\_idx][d];}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ std::vector<nanoflann::ResultItem<unsigned\ int,\ T>>\ n\_matches;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ index.radiusSearch(nq.data(),\ eps\_sq,\ n\_matches,\ params);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n\_matches.size()\ >=\ min\_pts)}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&nm\ :\ n\_matches)}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (labels[nm.first]\ ==\ -\/1)}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ seed\_set.push\_back(nm.first);}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00108\ \ \ \ \ \}}
 \DoxyCodeLine{00109\ }
-\DoxyCodeLine{00110\ \ \ \textcolor{keywordflow}{return}\ labels;}
-\DoxyCodeLine{00111\ \}}
+\DoxyCodeLine{00110\ \ \ \ \ cluster\_id++;}
+\DoxyCodeLine{00111\ \ \ \}}
 \DoxyCodeLine{00112\ }
-\DoxyCodeLine{00113\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+\DoxyCodeLine{00113\ \ \ \textcolor{keywordflow}{return}\ labels;}
+\DoxyCodeLine{00114\ \}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \}\ \textcolor{comment}{//\ namespace\ ps}}
 
 \end{DoxyCode}
