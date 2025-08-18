@@ -25,13 +25,14 @@ namespace ps
  * unassigned.
  *
  * @par Example
- * ```cpp std::vector<Point<double,2>> pts = { {0.1,0.2}, {0.15,0.22}, {0.9,0.9}
- * };
+ * @code 
+ * std::vector<Point<double,2>> pts = { {0.1,0.2}, {0.15,0.22}, {0.9,0.9}};
  * auto labels = analyze_percolation_clusters<double,2>(pts, 0.1);
  *
- * // labels might be {0,0,1}, meaning the first two form a cluster, third is
- * separate.
- * ```
+ * // labels might be {0,0,1}, meaning the first two form a cluster, third is separate.
+ * @endcode
+ * 
+ * @image html metrics_percolation_clustering.jpg
  */
 template <typename T, size_t N>
 std::vector<int> percolation_clustering(const std::vector<Point<T, N>> &points,
