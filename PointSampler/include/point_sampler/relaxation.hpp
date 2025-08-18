@@ -44,8 +44,7 @@ namespace ps
  * std::vector<Point<float, 2>> pts = generate_random_points<float, 2>(
  *     1000, { { {0.f, 1.f}, {0.f, 1.f} } }, 42);
  *
- * // Apply 10 iterations of relaxation relaxation_ktree<float, 2>(pts, 8, 0.1f,
- * 10);
+ * // Apply 10 iterations of relaxation relaxation_ktree<float, 2>(pts, 8, 0.1f, 10);
  * @endcode
  *
  * ### How it works:
@@ -57,6 +56,8 @@ namespace ps
  *   - Accumulate the offset, normalize, and scale by `step_size`.
  *   - Apply the movement to each point.
  * - Repeat for `iterations` steps.
+ *
+ * @image html out_relaxation_ktree_refit.csv.jpg
  */
 template <typename T, size_t N>
 void relaxation_ktree(std::vector<Point<T, N>> &points,

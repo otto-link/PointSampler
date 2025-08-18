@@ -46,17 +46,19 @@ namespace ps
  *     return std::exp(-r2); // higher near origin, drops with radius
  * }
  *
- * int main() {
+ * int main()
+ * {
  *     std::array<std::pair<float, float>, 2> bounds = { { {-2.0f, 2.0f},
- * {-2.0f, 2.0f} } };
- *     auto pts = ps::rejection_sampling<float, 2>(1000, bounds, radial_density,
- * 42);
+ *                                                         {-2.0f, 2.0f} }};
+ *     auto pts = ps::rejection_sampling<float, 2>(1000, bounds, radial_density, 42);
  *     std::cout << "Generated " << pts.size() << " points.\n";
  * }
  * @endcode
  *
  * @note Rejection sampling can be inefficient if `density_fn` returns low
  * values over most of the domain, as many candidate samples will be discarded.
+ *
+ * @image html out_rejection_sampling.csv.jpg
  */
 template <typename T, size_t N, typename DensityFn>
 std::vector<Point<T, N>> rejection_sampling(
