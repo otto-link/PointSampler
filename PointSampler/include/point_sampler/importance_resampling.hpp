@@ -39,7 +39,8 @@ namespace ps
  *                            point set
  *
  * @par Example
- * @code auto density = [](const Point<float, 2> &p) {
+ * @code
+ * auto density = [](const Point<float, 2> &p) {
  *     return std::exp(-10.0f * (p[0]*p[0] + p[1]*p[1]));
  * };
  *
@@ -48,6 +49,8 @@ namespace ps
  *     {{{-1, 1}, {-1, 1}}}, density, 42
  * );
  * @endcode
+ *
+ * @image html out_importance_resampling.csv.jpg
  */
 template <typename T, size_t N, typename DensityFn>
 std::vector<Point<T, N>> importance_resampling(

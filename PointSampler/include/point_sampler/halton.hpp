@@ -57,11 +57,14 @@ std::vector<Point<T, N>> halton_sequence(size_t count, size_t shift)
  *                     rescaled to the bounding box
  *
  * @par Example
- * @code auto points = ps::halton<float, 2>(
+ * @code
+ * auto points = ps::halton<float, 2>(
  *     1000,
  *     {{{0, 1}, {0, 1}}}, 42
  * );
  * @endcode
+ *
+ * @image html out_halton.csv.jpg
  */
 template <typename T, size_t N>
 std::vector<Point<T, N>> halton(size_t                                count,

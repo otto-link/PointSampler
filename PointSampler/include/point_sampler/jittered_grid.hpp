@@ -34,13 +34,15 @@ namespace ps
  * @return               std::vector<Point<T, N>> Sampled points
  *
  * @par Example
- * @code std::array<std::pair<float, float>, 2> bounds = {{{0.0f, 1.0f}, {0.0f,
- * 1.0f}}};
+ * @code
+ * std::array<std::pair<float, float>, 2> bounds = {{{0.0f, 1.0f}, {0.0f, 1.0f}}};
  * std::array<float, 2> jitter = {0.8f, 0.8f};
  * std::array<float, 2> stagger = {0.2f, 0.0f};
  *
  * auto samples = ps::jittered_grid<float, 2>(256, bounds, jitter, stagger, 42);
  * @endcode
+ * 
+ * @image html out_jittered_grid.csv.jpg
  */
 template <typename T, size_t N>
 std::vector<Point<T, N>> jittered_grid(size_t                                count,
@@ -135,8 +137,8 @@ std::vector<Point<T, N>> jittered_grid(size_t                                cou
  * @return             std::vector<Point<T, N>> Jittered point samples
  *
  * @par Example
- * @code std::array<std::pair<double, double>, 3> bounds = {{{0, 1}, {0, 1}, {0,
- * 1}}};
+ * @code
+ * std::array<std::pair<double, double>, 3> bounds = {{{0, 1}, {0, 1}, {0, 1}}};
  * auto points = ps::jittered_grid<double, 3>(1000, bounds, 1234);
  * @endcode
  */
