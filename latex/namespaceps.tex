@@ -1887,11 +1887,11 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of accepted points based on reje
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ std::exp(-\/\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{r2}});\ \textcolor{comment}{//\ higher\ near\ origin,\ drops\ with\ radius}}
 \DoxyCodeLine{\}}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{main}}()\ \{}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{main}}()}
+\DoxyCodeLine{\{}
 \DoxyCodeLine{\ \ \ \ std::array<std::pair<float,\ float>,\ 2>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{bounds}}\ =\ \{\ \{\ \{-\/2.0f,\ 2.0f\},}
-\DoxyCodeLine{\{-\/2.0f,\ 2.0f\}\ \}\ \};}
-\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ pts\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{ps::rejection\_sampling<float,\ 2>}}(1000,\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{bounds}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{radial\_density}},}
-\DoxyCodeLine{42);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{-\/2.0f,\ 2.0f\}\ \}\};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{auto}\ pts\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{ps::rejection\_sampling<float,\ 2>}}(1000,\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{bounds}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{radial\_density}},\ 42);}
 \DoxyCodeLine{\ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Generated\ "{}}\ <<\ pts.size()\ <<\ \textcolor{stringliteral}{"{}\ points.\(\backslash\)n"{}};}
 \DoxyCodeLine{\}}
 
@@ -1899,9 +1899,9 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of accepted points based on reje
 
 \end{DoxyParagraph}
 \begin{DoxyNote}{Note}
-Rejection sampling can be inefficient if {\ttfamily density\+\_\+fn} returns low values over most of the domain, as many candidate samples will be discarded. 
+Rejection sampling can be inefficient if {\ttfamily density\+\_\+fn} returns low values over most of the domain, as many candidate samples will be discarded.
 \end{DoxyNote}
-\Hypertarget{namespaceps_aed8a3217a801c5b5706f4bcc3306bb18}\label{namespaceps_aed8a3217a801c5b5706f4bcc3306bb18} 
+ \Hypertarget{namespaceps_aed8a3217a801c5b5706f4bcc3306bb18}\label{namespaceps_aed8a3217a801c5b5706f4bcc3306bb18} 
 \index{ps@{ps}!relaxation\_ktree@{relaxation\_ktree}}
 \index{relaxation\_ktree@{relaxation\_ktree}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{relaxation\_ktree()}{relaxation\_ktree()}}
@@ -1945,8 +1945,7 @@ The KD-\/tree is rebuilt on each iteration to reflect the updated positions.
 \DoxyCodeLine{std::vector<Point<float,\ 2>>\ pts\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{generate\_random\_points<float,\ 2>}}(}
 \DoxyCodeLine{\ \ \ \ 1000,\ \{\ \{\ \{0.f,\ 1.f\},\ \{0.f,\ 1.f\}\ \}\ \},\ 42);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{comment}{//\ Apply\ 10\ iterations\ of\ relaxation\ relaxation\_ktree<float,\ 2>(pts,\ 8,\ 0.1f,}}
-\DoxyCodeLine{10);}
+\DoxyCodeLine{\textcolor{comment}{//\ Apply\ 10\ iterations\ of\ relaxation\ relaxation\_ktree<float,\ 2>(pts,\ 8,\ 0.1f,\ 10);}}
 
 \end{DoxyCode}
 
@@ -1962,8 +1961,10 @@ The KD-\/tree is rebuilt on each iteration to reflect the updated positions.
 \item Accumulate the offset, normalize, and scale by {\ttfamily step\+\_\+size}.
 \item Apply the movement to each point.
 \end{DoxyItemize}
-\item Repeat for {\ttfamily iterations} steps. 
-\end{DoxyItemize}\Hypertarget{namespaceps_a7addf1455112b7895f8de7c475eed850}\label{namespaceps_a7addf1455112b7895f8de7c475eed850} 
+\item Repeat for {\ttfamily iterations} steps.
+\end{DoxyItemize}
+
+ \Hypertarget{namespaceps_a7addf1455112b7895f8de7c475eed850}\label{namespaceps_a7addf1455112b7895f8de7c475eed850} 
 \index{ps@{ps}!rescale\_points@{rescale\_points}}
 \index{rescale\_points@{rescale\_points}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{rescale\_points()}{rescale\_points()}}

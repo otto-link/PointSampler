@@ -3274,17 +3274,20 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
 <div class="line">    <span class="keywordflow">return</span> std::exp(-<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">r2</a>); <span class="comment">// higher near origin, drops with radius</span></div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">main</a>() {</div>
+<div class="line"><span class="keywordtype">int</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">main</a>()</div>
+<div class="line">{</div>
 <div class="line">    std::array&lt;std::pair&lt;float, float&gt;, 2&gt; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">bounds</a> = { { {-2.0f, 2.0f},</div>
-<div class="line">{-2.0f, 2.0f} } };</div>
-<div class="line">    <span class="keyword">auto</span> pts = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::rejection_sampling&lt;float, 2&gt;</a>(1000, <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">bounds</a>, <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">radial_density</a>,</div>
-<div class="line">42);</div>
+<div class="line">                                                        {-2.0f, 2.0f} }};</div>
+<div class="line">    <span class="keyword">auto</span> pts = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::rejection_sampling&lt;float, 2&gt;</a>(1000, <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">bounds</a>, <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">radial_density</a>, 42);</div>
 <div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Generated &quot;</span> &lt;&lt; pts.size() &lt;&lt; <span class="stringliteral">&quot; points.\n&quot;</span>;</div>
 <div class="line">}</div>
 <div class="ttc" id="arejection__sampling_8hpp_html"><div class="ttname"><a href="rejection__sampling_8hpp.html">rejection_sampling.hpp</a></div></div>
 </div><!-- fragment --></dd></dl>
-<dl class="section note"><dt>Note</dt><dd>Rejection sampling can be inefficient if <code>density_fn</code> returns low values over most of the domain, as many candidate samples will be discarded. </dd></dl>
-
+<dl class="section note"><dt>Note</dt><dd>Rejection sampling can be inefficient if <code>density_fn</code> returns low values over most of the domain, as many candidate samples will be discarded.</dd></dl>
+<div class="image">
+<img src="out_rejection_sampling.csv.jpg" alt=""/>
+</div>
+ 
 </div>
 </div>
 <a id="aed8a3217a801c5b5706f4bcc3306bb18" name="aed8a3217a801c5b5706f4bcc3306bb18"></a>
@@ -3352,8 +3355,7 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
 <div class="line">std::vector&lt;Point&lt;float, 2&gt;&gt; pts = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">generate_random_points&lt;float, 2&gt;</a>(</div>
 <div class="line">    1000, { { {0.f, 1.f}, {0.f, 1.f} } }, 42);</div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// Apply 10 iterations of relaxation relaxation_ktree&lt;float, 2&gt;(pts, 8, 0.1f,</span></div>
-<div class="line">10);</div>
+<div class="line"><span class="comment">// Apply 10 iterations of relaxation relaxation_ktree&lt;float, 2&gt;(pts, 8, 0.1f, 10);</span></div>
 <div class="ttc" id="arelaxation_8hpp_html"><div class="ttname"><a href="relaxation_8hpp.html">relaxation.hpp</a></div></div>
 </div><!-- fragment --></dd></dl>
 <h3><a class="anchor" id="autotoc_md0"></a>
@@ -3367,9 +3369,12 @@ How it works:</h3>
 <li>Apply the movement to each point.</li>
 </ul>
 </li>
-<li>Repeat for <code>iterations</code> steps. </li>
+<li>Repeat for <code>iterations</code> steps.</li>
 </ul>
-
+<div class="image">
+<img src="out_relaxation_ktree_refit.csv.jpg" alt=""/>
+</div>
+ 
 </div>
 </div>
 <a id="a7addf1455112b7895f8de7c475eed850" name="a7addf1455112b7895f8de7c475eed850"></a>
