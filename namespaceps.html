@@ -741,7 +741,7 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
 <div class="line">std::vector&lt;Point&lt;float, 2&gt;&gt; pts = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::random&lt;float, 2&gt;</a>(1000, {{0,1},{0,1}});</div>
 <div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">filtered</a> = <a class="code hl_function" href="namespaceps.html#af23d114903fd5cb3ccb19d3e64183632">ps::distance_rejection_filter_warped</a>(pts, 0.05f, <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">scale_fn</a>);</div>
 <div class="ttc" id="anamespaceps_html_af23d114903fd5cb3ccb19d3e64183632"><div class="ttname"><a href="namespaceps.html#af23d114903fd5cb3ccb19d3e64183632">ps::distance_rejection_filter_warped</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; distance_rejection_filter_warped(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, T base_min_dist, ScaleFn scale_fn)</div><div class="ttdoc">Filters points based on spatially-varying minimal distance constraints.</div><div class="ttdef"><b>Definition</b> distance_rejection_filter.hpp:101</div></div>
-<div class="ttc" id="astructps_1_1Point_html"><div class="ttname"><a href="structps_1_1Point.html">ps::Point</a></div><div class="ttdoc">A fixed-size N-dimensional point/vector class.</div><div class="ttdef"><b>Definition</b> point.hpp:37</div></div>
+<div class="ttc" id="astructps_1_1Point_html"><div class="ttname"><a href="structps_1_1Point.html">ps::Point</a></div><div class="ttdoc">A fixed-size N-dimensional point/vector class.</div><div class="ttdef"><b>Definition</b> point.hpp:39</div></div>
 </div><!-- fragment --></dd></dl>
 <div class="image">
 <img src="out_distance_rejection_filter_warped.csv.jpg" alt=""/>
@@ -2683,8 +2683,16 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; A vector of sample points satisfying the scaled Poisson distance constraint.</dd></dl>
-<dl class="section user"><dt>Example auto ranges = std::array&lt;std::pair&lt;float, float&gt;, 2&gt;{{ {0.f, 1.f},</dt><dd>{0.f, 1.f} }}; auto scale_fn = [](const Point&lt;float, 2&gt; &amp;p) -&gt; float { return 1.0f + 0.5f * std::sin(p[0] * 6.2831f); // Vary distance with x }; auto points = poisson_disk_sampling&lt;float, 2&gt;( 100, ranges, 0.05f, scale_fn, 42); </dd></dl>
-
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ranges</a> = std::array&lt;std::pair&lt;float, float&gt;, 2&gt;{{ {0.f, 1.f}, {0.f, 1.f} }};</div>
+<div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">scale_fn</a> = [](<span class="keyword">const</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">Point&lt;float, 2&gt;</a> &amp;<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">p</a>) -&gt; <span class="keywordtype">float</span> {</div>
+<div class="line">    <span class="keywordflow">return</span> 1.0f + 0.5f * std::sin(<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">p</a>[0] * 6.2831f);  <span class="comment">// Vary distance with x</span></div>
+<div class="line">};</div>
+<div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">points</a> = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">poisson_disk_sampling&lt;float, 2&gt;</a>(100, <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ranges</a>, 0.05f, <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">scale_fn</a>, 42);</div>
+</div><!-- fragment --></dd></dl>
+<p>s</p><div class="image">
+<img src="out_poisson_disk_sampling.csv.jpg" alt=""/>
+</div>
+ 
 </div>
 </div>
 <a id="a6f7ab76c5d0a395aa78b85bad488e94e" name="a6f7ab76c5d0a395aa78b85bad488e94e"></a>
@@ -2753,7 +2761,9 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; A vector of uniformly spaced sample points.</dd></dl>
-<dl class="section user"><dt>Example auto ranges = std::array&lt;std::pair&lt;float, float&gt;, 2&gt;{{ {0.f, 1.f},</dt><dd>{0.f, 1.f} }}; auto points = poisson_disk_sampling_uniform&lt;float, 2&gt;( 200, ranges, 0.03f, 1234); </dd></dl>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ranges</a> = std::array&lt;std::pair&lt;float, float&gt;, 2&gt;{{ {0.f, 1.f}, {0.f, 1.f} }};</div>
+<div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">points</a> = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">poisson_disk_sampling_uniform&lt;float, 2&gt;</a>(200, <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ranges</a>, 0.03f, 1234);</div>
+</div><!-- fragment --> </dd></dl>
 
 </div>
 </div>
@@ -2972,11 +2982,10 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; containing <code>keep_fraction * points.size()</code> randomly selected points</dd></dl>
-<div class="fragment"><div class="line"> std::vector&lt;Point&lt;double, 3&gt;&gt; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">cloud</a> = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::random&lt;double, 3&gt;</a>(10000,</div>
-<div class="line">{{-1,1},{-1,1},{-1,1}});</div>
-<div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">sparse</a> = <a class="code hl_function" href="namespaceps.html#ab818126518017939773c8a43bd92fc42">ps::random_rejection_filter</a>(<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">cloud</a>, 0.25); <span class="comment">// Keep 25% of the</span></div>
-<div class="line"><a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">points</a></div>
-<div class="ttc" id="anamespaceps_html_ab818126518017939773c8a43bd92fc42"><div class="ttname"><a href="namespaceps.html#ab818126518017939773c8a43bd92fc42">ps::random_rejection_filter</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; random_rejection_filter(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, std::size_t target_count)</div><div class="ttdoc">Randomly retains a fixed number of points from the input set.</div><div class="ttdef"><b>Definition</b> random_rejection_filter.hpp:35</div></div>
+<div class="fragment"><div class="line">std::vector&lt;Point&lt;double, 3&gt;&gt; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">cloud</a> = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::random&lt;double, 3&gt;</a>(10000,</div>
+<div class="line">{{-1,1},{-1,1},{-1,1}}); <span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">sparse</a> = <a class="code hl_function" href="namespaceps.html#ab818126518017939773c8a43bd92fc42">ps::random_rejection_filter</a>(<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">cloud</a>, 0.25); <span class="comment">//</span></div>
+<div class="line"><a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">Keep</a> 25% <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">of</a> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">the</a> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">points</a></div>
+<div class="ttc" id="anamespaceps_html_ab818126518017939773c8a43bd92fc42"><div class="ttname"><a href="namespaceps.html#ab818126518017939773c8a43bd92fc42">ps::random_rejection_filter</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; random_rejection_filter(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, std::size_t target_count)</div><div class="ttdoc">Randomly retains a fixed number of points from the input set.</div><div class="ttdef"><b>Definition</b> random_rejection_filter.hpp:37</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -3025,10 +3034,12 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; containing <code>target_count</code> randomly selected points</dd></dl>
-<div class="fragment"><div class="line"> std::vector&lt;Point&lt;float, 2&gt;&gt; pts = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::random&lt;float, 2&gt;</a>(1000,</div>
-<div class="line">{{0,1},{0,1}});</div>
+<div class="fragment"><div class="line">std::vector&lt;Point&lt;float, 2&gt;&gt; pts = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::random&lt;float, 2&gt;</a>(1000, {{0,1},{0,1}});</div>
 <div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">reduced</a> = <a class="code hl_function" href="namespaceps.html#ab818126518017939773c8a43bd92fc42">ps::random_rejection_filter</a>(pts, 300); <span class="comment">// Keep 300 points</span></div>
-</div><!-- fragment --> 
+</div><!-- fragment --><div class="image">
+<img src="out_random_rejection_filter.csv.jpg" alt=""/>
+</div>
+ 
 </div>
 </div>
 <a id="a54a1e19fa663340b68ad9f74e740a6c0" name="a54a1e19fa663340b68ad9f74e740a6c0"></a>

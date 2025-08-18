@@ -17,219 +17,219 @@
 \DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
 \DoxyCodeLine{00014\ \{}
 \DoxyCodeLine{00015\ }
-\DoxyCodeLine{00036\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structps_1_1Point}{Point}}}
-\DoxyCodeLine{00037\ \{}
-\DoxyCodeLine{00038\ \ \ std::array<T,\ N>\ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}};}
-\DoxyCodeLine{00039\ }
-\DoxyCodeLine{00040\ \ \ \textcolor{comment}{//\ Default\ constructor}}
-\DoxyCodeLine{00041\ \ \ \mbox{\hyperlink{structps_1_1Point_a424a02dff2ba0f1458cfbe5c453cc739}{Point}}()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \ \ \textcolor{comment}{//\ Constructor\ from\ std::vector<T>}}
-\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{structps_1_1Point_a5baa7fdf8d85cf33a45b47e804f1065a}{Point}}(\textcolor{keyword}{const}\ std::vector<T>\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{v}})}
-\DoxyCodeLine{00045\ \ \ \{}
-\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{v}}.size()\ !=\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}})}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Point:\ vector\ size\ mismatch"{}});}
-\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{v}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}];}
-\DoxyCodeLine{00050\ \ \ \}}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \ \ \textcolor{comment}{//\ Constructor\ from\ initializer\ list}}
-\DoxyCodeLine{00053\ \ \ \mbox{\hyperlink{structps_1_1Point_ac3aebf196b50c94ae7f29ee136253c2e}{Point}}(std::initializer\_list<T>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{init}})}
-\DoxyCodeLine{00054\ \ \ \{}
-\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{init}}.size()\ !=\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}})}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Point:\ initializer\ list\ size\ mismatch"{}});}
-\DoxyCodeLine{00057\ \ \ \ \ std::copy(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{init}}.begin(),\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{init}}.end(),\ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}}.begin());}
-\DoxyCodeLine{00058\ \ \ \}}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \ \ \mbox{\hyperlink{structps_1_1Point_a384ff1eed26e22b50f2a6ed3b2b9b883}{Point}}(\textcolor{keyword}{const}\ std::array<T,\ N>\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{coords\_}})\ \{\ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}}\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{coords\_}};\ \}}
+\DoxyCodeLine{00038\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structps_1_1Point}{Point}}}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \ \ std::array<T,\ N>\ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \textcolor{comment}{//\ Default\ constructor}}
+\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{structps_1_1Point_a424a02dff2ba0f1458cfbe5c453cc739}{Point}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \textcolor{comment}{//\ Constructor\ from\ std::vector<T>}}
+\DoxyCodeLine{00046\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{structps_1_1Point_a5baa7fdf8d85cf33a45b47e804f1065a}{Point}}(\textcolor{keyword}{const}\ std::vector<T>\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{v}})}
+\DoxyCodeLine{00047\ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{v}}.size()\ !=\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}})}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Point:\ vector\ size\ mismatch"{}});}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{v}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}];}
+\DoxyCodeLine{00052\ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \textcolor{comment}{//\ Constructor\ from\ initializer\ list}}
+\DoxyCodeLine{00055\ \ \ \mbox{\hyperlink{structps_1_1Point_ac3aebf196b50c94ae7f29ee136253c2e}{Point}}(std::initializer\_list<T>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{init}})}
+\DoxyCodeLine{00056\ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{init}}.size()\ !=\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}})}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Point:\ initializer\ list\ size\ mismatch"{}});}
+\DoxyCodeLine{00059\ \ \ \ \ std::copy(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{init}}.begin(),\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{init}}.end(),\ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}}.begin());}
+\DoxyCodeLine{00060\ \ \ \}}
 \DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \ \ \textcolor{comment}{//\ Accessors}}
-\DoxyCodeLine{00063\ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \ \ \ \ \ \ \&\mbox{\hyperlink{structps_1_1Point_a02edf0e14b6bacf2963bc99a98559d0d}{operator[]}}(\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}];\ \}}
-\DoxyCodeLine{00064\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \&\mbox{\hyperlink{structps_1_1Point_a7ff0c82493f4b4fcabe92536252f55a5}{operator[]}}(\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}];\ \}}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \ \ \textcolor{comment}{//\ Optional\ 2D/3D\ accessors}}
-\DoxyCodeLine{00067\ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \&\mbox{\hyperlink{structps_1_1Point_a923122d71eeca55b98d0c452fd441aa5}{x}}()}
-\DoxyCodeLine{00068\ \ \ \{}
-\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{static\_assert}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}}\ >\ 0,\ \textcolor{stringliteral}{"{}No\ x"{}});}
-\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}}[0];}
-\DoxyCodeLine{00071\ \ \ \}}
-\DoxyCodeLine{00072\ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \&\mbox{\hyperlink{structps_1_1Point_ad7db73a30d4922706ab50c965bf09e8c}{y}}()}
-\DoxyCodeLine{00073\ \ \ \{}
-\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{static\_assert}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}}\ >\ 1,\ \textcolor{stringliteral}{"{}No\ y"{}});}
-\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}}[1];}
-\DoxyCodeLine{00076\ \ \ \}}
-\DoxyCodeLine{00077\ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \&\mbox{\hyperlink{structps_1_1Point_a2056ca5f03e6dbf3bb59571ff31c45ee}{z}}()}
-\DoxyCodeLine{00078\ \ \ \{}
-\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{static\_assert}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}}\ >\ 2,\ \textcolor{stringliteral}{"{}No\ z"{}});}
-\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}}[2];}
-\DoxyCodeLine{00081\ \ \ \}}
-\DoxyCodeLine{00082\ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \&\mbox{\hyperlink{structps_1_1Point_a41d05a3aad1f367f55fb702f2983ecf4}{w}}()}
-\DoxyCodeLine{00083\ \ \ \{}
-\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{static\_assert}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}}\ >\ 3,\ \textcolor{stringliteral}{"{}No\ w"{}});}
-\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}}[3];}
-\DoxyCodeLine{00086\ \ \ \}}
-\DoxyCodeLine{00087\ }
-\DoxyCodeLine{00088\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \&\mbox{\hyperlink{structps_1_1Point_aa19e8e6ec45ecba2480e8441f56683a3}{x}}()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00089\ \textcolor{keyword}{\ \ }\{}
-\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{static\_assert}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}}\ >\ 0,\ \textcolor{stringliteral}{"{}No\ x"{}});}
-\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}}[0];}
-\DoxyCodeLine{00092\ \ \ \}}
-\DoxyCodeLine{00093\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \&\mbox{\hyperlink{structps_1_1Point_ab12206278dcdc9eec61ac37ba5d16fb9}{y}}()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00094\ \textcolor{keyword}{\ \ }\{}
-\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{static\_assert}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}}\ >\ 1,\ \textcolor{stringliteral}{"{}No\ y"{}});}
-\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}}[1];}
-\DoxyCodeLine{00097\ \ \ \}}
-\DoxyCodeLine{00098\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \&\mbox{\hyperlink{structps_1_1Point_aa68e8a954f09c3fca7aea0cd9e4fa896}{z}}()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00099\ \textcolor{keyword}{\ \ }\{}
-\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{static\_assert}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}}\ >\ 2,\ \textcolor{stringliteral}{"{}No\ z"{}});}
-\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}}[2];}
-\DoxyCodeLine{00102\ \ \ \}}
-\DoxyCodeLine{00103\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \&\mbox{\hyperlink{structps_1_1Point_a2ebd0e6ada529f117bfe3f2f482ab2e3}{w}}()\textcolor{keyword}{\ const}}
-\DoxyCodeLine{00104\ \textcolor{keyword}{\ \ }\{}
-\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{static\_assert}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}}\ >\ 3,\ \textcolor{stringliteral}{"{}No\ w"{}});}
-\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}}[3];}
-\DoxyCodeLine{00107\ \ \ \}}
-\DoxyCodeLine{00108\ \};}
-\DoxyCodeLine{00109\ }
-\DoxyCodeLine{00110\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{00111\ \textcolor{comment}{//\ Arithmetic\ Operators}}
+\DoxyCodeLine{00062\ \ \ \mbox{\hyperlink{structps_1_1Point_a384ff1eed26e22b50f2a6ed3b2b9b883}{Point}}(\textcolor{keyword}{const}\ std::array<T,\ N>\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{coords\_}})\ \{\ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}}\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{coords\_}};\ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \textcolor{comment}{//\ Accessors}}
+\DoxyCodeLine{00065\ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \ \ \ \ \ \ \&\mbox{\hyperlink{structps_1_1Point_a02edf0e14b6bacf2963bc99a98559d0d}{operator[]}}(\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}];\ \}}
+\DoxyCodeLine{00066\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \&\mbox{\hyperlink{structps_1_1Point_a7ff0c82493f4b4fcabe92536252f55a5}{operator[]}}(\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}];\ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \textcolor{comment}{//\ Optional\ 2D/3D\ accessors}}
+\DoxyCodeLine{00069\ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \&\mbox{\hyperlink{structps_1_1Point_a923122d71eeca55b98d0c452fd441aa5}{x}}()}
+\DoxyCodeLine{00070\ \ \ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{static\_assert}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}}\ >\ 0,\ \textcolor{stringliteral}{"{}No\ x"{}});}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}}[0];}
+\DoxyCodeLine{00073\ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \&\mbox{\hyperlink{structps_1_1Point_ad7db73a30d4922706ab50c965bf09e8c}{y}}()}
+\DoxyCodeLine{00075\ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{static\_assert}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}}\ >\ 1,\ \textcolor{stringliteral}{"{}No\ y"{}});}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}}[1];}
+\DoxyCodeLine{00078\ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \&\mbox{\hyperlink{structps_1_1Point_a2056ca5f03e6dbf3bb59571ff31c45ee}{z}}()}
+\DoxyCodeLine{00080\ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{static\_assert}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}}\ >\ 2,\ \textcolor{stringliteral}{"{}No\ z"{}});}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}}[2];}
+\DoxyCodeLine{00083\ \ \ \}}
+\DoxyCodeLine{00084\ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \&\mbox{\hyperlink{structps_1_1Point_a41d05a3aad1f367f55fb702f2983ecf4}{w}}()}
+\DoxyCodeLine{00085\ \ \ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{static\_assert}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}}\ >\ 3,\ \textcolor{stringliteral}{"{}No\ w"{}});}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}}[3];}
+\DoxyCodeLine{00088\ \ \ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \&\mbox{\hyperlink{structps_1_1Point_aa19e8e6ec45ecba2480e8441f56683a3}{x}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00091\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{static\_assert}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}}\ >\ 0,\ \textcolor{stringliteral}{"{}No\ x"{}});}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}}[0];}
+\DoxyCodeLine{00094\ \ \ \}}
+\DoxyCodeLine{00095\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \&\mbox{\hyperlink{structps_1_1Point_ab12206278dcdc9eec61ac37ba5d16fb9}{y}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00096\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{static\_assert}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}}\ >\ 1,\ \textcolor{stringliteral}{"{}No\ y"{}});}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}}[1];}
+\DoxyCodeLine{00099\ \ \ \}}
+\DoxyCodeLine{00100\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \&\mbox{\hyperlink{structps_1_1Point_aa68e8a954f09c3fca7aea0cd9e4fa896}{z}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00101\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{static\_assert}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}}\ >\ 2,\ \textcolor{stringliteral}{"{}No\ z"{}});}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}}[2];}
+\DoxyCodeLine{00104\ \ \ \}}
+\DoxyCodeLine{00105\ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \&\mbox{\hyperlink{structps_1_1Point_a2ebd0e6ada529f117bfe3f2f482ab2e3}{w}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00106\ \textcolor{keyword}{\ \ }\{}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{static\_assert}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}}\ >\ 3,\ \textcolor{stringliteral}{"{}No\ w"{}});}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{structps_1_1Point_a5567a990371b89b1cdc1ea740796aba3}{coords}}[3];}
+\DoxyCodeLine{00109\ \ \ \}}
+\DoxyCodeLine{00110\ \};}
+\DoxyCodeLine{00111\ }
 \DoxyCodeLine{00112\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{00113\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00114\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_af9ee1cf5d335276b7fabe6f1daddf1b0}{operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}})}
-\DoxyCodeLine{00115\ \{}
-\DoxyCodeLine{00116\ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
-\DoxyCodeLine{00117\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
-\DoxyCodeLine{00118\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ +\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}];}
-\DoxyCodeLine{00119\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
-\DoxyCodeLine{00120\ \}}
-\DoxyCodeLine{00121\ }
-\DoxyCodeLine{00122\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00123\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_aa369956286bc3f09dfdc146a5b2a49f1}{operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}})}
-\DoxyCodeLine{00124\ \{}
-\DoxyCodeLine{00125\ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
-\DoxyCodeLine{00126\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
-\DoxyCodeLine{00127\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ -\/\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}];}
-\DoxyCodeLine{00128\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
-\DoxyCodeLine{00129\ \}}
-\DoxyCodeLine{00130\ }
-\DoxyCodeLine{00131\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00132\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a6fd3a6df3727a04f9baba3b8b87a903b}{operator*}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}})}
-\DoxyCodeLine{00133\ \{}
-\DoxyCodeLine{00134\ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
-\DoxyCodeLine{00135\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
-\DoxyCodeLine{00136\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ *\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}];}
-\DoxyCodeLine{00137\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
-\DoxyCodeLine{00138\ \}}
-\DoxyCodeLine{00139\ }
-\DoxyCodeLine{00140\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00141\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a585704d3f738c5eb899810fc9308a60e}{operator/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}})}
-\DoxyCodeLine{00142\ \{}
-\DoxyCodeLine{00143\ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
-\DoxyCodeLine{00144\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
-\DoxyCodeLine{00145\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ /\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}];}
-\DoxyCodeLine{00146\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
-\DoxyCodeLine{00147\ \}}
-\DoxyCodeLine{00148\ }
-\DoxyCodeLine{00149\ \textcolor{comment}{//\ Scalar\ ops}}
-\DoxyCodeLine{00150\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_af9ee1cf5d335276b7fabe6f1daddf1b0}{operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{scalar}})}
-\DoxyCodeLine{00151\ \{}
-\DoxyCodeLine{00152\ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
-\DoxyCodeLine{00153\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
-\DoxyCodeLine{00154\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ +\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{scalar}};}
-\DoxyCodeLine{00155\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
-\DoxyCodeLine{00156\ \}}
-\DoxyCodeLine{00157\ }
-\DoxyCodeLine{00158\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_aa369956286bc3f09dfdc146a5b2a49f1}{operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{scalar}})}
-\DoxyCodeLine{00159\ \{}
-\DoxyCodeLine{00160\ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
-\DoxyCodeLine{00161\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
-\DoxyCodeLine{00162\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ -\/\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{scalar}};}
-\DoxyCodeLine{00163\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
-\DoxyCodeLine{00164\ \}}
-\DoxyCodeLine{00165\ }
-\DoxyCodeLine{00166\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a6fd3a6df3727a04f9baba3b8b87a903b}{operator*}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{scalar}})}
-\DoxyCodeLine{00167\ \{}
-\DoxyCodeLine{00168\ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
-\DoxyCodeLine{00169\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
-\DoxyCodeLine{00170\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ *\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{scalar}};}
-\DoxyCodeLine{00171\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
-\DoxyCodeLine{00172\ \}}
-\DoxyCodeLine{00173\ }
-\DoxyCodeLine{00174\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a585704d3f738c5eb899810fc9308a60e}{operator/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{scalar}})}
-\DoxyCodeLine{00175\ \{}
-\DoxyCodeLine{00176\ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
-\DoxyCodeLine{00177\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
-\DoxyCodeLine{00178\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ /\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{scalar}};}
-\DoxyCodeLine{00179\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
-\DoxyCodeLine{00180\ \}}
-\DoxyCodeLine{00181\ }
-\DoxyCodeLine{00182\ \textcolor{comment}{//\ Reverse\ scalar\ ops}}
-\DoxyCodeLine{00183\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a6fd3a6df3727a04f9baba3b8b87a903b}{operator*}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{scalar}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}})}
-\DoxyCodeLine{00184\ \{}
-\DoxyCodeLine{00185\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}}\ *\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{scalar}};}
-\DoxyCodeLine{00186\ \}}
-\DoxyCodeLine{00187\ }
-\DoxyCodeLine{00188\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_af9ee1cf5d335276b7fabe6f1daddf1b0}{operator+}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{scalar}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}})}
-\DoxyCodeLine{00189\ \{}
-\DoxyCodeLine{00190\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}}\ +\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{scalar}};}
-\DoxyCodeLine{00191\ \}}
-\DoxyCodeLine{00192\ }
-\DoxyCodeLine{00193\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{00194\ \textcolor{comment}{//\ Geometric\ Functions}}
+\DoxyCodeLine{00113\ \textcolor{comment}{//\ Arithmetic\ Operators}}
+\DoxyCodeLine{00114\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00115\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00116\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_af9ee1cf5d335276b7fabe6f1daddf1b0}{operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}})}
+\DoxyCodeLine{00117\ \{}
+\DoxyCodeLine{00118\ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
+\DoxyCodeLine{00119\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
+\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ +\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}];}
+\DoxyCodeLine{00121\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
+\DoxyCodeLine{00122\ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00125\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_aa369956286bc3f09dfdc146a5b2a49f1}{operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}})}
+\DoxyCodeLine{00126\ \{}
+\DoxyCodeLine{00127\ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
+\DoxyCodeLine{00128\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
+\DoxyCodeLine{00129\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ -\/\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}];}
+\DoxyCodeLine{00130\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
+\DoxyCodeLine{00131\ \}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00134\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a6fd3a6df3727a04f9baba3b8b87a903b}{operator*}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}})}
+\DoxyCodeLine{00135\ \{}
+\DoxyCodeLine{00136\ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
+\DoxyCodeLine{00137\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
+\DoxyCodeLine{00138\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ *\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}];}
+\DoxyCodeLine{00139\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
+\DoxyCodeLine{00140\ \}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00143\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a585704d3f738c5eb899810fc9308a60e}{operator/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}})}
+\DoxyCodeLine{00144\ \{}
+\DoxyCodeLine{00145\ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
+\DoxyCodeLine{00146\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
+\DoxyCodeLine{00147\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ /\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}];}
+\DoxyCodeLine{00148\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
+\DoxyCodeLine{00149\ \}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \textcolor{comment}{//\ Scalar\ ops}}
+\DoxyCodeLine{00152\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_af9ee1cf5d335276b7fabe6f1daddf1b0}{operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{scalar}})}
+\DoxyCodeLine{00153\ \{}
+\DoxyCodeLine{00154\ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
+\DoxyCodeLine{00155\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
+\DoxyCodeLine{00156\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ +\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{scalar}};}
+\DoxyCodeLine{00157\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
+\DoxyCodeLine{00158\ \}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_aa369956286bc3f09dfdc146a5b2a49f1}{operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{scalar}})}
+\DoxyCodeLine{00161\ \{}
+\DoxyCodeLine{00162\ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
+\DoxyCodeLine{00163\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
+\DoxyCodeLine{00164\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ -\/\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{scalar}};}
+\DoxyCodeLine{00165\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
+\DoxyCodeLine{00166\ \}}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a6fd3a6df3727a04f9baba3b8b87a903b}{operator*}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{scalar}})}
+\DoxyCodeLine{00169\ \{}
+\DoxyCodeLine{00170\ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
+\DoxyCodeLine{00171\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
+\DoxyCodeLine{00172\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ *\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{scalar}};}
+\DoxyCodeLine{00173\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
+\DoxyCodeLine{00174\ \}}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a585704d3f738c5eb899810fc9308a60e}{operator/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{scalar}})}
+\DoxyCodeLine{00177\ \{}
+\DoxyCodeLine{00178\ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
+\DoxyCodeLine{00179\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
+\DoxyCodeLine{00180\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ /\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{scalar}};}
+\DoxyCodeLine{00181\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
+\DoxyCodeLine{00182\ \}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \textcolor{comment}{//\ Reverse\ scalar\ ops}}
+\DoxyCodeLine{00185\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a6fd3a6df3727a04f9baba3b8b87a903b}{operator*}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{scalar}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}})}
+\DoxyCodeLine{00186\ \{}
+\DoxyCodeLine{00187\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}}\ *\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{scalar}};}
+\DoxyCodeLine{00188\ \}}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_af9ee1cf5d335276b7fabe6f1daddf1b0}{operator+}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{scalar}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}})}
+\DoxyCodeLine{00191\ \{}
+\DoxyCodeLine{00192\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}}\ +\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{scalar}};}
+\DoxyCodeLine{00193\ \}}
+\DoxyCodeLine{00194\ }
 \DoxyCodeLine{00195\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{00196\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_ace7642868199df621df9139e5179767b}{dot}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}})}
-\DoxyCodeLine{00197\ \{}
-\DoxyCodeLine{00198\ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}}\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}(0);}
-\DoxyCodeLine{00199\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
-\DoxyCodeLine{00200\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}}\ +=\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ *\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}];}
-\DoxyCodeLine{00201\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
-\DoxyCodeLine{00202\ \}}
-\DoxyCodeLine{00203\ }
-\DoxyCodeLine{00204\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a7c3e161560ad3000aa4e2218291b169c}{length\_squared}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}})}
-\DoxyCodeLine{00205\ \{}
-\DoxyCodeLine{00206\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_ace7642868199df621df9139e5179767b}{dot}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}});}
-\DoxyCodeLine{00207\ \}}
-\DoxyCodeLine{00208\ }
-\DoxyCodeLine{00209\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a38d89dd8b52a63eabb39ef5e425d5746}{length}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}})}
-\DoxyCodeLine{00210\ \{}
-\DoxyCodeLine{00211\ \ \ \textcolor{keywordflow}{return}\ std::sqrt(\mbox{\hyperlink{namespaceps_a7c3e161560ad3000aa4e2218291b169c}{length\_squared}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}}));}
-\DoxyCodeLine{00212\ \}}
-\DoxyCodeLine{00213\ }
-\DoxyCodeLine{00214\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a7de6090e2c8291401816be9bc6cda914}{normalized}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}})}
-\DoxyCodeLine{00215\ \{}
-\DoxyCodeLine{00216\ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{len}}\ =\ \mbox{\hyperlink{namespaceps_a38d89dd8b52a63eabb39ef5e425d5746}{length}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}});}
-\DoxyCodeLine{00217\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{len}}\ ==\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}(0))}
-\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{Point<T,\ N>}}();}
-\DoxyCodeLine{00219\ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}}\ /\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{len}};}
-\DoxyCodeLine{00221\ \}}
-\DoxyCodeLine{00222\ }
-\DoxyCodeLine{00223\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00224\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_aecf2b150ec16bf286e6a7b462c4d5808}{distance\_squared}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}})}
-\DoxyCodeLine{00225\ \{}
-\DoxyCodeLine{00226\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a7c3e161560ad3000aa4e2218291b169c}{length\_squared}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}}\ -\/\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}});}
-\DoxyCodeLine{00227\ \}}
-\DoxyCodeLine{00228\ }
-\DoxyCodeLine{00229\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_ac0b74f22d427d199ab0df8f6942d3b11}{distance}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}})}
-\DoxyCodeLine{00230\ \{}
-\DoxyCodeLine{00231\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a38d89dd8b52a63eabb39ef5e425d5746}{length}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}}\ -\/\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}});}
-\DoxyCodeLine{00232\ \}}
-\DoxyCodeLine{00233\ }
-\DoxyCodeLine{00234\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00235\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a79914e9fc2dd02bacd38e9bd32e21baa}{lerp}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{t}})}
-\DoxyCodeLine{00236\ \{}
-\DoxyCodeLine{00237\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}}\ +\ (\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}}\ -\/\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}})\ *\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{t}};}
-\DoxyCodeLine{00238\ \}}
-\DoxyCodeLine{00239\ }
-\DoxyCodeLine{00240\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00241\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_adb0bd4806c7e79eddef0e1263740ae28}{clamp}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{min\_val}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{max\_val}})}
-\DoxyCodeLine{00242\ \{}
-\DoxyCodeLine{00243\ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
-\DoxyCodeLine{00244\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
-\DoxyCodeLine{00245\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ =\ std::min(std::max(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}],\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{min\_val}}),\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{max\_val}});}
-\DoxyCodeLine{00246\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
-\DoxyCodeLine{00247\ \}}
-\DoxyCodeLine{00248\ }
-\DoxyCodeLine{00249\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+\DoxyCodeLine{00196\ \textcolor{comment}{//\ Geometric\ Functions}}
+\DoxyCodeLine{00197\ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00198\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_ace7642868199df621df9139e5179767b}{dot}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}})}
+\DoxyCodeLine{00199\ \{}
+\DoxyCodeLine{00200\ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}}\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}(0);}
+\DoxyCodeLine{00201\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
+\DoxyCodeLine{00202\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}}\ +=\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ *\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}];}
+\DoxyCodeLine{00203\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
+\DoxyCodeLine{00204\ \}}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a7c3e161560ad3000aa4e2218291b169c}{length\_squared}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}})}
+\DoxyCodeLine{00207\ \{}
+\DoxyCodeLine{00208\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_ace7642868199df621df9139e5179767b}{dot}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}});}
+\DoxyCodeLine{00209\ \}}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a38d89dd8b52a63eabb39ef5e425d5746}{length}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}})}
+\DoxyCodeLine{00212\ \{}
+\DoxyCodeLine{00213\ \ \ \textcolor{keywordflow}{return}\ std::sqrt(\mbox{\hyperlink{namespaceps_a7c3e161560ad3000aa4e2218291b169c}{length\_squared}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}}));}
+\DoxyCodeLine{00214\ \}}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a7de6090e2c8291401816be9bc6cda914}{normalized}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}})}
+\DoxyCodeLine{00217\ \{}
+\DoxyCodeLine{00218\ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{len}}\ =\ \mbox{\hyperlink{namespaceps_a38d89dd8b52a63eabb39ef5e425d5746}{length}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}});}
+\DoxyCodeLine{00219\ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{len}}\ ==\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}(0))}
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{Point<T,\ N>}}();}
+\DoxyCodeLine{00221\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}}\ /\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{len}};}
+\DoxyCodeLine{00223\ \}}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00226\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_aecf2b150ec16bf286e6a7b462c4d5808}{distance\_squared}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}})}
+\DoxyCodeLine{00227\ \{}
+\DoxyCodeLine{00228\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a7c3e161560ad3000aa4e2218291b169c}{length\_squared}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}}\ -\/\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}});}
+\DoxyCodeLine{00229\ \}}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_ac0b74f22d427d199ab0df8f6942d3b11}{distance}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}})}
+\DoxyCodeLine{00232\ \{}
+\DoxyCodeLine{00233\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a38d89dd8b52a63eabb39ef5e425d5746}{length}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}}\ -\/\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}});}
+\DoxyCodeLine{00234\ \}}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00236\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00237\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a79914e9fc2dd02bacd38e9bd32e21baa}{lerp}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{t}})}
+\DoxyCodeLine{00238\ \{}
+\DoxyCodeLine{00239\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}}\ +\ (\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{b}}\ -\/\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{a}})\ *\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{t}};}
+\DoxyCodeLine{00240\ \}}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00243\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_adb0bd4806c7e79eddef0e1263740ae28}{clamp}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{min\_val}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{max\_val}})}
+\DoxyCodeLine{00244\ \{}
+\DoxyCodeLine{00245\ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
+\DoxyCodeLine{00246\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
+\DoxyCodeLine{00247\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ =\ std::min(std::max(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}],\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{min\_val}}),\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{max\_val}});}
+\DoxyCodeLine{00248\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{result}};}
+\DoxyCodeLine{00249\ \}}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \}\ \textcolor{comment}{//\ namespace\ ps}}
 
 \end{DoxyCode}
