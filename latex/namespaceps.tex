@@ -439,7 +439,8 @@ std\+::vector$<$\+T$>$ Distances of each point to the nearest domain boundary.
 \begin{DoxyNote}{Note}
 This assumes the domain is a rectangular box aligned with the coordinate axes.
 \end{DoxyNote}
-{\bfseries{Example\+:}} 
+\begin{DoxyParagraph}{Example}
+
 \begin{DoxyCode}{0}
 \DoxyCodeLine{std::vector<Point<double,\ 2>>\ pts\ =\ \{\ \{0.2,\ 0.8\},\ \{0.9,\ 0.1\}\ \};}
 \DoxyCodeLine{std::vector<std::pair<double,\ double>>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{ranges}}\ =\ \{\ \{0.0,\ 1.0\},\ \{0.0,\ 1.0\}\ \};}
@@ -448,7 +449,9 @@ This assumes the domain is a rectangular box aligned with the coordinate axes.
 \DoxyCodeLine{\textcolor{comment}{//\ distances[1]\ -\/>\ 0.1}}
 
 \end{DoxyCode}
- \Hypertarget{namespaceps_ace7642868199df621df9139e5179767b}\label{namespaceps_ace7642868199df621df9139e5179767b} 
+ 
+\end{DoxyParagraph}
+\Hypertarget{namespaceps_ace7642868199df621df9139e5179767b}\label{namespaceps_ace7642868199df621df9139e5179767b} 
 \index{ps@{ps}!dot@{dot}}
 \index{dot@{dot}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{dot()}{dot()}}
@@ -625,6 +628,8 @@ A vector containing the squared distances to the first neighbor for each point, 
 \DoxyCodeLine{\textcolor{comment}{//\ distances\_sq[i]\ contains\ the\ squared\ distance\ to\ the\ closest\ neighbor\ of\ points[i].}}
 
 \end{DoxyCode}
+
+
  \Hypertarget{namespaceps_a0e4055582214237ee9f21369133e6194}\label{namespaceps_a0e4055582214237ee9f21369133e6194} 
 \index{ps@{ps}!function\_rejection\_filter@{function\_rejection\_filter}}
 \index{function\_rejection\_filter@{function\_rejection\_filter}!ps@{ps}}
@@ -1056,9 +1061,10 @@ std\+::pair\texorpdfstring{$<$}{<} std\+::vector$<$\+Point$<$\+T, N$>$$>$, std\+
 \item Second element\+: cluster index assignment for each point.
 \end{DoxyItemize}
 \end{DoxyReturn}
-{\bfseries{Example\+:}} 
+\begin{DoxyParagraph}{Example}
+
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ std::vector<Point<float,\ 2>>\ pts\ =\ \{}
+\DoxyCodeLine{std::vector<Point<float,\ 2>>\ pts\ =\ \{}
 \DoxyCodeLine{\ \ \ \ \{0.1f,\ 0.2f\},\ \{0.15f,\ 0.22f\},\ \{0.8f,\ 0.75f\}}
 \DoxyCodeLine{\};}
 \DoxyCodeLine{\textcolor{keyword}{auto}\ [\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{centroids}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{labels}}]\ =\ \mbox{\hyperlink{namespaceps_acbef03daefffe13bd08b9b4c0952c00d}{kmeans\_clustering}}(pts,\ 2);}
@@ -1066,6 +1072,8 @@ std\+::pair\texorpdfstring{$<$}{<} std\+::vector$<$\+Point$<$\+T, N$>$$>$, std\+
 \DoxyCodeLine{\textcolor{comment}{//\ labels.size()\ ==\ pts.size()}}
 
 \end{DoxyCode}
+
+\end{DoxyParagraph}
  \Hypertarget{namespaceps_a9ca14831de223ff62a6c3ec93e96a7c0}\label{namespaceps_a9ca14831de223ff62a6c3ec93e96a7c0} 
 \index{ps@{ps}!latin\_hypercube\_sampling@{latin\_hypercube\_sampling}}
 \index{latin\_hypercube\_sampling@{latin\_hypercube\_sampling}!ps@{ps}}
@@ -1277,9 +1285,9 @@ The KD-\/tree is rebuilt internally for the search.
 \DoxyCodeLine{\textcolor{comment}{//\ neighbors[1]\ might\ contain\ \{0,\ 3\}}}
 
 \end{DoxyCode}
- 
+
 \end{DoxyParagraph}
-\Hypertarget{namespaceps_a172358f05108b5cabdac4e43ab309ab2}\label{namespaceps_a172358f05108b5cabdac4e43ab309ab2} 
+ \Hypertarget{namespaceps_a172358f05108b5cabdac4e43ab309ab2}\label{namespaceps_a172358f05108b5cabdac4e43ab309ab2} 
 \index{ps@{ps}!normalize\_points@{normalize\_points}}
 \index{normalize\_points@{normalize\_points}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{normalize\_points()}{normalize\_points()}}
