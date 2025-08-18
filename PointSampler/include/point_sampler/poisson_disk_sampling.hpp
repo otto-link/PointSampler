@@ -352,4 +352,108 @@ std::vector<Point<T, N>> poisson_disk_sampling_uniform(
                                new_points_attempts);
 }
 
+/**
+ * @brief Generate random points with a variable-radius Poisson disk sampling. Radius is
+ * defined by an input distribution.
+ *
+ * This algorithm enforces a minimum separation between points based on
+ * radii drawn from a user-specified distribution. Two points \f$p_i\f$,
+ * \f$p_j\f$ with radii \f$r_i\f$, \f$r_j\f$ must satisfy:
+ * \f[
+ *   \| p_i - p_j \| > r_i + r_j
+ * \f]
+ *
+ * This produces point sets where local spacing reflects the size
+ * distribution: many small radii yield dense clusters, while large
+ * radii produce local depletion zones.
+ *
+ * @tparam T Scalar type (e.g. float, double).
+ * @tparam N Dimension of the points.
+ * @tparam RadiusGen Callable returning radii sampled from the target distribution.
+ *
+ * @param n_points Number of points to generate.
+ * @param axis_ranges Ranges for each axis, defining the sampling domain.
+ * @param radius_gen Generator functor/lambda returning the next radius.
+ * @param max_attempts Maximum attempts per point before giving up (controls density).
+ * @return Vector of generated points satisfying the variable-radius exclusion rule.
+ *
+ * @note
+ * - Larger `max_attempts` increases the chance of filling the domain but
+ *   also increases runtime.
+ * - For efficiency, use a spatial grid or tree if generating many points.
+ * - Radii are drawn independently per point; correlations can be introduced
+ *   by adapting `radius_gen`.
+ *
+ * @par Example
+ * @code {.cpp}
+ * #include <random>
+ *
+ * std::mt19937 rng{std::random_device{}()};
+ *
+ * // 2D unit square
+ * std::array<std::pair<double,double>,2> box = { { {0,1}, {0,1} } };
+ *
+ * // Log-normal radius distribution
+ * std::lognormal_distribution<double> logn(0.0, 0.5);
+ *
+ * auto points = variable_radius_poisson_disk<double,2>(
+ *     200,
+ *     box,
+ *     [&](){ return logn(rng); }
+ * );
+ * @endcode
+ *
+ * @image html out_poisson_disk_sampling_distance_distribution.csv.jpg
+ */
+template <typename T, size_t N, typename RadiusGen>
+std::vector<Point<T, N>> poisson_disk_sampling_distance_distribution(
+    size_t                                n_points,
+    const std::array<std::pair<T, T>, N> &axis_ranges,
+    RadiusGen                           &&radius_gen,
+    size_t                                max_attempts = 30)
+{
+  std::mt19937                      rng{std::random_device{}()};
+  std::uniform_real_distribution<T> uniform01(0.0, 1.0);
+
+  std::vector<Point<T, N>> points;
+  std::vector<T>           radii;
+  points.reserve(n_points);
+  radii.reserve(n_points);
+
+  size_t attempts = 0;
+  while (points.size() < n_points && attempts < n_points * max_attempts)
+  {
+    attempts++;
+
+    // candidate
+    Point<T, N> p;
+    for (size_t d = 0; d < N; ++d)
+    {
+      auto [a, b] = axis_ranges[d];
+      p[d] = a + uniform01(rng) * (b - a);
+    }
+    T r = radius_gen(); // draw radius
+
+    // check exclusion
+    bool valid = true;
+    for (size_t j = 0; j < points.size(); ++j)
+    {
+      T dist = std::sqrt(distance_squared(p, points[j]));
+      if (dist < r + radii[j])
+      {
+        valid = false;
+        break;
+      }
+    }
+
+    if (valid)
+    {
+      points.push_back(p);
+      radii.push_back(r);
+    }
+  }
+
+  return points;
+}
+
 } // namespace ps

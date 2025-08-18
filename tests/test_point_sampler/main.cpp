@@ -88,6 +88,21 @@ int main()
   }
 
   {
+    std::cout << "ps::poisson_disk_sampling_distance_distribution...\n";
+
+    // Log-normal radius distribution
+    std::lognormal_distribution<float> logn(0.f, 3.f);
+    std::mt19937                       rng{std::random_device{}()};
+
+    auto points = ps::poisson_disk_sampling_distance_distribution<float, dim>(
+        count,
+        ranges,
+        [&]() { return logn(rng); });
+
+    ps::save_points_to_csv("out_poisson_disk_sampling_distance_distribution.csv", points);
+  }
+
+  {
     std::cout << "ps::random_walk_filaments...\n";
 
     size_t n_filaments = 4;
