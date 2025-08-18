@@ -1435,17 +1435,15 @@ A vector of cluster labels, size = points.\+size(). Label = -\/1 if unassigned.
 \begin{DoxyParagraph}{Example}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ std::vector<Point<double,2>>\ pts\ =\ \{\ \{0.1,0.2\},\ \{0.15,0.22\},\ \{0.9,0.9\}}
-\DoxyCodeLine{\};}
+\DoxyCodeLine{std::vector<Point<double,2>>\ pts\ =\ \{\ \{0.1,0.2\},\ \{0.15,0.22\},\ \{0.9,0.9\}\};}
 \DoxyCodeLine{\textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{labels}}\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{analyze\_percolation\_clusters<double,2>}}(pts,\ 0.1);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{comment}{//\ labels\ might\ be\ \{0,0,1\},\ meaning\ the\ first\ two\ form\ a\ cluster,\ third\ is}}
-\DoxyCodeLine{\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{separate}}.}
+\DoxyCodeLine{\textcolor{comment}{//\ labels\ might\ be\ \{0,0,1\},\ meaning\ the\ first\ two\ form\ a\ cluster,\ third\ is\ separate.}}
 
 \end{DoxyCode}
- 
+
 \end{DoxyParagraph}
-\Hypertarget{namespaceps_a5b1e932ba8a20e05cd8c113179aa77c8}\label{namespaceps_a5b1e932ba8a20e05cd8c113179aa77c8} 
+ \Hypertarget{namespaceps_a5b1e932ba8a20e05cd8c113179aa77c8}\label{namespaceps_a5b1e932ba8a20e05cd8c113179aa77c8} 
 \index{ps@{ps}!poisson\_disk\_sampling@{poisson\_disk\_sampling}}
 \index{poisson\_disk\_sampling@{poisson\_disk\_sampling}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{poisson\_disk\_sampling()}{poisson\_disk\_sampling()}}
