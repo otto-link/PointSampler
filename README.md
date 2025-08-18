@@ -1,6 +1,6 @@
 # PointSampler
 
-`PointSampler` is a lightweight C++ header-only library for generating and manipulating points in arbitrary dimensions (1D, 2D, 3D, ... N-dimensional). It includes utilities for random sampling, jittered grids, importance sampling, density warping, spatial relaxation, and point clustering (labellization).
+`PointSampler` is a lightweight C++ header-only library for generating and manipulating points in arbitrary dimensions (1D, 2D, 3D, ... N-dimensional). It includes utilities for random sampling, jittered grids, importance sampling, density warping, spatial relaxation, and point clustering (labeling).
 
 The library is designed to be generic, extensible, and dimensionality-independent via `std::array` and C++ templates.
 
