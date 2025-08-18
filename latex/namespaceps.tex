@@ -55,6 +55,8 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 \begin{DoxyCompactList}\small\item\em Finds the nearest neighbors for each point in a set. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::pair$<$ std\+::vector$<$ T $>$, std\+::vector$<$ T $>$ $>$ \mbox{\hyperlink{namespaceps_a8d80a56ea4774726e748b48e1ecf0a8d}{radial\+\_\+distribution}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, T bin\+\_\+width, T max\+\_\+distance)
 \begin{DoxyCompactList}\small\item\em Compute the normalized radial distribution function g(r). \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ int $>$ \mbox{\hyperlink{namespaceps_a6a2e3df8c590cf657996073cf1d7176d}{percolation\+\_\+clusters}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, T connection\+\_\+radius)
+\begin{DoxyCompactList}\small\item\em Analyze percolation clusters from a set of points using a radius-\/based neighbor graph. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_af9ee1cf5d335276b7fabe6f1daddf1b0}{operator+}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&a, const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&b)
 \item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_aa369956286bc3f09dfdc146a5b2a49f1}{operator-\/}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&a, const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&b)
@@ -1133,7 +1135,48 @@ If all points have the same value along a given axis, the corresponding normaliz
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ ps\+::operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{p,  }\item[{T}]{scalar }\end{DoxyParamCaption})}
 
-\Hypertarget{namespaceps_a5b1e932ba8a20e05cd8c113179aa77c8}\label{namespaceps_a5b1e932ba8a20e05cd8c113179aa77c8} 
+\Hypertarget{namespaceps_a6a2e3df8c590cf657996073cf1d7176d}\label{namespaceps_a6a2e3df8c590cf657996073cf1d7176d} 
+\index{ps@{ps}!percolation\_clusters@{percolation\_clusters}}
+\index{percolation\_clusters@{percolation\_clusters}!ps@{ps}}
+\doxysubsubsection{\texorpdfstring{percolation\_clusters()}{percolation\_clusters()}}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+std\+::vector$<$ int $>$ ps\+::percolation\+\_\+clusters (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{T}]{connection\+\_\+radius }\end{DoxyParamCaption})}
+
+
+
+Analyze percolation clusters from a set of points using a radius-\/based neighbor graph. 
+
+Builds a graph where edges exist if points are within {\ttfamily connection\+\_\+radius}, then finds connected components (clusters).
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Scalar type (e.\+g., float, double). \\
+\hline
+{\em N} & Dimension. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em points} & Input set of points. \\
+\hline
+{\em connection\+\_\+radius} & Maximum distance for connectivity between points. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of cluster labels, size = points.\+size(). Label = -\/1 if unassigned.
+\end{DoxyReturn}
+\hypertarget{namespaceps_autotoc_md10}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md10}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ std::vector<Point<double,2>>\ pts\ =\ \{\ \{0.1,0.2\},\ \{0.15,0.22\},\ \{0.9,0.9\}}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ labels\ =\ analyze\_percolation\_clusters<double,2>(pts,\ 0.1);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ labels\ might\ be\ \{0,0,1\},\ meaning\ the\ first\ two\ form\ a\ cluster,\ third\ is}}
+\DoxyCodeLine{separate.}
+
+\end{DoxyCode}
+ \Hypertarget{namespaceps_a5b1e932ba8a20e05cd8c113179aa77c8}\label{namespaceps_a5b1e932ba8a20e05cd8c113179aa77c8} 
 \index{ps@{ps}!poisson\_disk\_sampling@{poisson\_disk\_sampling}}
 \index{poisson\_disk\_sampling@{poisson\_disk\_sampling}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{poisson\_disk\_sampling()}{poisson\_disk\_sampling()}}
@@ -1422,7 +1465,7 @@ This function computes the axis-\/aligned bounding box (AABB) of the input point
 \mbox{\texttt{ in}}  & {\em target\+\_\+ranges} & Desired output min/max per dimension.\\
 \hline
 \end{DoxyParams}
-\hypertarget{namespaceps_autotoc_md10}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md10}
+\hypertarget{namespaceps_autotoc_md11}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md11}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ std::vector<Point<float,\ 2>>\ pts\ =\ generate\_random\_points<float,}
@@ -1478,7 +1521,7 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of accepted points based on reje
 {\em std\+::invalid\+\_\+argumentifanyaxisrangeisinvalid(min$>$max).} & \\
 \hline
 \end{DoxyExceptions}
-\hypertarget{namespaceps_autotoc_md11}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md11}
+\hypertarget{namespaceps_autotoc_md12}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md12}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{rejection__sampling_8hpp}{point\_sampler/rejection\_sampling.hpp}}"{}}}
@@ -1540,7 +1583,7 @@ Each point is offset based on inverse-\/distance-\/weighted repulsion from its k
 \begin{DoxyNote}{Note}
 The KD-\/tree is rebuilt on each iteration to reflect the updated positions.
 \end{DoxyNote}
-\hypertarget{namespaceps_autotoc_md12}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md12}
+\hypertarget{namespaceps_autotoc_md13}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md13}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{relaxation_8hpp}{point\_sampler/relaxation.hpp}}>}}
@@ -1552,7 +1595,7 @@ The KD-\/tree is rebuilt on each iteration to reflect the updated positions.
 \DoxyCodeLine{10);}
 
 \end{DoxyCode}
-\hypertarget{namespaceps_autotoc_md13}{}\doxysubsubsubsection{\texorpdfstring{How it works\+:}{How it works:}}\label{namespaceps_autotoc_md13}
+\hypertarget{namespaceps_autotoc_md14}{}\doxysubsubsubsection{\texorpdfstring{How it works\+:}{How it works:}}\label{namespaceps_autotoc_md14}
 
 \begin{DoxyItemize}
 \item For each point\+:
