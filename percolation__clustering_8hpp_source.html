@@ -87,77 +87,79 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;queue&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="point_8hpp.html">point_sampler/point.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceps.html">ps</a></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> N&gt;</div>
-<div class="foldopen" id="foldopen00036" data-start="{" data-end="}">
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="namespaceps.html#a6a2e3df8c590cf657996073cf1d7176d">   36</a></span>std::vector&lt;int&gt; <a class="code hl_function" href="namespaceps.html#a6a2e3df8c590cf657996073cf1d7176d">percolation_clusters</a>(<span class="keyword">const</span> std::vector&lt;<a class="code hl_struct" href="structps_1_1Point.html">Point&lt;T, N&gt;</a>&gt; &amp;points,</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>                                      T                               connection_radius)</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <span class="keywordflow">if</span> (points.empty())</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">return</span> {};</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <span class="comment">// KD-tree for neighbor search</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  <a class="code hl_struct" href="structps_1_1PointCloudAdaptor.html">PointCloudAdaptor&lt;T, N&gt;</a> adaptor(points);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  <a class="code hl_typedef" href="namespaceps.html#ac9ecfd54020ea95c133d1fc99cf4f75a">KDTree&lt;T, N&gt;</a>            index(N, adaptor);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  index.buildIndex();</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  std::vector&lt;int&gt; labels(points.size(), -1);</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  <span class="keywordtype">int</span>              current_cluster = 0;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; points.size(); ++i)</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  {</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">if</span> (labels[i] != -1)</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>      <span class="keywordflow">continue</span>; <span class="comment">// already assigned</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="comment">// Start BFS/DFS for new cluster</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    std::queue&lt;size_t&gt; q;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    q.push(i);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    labels[i] = current_cluster;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">while</span> (!q.empty())</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    {</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>      <span class="keywordtype">size_t</span> p_idx = q.front();</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>      q.pop();</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>      <span class="comment">// Radius search around p_idx</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>      <span class="keyword">const</span> <a class="code hl_struct" href="structps_1_1Point.html">Point&lt;T, N&gt;</a> &amp;p = points[p_idx];</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>      std::array&lt;T, N&gt;   query;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>      <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> d = 0; d &lt; N; ++d)</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        query[d] = p[d];</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>      std::vector&lt;nanoflann::ResultItem&lt;unsigned int, T&gt;&gt; ret_matches;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>      nanoflann::SearchParameters                         params;</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>      index.radiusSearch(query.data(),</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                         connection_radius * connection_radius,</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                         ret_matches,</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                         params);</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;m : ret_matches)</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>      {</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordtype">size_t</span> neighbor = m.first;</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keywordflow">if</span> (labels[neighbor] == -1)</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        {</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>          labels[neighbor] = current_cluster;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>          q.push(neighbor);</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        }</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>      }</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    }</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    ++current_cluster;</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>  }</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  <span class="keywordflow">return</span> labels;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>}</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="nanoflann__adaptator_8hpp.html">point_sampler/internal/nanoflann_adaptator.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="point_8hpp.html">point_sampler/point.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceps.html">ps</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> N&gt;</div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="namespaceps.html#a340aa5c812057b97017e88a974e452d8">   37</a></span>std::vector&lt;int&gt; <a class="code hl_function" href="namespaceps.html#a340aa5c812057b97017e88a974e452d8">percolation_clustering</a>(<span class="keyword">const</span> std::vector&lt;<a class="code hl_struct" href="structps_1_1Point.html">Point&lt;T, N&gt;</a>&gt; &amp;points,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>                                        T                               connection_radius)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <span class="keywordflow">if</span> (points.empty())</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordflow">return</span> {};</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  <span class="comment">// KD-tree for neighbor search</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  <a class="code hl_struct" href="structps_1_1PointCloudAdaptor.html">PointCloudAdaptor&lt;T, N&gt;</a> adaptor(points);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  <a class="code hl_typedef" href="namespaceps.html#ac9ecfd54020ea95c133d1fc99cf4f75a">KDTree&lt;T, N&gt;</a>            index(N, adaptor);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  index.buildIndex();</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  std::vector&lt;int&gt; labels(points.size(), -1);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  <span class="keywordtype">int</span>              current_cluster = 0;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; points.size(); ++i)</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordflow">if</span> (labels[i] != -1)</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>      <span class="keywordflow">continue</span>; <span class="comment">// already assigned</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="comment">// Start BFS/DFS for new cluster</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    std::queue&lt;size_t&gt; q;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    q.push(i);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    labels[i] = current_cluster;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordflow">while</span> (!q.empty())</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>      <span class="keywordtype">size_t</span> p_idx = q.front();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>      q.pop();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>      <span class="comment">// Radius search around p_idx</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>      <span class="keyword">const</span> <a class="code hl_struct" href="structps_1_1Point.html">Point&lt;T, N&gt;</a> &amp;p = points[p_idx];</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>      std::array&lt;T, N&gt;   query;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>      <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> d = 0; d &lt; N; ++d)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        query[d] = p[d];</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>      std::vector&lt;nanoflann::ResultItem&lt;unsigned int, T&gt;&gt; ret_matches;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>      nanoflann::SearchParameters                         params;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>      index.radiusSearch(query.data(),</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                         connection_radius * connection_radius,</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                         ret_matches,</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                         params);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;m : ret_matches)</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>      {</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keywordtype">size_t</span> neighbor = m.first;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keywordflow">if</span> (labels[neighbor] == -1)</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        {</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>          labels[neighbor] = current_cluster;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>          q.push(neighbor);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        }</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>      }</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    }</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    ++current_cluster;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>  }</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  <span class="keywordflow">return</span> labels;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>}</div>
 </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>} <span class="comment">// namespace ps</span></div>
-<div class="ttc" id="anamespaceps_html"><div class="ttname"><a href="namespaceps.html">ps</a></div><div class="ttdef"><b>Definition</b> distance_rejection_filter.hpp:12</div></div>
-<div class="ttc" id="anamespaceps_html_a6a2e3df8c590cf657996073cf1d7176d"><div class="ttname"><a href="namespaceps.html#a6a2e3df8c590cf657996073cf1d7176d">ps::percolation_clusters</a></div><div class="ttdeci">std::vector&lt; int &gt; percolation_clusters(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, T connection_radius)</div><div class="ttdoc">Analyze percolation clusters from a set of points using a radius-based neighbor graph.</div><div class="ttdef"><b>Definition</b> percolation_clustering.hpp:36</div></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>} <span class="comment">// namespace ps</span></div>
+<div class="ttc" id="anamespaceps_html"><div class="ttname"><a href="namespaceps.html">ps</a></div><div class="ttdef"><b>Definition</b> dbscan_clustering.hpp:11</div></div>
+<div class="ttc" id="anamespaceps_html_a340aa5c812057b97017e88a974e452d8"><div class="ttname"><a href="namespaceps.html#a340aa5c812057b97017e88a974e452d8">ps::percolation_clustering</a></div><div class="ttdeci">std::vector&lt; int &gt; percolation_clustering(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, T connection_radius)</div><div class="ttdoc">Analyze percolation clusters from a set of points using a radius-based neighbor graph.</div><div class="ttdef"><b>Definition</b> percolation_clustering.hpp:37</div></div>
 <div class="ttc" id="anamespaceps_html_ac9ecfd54020ea95c133d1fc99cf4f75a"><div class="ttname"><a href="namespaceps.html#ac9ecfd54020ea95c133d1fc99cf4f75a">ps::KDTree</a></div><div class="ttdeci">nanoflann::KDTreeSingleIndexAdaptor&lt; nanoflann::L2_Simple_Adaptor&lt; T, PointCloudAdaptor&lt; T, N &gt; &gt;, PointCloudAdaptor&lt; T, N &gt;, N &gt; KDTree</div><div class="ttdef"><b>Definition</b> nanoflann_adaptator.hpp:35</div></div>
+<div class="ttc" id="ananoflann__adaptator_8hpp_html"><div class="ttname"><a href="nanoflann__adaptator_8hpp.html">nanoflann_adaptator.hpp</a></div></div>
 <div class="ttc" id="apoint_8hpp_html"><div class="ttname"><a href="point_8hpp.html">point.hpp</a></div></div>
 <div class="ttc" id="astructps_1_1PointCloudAdaptor_html"><div class="ttname"><a href="structps_1_1PointCloudAdaptor.html">ps::PointCloudAdaptor</a></div><div class="ttdef"><b>Definition</b> nanoflann_adaptator.hpp:13</div></div>
 <div class="ttc" id="astructps_1_1Point_html"><div class="ttname"><a href="structps_1_1Point.html">ps::Point</a></div><div class="ttdoc">A fixed-size N-dimensional point/vector class.</div><div class="ttdef"><b>Definition</b> point.hpp:37</div></div>

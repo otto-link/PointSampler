@@ -17,6 +17,8 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ int $>$ \mbox{\hyperlink{namespaceps_a5d453a5cb2885c1a8d264ff96303f627}{dbscan\+\_\+clustering}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, T eps, size\+\_\+t min\+\_\+pts)
+\begin{DoxyCompactList}\small\item\em Density-\/\+Based Spatial Clustering of Applications with Noise (DBSCAN). \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , std\+::size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_ad1f4a1110a40bf1c6a687182db6b4b94}{distance\+\_\+rejection\+\_\+filter}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, T min\+\_\+dist)
 \item 
 {\footnotesize template$<$typename T , std\+::size\+\_\+t N, typename Scale\+Fn $>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_af23d114903fd5cb3ccb19d3e64183632}{distance\+\_\+rejection\+\_\+filter\+\_\+warped}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, T base\+\_\+min\+\_\+dist, Scale\+Fn scale\+\_\+fn)
@@ -55,7 +57,7 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 \begin{DoxyCompactList}\small\item\em Finds the nearest neighbors for each point in a set. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::pair$<$ std\+::vector$<$ T $>$, std\+::vector$<$ T $>$ $>$ \mbox{\hyperlink{namespaceps_a8d80a56ea4774726e748b48e1ecf0a8d}{radial\+\_\+distribution}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, T bin\+\_\+width, T max\+\_\+distance)
 \begin{DoxyCompactList}\small\item\em Compute the normalized radial distribution function g(r). \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ int $>$ \mbox{\hyperlink{namespaceps_a6a2e3df8c590cf657996073cf1d7176d}{percolation\+\_\+clusters}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, T connection\+\_\+radius)
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ int $>$ \mbox{\hyperlink{namespaceps_a340aa5c812057b97017e88a974e452d8}{percolation\+\_\+clustering}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, T connection\+\_\+radius)
 \begin{DoxyCompactList}\small\item\em Analyze percolation clusters from a set of points using a radius-\/based neighbor graph. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\\mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \mbox{\hyperlink{namespaceps_af9ee1cf5d335276b7fabe6f1daddf1b0}{operator+}} (const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&a, const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&b)
 \item 
@@ -127,6 +129,8 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 \begin{DoxyCompactList}\small\item\em Save a 1D vector of values to a CSV file. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N+1 $>$ $>$ \mbox{\hyperlink{namespaceps_a964f314c19f0b1300d513bce618c5954}{add\+\_\+dimension}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, const std\+::vector$<$ T $>$ \&new\+\_\+dimension)
 \begin{DoxyCompactList}\small\item\em Add a new dimension to a set of points. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ $>$ \mbox{\hyperlink{namespaceps_ac42b8f3f26e63374a7a724a0cd3d9356}{extract\+\_\+clusters}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, const std\+::vector$<$ int $>$ \&labels)
+\begin{DoxyCompactList}\small\item\em Extract clusters of points given DBSCAN (or any clustering) labels. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a677f90d97b1dcfeaa2ecc299ee37f5bf}{merge\+\_\+by\+\_\+dimension}} (const std\+::array$<$ std\+::vector$<$ T $>$, N $>$ \&components)
 \item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\void \mbox{\hyperlink{namespaceps_a172358f05108b5cabdac4e43ab309ab2}{normalize\+\_\+points}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points)
@@ -236,7 +240,7 @@ std\+::pair\texorpdfstring{$<$}{<}std\+::vector$<$\+T$>$, std\+::vector$<$\+T$>$
 \item Second\+: normalized ADF values
 \end{DoxyItemize}
 \end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md8}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md8}
+\hypertarget{namespaceps_autotoc_md9}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md9}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ std::vector<Point<double,\ 2>>\ pts\ =\ \{}
@@ -256,7 +260,47 @@ std\+::pair\texorpdfstring{$<$}{<}std\+::vector$<$\+T$>$, std\+::vector$<$\+T$>$
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ ps\+::clamp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{p,  }\item[{T}]{min\+\_\+val,  }\item[{T}]{max\+\_\+val }\end{DoxyParamCaption})}
 
-\Hypertarget{namespaceps_ac0b74f22d427d199ab0df8f6942d3b11}\label{namespaceps_ac0b74f22d427d199ab0df8f6942d3b11} 
+\Hypertarget{namespaceps_a5d453a5cb2885c1a8d264ff96303f627}\label{namespaceps_a5d453a5cb2885c1a8d264ff96303f627} 
+\index{ps@{ps}!dbscan\_clustering@{dbscan\_clustering}}
+\index{dbscan\_clustering@{dbscan\_clustering}!ps@{ps}}
+\doxysubsubsection{\texorpdfstring{dbscan\_clustering()}{dbscan\_clustering()}}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+std\+::vector$<$ int $>$ ps\+::dbscan\+\_\+clustering (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{T}]{eps,  }\item[{size\+\_\+t}]{min\+\_\+pts }\end{DoxyParamCaption})}
+
+
+
+Density-\/\+Based Spatial Clustering of Applications with Noise (DBSCAN). 
+
+Groups points into clusters based on density\+: a point is a core if it has at least {\ttfamily min\+\_\+pts} neighbors within distance {\ttfamily eps}. Clusters are formed by expanding from core points. Noise points remain unclustered.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Scalar type (float/double). \\
+\hline
+{\em N} & Dimension. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em points} & Input point cloud. \\
+\hline
+{\em eps} & Neighborhood radius for density check. \\
+\hline
+{\em min\+\_\+pts} & Minimum neighbors (including self) to be a core point. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of cluster labels (-\/1 = noise, 0..k = cluster IDs).
+\end{DoxyReturn}
+\hypertarget{namespaceps_autotoc_md0}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md0}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ labels\ =\ dbscan<double,2>(points,\ 0.05,\ 5);}
+
+\end{DoxyCode}
+
+
+This assigns each 2D point either to a cluster ID or -\/1 (noise). \Hypertarget{namespaceps_ac0b74f22d427d199ab0df8f6942d3b11}\label{namespaceps_ac0b74f22d427d199ab0df8f6942d3b11} 
 \index{ps@{ps}!distance@{distance}}
 \index{distance@{distance}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{distance()}{distance()}}
@@ -304,7 +348,7 @@ A scale function is used to modulate the minimum allowed distance for each point
 \begin{DoxyReturn}{Returns}
 std\+::vector$<$\+Point$<$\+T, N$>$$>$ A filtered set of points with variable spacing
 \end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md0}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md0}
+\hypertarget{namespaceps_autotoc_md1}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md1}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ \textcolor{keyword}{auto}\ scale\_fn\ =\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<float,\ 2>}}\&\ p)\ \{}
@@ -372,7 +416,42 @@ This assumes the domain is a rectangular box aligned with the coordinate axes.
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 T ps\+::dot (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{a,  }\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{b }\end{DoxyParamCaption})}
 
-\Hypertarget{namespaceps_a5350b843397a5bf2a748115108ffa21a}\label{namespaceps_a5350b843397a5bf2a748115108ffa21a} 
+\Hypertarget{namespaceps_ac42b8f3f26e63374a7a724a0cd3d9356}\label{namespaceps_ac42b8f3f26e63374a7a724a0cd3d9356} 
+\index{ps@{ps}!extract\_clusters@{extract\_clusters}}
+\index{extract\_clusters@{extract\_clusters}!ps@{ps}}
+\doxysubsubsection{\texorpdfstring{extract\_clusters()}{extract\_clusters()}}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ $>$ ps\+::extract\+\_\+clusters (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{const std\+::vector$<$ int $>$ \&}]{labels }\end{DoxyParamCaption})}
+
+
+
+Extract clusters of points given DBSCAN (or any clustering) labels. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Scalar type. \\
+\hline
+{\em N} & Dimension. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em points} & Input point cloud. \\
+\hline
+{\em labels} & Cluster labels (-\/2 = noise, -\/1 = unvisited, 0..k = cluster IDs). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A vector of clusters, each cluster is a vector of points.
+\end{DoxyReturn}
+\hypertarget{namespaceps_autotoc_md16}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md16}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \textcolor{keyword}{auto}\ labels\ \ \ =\ dbscan<double,2>(points,\ 0.05,\ 5);}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ clusters\ =\ \mbox{\hyperlink{namespaceps_ac42b8f3f26e63374a7a724a0cd3d9356}{extract\_clusters}}(points,\ labels);}
+
+\end{DoxyCode}
+ \Hypertarget{namespaceps_a5350b843397a5bf2a748115108ffa21a}\label{namespaceps_a5350b843397a5bf2a748115108ffa21a} 
 \index{ps@{ps}!filter\_points\_function@{filter\_points\_function}}
 \index{filter\_points\_function@{filter\_points\_function}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{filter\_points\_function()}{filter\_points\_function()}}
@@ -584,7 +663,7 @@ Cluster centers are randomly sampled within the provided {\ttfamily axis\+\_\+ra
 \begin{DoxyReturn}{Returns}
 std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of clustered points
 \end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md2}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md2}
+\hypertarget{namespaceps_autotoc_md3}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md3}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ \textcolor{keyword}{auto}\ clustered\ =\ ps::gaussian\_clusters<float,\ 2>(}
@@ -627,7 +706,7 @@ For each cluster center, this function generates {\ttfamily points\+\_\+per\+\_\
 \begin{DoxyReturn}{Returns}
 std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of clustered points
 \end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md1}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md1}
+\hypertarget{namespaceps_autotoc_md2}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md2}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ std::vector<Point<float,\ 2>>\ centers\ =\ \{}
@@ -676,7 +755,7 @@ This function generates {\ttfamily count} points in the unit hypercube using the
 \begin{DoxyReturn}{Returns}
 std\+::vector$<$\+Point$<$\+T, N$>$$>$ The generated Halton points rescaled to the bounding box
 \end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md3}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md3}
+\hypertarget{namespaceps_autotoc_md4}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md4}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ \textcolor{keyword}{auto}\ points\ =\ ps::halton<float,\ 2>(}
@@ -724,7 +803,7 @@ This function generates {\ttfamily count} points in the unit hypercube using the
 \begin{DoxyReturn}{Returns}
 std\+::vector$<$\+Point$<$\+T, N$>$$>$ The generated Hammersley points rescaled to the bounding box
 \end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md4}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md4}
+\hypertarget{namespaceps_autotoc_md5}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md5}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ \textcolor{keyword}{auto}\ points\ =\ ps::hammersley<float,\ 3>(}
@@ -780,7 +859,7 @@ The higher the {\ttfamily oversampling\+\_\+ratio}, the better the approximation
 \begin{DoxyReturn}{Returns}
 std\+::vector$<$\+Point$<$\+T, N$>$$>$ The resulting resampled point set
 \end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md5}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md5}
+\hypertarget{namespaceps_autotoc_md6}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md6}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ \textcolor{keyword}{auto}\ density\ =\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<float,\ 2>}}\ \&p)\ \{}
@@ -838,7 +917,7 @@ Jittering prevents aliasing, and staggering introduces a controlled shift betwee
 \begin{DoxyReturn}{Returns}
 std\+::vector$<$\+Point$<$\+T, N$>$$>$ Sampled points
 \end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md6}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md6}
+\hypertarget{namespaceps_autotoc_md7}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md7}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ std::array<std::pair<float,\ float>,\ 2>\ bounds\ =\ \{\{\{0.0f,\ 1.0f\},\ \{0.0f,}
@@ -881,7 +960,7 @@ This overload defaults to jittering each dimension fully within its cell and app
 \begin{DoxyReturn}{Returns}
 std\+::vector$<$\+Point$<$\+T, N$>$$>$ Jittered point samples
 \end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md7}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md7}
+\hypertarget{namespaceps_autotoc_md8}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md8}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ std::array<std::pair<double,\ double>,\ 3>\ bounds\ =\ \{\{\{0,\ 1\},\ \{0,\ 1\},\ \{0,}
@@ -1135,12 +1214,12 @@ If all points have the same value along a given axis, the corresponding normaliz
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ ps\+::operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{p,  }\item[{T}]{scalar }\end{DoxyParamCaption})}
 
-\Hypertarget{namespaceps_a6a2e3df8c590cf657996073cf1d7176d}\label{namespaceps_a6a2e3df8c590cf657996073cf1d7176d} 
-\index{ps@{ps}!percolation\_clusters@{percolation\_clusters}}
-\index{percolation\_clusters@{percolation\_clusters}!ps@{ps}}
-\doxysubsubsection{\texorpdfstring{percolation\_clusters()}{percolation\_clusters()}}
+\Hypertarget{namespaceps_a340aa5c812057b97017e88a974e452d8}\label{namespaceps_a340aa5c812057b97017e88a974e452d8} 
+\index{ps@{ps}!percolation\_clustering@{percolation\_clustering}}
+\index{percolation\_clustering@{percolation\_clustering}!ps@{ps}}
+\doxysubsubsection{\texorpdfstring{percolation\_clustering()}{percolation\_clustering()}}
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
-std\+::vector$<$ int $>$ ps\+::percolation\+\_\+clusters (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{T}]{connection\+\_\+radius }\end{DoxyParamCaption})}
+std\+::vector$<$ int $>$ ps\+::percolation\+\_\+clustering (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{T}]{connection\+\_\+radius }\end{DoxyParamCaption})}
 
 
 
@@ -1165,7 +1244,7 @@ Builds a graph where edges exist if points are within {\ttfamily connection\+\_\
 \begin{DoxyReturn}{Returns}
 A vector of cluster labels, size = points.\+size(). Label = -\/1 if unassigned.
 \end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md10}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md10}
+\hypertarget{namespaceps_autotoc_md11}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md11}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ std::vector<Point<double,2>>\ pts\ =\ \{\ \{0.1,0.2\},\ \{0.15,0.22\},\ \{0.9,0.9\}}
@@ -1237,7 +1316,7 @@ std\+::pair\texorpdfstring{$<$}{<}std\+::vector$<$\+T$>$, std\+::vector$<$\+T$>$
 \item Second\+: normalized RDF values g(r)
 \end{DoxyItemize}
 \end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md9}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md9}
+\hypertarget{namespaceps_autotoc_md10}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md10}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ std::vector<Point<double,\ 2>>\ pts\ =\ \{}
@@ -1465,7 +1544,7 @@ This function computes the axis-\/aligned bounding box (AABB) of the input point
 \mbox{\texttt{ in}}  & {\em target\+\_\+ranges} & Desired output min/max per dimension.\\
 \hline
 \end{DoxyParams}
-\hypertarget{namespaceps_autotoc_md11}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md11}
+\hypertarget{namespaceps_autotoc_md12}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md12}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ std::vector<Point<float,\ 2>>\ pts\ =\ generate\_random\_points<float,}
@@ -1521,7 +1600,7 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of accepted points based on reje
 {\em std\+::invalid\+\_\+argumentifanyaxisrangeisinvalid(min$>$max).} & \\
 \hline
 \end{DoxyExceptions}
-\hypertarget{namespaceps_autotoc_md12}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md12}
+\hypertarget{namespaceps_autotoc_md13}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md13}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{rejection__sampling_8hpp}{point\_sampler/rejection\_sampling.hpp}}"{}}}
@@ -1583,7 +1662,7 @@ Each point is offset based on inverse-\/distance-\/weighted repulsion from its k
 \begin{DoxyNote}{Note}
 The KD-\/tree is rebuilt on each iteration to reflect the updated positions.
 \end{DoxyNote}
-\hypertarget{namespaceps_autotoc_md13}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md13}
+\hypertarget{namespaceps_autotoc_md14}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md14}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{relaxation_8hpp}{point\_sampler/relaxation.hpp}}>}}
@@ -1595,7 +1674,7 @@ The KD-\/tree is rebuilt on each iteration to reflect the updated positions.
 \DoxyCodeLine{10);}
 
 \end{DoxyCode}
-\hypertarget{namespaceps_autotoc_md14}{}\doxysubsubsubsection{\texorpdfstring{How it works\+:}{How it works:}}\label{namespaceps_autotoc_md14}
+\hypertarget{namespaceps_autotoc_md15}{}\doxysubsubsubsection{\texorpdfstring{How it works\+:}{How it works:}}\label{namespaceps_autotoc_md15}
 
 \begin{DoxyItemize}
 \item For each point\+:

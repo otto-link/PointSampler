@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['kdtree_5fget_5fbbox_0',['kdtree_get_bbox',['../structps_1_1PointCloudAdaptor.html#a31519b1a2f58e06b9a98e858d97422cb',1,'ps::PointCloudAdaptor']]],
-  ['kdtree_5fget_5fpoint_5fcount_1',['kdtree_get_point_count',['../structps_1_1PointCloudAdaptor.html#a07b777a53ba058f277aa604acf672e65',1,'ps::PointCloudAdaptor']]],
-  ['kdtree_5fget_5fpt_2',['kdtree_get_pt',['../structps_1_1PointCloudAdaptor.html#a98372605c52a9e1cfd1479ded1894f1d',1,'ps::PointCloudAdaptor']]],
-  ['kmeans_5fclustering_3',['kmeans_clustering',['../namespaceps.html#acbef03daefffe13bd08b9b4c0952c00d',1,'ps']]]
+  ['jittered_5fgrid_0',['jittered_grid',['../namespaceps.html#ad8525c124fef24618bf574b9b7b1ece8',1,'ps::jittered_grid(size_t count, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, const std::array&lt; T, N &gt; &amp;jitter_amount, const std::array&lt; T, N &gt; &amp;stagger_ratio, std::optional&lt; unsigned int &gt; seed=std::nullopt)'],['../namespaceps.html#ae90df8db8e751ff4b61298114f092714',1,'ps::jittered_grid(size_t count, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, std::optional&lt; unsigned int &gt; seed=std::nullopt)']]]
 ];

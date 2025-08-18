@@ -8,56 +8,57 @@
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}dkm.hpp"{}}\ \textcolor{comment}{//\ https://github.com/genbattle/dkm}}
 \DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{point_8hpp}{point\_sampler/point.hpp}}"{}}}
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
-\DoxyCodeLine{00010\ \{}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00036\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00037\ std::pair<std::vector<Point<T,\ N>>,\ std::vector<size\_t>>\ \mbox{\hyperlink{namespaceps_acbef03daefffe13bd08b9b4c0952c00d}{kmeans\_clustering}}(}
-\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k\_clusters,}
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ normalize\_data\ =\ \textcolor{keyword}{true},}
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ max\_iterations\ =\ 100)}
-\DoxyCodeLine{00042\ \{}
-\DoxyCodeLine{00043\ \ \ \textcolor{keyword}{using\ }DKMPoint\ =\ std::array<T,\ N>;}
-\DoxyCodeLine{00044\ \ \ std::vector<DKMPoint>\ data;}
-\DoxyCodeLine{00045\ \ \ data.reserve(points.size());}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ \textcolor{keywordflow}{if}\ (normalize\_data)}
-\DoxyCodeLine{00048\ \ \ \{}
-\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{auto}\ points\_normalized\ =\ points;}
-\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{namespaceps_a172358f05108b5cabdac4e43ab309ab2}{normalize\_points}}(points\_normalized);}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ :\ points\_normalized)}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ data.push\_back(p.coords);}
-\DoxyCodeLine{00054\ \ \ \}}
-\DoxyCodeLine{00055\ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00056\ \ \ \{}
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ :\ points)}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ data.push\_back(p.coords);}
-\DoxyCodeLine{00059\ \ \ \}}
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00061\ \ \ \textcolor{keyword}{auto}\ result\ =\ dkm::kmeans\_lloyd<T>(data,\ k\_clusters,\ max\_iterations);}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00063\ \ \ \textcolor{keyword}{auto}\ \&centroids\_dkm\ =\ std::get<0>(result);}
-\DoxyCodeLine{00064\ \ \ \textcolor{keyword}{auto}\ \&labels\_dkm\_u32\ =\ std::get<1>(result);\ \textcolor{comment}{//\ uint32\_t\ labels\ from\ DKM}}
-\DoxyCodeLine{00065\ }
-\DoxyCodeLine{00066\ \ \ \textcolor{comment}{//\ Convert\ centroids}}
-\DoxyCodeLine{00067\ \ \ std::vector<Point<T,\ N>>\ centroids;}
-\DoxyCodeLine{00068\ \ \ centroids.reserve(centroids\_dkm.size());}
-\DoxyCodeLine{00069\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&c\ :\ centroids\_dkm)}
-\DoxyCodeLine{00070\ \ \ \ \ centroids.emplace\_back(c);}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \ \ \textcolor{comment}{//\ Convert\ labels\ to\ size\_t}}
-\DoxyCodeLine{00073\ \ \ std::vector<size\_t>\ labels;}
-\DoxyCodeLine{00074\ \ \ labels.reserve(labels\_dkm\_u32.size());}
-\DoxyCodeLine{00075\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ v\ :\ labels\_dkm\_u32)}
-\DoxyCodeLine{00076\ \ \ \ \ labels.push\_back(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(v));}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00078\ \ \ \textcolor{keywordflow}{return}\ \{std::move(centroids),\ std::move(labels)\};}
-\DoxyCodeLine{00079\ \}}
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00081\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{nanoflann__adaptator_8hpp}{point\_sampler/internal/nanoflann\_adaptator.hpp}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{point_8hpp}{point\_sampler/point.hpp}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00038\ std::pair<std::vector<Point<T,\ N>>,\ std::vector<size\_t>>\ \mbox{\hyperlink{namespaceps_acbef03daefffe13bd08b9b4c0952c00d}{kmeans\_clustering}}(}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k\_clusters,}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ normalize\_data\ =\ \textcolor{keyword}{true},}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ max\_iterations\ =\ 100)}
+\DoxyCodeLine{00043\ \{}
+\DoxyCodeLine{00044\ \ \ \textcolor{keyword}{using\ }DKMPoint\ =\ std::array<T,\ N>;}
+\DoxyCodeLine{00045\ \ \ std::vector<DKMPoint>\ data;}
+\DoxyCodeLine{00046\ \ \ data.reserve(points.size());}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \textcolor{keywordflow}{if}\ (normalize\_data)}
+\DoxyCodeLine{00049\ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{auto}\ points\_normalized\ =\ points;}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{namespaceps_a172358f05108b5cabdac4e43ab309ab2}{normalize\_points}}(points\_normalized);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ :\ points\_normalized)}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ data.push\_back(p.coords);}
+\DoxyCodeLine{00055\ \ \ \}}
+\DoxyCodeLine{00056\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00057\ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ :\ points)}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ data.push\_back(p.coords);}
+\DoxyCodeLine{00060\ \ \ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \textcolor{keyword}{auto}\ result\ =\ dkm::kmeans\_lloyd<T>(data,\ k\_clusters,\ max\_iterations);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \textcolor{keyword}{auto}\ \&centroids\_dkm\ =\ std::get<0>(result);}
+\DoxyCodeLine{00065\ \ \ \textcolor{keyword}{auto}\ \&labels\_dkm\_u32\ =\ std::get<1>(result);\ \textcolor{comment}{//\ uint32\_t\ labels\ from\ DKM}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \textcolor{comment}{//\ Convert\ centroids}}
+\DoxyCodeLine{00068\ \ \ std::vector<Point<T,\ N>>\ centroids;}
+\DoxyCodeLine{00069\ \ \ centroids.reserve(centroids\_dkm.size());}
+\DoxyCodeLine{00070\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&c\ :\ centroids\_dkm)}
+\DoxyCodeLine{00071\ \ \ \ \ centroids.emplace\_back(c);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \textcolor{comment}{//\ Convert\ labels\ to\ size\_t}}
+\DoxyCodeLine{00074\ \ \ std::vector<size\_t>\ labels;}
+\DoxyCodeLine{00075\ \ \ labels.reserve(labels\_dkm\_u32.size());}
+\DoxyCodeLine{00076\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ v\ :\ labels\_dkm\_u32)}
+\DoxyCodeLine{00077\ \ \ \ \ labels.push\_back(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(v));}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \textcolor{keywordflow}{return}\ \{std::move(centroids),\ std::move(labels)\};}
+\DoxyCodeLine{00080\ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \}\ \textcolor{comment}{//\ namespace\ ps}}
 
 \end{DoxyCode}

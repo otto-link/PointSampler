@@ -8,71 +8,72 @@
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <queue>}}
 \DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{point_8hpp}{point\_sampler/point.hpp}}"{}}}
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
-\DoxyCodeLine{00010\ \{}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00035\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00036\ std::vector<int>\ \mbox{\hyperlink{namespaceps_a6a2e3df8c590cf657996073cf1d7176d}{percolation\_clusters}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ connection\_radius)}
-\DoxyCodeLine{00038\ \{}
-\DoxyCodeLine{00039\ \ \ \textcolor{keywordflow}{if}\ (points.empty())}
-\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00042\ \ \ \textcolor{comment}{//\ KD-\/tree\ for\ neighbor\ search}}
-\DoxyCodeLine{00043\ \ \ \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{PointCloudAdaptor<T,\ N>}}\ adaptor(points);}
-\DoxyCodeLine{00044\ \ \ \mbox{\hyperlink{namespaceps_ac9ecfd54020ea95c133d1fc99cf4f75a}{KDTree<T,\ N>}}\ \ \ \ \ \ \ \ \ \ \ \ index(N,\ adaptor);}
-\DoxyCodeLine{00045\ \ \ index.buildIndex();}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ std::vector<int>\ labels(points.size(),\ -\/1);}
-\DoxyCodeLine{00048\ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ current\_cluster\ =\ 0;}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ points.size();\ ++i)}
-\DoxyCodeLine{00051\ \ \ \{}
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{if}\ (labels[i]\ !=\ -\/1)}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};\ \textcolor{comment}{//\ already\ assigned}}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{//\ Start\ BFS/DFS\ for\ new\ cluster}}
-\DoxyCodeLine{00056\ \ \ \ \ std::queue<size\_t>\ q;}
-\DoxyCodeLine{00057\ \ \ \ \ q.push(i);}
-\DoxyCodeLine{00058\ \ \ \ \ labels[i]\ =\ current\_cluster;}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordflow}{while}\ (!q.empty())}
-\DoxyCodeLine{00061\ \ \ \ \ \{}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ p\_idx\ =\ q.front();}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ q.pop();}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \textcolor{comment}{//\ Radius\ search\ around\ p\_idx}}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&p\ =\ points[p\_idx];}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ std::array<T,\ N>\ \ \ query;}
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ query[d]\ =\ p[d];}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00071\ \ \ \ \ \ \ std::vector<nanoflann::ResultItem<unsigned\ int,\ T>>\ ret\_matches;}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ nanoflann::SearchParameters\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ params;}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ index.radiusSearch(query.data(),}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ connection\_radius\ *\ connection\_radius,}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ret\_matches,}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ params);}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&m\ :\ ret\_matches)}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ neighbor\ =\ m.first;}
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (labels[neighbor]\ ==\ -\/1)}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ labels[neighbor]\ =\ current\_cluster;}
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ q.push(neighbor);}
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00087\ \ \ \ \ \}}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \ \ \ \ ++current\_cluster;}
-\DoxyCodeLine{00090\ \ \ \}}
-\DoxyCodeLine{00091\ }
-\DoxyCodeLine{00092\ \ \ \textcolor{keywordflow}{return}\ labels;}
-\DoxyCodeLine{00093\ \}}
-\DoxyCodeLine{00094\ }
-\DoxyCodeLine{00095\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{nanoflann__adaptator_8hpp}{point\_sampler/internal/nanoflann\_adaptator.hpp}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{point_8hpp}{point\_sampler/point.hpp}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00037\ std::vector<int>\ \mbox{\hyperlink{namespaceps_a340aa5c812057b97017e88a974e452d8}{percolation\_clustering}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ connection\_radius)}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \ \ \textcolor{keywordflow}{if}\ (points.empty())}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \textcolor{comment}{//\ KD-\/tree\ for\ neighbor\ search}}
+\DoxyCodeLine{00044\ \ \ \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{PointCloudAdaptor<T,\ N>}}\ adaptor(points);}
+\DoxyCodeLine{00045\ \ \ \mbox{\hyperlink{namespaceps_ac9ecfd54020ea95c133d1fc99cf4f75a}{KDTree<T,\ N>}}\ \ \ \ \ \ \ \ \ \ \ \ index(N,\ adaptor);}
+\DoxyCodeLine{00046\ \ \ index.buildIndex();}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ std::vector<int>\ labels(points.size(),\ -\/1);}
+\DoxyCodeLine{00049\ \ \ \textcolor{keywordtype}{int}\ \ \ \ \ \ \ \ \ \ \ \ \ \ current\_cluster\ =\ 0;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ points.size();\ ++i)}
+\DoxyCodeLine{00052\ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{if}\ (labels[i]\ !=\ -\/1)}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \textcolor{keywordflow}{continue};\ \textcolor{comment}{//\ already\ assigned}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//\ Start\ BFS/DFS\ for\ new\ cluster}}
+\DoxyCodeLine{00057\ \ \ \ \ std::queue<size\_t>\ q;}
+\DoxyCodeLine{00058\ \ \ \ \ q.push(i);}
+\DoxyCodeLine{00059\ \ \ \ \ labels[i]\ =\ current\_cluster;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{while}\ (!q.empty())}
+\DoxyCodeLine{00062\ \ \ \ \ \{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ p\_idx\ =\ q.front();}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ q.pop();}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \textcolor{comment}{//\ Radius\ search\ around\ p\_idx}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \&p\ =\ points[p\_idx];}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ std::array<T,\ N>\ \ \ query;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ d\ =\ 0;\ d\ <\ N;\ ++d)}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ query[d]\ =\ p[d];}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ std::vector<nanoflann::ResultItem<unsigned\ int,\ T>>\ ret\_matches;}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ nanoflann::SearchParameters\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ params;}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ index.radiusSearch(query.data(),}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ connection\_radius\ *\ connection\_radius,}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ret\_matches,}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ params);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&m\ :\ ret\_matches)}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ neighbor\ =\ m.first;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (labels[neighbor]\ ==\ -\/1)}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ labels[neighbor]\ =\ current\_cluster;}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ q.push(neighbor);}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00088\ \ \ \ \ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ ++current\_cluster;}
+\DoxyCodeLine{00091\ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \textcolor{keywordflow}{return}\ labels;}
+\DoxyCodeLine{00094\ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \}\ \textcolor{comment}{//\ namespace\ ps}}
 
 \end{DoxyCode}

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['percolation_5fclustering_2ehpp_0',['percolation_clustering.hpp',['../percolation__clustering_8hpp.html',1,'']]],
-  ['percolation_5fclusters_1',['percolation_clusters',['../namespaceps.html#a6a2e3df8c590cf657996073cf1d7176d',1,'ps']]],
+  ['percolation_5fclustering_0',['percolation_clustering',['../namespaceps.html#a340aa5c812057b97017e88a974e452d8',1,'ps']]],
+  ['percolation_5fclustering_2ehpp_1',['percolation_clustering.hpp',['../percolation__clustering_8hpp.html',1,'']]],
   ['point_2',['point',['../structps_1_1Point.html',1,'ps::Point&lt; T, N &gt;'],['../structps_1_1Point.html#a424a02dff2ba0f1458cfbe5c453cc739',1,'ps::Point::Point()=default'],['../structps_1_1Point.html#a5baa7fdf8d85cf33a45b47e804f1065a',1,'ps::Point::Point(const std::vector&lt; T &gt; &amp;v)'],['../structps_1_1Point.html#ac3aebf196b50c94ae7f29ee136253c2e',1,'ps::Point::Point(std::initializer_list&lt; T &gt; init)'],['../structps_1_1Point.html#a384ff1eed26e22b50f2a6ed3b2b9b883',1,'ps::Point::Point(const std::array&lt; T, N &gt; &amp;coords_)']]],
   ['point_2ehpp_3',['point.hpp',['../point_8hpp.html',1,'']]],
   ['point_5fsampler_2ehpp_4',['point_sampler.hpp',['../point__sampler_8hpp.html',1,'']]],

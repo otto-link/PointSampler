@@ -91,88 +91,114 @@
 \DoxyCodeLine{00159\ \ \ \textcolor{keywordflow}{return}\ result;}
 \DoxyCodeLine{00160\ \}}
 \DoxyCodeLine{00161\ }
-\DoxyCodeLine{00198\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00199\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a677f90d97b1dcfeaa2ecc299ee37f5bf}{merge\_by\_dimension}}(}
-\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::vector<T>,\ N>\ \&components)}
-\DoxyCodeLine{00201\ \{}
-\DoxyCodeLine{00202\ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (N\ >\ 0)}
-\DoxyCodeLine{00203\ \ \ \{}
-\DoxyCodeLine{00204\ \ \ \ \ std::size\_t\ count\ =\ components[0].size();}
-\DoxyCodeLine{00205\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 1;\ i\ <\ N;\ ++i)}
-\DoxyCodeLine{00206\ \ \ \ \ \{}
-\DoxyCodeLine{00207\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (components[i].size()\ !=\ count)}
-\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}All\ component\ vectors\ must\ have\ the\ same\ size"{}});}
-\DoxyCodeLine{00209\ \ \ \ \ \}}
-\DoxyCodeLine{00210\ }
-\DoxyCodeLine{00211\ \ \ \ \ std::vector<Point<T,\ N>>\ points(count);}
-\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ count;\ ++i)}
-\DoxyCodeLine{00213\ \ \ \ \ \{}
-\DoxyCodeLine{00214\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ j\ =\ 0;\ j\ <\ N;\ ++j)}
-\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ points[i][j]\ =\ components[j][i];}
-\DoxyCodeLine{00216\ \ \ \ \ \}}
-\DoxyCodeLine{00217\ }
-\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordflow}{return}\ points;}
-\DoxyCodeLine{00219\ \ \ \}}
-\DoxyCodeLine{00220\ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00221\ \ \ \{}
-\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
-\DoxyCodeLine{00223\ \ \ \}}
-\DoxyCodeLine{00224\ \}}
-\DoxyCodeLine{00225\ }
-\DoxyCodeLine{00251\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceps_a172358f05108b5cabdac4e43ab309ab2}{normalize\_points}}(std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points)}
-\DoxyCodeLine{00252\ \{}
-\DoxyCodeLine{00253\ \ \ \textcolor{keywordflow}{if}\ (points.empty())}
-\DoxyCodeLine{00254\ \ \ \ \ \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00255\ }
-\DoxyCodeLine{00256\ \ \ std::array<T,\ N>\ min\_vals;}
-\DoxyCodeLine{00257\ \ \ std::array<T,\ N>\ max\_vals;}
+\DoxyCodeLine{00177\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00178\ std::vector<std::vector<Point<T,\ N>>>\ \mbox{\hyperlink{namespaceps_ac42b8f3f26e63374a7a724a0cd3d9356}{extract\_clusters}}(}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points,}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<int>\ \ \ \ \ \ \ \ \ \&labels)}
+\DoxyCodeLine{00181\ \{}
+\DoxyCodeLine{00182\ \ \ \textcolor{keywordflow}{if}\ (points.size()\ !=\ labels.size())}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}extract\_clusters:\ mismatch\ between\ points\ and\ labels\ size"{}});}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \textcolor{comment}{//\ find\ max\ cluster\ id}}
+\DoxyCodeLine{00186\ \ \ \textcolor{keywordtype}{int}\ max\_cluster\_id\ =\ -\/1;}
+\DoxyCodeLine{00187\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ lbl\ :\ labels)}
+\DoxyCodeLine{00188\ \ \ \ \ \textcolor{keywordflow}{if}\ (lbl\ >=\ 0)}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ max\_cluster\_id\ =\ std::max(max\_cluster\_id,\ lbl);}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ std::vector<std::vector<Point<T,\ N>>>\ clusters(max\_cluster\_id\ +\ 1);}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ points.size();\ ++i)}
+\DoxyCodeLine{00194\ \ \ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordtype}{int}\ lbl\ =\ labels[i];}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keywordflow}{if}\ (lbl\ >=\ 0)}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ clusters[lbl].push\_back(points[i]);}
+\DoxyCodeLine{00198\ \ \ \}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \textcolor{keywordflow}{return}\ clusters;}
+\DoxyCodeLine{00201\ \}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00239\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00240\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a677f90d97b1dcfeaa2ecc299ee37f5bf}{merge\_by\_dimension}}(}
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::vector<T>,\ N>\ \&components)}
+\DoxyCodeLine{00242\ \{}
+\DoxyCodeLine{00243\ \ \ \textcolor{keywordflow}{if}\ \textcolor{keyword}{constexpr}\ (N\ >\ 0)}
+\DoxyCodeLine{00244\ \ \ \{}
+\DoxyCodeLine{00245\ \ \ \ \ std::size\_t\ count\ =\ components[0].size();}
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 1;\ i\ <\ N;\ ++i)}
+\DoxyCodeLine{00247\ \ \ \ \ \{}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (components[i].size()\ !=\ count)}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}All\ component\ vectors\ must\ have\ the\ same\ size"{}});}
+\DoxyCodeLine{00250\ \ \ \ \ \}}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \ \ \ \ std::vector<Point<T,\ N>>\ points(count);}
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ i\ =\ 0;\ i\ <\ count;\ ++i)}
+\DoxyCodeLine{00254\ \ \ \ \ \{}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (std::size\_t\ j\ =\ 0;\ j\ <\ N;\ ++j)}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ points[i][j]\ =\ components[j][i];}
+\DoxyCodeLine{00257\ \ \ \ \ \}}
 \DoxyCodeLine{00258\ }
-\DoxyCodeLine{00259\ \ \ \textcolor{comment}{//\ Initialize\ min/max\ arrays}}
-\DoxyCodeLine{00260\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ dim\ =\ 0;\ dim\ <\ N;\ ++dim)}
-\DoxyCodeLine{00261\ \ \ \{}
-\DoxyCodeLine{00262\ \ \ \ \ min\_vals[dim]\ =\ points[0].coords[dim];}
-\DoxyCodeLine{00263\ \ \ \ \ max\_vals[dim]\ =\ points[0].coords[dim];}
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keywordflow}{return}\ points;}
+\DoxyCodeLine{00260\ \ \ \}}
+\DoxyCodeLine{00261\ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00262\ \ \ \{}
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keywordflow}{return}\ \{\};}
 \DoxyCodeLine{00264\ \ \ \}}
-\DoxyCodeLine{00265\ }
-\DoxyCodeLine{00266\ \ \ \textcolor{comment}{//\ Find\ min/max\ for\ each\ axis}}
-\DoxyCodeLine{00267\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ :\ points)}
-\DoxyCodeLine{00268\ \ \ \{}
-\DoxyCodeLine{00269\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ dim\ =\ 0;\ dim\ <\ N;\ ++dim)}
-\DoxyCodeLine{00270\ \ \ \ \ \{}
-\DoxyCodeLine{00271\ \ \ \ \ \ \ min\_vals[dim]\ =\ std::min(min\_vals[dim],\ p.coords[dim]);}
-\DoxyCodeLine{00272\ \ \ \ \ \ \ max\_vals[dim]\ =\ std::max(max\_vals[dim],\ p.coords[dim]);}
-\DoxyCodeLine{00273\ \ \ \ \ \}}
-\DoxyCodeLine{00274\ \ \ \}}
-\DoxyCodeLine{00275\ }
-\DoxyCodeLine{00276\ \ \ \textcolor{comment}{//\ Normalize\ each\ point}}
-\DoxyCodeLine{00277\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&p\ :\ points)}
-\DoxyCodeLine{00278\ \ \ \{}
-\DoxyCodeLine{00279\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ dim\ =\ 0;\ dim\ <\ N;\ ++dim)}
-\DoxyCodeLine{00280\ \ \ \ \ \{}
-\DoxyCodeLine{00281\ \ \ \ \ \ \ T\ range\ =\ max\_vals[dim]\ -\/\ min\_vals[dim];}
-\DoxyCodeLine{00282\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (range\ !=\ T(0))}
-\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ p.coords[dim]\ =\ (p.coords[dim]\ -\/\ min\_vals[dim])\ /\ range;}
-\DoxyCodeLine{00284\ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ p.coords[dim]\ =\ T(0);\ \textcolor{comment}{//\ Avoid\ NaN\ if\ all\ values}}
-\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ are\ equal}}
-\DoxyCodeLine{00287\ \ \ \ \ \}}
-\DoxyCodeLine{00288\ \ \ \}}
-\DoxyCodeLine{00289\ \}}
-\DoxyCodeLine{00290\ }
-\DoxyCodeLine{00313\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00314\ std::array<std::vector<T>,\ N>\ \mbox{\hyperlink{namespaceps_af6737277b9cc05d5f2ab248f17baea3b}{split\_by\_dimension}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points)}
-\DoxyCodeLine{00315\ \{}
-\DoxyCodeLine{00316\ \ \ std::array<std::vector<T>,\ N>\ components;}
-\DoxyCodeLine{00317\ }
-\DoxyCodeLine{00318\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&point\ :\ points)}
-\DoxyCodeLine{00319\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ N;\ ++i)}
-\DoxyCodeLine{00320\ \ \ \ \ \{}
-\DoxyCodeLine{00321\ \ \ \ \ \ \ components[i].push\_back(point[i]);}
-\DoxyCodeLine{00322\ \ \ \ \ \}}
-\DoxyCodeLine{00323\ }
-\DoxyCodeLine{00324\ \ \ \textcolor{keywordflow}{return}\ components;}
-\DoxyCodeLine{00325\ \}}
-\DoxyCodeLine{00326\ }
-\DoxyCodeLine{00327\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+\DoxyCodeLine{00265\ \}}
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00292\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceps_a172358f05108b5cabdac4e43ab309ab2}{normalize\_points}}(std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points)}
+\DoxyCodeLine{00293\ \{}
+\DoxyCodeLine{00294\ \ \ \textcolor{keywordflow}{if}\ (points.empty())}
+\DoxyCodeLine{00295\ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \ \ std::array<T,\ N>\ min\_vals;}
+\DoxyCodeLine{00298\ \ \ std::array<T,\ N>\ max\_vals;}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00300\ \ \ \textcolor{comment}{//\ Initialize\ min/max\ arrays}}
+\DoxyCodeLine{00301\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ dim\ =\ 0;\ dim\ <\ N;\ ++dim)}
+\DoxyCodeLine{00302\ \ \ \{}
+\DoxyCodeLine{00303\ \ \ \ \ min\_vals[dim]\ =\ points[0].coords[dim];}
+\DoxyCodeLine{00304\ \ \ \ \ max\_vals[dim]\ =\ points[0].coords[dim];}
+\DoxyCodeLine{00305\ \ \ \}}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00307\ \ \ \textcolor{comment}{//\ Find\ min/max\ for\ each\ axis}}
+\DoxyCodeLine{00308\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&p\ :\ points)}
+\DoxyCodeLine{00309\ \ \ \{}
+\DoxyCodeLine{00310\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ dim\ =\ 0;\ dim\ <\ N;\ ++dim)}
+\DoxyCodeLine{00311\ \ \ \ \ \{}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ min\_vals[dim]\ =\ std::min(min\_vals[dim],\ p.coords[dim]);}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ max\_vals[dim]\ =\ std::max(max\_vals[dim],\ p.coords[dim]);}
+\DoxyCodeLine{00314\ \ \ \ \ \}}
+\DoxyCodeLine{00315\ \ \ \}}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00317\ \ \ \textcolor{comment}{//\ Normalize\ each\ point}}
+\DoxyCodeLine{00318\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&p\ :\ points)}
+\DoxyCodeLine{00319\ \ \ \{}
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ dim\ =\ 0;\ dim\ <\ N;\ ++dim)}
+\DoxyCodeLine{00321\ \ \ \ \ \{}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ T\ range\ =\ max\_vals[dim]\ -\/\ min\_vals[dim];}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (range\ !=\ T(0))}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ p.coords[dim]\ =\ (p.coords[dim]\ -\/\ min\_vals[dim])\ /\ range;}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ p.coords[dim]\ =\ T(0);\ \textcolor{comment}{//\ Avoid\ NaN\ if\ all\ values}}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ are\ equal}}
+\DoxyCodeLine{00328\ \ \ \ \ \}}
+\DoxyCodeLine{00329\ \ \ \}}
+\DoxyCodeLine{00330\ \}}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00354\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00355\ std::array<std::vector<T>,\ N>\ \mbox{\hyperlink{namespaceps_af6737277b9cc05d5f2ab248f17baea3b}{split\_by\_dimension}}(\textcolor{keyword}{const}\ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \&points)}
+\DoxyCodeLine{00356\ \{}
+\DoxyCodeLine{00357\ \ \ std::array<std::vector<T>,\ N>\ components;}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00359\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&point\ :\ points)}
+\DoxyCodeLine{00360\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ N;\ ++i)}
+\DoxyCodeLine{00361\ \ \ \ \ \{}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ components[i].push\_back(point[i]);}
+\DoxyCodeLine{00363\ \ \ \ \ \}}
+\DoxyCodeLine{00364\ }
+\DoxyCodeLine{00365\ \ \ \textcolor{keywordflow}{return}\ components;}
+\DoxyCodeLine{00366\ \}}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00368\ \}\ \textcolor{comment}{//\ namespace\ ps}}
 
 \end{DoxyCode}
