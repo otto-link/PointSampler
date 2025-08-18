@@ -163,6 +163,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a91a0bac33731ed899845c6081c117db2"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a91a0bac33731ed899845c6081c117db2">first_neighbor_distance_squared</a> (std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points)</td></tr>
 <tr class="memdesc:a91a0bac33731ed899845c6081c117db2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the squared distance to the nearest neighbor for each point.  <br /></td></tr>
 <tr class="separator:a91a0bac33731ed899845c6081c117db2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accc008d79bdad63b0acf9a4e627cc479" id="r_accc008d79bdad63b0acf9a4e627cc479"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
+<tr class="memitem:accc008d79bdad63b0acf9a4e627cc479"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#accc008d79bdad63b0acf9a4e627cc479">local_density_knn</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, size_t k=8)</td></tr>
+<tr class="memdesc:accc008d79bdad63b0acf9a4e627cc479"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute local point density based on k-nearest neighbors in N dimensions.  <br /></td></tr>
+<tr class="separator:accc008d79bdad63b0acf9a4e627cc479"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac29744e12116f882d8a620a3fd02d72d" id="r_ac29744e12116f882d8a620a3fd02d72d"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:ac29744e12116f882d8a620a3fd02d72d"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; size_t &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#ac29744e12116f882d8a620a3fd02d72d">nearest_neighbors_indices</a> (const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;points, size_t k_neighbors=8)</td></tr>
 <tr class="memdesc:ac29744e12116f882d8a620a3fd02d72d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the nearest neighbors for each point in a set.  <br /></td></tr>
@@ -451,15 +455,15 @@ template&lt;typename T , size_t N&gt; </div>
 </dd></dl>
 <h3><a class="anchor" id="autotoc_md9"></a>
 Example</h3>
-<div class="fragment"><div class="line"> std::vector&lt;Point&lt;double, 2&gt;&gt; pts = {</div>
+<div class="fragment"><div class="line">std::vector&lt;Point&lt;double, 2&gt;&gt; pts = {</div>
 <div class="line">    {0.0, 0.0}, {1.0, 0.0}, {0.0, 1.0}, {1.0, 1.0}</div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">auto</span> [theta, g_theta] = <a class="code hl_function" href="namespaceps.html#ae96771d03336a56988d82df95e8a797a">angle_distribution_neighbors</a>(pts, 0.1, 6);</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; theta.size(); ++i) std::cout &lt;&lt; <span class="stringliteral">&quot;θ=&quot;</span> &lt;&lt; theta[i] &lt;&lt; <span class="stringliteral">&quot;</span></div>
-<div class="line"><span class="stringliteral">g(θ)=&quot;</span> &lt;&lt; g_theta[i] &lt;&lt; std::endl;</div>
-<div class="ttc" id="anamespaceps_html_ae96771d03336a56988d82df95e8a797a"><div class="ttname"><a href="namespaceps.html#ae96771d03336a56988d82df95e8a797a">ps::angle_distribution_neighbors</a></div><div class="ttdeci">std::pair&lt; std::vector&lt; T &gt;, std::vector&lt; T &gt; &gt; angle_distribution_neighbors(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, T bin_width, size_t k_neighbors=8)</div><div class="ttdoc">Compute the angular distribution function (ADF) using nearest neighbors.</div><div class="ttdef"><b>Definition</b> metrics.hpp:48</div></div>
+<div class="line"><span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; theta.size(); ++i)</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;θ=&quot;</span> &lt;&lt; theta[i] &lt;&lt; <span class="stringliteral">&quot;g(θ)=&quot;</span> &lt;&lt; g_theta[i] &lt;&lt; std::endl;</div>
+<div class="ttc" id="anamespaceps_html_ae96771d03336a56988d82df95e8a797a"><div class="ttname"><a href="namespaceps.html#ae96771d03336a56988d82df95e8a797a">ps::angle_distribution_neighbors</a></div><div class="ttdeci">std::pair&lt; std::vector&lt; T &gt;, std::vector&lt; T &gt; &gt; angle_distribution_neighbors(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, T bin_width, size_t k_neighbors=8)</div><div class="ttdoc">Compute the angular distribution function (ADF) using nearest neighbors.</div><div class="ttdef"><b>Definition</b> metrics.hpp:49</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -761,12 +765,12 @@ template&lt;typename T , size_t N&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;T&gt; Distances of each point to the nearest domain boundary.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This assumes the domain is a rectangular box aligned with the coordinate axes.</dd></dl>
-<p><b>Example:</b> </p><div class="fragment"><div class="line"> std::vector&lt;Point&lt;double, 2&gt;&gt; pts = { {0.2, 0.8}, {0.9, 0.1} };</div>
+<p><b>Example:</b> </p><div class="fragment"><div class="line">std::vector&lt;Point&lt;double, 2&gt;&gt; pts = { {0.2, 0.8}, {0.9, 0.1} };</div>
 <div class="line">std::vector&lt;std::pair&lt;double, double&gt;&gt; ranges = { {0.0, 1.0}, {0.0, 1.0} };</div>
 <div class="line"><span class="keyword">auto</span> distances = <a class="code hl_function" href="namespaceps.html#a9a824a8963ef7b15c01da0f1f9c90eee">distance_to_boundary</a>(pts, ranges);</div>
 <div class="line"><span class="comment">// distances[0] -&gt; 0.2</span></div>
 <div class="line"><span class="comment">// distances[1] -&gt; 0.1</span></div>
-<div class="ttc" id="anamespaceps_html_a9a824a8963ef7b15c01da0f1f9c90eee"><div class="ttname"><a href="namespaceps.html#a9a824a8963ef7b15c01da0f1f9c90eee">ps::distance_to_boundary</a></div><div class="ttdeci">std::vector&lt; T &gt; distance_to_boundary(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges)</div><div class="ttdoc">Compute the distance of each point to the domain boundary.</div><div class="ttdef"><b>Definition</b> metrics.hpp:150</div></div>
+<div class="ttc" id="anamespaceps_html_a9a824a8963ef7b15c01da0f1f9c90eee"><div class="ttname"><a href="namespaceps.html#a9a824a8963ef7b15c01da0f1f9c90eee">ps::distance_to_boundary</a></div><div class="ttdeci">std::vector&lt; T &gt; distance_to_boundary(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges)</div><div class="ttdoc">Compute the distance of each point to the domain boundary.</div><div class="ttdef"><b>Definition</b> metrics.hpp:152</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -844,7 +848,7 @@ template&lt;typename T , size_t N&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A vector of clusters, each cluster is a vector of points.</dd></dl>
-<h3><a class="anchor" id="autotoc_md16"></a>
+<h3><a class="anchor" id="autotoc_md18"></a>
 Example</h3>
 <div class="fragment"><div class="line"> <span class="keyword">auto</span> labels   = dbscan&lt;double,2&gt;(points, 0.05, 5);</div>
 <div class="line"><span class="keyword">auto</span> clusters = <a class="code hl_function" href="namespaceps.html#ac42b8f3f26e63374a7a724a0cd3d9356">extract_clusters</a>(points, labels);</div>
@@ -1014,9 +1018,8 @@ template&lt;typename T , size_t N&gt; </div>
 <div class="line"> </div>
 <div class="line">std::vector&lt;float&gt; distances_sq = <a class="code hl_function" href="namespaceps.html#a91a0bac33731ed899845c6081c117db2">first_neighbor_distance_squared</a>(points);</div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// distances_sq[i] contains the squared distance to the closest neighbor of</span></div>
-<div class="line">points[i].</div>
-<div class="ttc" id="anamespaceps_html_a91a0bac33731ed899845c6081c117db2"><div class="ttname"><a href="namespaceps.html#a91a0bac33731ed899845c6081c117db2">ps::first_neighbor_distance_squared</a></div><div class="ttdeci">std::vector&lt; T &gt; first_neighbor_distance_squared(std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points)</div><div class="ttdoc">Computes the squared distance to the nearest neighbor for each point.</div><div class="ttdef"><b>Definition</b> metrics.hpp:215</div></div>
+<div class="line"><span class="comment">// distances_sq[i] contains the squared distance to the closest neighbor of points[i].</span></div>
+<div class="ttc" id="anamespaceps_html_a91a0bac33731ed899845c6081c117db2"><div class="ttname"><a href="namespaceps.html#a91a0bac33731ed899845c6081c117db2">ps::first_neighbor_distance_squared</a></div><div class="ttdeci">std::vector&lt; T &gt; first_neighbor_distance_squared(std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points)</div><div class="ttdoc">Computes the squared distance to the nearest neighbor for each point.</div><div class="ttdef"><b>Definition</b> metrics.hpp:216</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -1901,6 +1904,79 @@ template&lt;typename T , size_t N&gt; </div>
 
 </div>
 </div>
+<a id="accc008d79bdad63b0acf9a4e627cc479" name="accc008d79bdad63b0acf9a4e627cc479"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accc008d79bdad63b0acf9a4e627cc479">&#9670;&#160;</a></span>local_density_knn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t N&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; T &gt; ps::local_density_knn </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>points</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>k</em> = <code>8</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute local point density based on k-nearest neighbors in N dimensions. </p>
+<p>The density at each point is estimated as:  </p><p class="formulaDsp">
+<picture><source srcset="form_0_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+\rho_i = \frac{k}{V_N r_i^N}
+\]" src="form_0.png"/></picture>
+</p>
+<p> where (r_i) is the distance to the k-th nearest neighbor, (V_N) is the volume of the unit N-ball:  </p><p class="formulaDsp">
+<picture><source srcset="form_1_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaDsp" alt="\[
+V_N = \frac{\pi^{N/2}}{\Gamma(N/2 + 1)}
+\]" src="form_1.png"/></picture>
+</p>
+<p> and (\Gamma) is the gamma function. This generalizes to any dimension.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Scalar type (e.g., float, double). </td></tr>
+    <tr><td class="paramname">N</td><td>Dimension of the points. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">points</td><td>Vector of points in N-dimensional space. </td></tr>
+    <tr><td class="paramname">k</td><td>Number of nearest neighbors to use for density estimation (should be &gt;= 1). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of local densities for each point.</dd></dl>
+<h3><a class="anchor" id="autotoc_md10"></a>
+Example</h3>
+<div class="fragment"><div class="line">std::vector&lt;Point&lt;double,3&gt;&gt; pts = ...; <span class="comment">// 3D points</span></div>
+<div class="line"><span class="keywordtype">size_t</span> k = 8;</div>
+<div class="line"><span class="keyword">auto</span> densities = local_density_knn&lt;double,3&gt;(pts, k);</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md11"></a>
+Notes</h3>
+<ul>
+<li>Works in any dimension (N).</li>
+<li>High k gives smoother density estimates, low k captures local fluctuations.</li>
+<li>The resulting density units are “points per unit volume” in N dimensions.</li>
+</ul>
+<div class="image">
+<img src="metrics_local_density_knn.jpg" alt=""/>
+</div>
+ 
+</div>
+</div>
 <a id="a677f90d97b1dcfeaa2ecc299ee37f5bf" name="a677f90d97b1dcfeaa2ecc299ee37f5bf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a677f90d97b1dcfeaa2ecc299ee37f5bf">&#9670;&#160;</a></span>merge_by_dimension()</h2>
 
@@ -1967,7 +2043,7 @@ template&lt;typename T , size_t N&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A vector where each element is a vector of indices representing the nearest neighbors of the corresponding point in <code>points</code>.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The KD-tree is rebuilt internally for the search.</dd></dl>
-<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"> std::vector&lt;Point&lt;float, 3&gt;&gt; points = {</div>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line">std::vector&lt;Point&lt;float, 3&gt;&gt; points = {</div>
 <div class="line">    {0.0f, 0.0f, 0.0f},</div>
 <div class="line">    {1.0f, 0.0f, 0.0f},</div>
 <div class="line">    {0.0f, 1.0f, 0.0f},</div>
@@ -1977,7 +2053,7 @@ template&lt;typename T , size_t N&gt; </div>
 <div class="line"><span class="keyword">auto</span> neighbors = <a class="code hl_function" href="namespaceps.html#ac29744e12116f882d8a620a3fd02d72d">nearest_neighbors_indices</a>(points, 2);</div>
 <div class="line"><span class="comment">// neighbors[0] might contain {1, 2}</span></div>
 <div class="line"><span class="comment">// neighbors[1] might contain {0, 3}</span></div>
-<div class="ttc" id="anamespaceps_html_ac29744e12116f882d8a620a3fd02d72d"><div class="ttname"><a href="namespaceps.html#ac29744e12116f882d8a620a3fd02d72d">ps::nearest_neighbors_indices</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; size_t &gt; &gt; nearest_neighbors_indices(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, size_t k_neighbors=8)</div><div class="ttdoc">Finds the nearest neighbors for each point in a set.</div><div class="ttdef"><b>Definition</b> metrics.hpp:290</div></div>
+<div class="ttc" id="anamespaceps_html_ac29744e12116f882d8a620a3fd02d72d"><div class="ttname"><a href="namespaceps.html#ac29744e12116f882d8a620a3fd02d72d">ps::nearest_neighbors_indices</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; size_t &gt; &gt; nearest_neighbors_indices(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, size_t k_neighbors=8)</div><div class="ttdoc">Finds the nearest neighbors for each point in a set.</div><div class="ttdef"><b>Definition</b> metrics.hpp:356</div></div>
 </div><!-- fragment --> </dd></dl>
 
 </div>
@@ -2391,7 +2467,7 @@ template&lt;typename T , size_t N&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A vector of cluster labels, size = points.size(). Label = -1 if unassigned.</dd></dl>
-<h3><a class="anchor" id="autotoc_md11"></a>
+<h3><a class="anchor" id="autotoc_md13"></a>
 Example</h3>
 <div class="fragment"><div class="line"> std::vector&lt;Point&lt;double,2&gt;&gt; pts = { {0.1,0.2}, {0.15,0.22}, {0.9,0.9}</div>
 <div class="line">};</div>
@@ -2573,9 +2649,9 @@ template&lt;typename T , size_t N&gt; </div>
 <li>Second: normalized RDF values g(r)</li>
 </ul>
 </dd></dl>
-<h3><a class="anchor" id="autotoc_md10"></a>
+<h3><a class="anchor" id="autotoc_md12"></a>
 Example</h3>
-<div class="fragment"><div class="line"> std::vector&lt;Point&lt;double, 2&gt;&gt; pts = {</div>
+<div class="fragment"><div class="line">std::vector&lt;Point&lt;double, 2&gt;&gt; pts = {</div>
 <div class="line">    {0.0, 0.0}, {1.0, 0.0}, {0.0, 1.0}, {1.0, 1.0}</div>
 <div class="line">};</div>
 <div class="line"> </div>
@@ -2585,9 +2661,9 @@ Example</h3>
 <div class="line"> </div>
 <div class="line"><span class="keyword">auto</span> [r, g] = <a class="code hl_function" href="namespaceps.html#a8d80a56ea4774726e748b48e1ecf0a8d">radial_distribution</a>(pts, ranges, 0.1, 2.0);</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; r.size(); ++i) std::cout &lt;&lt; <span class="stringliteral">&quot;r=&quot;</span> &lt;&lt; r[i] &lt;&lt; <span class="stringliteral">&quot; g(r)=&quot;</span></div>
-<div class="line">&lt;&lt; g[i] &lt;&lt; std::endl;</div>
-<div class="ttc" id="anamespaceps_html_a8d80a56ea4774726e748b48e1ecf0a8d"><div class="ttname"><a href="namespaceps.html#a8d80a56ea4774726e748b48e1ecf0a8d">ps::radial_distribution</a></div><div class="ttdeci">std::pair&lt; std::vector&lt; T &gt;, std::vector&lt; T &gt; &gt; radial_distribution(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, T bin_width, T max_distance)</div><div class="ttdoc">Compute the normalized radial distribution function g(r).</div><div class="ttdef"><b>Definition</b> metrics.hpp:364</div></div>
+<div class="line"><span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; r.size(); ++i)</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;r=&quot;</span> &lt;&lt; r[i] &lt;&lt; <span class="stringliteral">&quot; g(r)=&quot;</span> &lt;&lt; g[i] &lt;&lt; std::endl;</div>
+<div class="ttc" id="anamespaceps_html_a8d80a56ea4774726e748b48e1ecf0a8d"><div class="ttname"><a href="namespaceps.html#a8d80a56ea4774726e748b48e1ecf0a8d">ps::radial_distribution</a></div><div class="ttdeci">std::pair&lt; std::vector&lt; T &gt;, std::vector&lt; T &gt; &gt; radial_distribution(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, T bin_width, T max_distance)</div><div class="ttdoc">Compute the normalized radial distribution function g(r).</div><div class="ttdef"><b>Definition</b> metrics.hpp:431</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -2920,7 +2996,7 @@ template&lt;typename T , size_t N&gt; </div>
   </table>
   </dd>
 </dl>
-<h3><a class="anchor" id="autotoc_md12"></a>
+<h3><a class="anchor" id="autotoc_md14"></a>
 Example</h3>
 <div class="fragment"><div class="line"> std::vector&lt;Point&lt;float, 2&gt;&gt; pts = generate_random_points&lt;float,</div>
 <div class="line">2&gt;(100, { {</div>
@@ -2997,7 +3073,7 @@ template&lt;typename T , size_t N, typename DensityFn &gt; </div>
   </table>
   </dd>
 </dl>
-<h3><a class="anchor" id="autotoc_md13"></a>
+<h3><a class="anchor" id="autotoc_md15"></a>
 Example</h3>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="rejection__sampling_8hpp.html">point_sampler/rejection_sampling.hpp</a>&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
@@ -3080,7 +3156,7 @@ template&lt;typename T , size_t N&gt; </div>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>The KD-tree is rebuilt on each iteration to reflect the updated positions.</dd></dl>
-<h3><a class="anchor" id="autotoc_md14"></a>
+<h3><a class="anchor" id="autotoc_md16"></a>
 Example</h3>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="relaxation_8hpp.html">point_sampler/relaxation.hpp</a>&gt;</span></div>
 <div class="line"> </div>
@@ -3090,7 +3166,7 @@ Example</h3>
 <div class="line"><span class="comment">// Apply 10 iterations of relaxation relaxation_ktree&lt;float, 2&gt;(pts, 8, 0.1f,</span></div>
 <div class="line">10);</div>
 <div class="ttc" id="arelaxation_8hpp_html"><div class="ttname"><a href="relaxation_8hpp.html">relaxation.hpp</a></div></div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md15"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md17"></a>
 How it works:</h3>
 <ul>
 <li>For each point:<ul>

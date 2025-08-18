@@ -53,6 +53,8 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 \begin{DoxyCompactList}\small\item\em Compute the distance of each point to the domain boundary. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{namespaceps_a91a0bac33731ed899845c6081c117db2}{first\+\_\+neighbor\+\_\+distance\+\_\+squared}} (std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points)
 \begin{DoxyCompactList}\small\item\em Computes the squared distance to the nearest neighbor for each point. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ T $>$ \mbox{\hyperlink{namespaceps_accc008d79bdad63b0acf9a4e627cc479}{local\+\_\+density\+\_\+knn}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, size\+\_\+t k=8)
+\begin{DoxyCompactList}\small\item\em Compute local point density based on k-\/nearest neighbors in N dimensions. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ std\+::vector$<$ size\+\_\+t $>$ $>$ \mbox{\hyperlink{namespaceps_ac29744e12116f882d8a620a3fd02d72d}{nearest\+\_\+neighbors\+\_\+indices}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, size\+\_\+t k\+\_\+neighbors=8)
 \begin{DoxyCompactList}\small\item\em Finds the nearest neighbors for each point in a set. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::pair$<$ std\+::vector$<$ T $>$, std\+::vector$<$ T $>$ $>$ \mbox{\hyperlink{namespaceps_a8d80a56ea4774726e748b48e1ecf0a8d}{radial\+\_\+distribution}} (const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&points, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, T bin\+\_\+width, T max\+\_\+distance)
@@ -243,14 +245,14 @@ std\+::pair\texorpdfstring{$<$}{<}std\+::vector$<$\+T$>$, std\+::vector$<$\+T$>$
 \hypertarget{namespaceps_autotoc_md9}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md9}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ std::vector<Point<double,\ 2>>\ pts\ =\ \{}
+\DoxyCodeLine{std::vector<Point<double,\ 2>>\ pts\ =\ \{}
 \DoxyCodeLine{\ \ \ \ \{0.0,\ 0.0\},\ \{1.0,\ 0.0\},\ \{0.0,\ 1.0\},\ \{1.0,\ 1.0\}}
 \DoxyCodeLine{\};}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{auto}\ [theta,\ g\_theta]\ =\ \mbox{\hyperlink{namespaceps_ae96771d03336a56988d82df95e8a797a}{angle\_distribution\_neighbors}}(pts,\ 0.1,\ 6);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ theta.size();\ ++i)\ std::cout\ <<\ \textcolor{stringliteral}{"{}θ="{}}\ <<\ theta[i]\ <<\ \textcolor{stringliteral}{"{}}}
-\DoxyCodeLine{\textcolor{stringliteral}{g(θ)="{}}\ <<\ g\_theta[i]\ <<\ std::endl;}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ theta.size();\ ++i)}
+\DoxyCodeLine{\ \ std::cout\ <<\ \textcolor{stringliteral}{"{}θ="{}}\ <<\ theta[i]\ <<\ \textcolor{stringliteral}{"{}g(θ)="{}}\ <<\ g\_theta[i]\ <<\ std::endl;}
 
 \end{DoxyCode}
  \Hypertarget{namespaceps_adb0bd4806c7e79eddef0e1263740ae28}\label{namespaceps_adb0bd4806c7e79eddef0e1263740ae28} 
@@ -402,7 +404,7 @@ This assumes the domain is a rectangular box aligned with the coordinate axes.
 \end{DoxyNote}
 {\bfseries{Example\+:}} 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ std::vector<Point<double,\ 2>>\ pts\ =\ \{\ \{0.2,\ 0.8\},\ \{0.9,\ 0.1\}\ \};}
+\DoxyCodeLine{std::vector<Point<double,\ 2>>\ pts\ =\ \{\ \{0.2,\ 0.8\},\ \{0.9,\ 0.1\}\ \};}
 \DoxyCodeLine{std::vector<std::pair<double,\ double>>\ ranges\ =\ \{\ \{0.0,\ 1.0\},\ \{0.0,\ 1.0\}\ \};}
 \DoxyCodeLine{\textcolor{keyword}{auto}\ distances\ =\ \mbox{\hyperlink{namespaceps_a9a824a8963ef7b15c01da0f1f9c90eee}{distance\_to\_boundary}}(pts,\ ranges);}
 \DoxyCodeLine{\textcolor{comment}{//\ distances[0]\ -\/>\ 0.2}}
@@ -444,7 +446,7 @@ Extract clusters of points given DBSCAN (or any clustering) labels.
 \begin{DoxyReturn}{Returns}
 A vector of clusters, each cluster is a vector of points.
 \end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md16}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md16}
+\hypertarget{namespaceps_autotoc_md18}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md18}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ \textcolor{keyword}{auto}\ labels\ \ \ =\ dbscan<double,2>(points,\ 0.05,\ 5);}
@@ -581,8 +583,7 @@ A vector containing the squared distances to the first neighbor for each point, 
 \DoxyCodeLine{}
 \DoxyCodeLine{std::vector<float>\ distances\_sq\ =\ \mbox{\hyperlink{namespaceps_a91a0bac33731ed899845c6081c117db2}{first\_neighbor\_distance\_squared}}(points);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{comment}{//\ distances\_sq[i]\ contains\ the\ squared\ distance\ to\ the\ closest\ neighbor\ of}}
-\DoxyCodeLine{points[i].}
+\DoxyCodeLine{\textcolor{comment}{//\ distances\_sq[i]\ contains\ the\ squared\ distance\ to\ the\ closest\ neighbor\ of\ points[i].}}
 
 \end{DoxyCode}
  \Hypertarget{namespaceps_a0e4055582214237ee9f21369133e6194}\label{namespaceps_a0e4055582214237ee9f21369133e6194} 
@@ -1042,7 +1043,57 @@ T ps\+::length\+\_\+squared (\begin{DoxyParamCaption}\item[{const \mbox{\hyperli
 {\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
 \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ ps\+::lerp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{a,  }\item[{const \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ \&}]{b,  }\item[{T}]{t }\end{DoxyParamCaption})}
 
-\Hypertarget{namespaceps_a677f90d97b1dcfeaa2ecc299ee37f5bf}\label{namespaceps_a677f90d97b1dcfeaa2ecc299ee37f5bf} 
+\Hypertarget{namespaceps_accc008d79bdad63b0acf9a4e627cc479}\label{namespaceps_accc008d79bdad63b0acf9a4e627cc479} 
+\index{ps@{ps}!local\_density\_knn@{local\_density\_knn}}
+\index{local\_density\_knn@{local\_density\_knn}!ps@{ps}}
+\doxysubsubsection{\texorpdfstring{local\_density\_knn()}{local\_density\_knn()}}
+{\footnotesize\ttfamily template$<$typename T , size\+\_\+t N$>$ \\
+std\+::vector$<$ T $>$ ps\+::local\+\_\+density\+\_\+knn (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \&}]{points,  }\item[{size\+\_\+t}]{k = {\ttfamily 8} }\end{DoxyParamCaption})}
+
+
+
+Compute local point density based on k-\/nearest neighbors in N dimensions. 
+
+The density at each point is estimated as\+:  \[
+\rho_i = \frac{k}{V_N r_i^N}
+\] where (r\+\_\+i) is the distance to the k-\/th nearest neighbor, (V\+\_\+N) is the volume of the unit N-\/ball\+:  \[
+V_N = \frac{\pi^{N/2}}{\Gamma(N/2 + 1)}
+\] and (\textbackslash{}\+Gamma) is the gamma function. This generalizes to any dimension.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Scalar type (e.\+g., float, double). \\
+\hline
+{\em N} & Dimension of the points. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em points} & Vector of points in N-\/dimensional space. \\
+\hline
+{\em k} & Number of nearest neighbors to use for density estimation (should be \texorpdfstring{$>$}{>}= 1). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of local densities for each point.
+\end{DoxyReturn}
+\hypertarget{namespaceps_autotoc_md10}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md10}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::vector<Point<double,3>>\ pts\ =\ ...;\ \textcolor{comment}{//\ 3D\ points}}
+\DoxyCodeLine{\textcolor{keywordtype}{size\_t}\ k\ =\ 8;}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ densities\ =\ local\_density\_knn<double,3>(pts,\ k);}
+
+\end{DoxyCode}
+\hypertarget{namespaceps_autotoc_md11}{}\doxysubsubsubsection{\texorpdfstring{Notes}{Notes}}\label{namespaceps_autotoc_md11}
+
+\begin{DoxyItemize}
+\item Works in any dimension (N).
+\item High k gives smoother density estimates, low k captures local fluctuations.
+\item The resulting density units are “points per unit volume” in N dimensions.
+\end{DoxyItemize}
+
+ \Hypertarget{namespaceps_a677f90d97b1dcfeaa2ecc299ee37f5bf}\label{namespaceps_a677f90d97b1dcfeaa2ecc299ee37f5bf} 
 \index{ps@{ps}!merge\_by\_dimension@{merge\_by\_dimension}}
 \index{merge\_by\_dimension@{merge\_by\_dimension}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{merge\_by\_dimension()}{merge\_by\_dimension()}}
@@ -1085,7 +1136,7 @@ The KD-\/tree is rebuilt internally for the search.
 \begin{DoxyParagraph}{Example}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ std::vector<Point<float,\ 3>>\ points\ =\ \{}
+\DoxyCodeLine{std::vector<Point<float,\ 3>>\ points\ =\ \{}
 \DoxyCodeLine{\ \ \ \ \{0.0f,\ 0.0f,\ 0.0f\},}
 \DoxyCodeLine{\ \ \ \ \{1.0f,\ 0.0f,\ 0.0f\},}
 \DoxyCodeLine{\ \ \ \ \{0.0f,\ 1.0f,\ 0.0f\},}
@@ -1244,7 +1295,7 @@ Builds a graph where edges exist if points are within {\ttfamily connection\+\_\
 \begin{DoxyReturn}{Returns}
 A vector of cluster labels, size = points.\+size(). Label = -\/1 if unassigned.
 \end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md11}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md11}
+\hypertarget{namespaceps_autotoc_md13}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md13}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ std::vector<Point<double,2>>\ pts\ =\ \{\ \{0.1,0.2\},\ \{0.15,0.22\},\ \{0.9,0.9\}}
@@ -1316,10 +1367,10 @@ std\+::pair\texorpdfstring{$<$}{<}std\+::vector$<$\+T$>$, std\+::vector$<$\+T$>$
 \item Second\+: normalized RDF values g(r)
 \end{DoxyItemize}
 \end{DoxyReturn}
-\hypertarget{namespaceps_autotoc_md10}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md10}
+\hypertarget{namespaceps_autotoc_md12}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md12}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ std::vector<Point<double,\ 2>>\ pts\ =\ \{}
+\DoxyCodeLine{std::vector<Point<double,\ 2>>\ pts\ =\ \{}
 \DoxyCodeLine{\ \ \ \ \{0.0,\ 0.0\},\ \{1.0,\ 0.0\},\ \{0.0,\ 1.0\},\ \{1.0,\ 1.0\}}
 \DoxyCodeLine{\};}
 \DoxyCodeLine{}
@@ -1329,8 +1380,8 @@ std\+::pair\texorpdfstring{$<$}{<}std\+::vector$<$\+T$>$, std\+::vector$<$\+T$>$
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{auto}\ [r,\ g]\ =\ \mbox{\hyperlink{namespaceps_a8d80a56ea4774726e748b48e1ecf0a8d}{radial\_distribution}}(pts,\ ranges,\ 0.1,\ 2.0);}
 \DoxyCodeLine{}
-\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ r.size();\ ++i)\ std::cout\ <<\ \textcolor{stringliteral}{"{}r="{}}\ <<\ r[i]\ <<\ \textcolor{stringliteral}{"{}\ g(r)="{}}}
-\DoxyCodeLine{<<\ g[i]\ <<\ std::endl;}
+\DoxyCodeLine{\textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ r.size();\ ++i)}
+\DoxyCodeLine{\ \ std::cout\ <<\ \textcolor{stringliteral}{"{}r="{}}\ <<\ r[i]\ <<\ \textcolor{stringliteral}{"{}\ g(r)="{}}\ <<\ g[i]\ <<\ std::endl;}
 
 \end{DoxyCode}
  \Hypertarget{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}\label{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69} 
@@ -1544,7 +1595,7 @@ This function computes the axis-\/aligned bounding box (AABB) of the input point
 \mbox{\texttt{ in}}  & {\em target\+\_\+ranges} & Desired output min/max per dimension.\\
 \hline
 \end{DoxyParams}
-\hypertarget{namespaceps_autotoc_md12}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md12}
+\hypertarget{namespaceps_autotoc_md14}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md14}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\ std::vector<Point<float,\ 2>>\ pts\ =\ generate\_random\_points<float,}
@@ -1600,7 +1651,7 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of accepted points based on reje
 {\em std\+::invalid\+\_\+argumentifanyaxisrangeisinvalid(min$>$max).} & \\
 \hline
 \end{DoxyExceptions}
-\hypertarget{namespaceps_autotoc_md13}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md13}
+\hypertarget{namespaceps_autotoc_md15}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md15}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{rejection__sampling_8hpp}{point\_sampler/rejection\_sampling.hpp}}"{}}}
@@ -1662,7 +1713,7 @@ Each point is offset based on inverse-\/distance-\/weighted repulsion from its k
 \begin{DoxyNote}{Note}
 The KD-\/tree is rebuilt on each iteration to reflect the updated positions.
 \end{DoxyNote}
-\hypertarget{namespaceps_autotoc_md14}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md14}
+\hypertarget{namespaceps_autotoc_md16}{}\doxysubsubsubsection{\texorpdfstring{Example}{Example}}\label{namespaceps_autotoc_md16}
 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{relaxation_8hpp}{point\_sampler/relaxation.hpp}}>}}
@@ -1674,7 +1725,7 @@ The KD-\/tree is rebuilt on each iteration to reflect the updated positions.
 \DoxyCodeLine{10);}
 
 \end{DoxyCode}
-\hypertarget{namespaceps_autotoc_md15}{}\doxysubsubsubsection{\texorpdfstring{How it works\+:}{How it works:}}\label{namespaceps_autotoc_md15}
+\hypertarget{namespaceps_autotoc_md17}{}\doxysubsubsubsection{\texorpdfstring{How it works\+:}{How it works:}}\label{namespaceps_autotoc_md17}
 
 \begin{DoxyItemize}
 \item For each point\+:
