@@ -14,50 +14,50 @@
 \DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
 \DoxyCodeLine{00011\ \{}
 \DoxyCodeLine{00012\ }
-\DoxyCodeLine{00038\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00039\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a913ab9d687ee42d04488e5eb0373e23a}{gaussian\_clusters}}(}
-\DoxyCodeLine{00040\ \ \ \ \ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \ \ \ cluster\_centers,}
-\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ points\_per\_cluster,}
-\DoxyCodeLine{00042\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spread,}
-\DoxyCodeLine{00043\ \ \ \ \ std::optional<unsigned\ int>\ seed\ =\ std::nullopt)}
-\DoxyCodeLine{00044\ \{}
-\DoxyCodeLine{00045\ \ \ std::mt19937\ gen(seed\ ?\ *seed\ :\ std::random\_device\{\}());}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ std::vector<Point<T,\ N>>\ points;}
-\DoxyCodeLine{00048\ \ \ points.reserve(cluster\_centers.size()\ *\ points\_per\_cluster);}
+\DoxyCodeLine{00041\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00042\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a913ab9d687ee42d04488e5eb0373e23a}{gaussian\_clusters}}(}
+\DoxyCodeLine{00043\ \ \ \ \ std::vector<\mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}>\ \ \ \ cluster\_centers,}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ points\_per\_cluster,}
+\DoxyCodeLine{00045\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spread,}
+\DoxyCodeLine{00046\ \ \ \ \ std::optional<unsigned\ int>\ seed\ =\ std::nullopt)}
+\DoxyCodeLine{00047\ \{}
+\DoxyCodeLine{00048\ \ \ std::mt19937\ gen(seed\ ?\ *seed\ :\ std::random\_device\{\}());}
 \DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ cluster\_centers.size();\ ++i)}
-\DoxyCodeLine{00051\ \ \ \{}
-\DoxyCodeLine{00052\ \ \ \ \ std::normal\_distribution<T>\ dist(0,\ spread);}
-\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ points\_per\_cluster;\ ++j)}
-\DoxyCodeLine{00054\ \ \ \ \ \{}
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ p;}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ 0;\ k\ <\ N;\ ++k)}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ p[k]\ =\ cluster\_centers[i][k]\ +\ dist(gen);}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ points.push\_back(p);}
-\DoxyCodeLine{00059\ \ \ \ \ \}}
-\DoxyCodeLine{00060\ \ \ \}}
-\DoxyCodeLine{00061\ \ \ \textcolor{keywordflow}{return}\ points;}
-\DoxyCodeLine{00062\ \}}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00091\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00092\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a913ab9d687ee42d04488e5eb0373e23a}{gaussian\_clusters}}(}
-\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cluster\_count,}
-\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ points\_per\_cluster,}
-\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ N>\ \&axis\_ranges,}
-\DoxyCodeLine{00096\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spread,}
-\DoxyCodeLine{00097\ \ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ \ \ \ \ \ \ seed\ =\ std::nullopt)}
-\DoxyCodeLine{00098\ \{}
-\DoxyCodeLine{00099\ \ \ std::vector<Point<T,\ N>>\ cluster\_centers\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{random<T,\ N>}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{cluster\_count}},}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{axis\_ranges}},}
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{seed}});}
-\DoxyCodeLine{00102\ \ \ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}\ =\ \mbox{\hyperlink{namespaceps_a913ab9d687ee42d04488e5eb0373e23a}{gaussian\_clusters}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{cluster\_centers}},}
-\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points\_per\_cluster}},}
-\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{spread}},}
-\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{seed}});}
-\DoxyCodeLine{00106\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}};}
-\DoxyCodeLine{00107\ \}}
-\DoxyCodeLine{00108\ }
-\DoxyCodeLine{00109\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+\DoxyCodeLine{00050\ \ \ std::vector<Point<T,\ N>>\ points;}
+\DoxyCodeLine{00051\ \ \ points.reserve(cluster\_centers.size()\ *\ points\_per\_cluster);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ cluster\_centers.size();\ ++i)}
+\DoxyCodeLine{00054\ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ std::normal\_distribution<T>\ dist(0,\ spread);}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ j\ =\ 0;\ j\ <\ points\_per\_cluster;\ ++j)}
+\DoxyCodeLine{00057\ \ \ \ \ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ p;}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ k\ =\ 0;\ k\ <\ N;\ ++k)}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ p[k]\ =\ cluster\_centers[i][k]\ +\ dist(gen);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ points.push\_back(p);}
+\DoxyCodeLine{00062\ \ \ \ \ \}}
+\DoxyCodeLine{00063\ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \textcolor{keywordflow}{return}\ points;}
+\DoxyCodeLine{00065\ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00094\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00095\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a913ab9d687ee42d04488e5eb0373e23a}{gaussian\_clusters}}(}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cluster\_count,}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ points\_per\_cluster,}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ N>\ \&axis\_ranges,}
+\DoxyCodeLine{00099\ \ \ \ \ T\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ spread,}
+\DoxyCodeLine{00100\ \ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ \ \ \ \ \ \ seed\ =\ std::nullopt)}
+\DoxyCodeLine{00101\ \{}
+\DoxyCodeLine{00102\ \ \ std::vector<Point<T,\ N>>\ cluster\_centers\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{random<T,\ N>}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{cluster\_count}},}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{axis\_ranges}},}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{seed}});}
+\DoxyCodeLine{00105\ \ \ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}\ =\ \mbox{\hyperlink{namespaceps_a913ab9d687ee42d04488e5eb0373e23a}{gaussian\_clusters}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{cluster\_centers}},}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points\_per\_cluster}},}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{spread}},}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{seed}});}
+\DoxyCodeLine{00109\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}};}
+\DoxyCodeLine{00110\ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \}\ \textcolor{comment}{//\ namespace\ ps}}
 
 \end{DoxyCode}

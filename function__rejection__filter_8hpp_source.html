@@ -116,35 +116,35 @@ $(document).ready(function(){initNavTree('function__rejection__filter_8hpp_sourc
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceps.html">ps</a></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> N, <span class="keyword">typename</span> DensityFn&gt;</div>
-<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="namespaceps.html#a0e4055582214237ee9f21369133e6194">   35</a></span>std::vector&lt;Point&lt;T, N&gt;&gt; <a class="code hl_function" href="namespaceps.html#a0e4055582214237ee9f21369133e6194">function_rejection_filter</a>(</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">const</span> std::vector&lt;<a class="code hl_struct" href="structps_1_1Point.html">Point&lt;T, N&gt;</a>&gt; &amp;points,</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    DensityFn                       density_fn,</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    std::optional&lt;unsigned int&gt;     seed = std::nullopt)</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  std::mt19937                      gen(seed ? *seed : std::random_device{}());</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  std::uniform_real_distribution&lt;T&gt; accept_dist(0.0, 1.0);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  std::vector&lt;Point&lt;T, N&gt;&gt; result;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  result.reserve(points.size());</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;p : points)</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  {</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    T prob = density_fn(p);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    T threshold = accept_dist(gen);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordflow">if</span> (prob &gt;= threshold)</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>      result.push_back(p);</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  }</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  <span class="keywordflow">return</span> result;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> N, <span class="keyword">typename</span> DensityFn&gt;</div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="}">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="namespaceps.html#a0e4055582214237ee9f21369133e6194">   36</a></span>std::vector&lt;Point&lt;T, N&gt;&gt; <a class="code hl_function" href="namespaceps.html#a0e4055582214237ee9f21369133e6194">function_rejection_filter</a>(</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">const</span> std::vector&lt;<a class="code hl_struct" href="structps_1_1Point.html">Point&lt;T, N&gt;</a>&gt; &amp;points,</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    DensityFn                       density_fn,</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    std::optional&lt;unsigned int&gt;     seed = std::nullopt)</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>{</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  std::mt19937                      gen(seed ? *seed : std::random_device{}());</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  std::uniform_real_distribution&lt;T&gt; accept_dist(0.0, 1.0);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  std::vector&lt;Point&lt;T, N&gt;&gt; result;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  result.reserve(points.size());</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;p : points)</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    T prob = density_fn(p);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    T threshold = accept_dist(gen);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">if</span> (prob &gt;= threshold)</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>      result.push_back(p);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  }</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>}</div>
 </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>} <span class="comment">// namespace ps</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>} <span class="comment">// namespace ps</span></div>
 <div class="ttc" id="anamespaceps_html"><div class="ttname"><a href="namespaceps.html">ps</a></div><div class="ttdef"><b>Definition</b> dbscan_clustering.hpp:11</div></div>
-<div class="ttc" id="anamespaceps_html_a0e4055582214237ee9f21369133e6194"><div class="ttname"><a href="namespaceps.html#a0e4055582214237ee9f21369133e6194">ps::function_rejection_filter</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; function_rejection_filter(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, DensityFn density_fn, std::optional&lt; unsigned int &gt; seed=std::nullopt)</div><div class="ttdoc">Filters points based on a spatial probability (density) function.</div><div class="ttdef"><b>Definition</b> function_rejection_filter.hpp:35</div></div>
+<div class="ttc" id="anamespaceps_html_a0e4055582214237ee9f21369133e6194"><div class="ttname"><a href="namespaceps.html#a0e4055582214237ee9f21369133e6194">ps::function_rejection_filter</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; function_rejection_filter(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, DensityFn density_fn, std::optional&lt; unsigned int &gt; seed=std::nullopt)</div><div class="ttdoc">Filters points based on a spatial probability (density) function.</div><div class="ttdef"><b>Definition</b> function_rejection_filter.hpp:36</div></div>
 <div class="ttc" id="apoint_8hpp_html"><div class="ttname"><a href="point_8hpp.html">point.hpp</a></div></div>
 <div class="ttc" id="astructps_1_1Point_html"><div class="ttname"><a href="structps_1_1Point.html">ps::Point</a></div><div class="ttdoc">A fixed-size N-dimensional point/vector class.</div><div class="ttdef"><b>Definition</b> point.hpp:37</div></div>
 </div><!-- fragment --></div><!-- contents -->

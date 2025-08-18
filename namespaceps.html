@@ -673,13 +673,10 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; of filtered points</dd></dl>
 <dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line">std::vector&lt;Point&lt;float, 2&gt;&gt; pts = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::random&lt;float, 2&gt;</a>(1000, {{0,1},{0,1}});</div>
 <div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">filtered</a> = <a class="code hl_function" href="namespaceps.html#ad1f4a1110a40bf1c6a687182db6b4b94">ps::distance_rejection_filter</a>(pts, 0.05f);</div>
-<div class="ttc" id="anamespaceps_html_ad1f4a1110a40bf1c6a687182db6b4b94"><div class="ttname"><a href="namespaceps.html#ad1f4a1110a40bf1c6a687182db6b4b94">ps::distance_rejection_filter</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; distance_rejection_filter(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, T min_dist)</div><div class="ttdoc">Filters a set of points using a greedy distance-based rejection.</div><div class="ttdef"><b>Definition</b> distance_rejection_filter.hpp:36</div></div>
+<div class="ttc" id="anamespaceps_html_ad1f4a1110a40bf1c6a687182db6b4b94"><div class="ttname"><a href="namespaceps.html#ad1f4a1110a40bf1c6a687182db6b4b94">ps::distance_rejection_filter</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; distance_rejection_filter(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, T min_dist)</div><div class="ttdoc">Filters a set of points using a greedy distance-based rejection.</div><div class="ttdef"><b>Definition</b> distance_rejection_filter.hpp:35</div></div>
 </div><!-- fragment --></dd></dl>
 <div class="image">
 <img src="out_distance_rejection_filter.csv.jpg" alt=""/>
-</div>
- <div class="image">
-<img src="out_distance_rejection_filter_warped.csv.jpg" alt=""/>
 </div>
  
 </div>
@@ -737,17 +734,19 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; A filtered set of points with variable spacing</dd></dl>
-<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">scale_fn</a> = [](<span class="keyword">const</span> <a class="code hl_struct" href="structps_1_1Point.html">Point&lt;float, 2&gt;</a>&amp; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">p</a>) {</div>
-<div class="line">    <span class="keywordflow">return</span> 0.5f + 0.5f * std::sin(<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">p</a>[0] * 3.1415f); <span class="comment">// Varies between 0.5 and</span></div>
-<div class="line">1</div>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">scale_fn</a> = [](<span class="keyword">const</span> <a class="code hl_struct" href="structps_1_1Point.html">Point&lt;float, 2&gt;</a>&amp; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">p</a>) {</div>
+<div class="line">    <span class="keywordflow">return</span> 0.5f + 0.5f * std::sin(<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">p</a>[0] * 3.1415f); <span class="comment">// Varies between 0.5 and 1</span></div>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line">std::vector&lt;Point&lt;float, 2&gt;&gt; pts = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::random&lt;float, 2&gt;</a>(1000, {{0,1},{0,1}});</div>
 <div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">filtered</a> = <a class="code hl_function" href="namespaceps.html#af23d114903fd5cb3ccb19d3e64183632">ps::distance_rejection_filter_warped</a>(pts, 0.05f, <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">scale_fn</a>);</div>
-<div class="ttc" id="anamespaceps_html_af23d114903fd5cb3ccb19d3e64183632"><div class="ttname"><a href="namespaceps.html#af23d114903fd5cb3ccb19d3e64183632">ps::distance_rejection_filter_warped</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; distance_rejection_filter_warped(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, T base_min_dist, ScaleFn scale_fn)</div><div class="ttdoc">Filters points based on spatially-varying minimal distance constraints.</div><div class="ttdef"><b>Definition</b> distance_rejection_filter.hpp:100</div></div>
+<div class="ttc" id="anamespaceps_html_af23d114903fd5cb3ccb19d3e64183632"><div class="ttname"><a href="namespaceps.html#af23d114903fd5cb3ccb19d3e64183632">ps::distance_rejection_filter_warped</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; distance_rejection_filter_warped(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, T base_min_dist, ScaleFn scale_fn)</div><div class="ttdoc">Filters points based on spatially-varying minimal distance constraints.</div><div class="ttdef"><b>Definition</b> distance_rejection_filter.hpp:101</div></div>
 <div class="ttc" id="astructps_1_1Point_html"><div class="ttname"><a href="structps_1_1Point.html">ps::Point</a></div><div class="ttdoc">A fixed-size N-dimensional point/vector class.</div><div class="ttdef"><b>Definition</b> point.hpp:37</div></div>
-</div><!-- fragment --> </dd></dl>
-
+</div><!-- fragment --></dd></dl>
+<div class="image">
+<img src="out_distance_rejection_filter_warped.csv.jpg" alt=""/>
+</div>
+ 
 </div>
 </div>
 <a id="aecf2b150ec16bf286e6a7b462c4d5808" name="aecf2b150ec16bf286e6a7b462c4d5808"></a>
@@ -1136,11 +1135,11 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; of accepted points</dd></dl>
-<div class="fragment"><div class="line"> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">field</a> = [](<span class="keyword">const</span> <a class="code hl_struct" href="structps_1_1Point.html">Point&lt;float, 2&gt;</a>&amp; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">p</a>) {</div>
+<div class="fragment"><div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">field</a> = [](<span class="keyword">const</span> <a class="code hl_struct" href="structps_1_1Point.html">Point&lt;float, 2&gt;</a>&amp; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">p</a>) {</div>
 <div class="line">    <span class="keywordflow">return</span> 0.5f + 0.5f * std::sin(<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">p</a>[0] * 10.0f); <span class="comment">// Spatial density</span></div>
 <div class="line">};</div>
 <div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">accepted</a> = <a class="code hl_function" href="namespaceps.html#a0e4055582214237ee9f21369133e6194">ps::function_rejection_filter</a>(pts, <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">field</a>);</div>
-<div class="ttc" id="anamespaceps_html_a0e4055582214237ee9f21369133e6194"><div class="ttname"><a href="namespaceps.html#a0e4055582214237ee9f21369133e6194">ps::function_rejection_filter</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; function_rejection_filter(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, DensityFn density_fn, std::optional&lt; unsigned int &gt; seed=std::nullopt)</div><div class="ttdoc">Filters points based on a spatial probability (density) function.</div><div class="ttdef"><b>Definition</b> function_rejection_filter.hpp:35</div></div>
+<div class="ttc" id="anamespaceps_html_a0e4055582214237ee9f21369133e6194"><div class="ttname"><a href="namespaceps.html#a0e4055582214237ee9f21369133e6194">ps::function_rejection_filter</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; function_rejection_filter(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, DensityFn density_fn, std::optional&lt; unsigned int &gt; seed=std::nullopt)</div><div class="ttdoc">Filters points based on a spatial probability (density) function.</div><div class="ttdef"><b>Definition</b> function_rejection_filter.hpp:36</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -1277,14 +1276,17 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; A vector of clustered points</dd></dl>
-<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"> std::vector&lt;Point&lt;float, 2&gt;&gt; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">centers</a> = {</div>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line">std::vector&lt;Point&lt;float, 2&gt;&gt; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">centers</a> = {</div>
 <div class="line">    {0.2f, 0.2f},</div>
 <div class="line">    {0.8f, 0.8f}</div>
 <div class="line">};</div>
 <div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">clustered</a> = <a class="code hl_function" href="namespaceps.html#a913ab9d687ee42d04488e5eb0373e23a">ps::gaussian_clusters</a>(<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">centers</a>, 100, 0.05f);</div>
-<div class="ttc" id="anamespaceps_html_a913ab9d687ee42d04488e5eb0373e23a"><div class="ttname"><a href="namespaceps.html#a913ab9d687ee42d04488e5eb0373e23a">ps::gaussian_clusters</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; gaussian_clusters(std::vector&lt; Point&lt; T, N &gt; &gt; cluster_centers, size_t points_per_cluster, T spread, std::optional&lt; unsigned int &gt; seed=std::nullopt)</div><div class="ttdoc">Generates clustered points around provided cluster centers using a Gaussian distribution.</div><div class="ttdef"><b>Definition</b> gaussian_clusters.hpp:39</div></div>
-</div><!-- fragment --> </dd></dl>
-
+<div class="ttc" id="anamespaceps_html_a913ab9d687ee42d04488e5eb0373e23a"><div class="ttname"><a href="namespaceps.html#a913ab9d687ee42d04488e5eb0373e23a">ps::gaussian_clusters</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; gaussian_clusters(std::vector&lt; Point&lt; T, N &gt; &gt; cluster_centers, size_t points_per_cluster, T spread, std::optional&lt; unsigned int &gt; seed=std::nullopt)</div><div class="ttdoc">Generates clustered points around provided cluster centers using a Gaussian distribution.</div><div class="ttdef"><b>Definition</b> gaussian_clusters.hpp:42</div></div>
+</div><!-- fragment --></dd></dl>
+<div class="image">
+<img src="out_gaussian_clusters_wrapped.csv.jpg" alt=""/>
+</div>
+ 
 </div>
 </div>
 <a id="a898bca65491a14a41bfdd50fdc6230b8" name="a898bca65491a14a41bfdd50fdc6230b8"></a>
