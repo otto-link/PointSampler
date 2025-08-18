@@ -10,7 +10,8 @@ var searchData=
   ['pointsampler_7',['PointSampler',['../index.html',1,'']]],
   ['poisson_5fdisk_5fsampling_8',['poisson_disk_sampling',['../namespaceps.html#a5b1e932ba8a20e05cd8c113179aa77c8',1,'ps']]],
   ['poisson_5fdisk_5fsampling_2ehpp_9',['poisson_disk_sampling.hpp',['../poisson__disk__sampling_8hpp.html',1,'']]],
-  ['poisson_5fdisk_5fsampling_5funiform_10',['poisson_disk_sampling_uniform',['../namespaceps.html#a6f7ab76c5d0a395aa78b85bad488e94e',1,'ps']]],
-  ['ps_11',['ps',['../namespaceps.html',1,'']]],
-  ['pts_12',['pts',['../structps_1_1PointCloudAdaptor.html#ad9019fcb2d338f1843242b8eb3f49e8b',1,'ps::PointCloudAdaptor']]]
+  ['poisson_5fdisk_5fsampling_5fdistance_5fdistribution_10',['poisson_disk_sampling_distance_distribution',['../namespaceps.html#a733f4c50a2eb988509aca40d25e86a39',1,'ps']]],
+  ['poisson_5fdisk_5fsampling_5funiform_11',['poisson_disk_sampling_uniform',['../namespaceps.html#a6f7ab76c5d0a395aa78b85bad488e94e',1,'ps']]],
+  ['ps_12',['ps',['../namespaceps.html',1,'']]],
+  ['pts_13',['pts',['../structps_1_1PointCloudAdaptor.html#ad9019fcb2d338f1843242b8eb3f49e8b',1,'ps::PointCloudAdaptor']]]
 ];

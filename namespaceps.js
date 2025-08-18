@@ -52,6 +52,7 @@ var namespaceps =
     [ "operator/", "namespaceps.html#a6663b4f1e9c5ee48e2bf6e1896430580", null ],
     [ "percolation_clustering", "namespaceps.html#a340aa5c812057b97017e88a974e452d8", null ],
     [ "poisson_disk_sampling", "namespaceps.html#a5b1e932ba8a20e05cd8c113179aa77c8", null ],
+    [ "poisson_disk_sampling_distance_distribution", "namespaceps.html#a733f4c50a2eb988509aca40d25e86a39", null ],
     [ "poisson_disk_sampling_uniform", "namespaceps.html#a6f7ab76c5d0a395aa78b85bad488e94e", null ],
     [ "radial_distribution", "namespaceps.html#a8d80a56ea4774726e748b48e1ecf0a8d", null ],
     [ "random", "namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69", null ],

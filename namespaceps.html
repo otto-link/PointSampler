@@ -276,6 +276,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a6f7ab76c5d0a395aa78b85bad488e94e"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">T</a>, <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">N</a> &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a6f7ab76c5d0a395aa78b85bad488e94e">poisson_disk_sampling_uniform</a> (<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">size_t</a> <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">count</a>, <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">const</a> std::array&lt; std::pair&lt; <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">T</a>, <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">T</a> &gt;, <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">N</a> &gt; &amp;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ranges</a>, <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">T</a> <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">base_min_dist</a>, std::optional&lt; <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">unsigned</a> <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">int</a> &gt; <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">seed</a>=std::nullopt, <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">size_t</a> <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">new_points_attempts</a>=30)</td></tr>
 <tr class="memdesc:a6f7ab76c5d0a395aa78b85bad488e94e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate uniformly distributed Poisson disk samples in N-dimensional space.  <br /></td></tr>
 <tr class="separator:a6f7ab76c5d0a395aa78b85bad488e94e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a733f4c50a2eb988509aca40d25e86a39" id="r_a733f4c50a2eb988509aca40d25e86a39"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">typename</a> <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">T</a> , <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">size_t</a> N, <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">typename</a> <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">RadiusGen</a> &gt; </td></tr>
+<tr class="memitem:a733f4c50a2eb988509aca40d25e86a39"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">T</a>, <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">N</a> &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a733f4c50a2eb988509aca40d25e86a39">poisson_disk_sampling_distance_distribution</a> (<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">size_t</a> <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">n_points</a>, <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">const</a> std::array&lt; std::pair&lt; <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">T</a>, <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">T</a> &gt;, <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">N</a> &gt; &amp;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">axis_ranges</a>, <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">RadiusGen</a> &amp;&amp;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">radius_gen</a>, <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">size_t</a> <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">max_attempts</a>=30)</td></tr>
+<tr class="memdesc:a733f4c50a2eb988509aca40d25e86a39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate random points with a variable-radius Poisson disk sampling.  <br /></td></tr>
+<tr class="separator:a733f4c50a2eb988509aca40d25e86a39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10763ef2a872aa9eddb48ea341cd6f69" id="r_a10763ef2a872aa9eddb48ea341cd6f69"><td class="memTemplParams" colspan="2">template&lt;typename T , size_t N&gt; </td></tr>
 <tr class="memitem:a10763ef2a872aa9eddb48ea341cd6f69"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; T, N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">random</a> (size_t count, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, std::optional&lt; unsigned int &gt; seed=std::nullopt)</td></tr>
 <tr class="memdesc:a10763ef2a872aa9eddb48ea341cd6f69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a specified number of uniformly distributed random points in N-dimensional space.  <br /></td></tr>
@@ -2699,6 +2703,100 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
 </div><!-- fragment --></dd></dl>
 <p>s</p><div class="image">
 <img src="out_poisson_disk_sampling.csv.jpg" alt=""/>
+</div>
+ 
+</div>
+</div>
+<a id="a733f4c50a2eb988509aca40d25e86a39" name="a733f4c50a2eb988509aca40d25e86a39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a733f4c50a2eb988509aca40d25e86a39">&#9670;&#160;</a></span>poisson_disk_sampling_distance_distribution()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">typename</a> <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">T</a> , <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">size_t</a> N, <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">typename</a> <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">RadiusGen</a> &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structps_1_1Point.html">Point</a>&lt; <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">T</a>, <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">N</a> &gt; &gt; ps::poisson_disk_sampling_distance_distribution </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">size_t</a>&#160;</td>
+          <td class="paramname"><em>n_points</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">const</a> std::array&lt; std::pair&lt; <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">T</a>, <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">T</a> &gt;, <a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">N</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>axis_ranges</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">RadiusGen</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>radius_gen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">size_t</a>&#160;</td>
+          <td class="paramname"><em>max_attempts</em> = <code>30</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generate random points with a variable-radius Poisson disk sampling. </p>
+<p>Radius is defined by an input distribution.</p>
+<p>This algorithm enforces a minimum separation between points based on radii drawn from a user-specified distribution. Two points \(p_i\), \(p_j\) with radii \(r_i\), \(r_j\) must satisfy:  </p><p class="formulaDsp">
+\[
+  \| p_i - p_j \| &gt; r_i + r_j
+\]
+</p>
+<p>This produces point sets where local spacing reflects the size distribution: many small radii yield dense clusters, while large radii produce local depletion zones.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Scalar type (e.g. float, double). </td></tr>
+    <tr><td class="paramname">N</td><td>Dimension of the points. </td></tr>
+    <tr><td class="paramname">RadiusGen</td><td>Callable returning radii sampled from the target distribution.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n_points</td><td>Number of points to generate. </td></tr>
+    <tr><td class="paramname">axis_ranges</td><td>Ranges for each axis, defining the sampling domain. </td></tr>
+    <tr><td class="paramname">radius_gen</td><td>Generator functor/lambda returning the next radius. </td></tr>
+    <tr><td class="paramname">max_attempts</td><td>Maximum attempts per point before giving up (controls density). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of generated points satisfying the variable-radius exclusion rule.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd><ul>
+<li>Larger <code>max_attempts</code> increases the chance of filling the domain but also increases runtime.</li>
+<li>For efficiency, use a spatial grid or tree if generating many points.</li>
+<li>Radii are drawn independently per point; correlations can be introduced by adapting <code>radius_gen</code>.</li>
+</ul>
+</dd></dl>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;random&gt;</span></div>
+<div class="line"> </div>
+<div class="line">std::mt19937 <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">rng</a>{std::random_device{}()};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// 2D unit square</span></div>
+<div class="line">std::array&lt;std::pair&lt;double,double&gt;,2&gt; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">box</a> = { { {0,1}, {0,1} } };</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Log-normal radius distribution</span></div>
+<div class="line">std::lognormal_distribution&lt;double&gt; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">logn</a>(0.0, 0.5);</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">points</a> = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">variable_radius_poisson_disk&lt;double,2&gt;</a>(</div>
+<div class="line">    200,</div>
+<div class="line">    <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">box</a>,</div>
+<div class="line">    [&amp;](){ <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">logn</a>(<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">rng</a>); }</div>
+<div class="line">);</div>
+</div><!-- fragment --></dd></dl>
+<div class="image">
+<img src="out_poisson_disk_sampling_distance_distribution.csv.jpg" alt=""/>
 </div>
  
 </div>
