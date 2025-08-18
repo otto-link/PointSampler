@@ -420,7 +420,7 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
 <div class="line">std::vector&lt;float&gt; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">z_values</a> = { 10.0f, 20.0f };</div>
 <div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">points3D</a> = <a class="code hl_function" href="namespaceps.html#a964f314c19f0b1300d513bce618c5954">add_dimension</a>(<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">points</a>, <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">z_values</a>);</div>
 <div class="line"><span class="comment">// points3D now contains {{1.0f, 2.0f, 10.0f}}, {{3.0f, 4.0f, 20.0f}}</span></div>
-<div class="ttc" id="anamespaceps_html_a10763ef2a872aa9eddb48ea341cd6f69"><div class="ttname"><a href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::random</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; random(size_t count, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, std::optional&lt; unsigned int &gt; seed=std::nullopt)</div><div class="ttdoc">Generates a specified number of uniformly distributed random points in N-dimensional space.</div><div class="ttdef"><b>Definition</b> random.hpp:63</div></div>
+<div class="ttc" id="anamespaceps_html_a10763ef2a872aa9eddb48ea341cd6f69"><div class="ttname"><a href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::random</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; random(size_t count, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, std::optional&lt; unsigned int &gt; seed=std::nullopt)</div><div class="ttdoc">Generates a specified number of uniformly distributed random points in N-dimensional space.</div><div class="ttdef"><b>Definition</b> random.hpp:66</div></div>
 <div class="ttc" id="anamespaceps_html_a964f314c19f0b1300d513bce618c5954"><div class="ttname"><a href="namespaceps.html#a964f314c19f0b1300d513bce618c5954">ps::add_dimension</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N+1 &gt; &gt; add_dimension(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, const std::vector&lt; T &gt; &amp;new_dimension)</div><div class="ttdoc">Add a new dimension to a set of points.</div><div class="ttdef"><b>Definition</b> utils.hpp:141</div></div>
 </div><!-- fragment --> 
 </div>
@@ -962,10 +962,11 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A vector of filtered points.</dd></dl>
-<div class="fragment"><div class="line"> std::vector&lt;Point&lt;float, 2&gt;&gt; pts = { {0.f, 0.f}, {1.f, 1.f}, {2.f, 2.f}</div>
+<div class="fragment"><div class="line">std::vector&lt;Point&lt;float, 2&gt;&gt; pts = { {0.f, 0.f}, {1.f, 1.f}, {2.f, 2.f}};</div>
+<div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">lambda</a> = [](<span class="keyword">const</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">Point&lt;float, 2&gt;</a> &amp;<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">p</a>) {</div>
+<div class="line">    <span class="keywordflow">return</span> (<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">p</a>[0] + <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">p</a>[1] &lt; 2.5f) ? 1.f : 0.f;</div>
 <div class="line">};</div>
-<div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">filtered</a> = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::filter_points_function&lt;float, 2&gt;</a>(pts, [](<span class="keyword">const</span></div>
-<div class="line"><a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">Point&lt;float, 2&gt;</a> &amp;<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">p</a>) { <span class="keywordflow">return</span> (<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">p</a>[0] + <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">p</a>[1] &lt; 2.5f) ? 1.f : 0.f; });</div>
+<div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">filtered</a> = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::filter_points_function&lt;float, 2&gt;</a>(pts, <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">lambda</a>);</div>
 <div class="line"><span class="comment">// Keeps only { {0.f, 0.f}, {1.f, 1.f} }</span></div>
 </div><!-- fragment --> 
 </div>
@@ -1020,10 +1021,9 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"> std::vector&lt;Point&lt;float, 2&gt;&gt; pts = { {0.5f, 0.5f}, {2.f, 3.f}, {-1.f,</div>
-<div class="line">0.f} };</div>
-<div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">filtered</a> = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::filter_points_in_range&lt;float, 2&gt;</a>(pts, { {{0.f, 1.f},</div>
-<div class="line">{0.f, 1.f}} });</div>
+<div class="fragment"><div class="line">std::vector&lt;Point&lt;float, 2&gt;&gt; pts = { {0.5f, 0.5f}, {2.f, 3.f}, {-1.f, 0.f} };</div>
+<div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">filtered</a> = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::filter_points_in_range&lt;float, 2&gt;</a>(pts, {{{0.f, 1.f},</div>
+<div class="line">                                                           {0.f, 1.f}}});</div>
 <div class="line"><span class="comment">// filtered now contains only { {0.5f, 0.5f} }</span></div>
 </div><!-- fragment --> 
 </div>
@@ -2919,11 +2919,12 @@ template&lt;typename T , size_t N&gt; </div>
 <div class="line">{</div>
 <div class="line">  <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">dim</a> = 3;</div>
 <div class="line">  <span class="keywordtype">size_t</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">count</a> = 5;</div>
-<div class="line">  std::array&lt;std::pair&lt;float, float&gt;, <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">dim</a>&gt; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ranges</a> = {{{0.f, 1.f}, {0.f, 2.f},</div>
-<div class="line">{-1.f, 1.f}}};</div>
+<div class="line">  std::array&lt;std::pair&lt;float, float&gt;, <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">dim</a>&gt; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ranges</a> = {{{0.f, 1.f},</div>
+<div class="line">                                                      {0.f, 2.f},</div>
+<div class="line">                                                      {-1.f, 1.f}}};</div>
 <div class="line"> </div>
-<div class="line">  <span class="comment">// Generate points with a fixed seed for reproducibility auto points =</span></div>
-<div class="line"><a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::random&lt;float, dim&gt;</a>(<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">count</a>, <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ranges</a>, 42);</div>
+<div class="line">  <span class="comment">// Generate points with a fixed seed for reproducibility</span></div>
+<div class="line">  <span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">points</a> = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::random&lt;float, dim&gt;</a>(<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">count</a>, <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ranges</a>, 42);</div>
 <div class="line"> </div>
 <div class="line">  <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">p</a> : <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">points</a>)</div>
 <div class="line">  {</div>
@@ -2934,7 +2935,10 @@ template&lt;typename T , size_t N&gt; </div>
 <div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="arandom_8hpp_html"><div class="ttname"><a href="random_8hpp.html">random.hpp</a></div></div>
-</div><!-- fragment --> 
+</div><!-- fragment --><div class="image">
+<img src="out_random.csv.jpg" alt=""/>
+</div>
+ 
 </div>
 </div>
 <a id="a66183362443c104da098224df9bcd2a1" name="a66183362443c104da098224df9bcd2a1"></a>
@@ -3135,8 +3139,11 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A vector of generated filament points. </dd></dl>
-
+<dl class="section return"><dt>Returns</dt><dd>A vector of generated filament points.</dd></dl>
+<div class="image">
+<img src="out_random_rejection_filter.csv.jpg" alt=""/>
+</div>
+ 
 </div>
 </div>
 <a id="a2b8197901114d1c4fd6cfe19efcd3862" name="a2b8197901114d1c4fd6cfe19efcd3862"></a>
@@ -3183,11 +3190,10 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
   </table>
   </dd>
 </dl>
-<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"> std::vector&lt;Point&lt;float, 2&gt;&gt; pts = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">generate_random_points</a>&lt;<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">float</a>,</div>
-<div class="line">2&gt;(100, { {</div>
-<div class="line">{0.f, 1.f}, {0.f, 1.f} } }, 42);</div>
-<div class="line"><span class="comment">// Refit to a new range: [10, 20] × [50, 100] refit_points_to_range&lt;float,</span></div>
-<div class="line">2&gt;(pts, { { {10.f, 20.f}, {50.f, 100.f} } });</div>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line">std::vector&lt;Point&lt;float, 2&gt;&gt; pts = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">generate_random_points&lt;float, 2&gt;</a>(100,</div>
+<div class="line">     { {{0.f, 1.f}, {0.f, 1.f} } }, 42);</div>
+<div class="line"><span class="comment">// Refit to a new range: [10, 20] × [50, 100]</span></div>
+<div class="line"><a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">refit_points_to_range&lt;float, 2&gt;</a>(pts, { { {10.f, 20.f}, {50.f, 100.f} } });</div>
 </div><!-- fragment --></dd></dl>
 <dl class="section note"><dt>Note</dt><dd>If a dimension has constant value (min == max), the center of the target range is used. </dd></dl>
 
@@ -3410,8 +3416,7 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"> std::vector&lt;Point&lt;float, 2&gt;&gt; pts = { {0.f, 0.f}, {1.f, 1.f}, {0.5f,</div>
-<div class="line">0.5f} };</div>
+<div class="fragment"><div class="line">std::vector&lt;Point&lt;float, 2&gt;&gt; pts = { {0.f, 0.f}, {1.f, 1.f}, {0.5f, 0.5f} };</div>
 <div class="line"><a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::rescale_points&lt;float, 2&gt;</a>(pts, { { {10.f, 20.f}, {100.f, 200.f} } });</div>
 <div class="line"><span class="comment">// pts is now { {10.f, 100.f}, {20.f, 200.f}, {15.f, 150.f} }</span></div>
 </div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>Assumes points are in [0, 1]^N. Does not check bounds. </dd></dl>

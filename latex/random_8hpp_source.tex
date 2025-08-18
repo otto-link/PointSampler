@@ -14,37 +14,37 @@
 \DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceps}{ps}}}
 \DoxyCodeLine{00011\ \{}
 \DoxyCodeLine{00012\ }
-\DoxyCodeLine{00062\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
-\DoxyCodeLine{00063\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{random}}(\textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{count}},}
-\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}}>\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{axis\_ranges}},}
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{seed}}\ =\ std::nullopt)}
-\DoxyCodeLine{00066\ \{}
-\DoxyCodeLine{00067\ \ \ std::mt19937\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{gen}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{seed}}\ ?\ *\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{seed}}\ :\ std::random\_device\{\}());}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ \ \ \textcolor{comment}{//\ Create\ N\ distributions,\ one\ per\ dimension}}
-\DoxyCodeLine{00070\ \ \ std::array<std::uniform\_real\_distribution<T>,\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}}>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{dists}};}
-\DoxyCodeLine{00071\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
-\DoxyCodeLine{00072\ \ \ \{}
-\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{min\_val}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{max\_val}}]\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{axis\_ranges}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}];}
-\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{min\_val}}\ >\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{max\_val}})}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Invalid\ axis\ range:\ min\ >\ max"{}});}
-\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{dists}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ =\ std::uniform\_real\_distribution<T>(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{min\_val}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{max\_val}});}
-\DoxyCodeLine{00077\ \ \ \}}
-\DoxyCodeLine{00078\ }
-\DoxyCodeLine{00079\ \ \ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}};}
-\DoxyCodeLine{00080\ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}.reserve(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{count}});}
+\DoxyCodeLine{00065\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00066\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{random}}(\textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{count}},}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}}>\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{axis\_ranges}},}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{seed}}\ =\ std::nullopt)}
+\DoxyCodeLine{00069\ \{}
+\DoxyCodeLine{00070\ \ \ std::mt19937\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{gen}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{seed}}\ ?\ *\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{seed}}\ :\ std::random\_device\{\}());}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \textcolor{comment}{//\ Create\ N\ distributions,\ one\ per\ dimension}}
+\DoxyCodeLine{00073\ \ \ std::array<std::uniform\_real\_distribution<T>,\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}}>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{dists}};}
+\DoxyCodeLine{00074\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
+\DoxyCodeLine{00075\ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{min\_val}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{max\_val}}]\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{axis\_ranges}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}];}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{min\_val}}\ >\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{max\_val}})}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Invalid\ axis\ range:\ min\ >\ max"{}});}
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{dists}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}]\ =\ std::uniform\_real\_distribution<T>(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{min\_val}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{max\_val}});}
+\DoxyCodeLine{00080\ \ \ \}}
 \DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{count}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
-\DoxyCodeLine{00083\ \ \ \{}
-\DoxyCodeLine{00084\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}};}
-\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{j}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{j}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{j}})}
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{j}}]\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{dists}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{j}}](\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{gen}});}
-\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}.push\_back(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}});}
-\DoxyCodeLine{00088\ \ \ \}}
-\DoxyCodeLine{00089\ }
-\DoxyCodeLine{00090\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}};}
-\DoxyCodeLine{00091\ \}}
+\DoxyCodeLine{00082\ \ \ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}};}
+\DoxyCodeLine{00083\ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}.reserve(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{count}});}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{count}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{i}})}
+\DoxyCodeLine{00086\ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{structps_1_1Point}{Point<T,\ N>}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}};}
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{j}}\ =\ 0;\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{j}}\ <\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}};\ ++\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{j}})}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{j}}]\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{dists}}[\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{j}}](\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{gen}});}
+\DoxyCodeLine{00090\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}.push\_back(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}});}
+\DoxyCodeLine{00091\ \ \ \}}
 \DoxyCodeLine{00092\ }
-\DoxyCodeLine{00093\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+\DoxyCodeLine{00093\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}};}
+\DoxyCodeLine{00094\ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \}\ \textcolor{comment}{//\ namespace\ ps}}
 
 \end{DoxyCode}
