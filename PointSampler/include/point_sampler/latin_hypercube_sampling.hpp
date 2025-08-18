@@ -32,10 +32,11 @@ namespace ps
  *
  * @return              std::vector<Point<T, N>> of LHS-sampled points
  *
- * @par Example std::array<std::pair<float, float>, 2> range = {{{0.0f, 1.0f},
- * {0.0f, 1.0f}}};
- * std::vector<Point<float, 2>> points = latin_hypercube_sampling<float,
- * 2>(1000, range);
+ * @par Example
+ * @code {.cpp}
+ * std::array<std::pair<float, float>, 2> range = {{{0.0f, 1.0f}, {0.0f, 1.0f}}};
+ * std::vector<Point<float, 2>> points = latin_hypercube_sampling<float, 2>(1000, range);
+ * @endcode
  */
 template <typename T, std::size_t N>
 std::vector<Point<T, N>> latin_hypercube_sampling(
