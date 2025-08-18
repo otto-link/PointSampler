@@ -4,6 +4,7 @@
 #pragma once
 #include <queue>
 
+#include "point_sampler/internal/nanoflann_adaptator.hpp"
 #include "point_sampler/point.hpp"
 
 namespace ps
@@ -33,8 +34,8 @@ namespace ps
  * ```
  */
 template <typename T, size_t N>
-std::vector<int> percolation_clusters(const std::vector<Point<T, N>> &points,
-                                      T                               connection_radius)
+std::vector<int> percolation_clustering(const std::vector<Point<T, N>> &points,
+                                        T                               connection_radius)
 {
   if (points.empty())
     return {};

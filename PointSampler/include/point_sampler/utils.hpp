@@ -160,6 +160,47 @@ std::vector<Point<T, N + 1>> add_dimension(const std::vector<Point<T, N>> &point
 }
 
 /**
+ * \brief Extract clusters of points given DBSCAN (or any clustering) labels.
+ *
+ * \tparam T Scalar type.
+ * \tparam N Dimension.
+ * \param points Input point cloud.
+ * \param labels Cluster labels (-2 = noise, -1 = unvisited, 0..k = cluster
+ * IDs).
+ * \return A vector of clusters, each cluster is a vector of points.
+ *
+ * ### Example
+ * ```cpp auto labels   = dbscan<double,2>(points, 0.05, 5);
+ * auto clusters = extract_clusters(points, labels);
+ * ```
+ */
+template <typename T, size_t N>
+std::vector<std::vector<Point<T, N>>> extract_clusters(
+    const std::vector<Point<T, N>> &points,
+    const std::vector<int>         &labels)
+{
+  if (points.size() != labels.size())
+    throw std::runtime_error("extract_clusters: mismatch between points and labels size");
+
+  // find max cluster id
+  int max_cluster_id = -1;
+  for (int lbl : labels)
+    if (lbl >= 0)
+      max_cluster_id = std::max(max_cluster_id, lbl);
+
+  std::vector<std::vector<Point<T, N>>> clusters(max_cluster_id + 1);
+
+  for (size_t i = 0; i < points.size(); ++i)
+  {
+    int lbl = labels[i];
+    if (lbl >= 0)
+      clusters[lbl].push_back(points[i]);
+  }
+
+  return clusters;
+}
+
+/**
  * @brief Reconstructs a list of N-dimensional points from N separate coordinate
  * vectors.
  *

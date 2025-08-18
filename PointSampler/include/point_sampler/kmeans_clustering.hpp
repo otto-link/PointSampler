@@ -4,6 +4,7 @@
 #pragma once
 #include "dkm.hpp" // https://github.com/genbattle/dkm
 
+#include "point_sampler/internal/nanoflann_adaptator.hpp"
 #include "point_sampler/point.hpp"
 
 namespace ps

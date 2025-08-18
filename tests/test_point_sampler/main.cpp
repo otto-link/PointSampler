@@ -268,14 +268,30 @@ int main()
   }
 
   {
+    std::cout << "ps::dbscan_clustering...\n";
+
+    // random points
+    auto points = ps::latin_hypercube_sampling<float, dim>(count, ranges, seed);
+
+    float            connection_radius = 0.1f;
+    size_t           min_pts = 5;
+    std::vector<int> labels = ps::dbscan_clustering<float, dim>(points,
+                                                                connection_radius,
+                                                                min_pts);
+
+    ps::save_points_to_csv("metrics_dbscan_clustering.csv", points);
+    ps::save_vector_to_csv("metrics_dbscan_clustering_labels.csv", labels);
+  }
+
+  {
     std::cout << "ps::percolation_clustering...\n";
 
     // random points
     auto points = ps::latin_hypercube_sampling<float, dim>(count, ranges, seed);
 
     float            connection_radius = 0.1f;
-    std::vector<int> labels = ps::percolation_clusters<float, dim>(points,
-                                                                   connection_radius);
+    std::vector<int> labels = ps::percolation_clustering<float, dim>(points,
+                                                                     connection_radius);
 
     ps::save_points_to_csv("metrics_percolation_clustering.csv", points);
     ps::save_vector_to_csv("metrics_percolation_clustering_labels.csv", labels);

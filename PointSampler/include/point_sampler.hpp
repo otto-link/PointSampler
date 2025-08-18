@@ -46,10 +46,12 @@
  *   - @ref random_rejection_filter.hpp
  *   - @ref range.hpp
  *   - @ref relaxation.hpp
+ * - Clustering
+ *   - @ref kmeans_clustering.hpp
+ *   - @ref dbscan_clustering.hpp
+ *   - @ref percolation_clustering.hpp
  * - Data
  *   - @ref metrics.hpp
- *   - @ref kmeans_clustering.hpp
- *   - @ref percolation_clustering.hpp
  * - Point representation
  *   - @ref point.hpp
  *
@@ -61,6 +63,7 @@
 #include "point_sampler/point.hpp"
 #include "point_sampler/utils.hpp"
 
+#include "point_sampler/dbscan_clustering.hpp"
 #include "point_sampler/distance_rejection_filter.hpp"
 #include "point_sampler/function_rejection_filter.hpp"
 #include "point_sampler/gaussian_clusters.hpp"
