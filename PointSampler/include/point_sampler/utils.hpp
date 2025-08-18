@@ -81,8 +81,9 @@ bool save_points_to_csv(const std::string              &filename,
  *
  * @note The file will be overwritten if it already exists.
  *
- * **Example**
- * @code std::vector<double> data = {1.0, 2.5, 3.7};
+ * @par Example
+ * @code
+ * std::vector<double> data = {1.0, 2.5, 3.7};
  * save_vector_to_csv("data.csv", data, true, "measurement");
  * // data.csv content:
  * // measurement
@@ -129,9 +130,9 @@ bool save_vector_to_csv(const std::string    &filename,
  * @note This function creates a new vector of points with an increased
  * dimension count, since the type Point<T, N> is distinct from Point<T, N+1>.
  *
- * **Example usage:**
- * @code std::vector<Point<float, 2>> points = { {{1.0f, 2.0f}}, {{3.0f, 4.0f}}
- * };
+ * @par Example
+ * @code
+ * std::vector<Point<float, 2>> points = { {{1.0f, 2.0f}}, {{3.0f, 4.0f}}};
  * std::vector<float> z_values = { 10.0f, 20.0f };
  * auto points3D = add_dimension(points, z_values);
  * // points3D now contains {{1.0f, 2.0f, 10.0f}}, {{3.0f, 4.0f, 20.0f}}
@@ -170,9 +171,10 @@ std::vector<Point<T, N + 1>> add_dimension(const std::vector<Point<T, N>> &point
  * @return A vector of clusters, each cluster is a vector of points.
  *
  * @par Example
- * ```cpp auto labels   = dbscan<double,2>(points, 0.05, 5);
+ * @code {.cpp}
+ * auto labels   = dbscan<double,2>(points, 0.05, 5);
  * auto clusters = extract_clusters(points, labels);
- * ```
+ * @endcode
  */
 template <typename T, size_t N>
 std::vector<std::vector<Point<T, N>>> extract_clusters(
@@ -229,12 +231,15 @@ std::vector<std::vector<Point<T, N>>> extract_clusters(
  * @throws std::invalid_argumentifthecoordinatevectorsdonotallhavethesame
  *                    length.
  *
- * @par Example std::array<std::vector<float>, 3> components = {{
+ * @par Example
+ * @code {.cpp}
+ * std::array<std::vector<float>, 3> components = {{
  *     {1.0f, 4.0f, 7.0f},  // x
  *     {2.0f, 5.0f, 8.0f},  // y
  *     {3.0f, 6.0f, 9.0f}   // z
  * }};
  * std::vector<Point<float, 3>> points = merge_by_dimension(components);
+ * @endcode
  */
 template <typename T, size_t N>
 std::vector<Point<T, N>> merge_by_dimension(
@@ -280,8 +285,9 @@ std::vector<Point<T, N>> merge_by_dimension(
  * @note If all points have the same value along a given axis, the corresponding
  * normalized coordinate will be set to 0 for that axis.
  *
- * **Example usage:**
- * @code std::vector<Point<float, 3>> points = {
+ * @par Example
+ * @code
+ * std::vector<Point<float, 3>> points = {
  *     {{1.0f, 5.0f, 10.0f}},
  *     {{3.0f, 15.0f, 20.0f}}
  * };
