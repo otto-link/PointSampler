@@ -28,12 +28,15 @@ namespace ps
  *                            points
  *
  * @par Example
- * @code std::vector<Point<float, 2>> centers = {
+ * @code
+ * std::vector<Point<float, 2>> centers = {
  *     {0.2f, 0.2f},
  *     {0.8f, 0.8f}
  * };
  * auto clustered = ps::gaussian_clusters(centers, 100, 0.05f);
  * @endcode
+ *
+ * @image html out_gaussian_clusters_wrapped.csv.jpg
  */
 template <typename T, size_t N>
 std::vector<Point<T, N>> gaussian_clusters(

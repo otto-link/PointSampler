@@ -30,7 +30,6 @@ namespace ps
  * @endcode
  *
  * @image html out_distance_rejection_filter.csv.jpg
- * @image html out_distance_rejection_filter_warped.csv.jpg
  */
 template <typename T, std::size_t N>
 std::vector<Point<T, N>> distance_rejection_filter(const std::vector<Point<T, N>> &points,
@@ -87,14 +86,16 @@ std::vector<Point<T, N>> distance_rejection_filter(const std::vector<Point<T, N>
  *                       variable spacing
  *
  * @par Example
- * @code auto scale_fn = [](const Point<float, 2>& p) {
- *     return 0.5f + 0.5f * std::sin(p[0] * 3.1415f); // Varies between 0.5 and
- * 1
+ * @code
+ * auto scale_fn = [](const Point<float, 2>& p) {
+ *     return 0.5f + 0.5f * std::sin(p[0] * 3.1415f); // Varies between 0.5 and 1
  * };
  *
  * std::vector<Point<float, 2>> pts = ps::random<float, 2>(1000, {{0,1},{0,1}});
  * auto filtered = ps::distance_rejection_filter_warped(pts, 0.05f, scale_fn);
  * @endcode
+ *
+ * @image html out_distance_rejection_filter_warped.csv.jpg
  */
 template <typename T, std::size_t N, typename ScaleFn>
 std::vector<Point<T, N>> distance_rejection_filter_warped(

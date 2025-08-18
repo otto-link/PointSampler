@@ -25,7 +25,8 @@ namespace ps
  * @param  seed       Optional random seed for reproducibility
  * @return            std::vector<Point<T, N>> of accepted points
  *
- * @code auto field = [](const Point<float, 2>& p) {
+ * @code
+ * auto field = [](const Point<float, 2>& p) {
  *     return 0.5f + 0.5f * std::sin(p[0] * 10.0f); // Spatial density
  * };
  * auto accepted = ps::function_rejection_filter(pts, field);
