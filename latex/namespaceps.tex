@@ -190,16 +190,18 @@ A vector of points of dimension N+1, with the new dimension appended.
 \begin{DoxyNote}{Note}
 This function creates a new vector of points with an increased dimension count, since the type Point$<$\+T, N$>$ is distinct from \doxylink{structps_1_1Point}{Point}\texorpdfstring{$<$}{<}T, N+1\texorpdfstring{$>$}{>}.
 \end{DoxyNote}
-{\bfseries{Example usage\+:}} 
+\begin{DoxyParagraph}{Example}
+
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ std::vector<Point<float,\ 2>>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}\ =\ \{\ \{\{1.0f,\ 2.0f\}\},\ \{\{3.0f,\ 4.0f\}\}}
-\DoxyCodeLine{\};}
+\DoxyCodeLine{std::vector<Point<float,\ 2>>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}\ =\ \{\ \{\{1.0f,\ 2.0f\}\},\ \{\{3.0f,\ 4.0f\}\}\};}
 \DoxyCodeLine{std::vector<float>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{z\_values}}\ =\ \{\ 10.0f,\ 20.0f\ \};}
 \DoxyCodeLine{\textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points3D}}\ =\ \mbox{\hyperlink{namespaceps_a964f314c19f0b1300d513bce618c5954}{add\_dimension}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{z\_values}});}
 \DoxyCodeLine{\textcolor{comment}{//\ points3D\ now\ contains\ \{\{1.0f,\ 2.0f,\ 10.0f\}\},\ \{\{3.0f,\ 4.0f,\ 20.0f\}\}}}
 
 \end{DoxyCode}
- \Hypertarget{namespaceps_ae96771d03336a56988d82df95e8a797a}\label{namespaceps_ae96771d03336a56988d82df95e8a797a} 
+ 
+\end{DoxyParagraph}
+\Hypertarget{namespaceps_ae96771d03336a56988d82df95e8a797a}\label{namespaceps_ae96771d03336a56988d82df95e8a797a} 
 \index{ps@{ps}!angle\_distribution\_neighbors@{angle\_distribution\_neighbors}}
 \index{angle\_distribution\_neighbors@{angle\_distribution\_neighbors}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{angle\_distribution\_neighbors()}{angle\_distribution\_neighbors()}}
@@ -489,7 +491,7 @@ A vector of clusters, each cluster is a vector of points.
 \begin{DoxyParagraph}{Example}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{labels}}\ \ \ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{dbscan<double,2>}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}},\ 0.05,\ 5);}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{labels}}\ \ \ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{dbscan<double,2>}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}},\ 0.05,\ 5);}
 \DoxyCodeLine{\textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{clusters}}\ =\ \mbox{\hyperlink{namespaceps_ac42b8f3f26e63374a7a724a0cd3d9356}{extract\_clusters}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{labels}});}
 
 \end{DoxyCode}
@@ -1234,8 +1236,18 @@ A vector of N-\/dimensional points reconstructed from the coordinate vectors.
 {\em std\+::invalid\+\_\+argumentifthecoordinatevectorsdonotallhavethesame} & length.\\
 \hline
 \end{DoxyExceptions}
-\begin{DoxyParagraph}{Example std\+::array\texorpdfstring{$<$}{<}std\+::vector, 3\texorpdfstring{$>$}{>} components = \{\{}
-\{1.\+0f, 4.\+0f, 7.\+0f\}, // x \{2.\+0f, 5.\+0f, 8.\+0f\}, // y \{3.\+0f, 6.\+0f, 9.\+0f\} // z \}\}; std\+::vector$<$\+Point$<$float, 3$>$$>$ points = merge\+\_\+by\+\_\+dimension(components); 
+\begin{DoxyParagraph}{Example}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::array<std::vector<float>,\ 3>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{components}}\ =\ \{\{}
+\DoxyCodeLine{\ \ \ \ \{1.0f,\ 4.0f,\ 7.0f\},\ \ \textcolor{comment}{//\ x}}
+\DoxyCodeLine{\ \ \ \ \{2.0f,\ 5.0f,\ 8.0f\},\ \ \textcolor{comment}{//\ y}}
+\DoxyCodeLine{\ \ \ \ \{3.0f,\ 6.0f,\ 9.0f\}\ \ \ \textcolor{comment}{//\ z}}
+\DoxyCodeLine{\}\};}
+\DoxyCodeLine{std::vector<Point<float,\ 3>>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}\ =\ \mbox{\hyperlink{namespaceps_a677f90d97b1dcfeaa2ecc299ee37f5bf}{merge\_by\_dimension}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{components}});}
+
+\end{DoxyCode}
+ 
 \end{DoxyParagraph}
 \Hypertarget{namespaceps_ac29744e12116f882d8a620a3fd02d72d}\label{namespaceps_ac29744e12116f882d8a620a3fd02d72d} 
 \index{ps@{ps}!nearest\_neighbors\_indices@{nearest\_neighbors\_indices}}
@@ -1315,9 +1327,10 @@ This function finds the minimum and maximum value for each axis across all point
 \begin{DoxyNote}{Note}
 If all points have the same value along a given axis, the corresponding normalized coordinate will be set to 0 for that axis.
 \end{DoxyNote}
-{\bfseries{Example usage\+:}} 
+\begin{DoxyParagraph}{Example}
+
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ std::vector<Point<float,\ 3>>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}\ =\ \{}
+\DoxyCodeLine{std::vector<Point<float,\ 3>>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}\ =\ \{}
 \DoxyCodeLine{\ \ \ \ \{\{1.0f,\ 5.0f,\ 10.0f\}\},}
 \DoxyCodeLine{\ \ \ \ \{\{3.0f,\ 15.0f,\ 20.0f\}\}}
 \DoxyCodeLine{\};}
@@ -1325,7 +1338,9 @@ If all points have the same value along a given axis, the corresponding normaliz
 \DoxyCodeLine{\textcolor{comment}{//\ Now\ points\ coordinates\ are\ scaled\ in\ [0,\ 1]\ along\ each\ axis}}
 
 \end{DoxyCode}
- \Hypertarget{namespaceps_a7de6090e2c8291401816be9bc6cda914}\label{namespaceps_a7de6090e2c8291401816be9bc6cda914} 
+ 
+\end{DoxyParagraph}
+\Hypertarget{namespaceps_a7de6090e2c8291401816be9bc6cda914}\label{namespaceps_a7de6090e2c8291401816be9bc6cda914} 
 \index{ps@{ps}!normalized@{normalized}}
 \index{normalized@{normalized}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{normalized()}{normalized()}}
@@ -2070,9 +2085,10 @@ True if the file was successfully written, false otherwise.
 \begin{DoxyNote}{Note}
 The file will be overwritten if it already exists.
 \end{DoxyNote}
-{\bfseries{Example}} 
+\begin{DoxyParagraph}{Example}
+
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ std::vector<double>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{data}}\ =\ \{1.0,\ 2.5,\ 3.7\};}
+\DoxyCodeLine{std::vector<double>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{data}}\ =\ \{1.0,\ 2.5,\ 3.7\};}
 \DoxyCodeLine{\mbox{\hyperlink{namespaceps_a5b92b660faab5030374ba2dee9f89810}{save\_vector\_to\_csv}}(\textcolor{stringliteral}{"{}data.csv"{}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{data}},\ \textcolor{keyword}{true},\ \textcolor{stringliteral}{"{}measurement"{}});}
 \DoxyCodeLine{\textcolor{comment}{//\ data.csv\ content:}}
 \DoxyCodeLine{\textcolor{comment}{//\ measurement}}
@@ -2081,7 +2097,9 @@ The file will be overwritten if it already exists.
 \DoxyCodeLine{\textcolor{comment}{//\ 3.7}}
 
 \end{DoxyCode}
- \Hypertarget{namespaceps_af6737277b9cc05d5f2ab248f17baea3b}\label{namespaceps_af6737277b9cc05d5f2ab248f17baea3b} 
+ 
+\end{DoxyParagraph}
+\Hypertarget{namespaceps_af6737277b9cc05d5f2ab248f17baea3b}\label{namespaceps_af6737277b9cc05d5f2ab248f17baea3b} 
 \index{ps@{ps}!split\_by\_dimension@{split\_by\_dimension}}
 \index{split\_by\_dimension@{split\_by\_dimension}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{split\_by\_dimension()}{split\_by\_dimension()}}

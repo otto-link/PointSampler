@@ -415,14 +415,14 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>This function creates a new vector of points with an increased dimension count, since the type Point&lt;T, N&gt; is distinct from <a class="el" href="structps_1_1Point.html" title="A fixed-size N-dimensional point/vector class.">Point</a>&lt;T, N+1&gt;.</dd></dl>
-<p><b>Example usage:</b> </p><div class="fragment"><div class="line"> std::vector&lt;Point&lt;float, 2&gt;&gt; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">points</a> = { {{1.0f, 2.0f}}, {{3.0f, 4.0f}}</div>
-<div class="line">};</div>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line">std::vector&lt;Point&lt;float, 2&gt;&gt; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">points</a> = { {{1.0f, 2.0f}}, {{3.0f, 4.0f}}};</div>
 <div class="line">std::vector&lt;float&gt; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">z_values</a> = { 10.0f, 20.0f };</div>
 <div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">points3D</a> = <a class="code hl_function" href="namespaceps.html#a964f314c19f0b1300d513bce618c5954">add_dimension</a>(<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">points</a>, <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">z_values</a>);</div>
 <div class="line"><span class="comment">// points3D now contains {{1.0f, 2.0f, 10.0f}}, {{3.0f, 4.0f, 20.0f}}</span></div>
 <div class="ttc" id="anamespaceps_html_a10763ef2a872aa9eddb48ea341cd6f69"><div class="ttname"><a href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::random</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; random(size_t count, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, std::optional&lt; unsigned int &gt; seed=std::nullopt)</div><div class="ttdoc">Generates a specified number of uniformly distributed random points in N-dimensional space.</div><div class="ttdef"><b>Definition</b> random.hpp:66</div></div>
-<div class="ttc" id="anamespaceps_html_a964f314c19f0b1300d513bce618c5954"><div class="ttname"><a href="namespaceps.html#a964f314c19f0b1300d513bce618c5954">ps::add_dimension</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N+1 &gt; &gt; add_dimension(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, const std::vector&lt; T &gt; &amp;new_dimension)</div><div class="ttdoc">Add a new dimension to a set of points.</div><div class="ttdef"><b>Definition</b> utils.hpp:141</div></div>
-</div><!-- fragment --> 
+<div class="ttc" id="anamespaceps_html_a964f314c19f0b1300d513bce618c5954"><div class="ttname"><a href="namespaceps.html#a964f314c19f0b1300d513bce618c5954">ps::add_dimension</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N+1 &gt; &gt; add_dimension(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, const std::vector&lt; T &gt; &amp;new_dimension)</div><div class="ttdoc">Add a new dimension to a set of points.</div><div class="ttdef"><b>Definition</b> utils.hpp:142</div></div>
+</div><!-- fragment --> </dd></dl>
+
 </div>
 </div>
 <a id="ae96771d03336a56988d82df95e8a797a" name="ae96771d03336a56988d82df95e8a797a"></a>
@@ -909,9 +909,9 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A vector of clusters, each cluster is a vector of points.</dd></dl>
-<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">labels</a>   = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">dbscan&lt;double,2&gt;</a>(<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">points</a>, 0.05, 5);</div>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">labels</a>   = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">dbscan&lt;double,2&gt;</a>(<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">points</a>, 0.05, 5);</div>
 <div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">clusters</a> = <a class="code hl_function" href="namespaceps.html#ac42b8f3f26e63374a7a724a0cd3d9356">extract_clusters</a>(<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">points</a>, <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">labels</a>);</div>
-<div class="ttc" id="anamespaceps_html_ac42b8f3f26e63374a7a724a0cd3d9356"><div class="ttname"><a href="namespaceps.html#ac42b8f3f26e63374a7a724a0cd3d9356">ps::extract_clusters</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; Point&lt; T, N &gt; &gt; &gt; extract_clusters(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, const std::vector&lt; int &gt; &amp;labels)</div><div class="ttdoc">Extract clusters of points given DBSCAN (or any clustering) labels.</div><div class="ttdef"><b>Definition</b> utils.hpp:178</div></div>
+<div class="ttc" id="anamespaceps_html_ac42b8f3f26e63374a7a724a0cd3d9356"><div class="ttname"><a href="namespaceps.html#ac42b8f3f26e63374a7a724a0cd3d9356">ps::extract_clusters</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; Point&lt; T, N &gt; &gt; &gt; extract_clusters(const std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points, const std::vector&lt; int &gt; &amp;labels)</div><div class="ttdoc">Extract clusters of points given DBSCAN (or any clustering) labels.</div><div class="ttdef"><b>Definition</b> utils.hpp:180</div></div>
 </div><!-- fragment --> </dd></dl>
 
 </div>
@@ -2121,7 +2121,14 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
   </table>
   </dd>
 </dl>
-<dl class="section user"><dt>Example std::array&lt;std::vector, 3&gt; components = {{</dt><dd>{1.0f, 4.0f, 7.0f}, // x {2.0f, 5.0f, 8.0f}, // y {3.0f, 6.0f, 9.0f} // z }}; std::vector&lt;Point&lt;float, 3&gt;&gt; points = merge_by_dimension(components); </dd></dl>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line">std::array&lt;std::vector&lt;float&gt;, 3&gt; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">components</a> = {{</div>
+<div class="line">    {1.0f, 4.0f, 7.0f},  <span class="comment">// x</span></div>
+<div class="line">    {2.0f, 5.0f, 8.0f},  <span class="comment">// y</span></div>
+<div class="line">    {3.0f, 6.0f, 9.0f}   <span class="comment">// z</span></div>
+<div class="line">}};</div>
+<div class="line">std::vector&lt;Point&lt;float, 3&gt;&gt; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">points</a> = <a class="code hl_function" href="namespaceps.html#a677f90d97b1dcfeaa2ecc299ee37f5bf">merge_by_dimension</a>(<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">components</a>);</div>
+<div class="ttc" id="anamespaceps_html_a677f90d97b1dcfeaa2ecc299ee37f5bf"><div class="ttname"><a href="namespaceps.html#a677f90d97b1dcfeaa2ecc299ee37f5bf">ps::merge_by_dimension</a></div><div class="ttdeci">std::vector&lt; Point&lt; T, N &gt; &gt; merge_by_dimension(const std::array&lt; std::vector&lt; T &gt;, N &gt; &amp;components)</div><div class="ttdoc">Reconstructs a list of N-dimensional points from N separate coordinate vectors.</div><div class="ttdef"><b>Definition</b> utils.hpp:245</div></div>
+</div><!-- fragment --> </dd></dl>
 
 </div>
 </div>
@@ -2223,14 +2230,15 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>If all points have the same value along a given axis, the corresponding normalized coordinate will be set to 0 for that axis.</dd></dl>
-<p><b>Example usage:</b> </p><div class="fragment"><div class="line"> std::vector&lt;Point&lt;float, 3&gt;&gt; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">points</a> = {</div>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line">std::vector&lt;Point&lt;float, 3&gt;&gt; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">points</a> = {</div>
 <div class="line">    {{1.0f, 5.0f, 10.0f}},</div>
 <div class="line">    {{3.0f, 15.0f, 20.0f}}</div>
 <div class="line">};</div>
 <div class="line"><a class="code hl_function" href="namespaceps.html#a172358f05108b5cabdac4e43ab309ab2">normalize_points</a>(<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">points</a>);</div>
 <div class="line"><span class="comment">// Now points coordinates are scaled in [0, 1] along each axis</span></div>
-<div class="ttc" id="anamespaceps_html_a172358f05108b5cabdac4e43ab309ab2"><div class="ttname"><a href="namespaceps.html#a172358f05108b5cabdac4e43ab309ab2">ps::normalize_points</a></div><div class="ttdeci">void normalize_points(std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points)</div><div class="ttdoc">Normalize the coordinates of a set of points along each axis to the range [0, 1].</div><div class="ttdef"><b>Definition</b> utils.hpp:292</div></div>
-</div><!-- fragment --> 
+<div class="ttc" id="anamespaceps_html_a172358f05108b5cabdac4e43ab309ab2"><div class="ttname"><a href="namespaceps.html#a172358f05108b5cabdac4e43ab309ab2">ps::normalize_points</a></div><div class="ttdeci">void normalize_points(std::vector&lt; Point&lt; T, N &gt; &gt; &amp;points)</div><div class="ttdoc">Normalize the coordinates of a set of points along each axis to the range [0, 1].</div><div class="ttdef"><b>Definition</b> utils.hpp:298</div></div>
+</div><!-- fragment --> </dd></dl>
+
 </div>
 </div>
 <a id="a7de6090e2c8291401816be9bc6cda914" name="a7de6090e2c8291401816be9bc6cda914"></a>
@@ -3542,15 +3550,16 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the file was successfully written, false otherwise.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The file will be overwritten if it already exists.</dd></dl>
-<p><b>Example</b> </p><div class="fragment"><div class="line"> std::vector&lt;double&gt; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">data</a> = {1.0, 2.5, 3.7};</div>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line">std::vector&lt;double&gt; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">data</a> = {1.0, 2.5, 3.7};</div>
 <div class="line"><a class="code hl_function" href="namespaceps.html#a5b92b660faab5030374ba2dee9f89810">save_vector_to_csv</a>(<span class="stringliteral">&quot;data.csv&quot;</span>, <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">data</a>, <span class="keyword">true</span>, <span class="stringliteral">&quot;measurement&quot;</span>);</div>
 <div class="line"><span class="comment">// data.csv content:</span></div>
 <div class="line"><span class="comment">// measurement</span></div>
 <div class="line"><span class="comment">// 1.0</span></div>
 <div class="line"><span class="comment">// 2.5</span></div>
 <div class="line"><span class="comment">// 3.7</span></div>
-<div class="ttc" id="anamespaceps_html_a5b92b660faab5030374ba2dee9f89810"><div class="ttname"><a href="namespaceps.html#a5b92b660faab5030374ba2dee9f89810">ps::save_vector_to_csv</a></div><div class="ttdeci">bool save_vector_to_csv(const std::string &amp;filename, const std::vector&lt; T &gt; &amp;values, bool write_header=true, const std::string &amp;header_name=&quot;value&quot;)</div><div class="ttdoc">Save a 1D vector of values to a CSV file.</div><div class="ttdef"><b>Definition</b> utils.hpp:95</div></div>
-</div><!-- fragment --> 
+<div class="ttc" id="anamespaceps_html_a5b92b660faab5030374ba2dee9f89810"><div class="ttname"><a href="namespaceps.html#a5b92b660faab5030374ba2dee9f89810">ps::save_vector_to_csv</a></div><div class="ttdeci">bool save_vector_to_csv(const std::string &amp;filename, const std::vector&lt; T &gt; &amp;values, bool write_header=true, const std::string &amp;header_name=&quot;value&quot;)</div><div class="ttdoc">Save a 1D vector of values to a CSV file.</div><div class="ttdef"><b>Definition</b> utils.hpp:96</div></div>
+</div><!-- fragment --> </dd></dl>
+
 </div>
 </div>
 <a id="af6737277b9cc05d5f2ab248f17baea3b" name="af6737277b9cc05d5f2ab248f17baea3b"></a>
