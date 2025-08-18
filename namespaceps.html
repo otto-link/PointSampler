@@ -1383,12 +1383,15 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; The generated Halton points rescaled to the bounding box</dd></dl>
-<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">points</a> = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::halton&lt;float, 2&gt;</a>(</div>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">points</a> = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::halton&lt;float, 2&gt;</a>(</div>
 <div class="line">    1000,</div>
 <div class="line">    {{{0, 1}, {0, 1}}}, 42</div>
 <div class="line">);</div>
-</div><!-- fragment --> </dd></dl>
-
+</div><!-- fragment --></dd></dl>
+<div class="image">
+<img src="out_halton.csv.jpg" alt=""/>
+</div>
+ 
 </div>
 </div>
 <a id="aa8c3b3b3367276f9a194938599d2463b" name="aa8c3b3b3367276f9a194938599d2463b"></a>
@@ -1473,12 +1476,15 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; The generated Hammersley points rescaled to the bounding box</dd></dl>
-<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">points</a> = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::hammersley&lt;float, 3&gt;</a>(</div>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">points</a> = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::hammersley&lt;float, 3&gt;</a>(</div>
 <div class="line">    512,</div>
 <div class="line">    {{{-1, 1}, {-1, 1}, {0, 1}}}, 7</div>
 <div class="line">);</div>
-</div><!-- fragment --> </dd></dl>
-
+</div><!-- fragment --></dd></dl>
+<div class="image">
+<img src="out_hammersley.csv.jpg" alt=""/>
+</div>
+ 
 </div>
 </div>
 <a id="ae21a8c51533330ead4ebe76eed3e72b3" name="ae21a8c51533330ead4ebe76eed3e72b3"></a>
@@ -1579,7 +1585,7 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; The resulting resampled point set</dd></dl>
-<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"> <span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">density</a> = [](<span class="keyword">const</span> <a class="code hl_struct" href="structps_1_1Point.html">Point&lt;float, 2&gt;</a> &amp;<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">p</a>) {</div>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">density</a> = [](<span class="keyword">const</span> <a class="code hl_struct" href="structps_1_1Point.html">Point&lt;float, 2&gt;</a> &amp;<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">p</a>) {</div>
 <div class="line">    <span class="keywordflow">return</span> std::exp(-10.0f * (<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">p</a>[0]*<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">p</a>[0] + <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">p</a>[1]*<a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">p</a>[1]));</div>
 <div class="line">};</div>
 <div class="line"> </div>
@@ -1587,8 +1593,11 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
 <div class="line">    500, 5,</div>
 <div class="line">    {{{-1, 1}, {-1, 1}}}, <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">density</a>, 42</div>
 <div class="line">);</div>
-</div><!-- fragment --> </dd></dl>
-
+</div><!-- fragment --></dd></dl>
+<div class="image">
+<img src="out_importance_resampling.csv.jpg" alt=""/>
+</div>
+ 
 </div>
 </div>
 <a id="aedb5908eae325f054e4f3dd6b9b223af" name="aedb5908eae325f054e4f3dd6b9b223af"></a>
@@ -1706,14 +1715,16 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; Sampled points</dd></dl>
-<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"> std::array&lt;std::pair&lt;float, float&gt;, 2&gt; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">bounds</a> = {{{0.0f, 1.0f}, {0.0f,</div>
-<div class="line">1.0f}}};</div>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line">std::array&lt;std::pair&lt;float, float&gt;, 2&gt; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">bounds</a> = {{{0.0f, 1.0f}, {0.0f, 1.0f}}};</div>
 <div class="line">std::array&lt;float, 2&gt; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">jitter</a> = {0.8f, 0.8f};</div>
 <div class="line">std::array&lt;float, 2&gt; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">stagger</a> = {0.2f, 0.0f};</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">samples</a> = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::jittered_grid&lt;float, 2&gt;</a>(256, <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">bounds</a>, <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">jitter</a>, <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">stagger</a>, 42);</div>
-</div><!-- fragment --> </dd></dl>
-
+</div><!-- fragment --></dd></dl>
+<div class="image">
+<img src="out_jittered_grid.csv.jpg" alt=""/>
+</div>
+ 
 </div>
 </div>
 <a id="ae90df8db8e751ff4b61298114f092714" name="ae90df8db8e751ff4b61298114f092714"></a>
@@ -1768,8 +1779,7 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; Jittered point samples</dd></dl>
-<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"> std::array&lt;std::pair&lt;double, double&gt;, 3&gt; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">bounds</a> = {{{0, 1}, {0, 1}, {0,</div>
-<div class="line">1}}};</div>
+<dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line">std::array&lt;std::pair&lt;double, double&gt;, 3&gt; <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">bounds</a> = {{{0, 1}, {0, 1}, {0, 1}}};</div>
 <div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">points</a> = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ps::jittered_grid&lt;double, 3&gt;</a>(1000, <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">bounds</a>, 1234);</div>
 </div><!-- fragment --> </dd></dl>
 

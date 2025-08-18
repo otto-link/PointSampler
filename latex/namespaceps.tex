@@ -802,15 +802,15 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ The generated Halton points rescaled to t
 \begin{DoxyParagraph}{Example}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{ps::halton<float,\ 2>}}(}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{ps::halton<float,\ 2>}}(}
 \DoxyCodeLine{\ \ \ \ 1000,}
 \DoxyCodeLine{\ \ \ \ \{\{\{0,\ 1\},\ \{0,\ 1\}\}\},\ 42}
 \DoxyCodeLine{);}
 
 \end{DoxyCode}
- 
+
 \end{DoxyParagraph}
-\Hypertarget{namespaceps_aa8c3b3b3367276f9a194938599d2463b}\label{namespaceps_aa8c3b3b3367276f9a194938599d2463b} 
+ \Hypertarget{namespaceps_aa8c3b3b3367276f9a194938599d2463b}\label{namespaceps_aa8c3b3b3367276f9a194938599d2463b} 
 \index{ps@{ps}!halton\_sequence@{halton\_sequence}}
 \index{halton\_sequence@{halton\_sequence}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{halton\_sequence()}{halton\_sequence()}}
@@ -852,15 +852,15 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ The generated Hammersley points rescaled 
 \begin{DoxyParagraph}{Example}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{ps::hammersley<float,\ 3>}}(}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{ps::hammersley<float,\ 3>}}(}
 \DoxyCodeLine{\ \ \ \ 512,}
 \DoxyCodeLine{\ \ \ \ \{\{\{-\/1,\ 1\},\ \{-\/1,\ 1\},\ \{0,\ 1\}\}\},\ 7}
 \DoxyCodeLine{);}
 
 \end{DoxyCode}
- 
+
 \end{DoxyParagraph}
-\Hypertarget{namespaceps_ae21a8c51533330ead4ebe76eed3e72b3}\label{namespaceps_ae21a8c51533330ead4ebe76eed3e72b3} 
+ \Hypertarget{namespaceps_ae21a8c51533330ead4ebe76eed3e72b3}\label{namespaceps_ae21a8c51533330ead4ebe76eed3e72b3} 
 \index{ps@{ps}!hammersley\_sequence@{hammersley\_sequence}}
 \index{hammersley\_sequence@{hammersley\_sequence}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{hammersley\_sequence()}{hammersley\_sequence()}}
@@ -910,7 +910,7 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ The resulting resampled point set
 \begin{DoxyParagraph}{Example}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{density}}\ =\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<float,\ 2>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}})\ \{}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{density}}\ =\ [](\textcolor{keyword}{const}\ \mbox{\hyperlink{structps_1_1Point}{Point<float,\ 2>}}\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}})\ \{}
 \DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ std::exp(-\/10.0f\ *\ (\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}}[0]*\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}}[0]\ +\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}}[1]*\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{p}}[1]));}
 \DoxyCodeLine{\};}
 \DoxyCodeLine{}
@@ -920,9 +920,9 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ The resulting resampled point set
 \DoxyCodeLine{);}
 
 \end{DoxyCode}
- 
+
 \end{DoxyParagraph}
-\Hypertarget{namespaceps_aedb5908eae325f054e4f3dd6b9b223af}\label{namespaceps_aedb5908eae325f054e4f3dd6b9b223af} 
+ \Hypertarget{namespaceps_aedb5908eae325f054e4f3dd6b9b223af}\label{namespaceps_aedb5908eae325f054e4f3dd6b9b223af} 
 \index{ps@{ps}!in\_neighborhood@{in\_neighborhood}}
 \index{in\_neighborhood@{in\_neighborhood}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{in\_neighborhood()}{in\_neighborhood()}}
@@ -970,17 +970,16 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ Sampled points
 \begin{DoxyParagraph}{Example}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ std::array<std::pair<float,\ float>,\ 2>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{bounds}}\ =\ \{\{\{0.0f,\ 1.0f\},\ \{0.0f,}
-\DoxyCodeLine{1.0f\}\}\};}
+\DoxyCodeLine{std::array<std::pair<float,\ float>,\ 2>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{bounds}}\ =\ \{\{\{0.0f,\ 1.0f\},\ \{0.0f,\ 1.0f\}\}\};}
 \DoxyCodeLine{std::array<float,\ 2>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{jitter}}\ =\ \{0.8f,\ 0.8f\};}
 \DoxyCodeLine{std::array<float,\ 2>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{stagger}}\ =\ \{0.2f,\ 0.0f\};}
 \DoxyCodeLine{}
 \DoxyCodeLine{\textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{samples}}\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{ps::jittered\_grid<float,\ 2>}}(256,\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{bounds}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{jitter}},\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{stagger}},\ 42);}
 
 \end{DoxyCode}
- 
+
 \end{DoxyParagraph}
-\Hypertarget{namespaceps_ae90df8db8e751ff4b61298114f092714}\label{namespaceps_ae90df8db8e751ff4b61298114f092714} 
+ \Hypertarget{namespaceps_ae90df8db8e751ff4b61298114f092714}\label{namespaceps_ae90df8db8e751ff4b61298114f092714} 
 \index{ps@{ps}!jittered\_grid@{jittered\_grid}}
 \index{jittered\_grid@{jittered\_grid}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{jittered\_grid()}{jittered\_grid()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
@@ -1015,8 +1014,7 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ Jittered point samples
 \begin{DoxyParagraph}{Example}
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ std::array<std::pair<double,\ double>,\ 3>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{bounds}}\ =\ \{\{\{0,\ 1\},\ \{0,\ 1\},\ \{0,}
-\DoxyCodeLine{1\}\}\};}
+\DoxyCodeLine{std::array<std::pair<double,\ double>,\ 3>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{bounds}}\ =\ \{\{\{0,\ 1\},\ \{0,\ 1\},\ \{0,\ 1\}\}\};}
 \DoxyCodeLine{\textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{ps::jittered\_grid<double,\ 3>}}(1000,\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{bounds}},\ 1234);}
 
 \end{DoxyCode}
