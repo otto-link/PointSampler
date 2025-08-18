@@ -38,7 +38,7 @@ namespace ps
  * @return                    std::vector<Point<T, N>> The resulting resampled
  *                            point set
  *
- * @example
+ * @par Example
  * @code auto density = [](const Point<float, 2> &p) {
  *     return std::exp(-10.0f * (p[0]*p[0] + p[1]*p[1]));
  * };

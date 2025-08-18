@@ -56,7 +56,7 @@ std::vector<Point<T, N>> halton_sequence(size_t count, size_t shift)
  * @return             std::vector<Point<T, N>> The generated Halton points
  *                     rescaled to the bounding box
  *
- * @example
+ * @par Example
  * @code auto points = ps::halton<float, 2>(
  *     1000,
  *     {{{0, 1}, {0, 1}}}, 42

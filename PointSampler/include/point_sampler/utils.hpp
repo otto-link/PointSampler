@@ -169,7 +169,7 @@ std::vector<Point<T, N + 1>> add_dimension(const std::vector<Point<T, N>> &point
  * IDs).
  * @return A vector of clusters, each cluster is a vector of points.
  *
- * @example
+ * @par Example
  * ```cpp auto labels   = dbscan<double,2>(points, 0.05, 5);
  * auto clusters = extract_clusters(points, labels);
  * ```
@@ -229,7 +229,7 @@ std::vector<std::vector<Point<T, N>>> extract_clusters(
  * @throws std::invalid_argumentifthecoordinatevectorsdonotallhavethesame
  *                    length.
  *
- * @example std::array<std::vector<float>, 3> components = {{
+ * @par Example std::array<std::vector<float>, 3> components = {{
  *     {1.0f, 4.0f, 7.0f},  // x
  *     {2.0f, 5.0f, 8.0f},  // y
  *     {3.0f, 6.0f, 9.0f}   // z

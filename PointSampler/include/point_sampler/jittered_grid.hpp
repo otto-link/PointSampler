@@ -33,7 +33,7 @@ namespace ps
  * @param  seed          Optional seed for deterministic jittering and shuffling
  * @return               std::vector<Point<T, N>> Sampled points
  *
- * @example
+ * @par Example
  * @code std::array<std::pair<float, float>, 2> bounds = {{{0.0f, 1.0f}, {0.0f,
  * 1.0f}}};
  * std::array<float, 2> jitter = {0.8f, 0.8f};
@@ -134,7 +134,7 @@ std::vector<Point<T, N>> jittered_grid(size_t                                cou
  * @param  seed        Optional seed for deterministic jittering
  * @return             std::vector<Point<T, N>> Jittered point samples
  *
- * @example
+ * @par Example
  * @code std::array<std::pair<double, double>, 3> bounds = {{{0, 1}, {0, 1}, {0,
  * 1}}};
  * auto points = ps::jittered_grid<double, 3>(1000, bounds, 1234);

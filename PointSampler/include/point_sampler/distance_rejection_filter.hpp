@@ -23,7 +23,7 @@ namespace ps
  * @param  min_dist Minimum allowed distance between two accepted points
  * @return          std::vector<Point<T, N>> of filtered points
  *
- * @example std::vector<Point<float, 2>> pts = ps::random<float, 2>(1000,
+ * @par Example std::vector<Point<float, 2>> pts = ps::random<float, 2>(1000,
  * {{0,1},{0,1}});
  * auto filtered = ps::distance_rejection_filter(pts, 0.05f);
  */
@@ -81,7 +81,7 @@ std::vector<Point<T, N>> distance_rejection_filter(const std::vector<Point<T, N>
  * @return               std::vector<Point<T, N>> A filtered set of points with
  *                       variable spacing
  *
- * @example
+ * @par Example
  * @code auto scale_fn = [](const Point<float, 2>& p) {
  *     return 0.5f + 0.5f * std::sin(p[0] * 3.1415f); // Varies between 0.5 and
  * 1

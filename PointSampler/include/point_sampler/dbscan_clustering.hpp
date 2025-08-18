@@ -24,7 +24,7 @@ namespace ps
  * @param min_pts Minimum neighbors (including self) to be a core point.
  * @return A vector of cluster labels (-1 = noise, 0..k = cluster IDs).
  *
- * @example
+ * @par Example
  * ```cpp auto labels = dbscan<double,2>(points, 0.05, 5);
  * ```
  *
