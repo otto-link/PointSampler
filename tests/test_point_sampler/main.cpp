@@ -268,11 +268,11 @@ int main()
   }
 
   {
-    std::cout << "ps::kmeans_cluster...\n";
+    std::cout << "ps::kmeans_clustering...\n";
 
     // random points
     auto points = ps::latin_hypercube_sampling<float, dim>(count, ranges, seed);
-    ps::save_points_to_csv("metrics_kmeans_cluster.csv", points);
+    ps::save_points_to_csv("metrics_kmeans_clustering.csv", points);
 
     size_t k_clusters = 3;
 
@@ -314,10 +314,10 @@ int main()
       // (2) partially dense packed points with some neighbors further
       // away, lonely points
 
-      auto km = ps::kmeans_cluster(data, k_clusters);
+      auto km = ps::kmeans_clustering(data, k_clusters);
 
-      ps::save_points_to_csv("metrics_kmeans_cluster_centroids.csv", km.first);
-      ps::save_vector_to_csv("metrics_kmeans_cluster_labels.csv", km.second);
+      ps::save_points_to_csv("metrics_kmeans_clustering_centroids.csv", km.first);
+      ps::save_vector_to_csv("metrics_kmeans_clustering_labels.csv", km.second);
     }
   }
 

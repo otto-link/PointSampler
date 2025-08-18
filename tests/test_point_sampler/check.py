@@ -33,7 +33,7 @@ if __name__ == '__main__':
     ymax = 2
     gap = 0.01
 
-    if False:
+    if True:
         for fname in flist:
             print(fname)
 
@@ -66,7 +66,7 @@ if __name__ == '__main__':
         setup_and_save_plot(fname + '.jpg')
 
 
-    if True:
+        #
         fname = 'metrics_distance_to_boundary'
         data = np.genfromtxt('metrics_distance_to_boundary.csv', delimiter=',', skip_header=True)
         dist = np.genfromtxt('metrics_distance_to_boundary_dist.csv', delimiter=',', skip_header=True)
@@ -77,7 +77,7 @@ if __name__ == '__main__':
     
         setup_and_save_plot(fname + '.jpg')
         
-    if True:
+        #
         fname = 'metrics_nearest_neighbors_indices'
         data = np.genfromtxt('metrics_nearest_neighbors_indices.csv', delimiter=',', skip_header=True)
         idx = np.genfromtxt('metrics_nearest_neighbors_indices_idx.csv', delimiter=',', skip_header=True)
@@ -98,18 +98,18 @@ if __name__ == '__main__':
     
         setup_and_save_plot(fname + '.jpg')
 
-    if True:
-        fname = 'metrics_kmeans_cluster'
-        data = np.genfromtxt('metrics_kmeans_cluster.csv', delimiter=',', skip_header=True)
-        centroids = np.genfromtxt('metrics_kmeans_cluster_centroids.csv', delimiter=',', skip_header=True)
-        labels = np.genfromtxt('metrics_kmeans_cluster_labels.csv', delimiter=',', skip_header=True)
+        #
+        fname = 'metrics_kmeans_clustering'
+        data = np.genfromtxt('metrics_kmeans_clustering.csv', delimiter=',', skip_header=True)
+        centroids = np.genfromtxt('metrics_kmeans_clustering_centroids.csv', delimiter=',', skip_header=True)
+        labels = np.genfromtxt('metrics_kmeans_clustering_labels.csv', delimiter=',', skip_header=True)
     
         plt.figure()
         plt.scatter(data[:, 0], data[:, 1], s=2, c=labels, cmap='bwr')
     
         setup_and_save_plot(fname + '.jpg')
 
-    if True:
+        #
         fname = 'metrics_radial_distribution'
         data = np.genfromtxt('metrics_radial_distribution.csv', delimiter=',', skip_header=True)
         r = np.genfromtxt('metrics_radial_distribution_r.csv', delimiter=',', skip_header=True)
@@ -118,13 +118,26 @@ if __name__ == '__main__':
         plt.figure();
         plt.plot(r, g, 'w-')
         
-    if True:
-        fname = 'metrics_angle_distribution'
-        data = np.genfromtxt('metrics_angle_distribution_neighbors.csv', delimiter=',', skip_header=True)
-        alpha = np.genfromtxt('metrics_angle_distribution_neighbors_alpha.csv', delimiter=',', skip_header=True)
-        g = np.genfromtxt('metrics_angle_distribution_neighbors_pdf.csv', delimiter=',', skip_header=True)
+        #
+        fname = 'random_walk_filaments_dst'
+        data = np.genfromtxt('out_random_walk_filaments.csv', delimiter=',', skip_header=True)
+        d = np.genfromtxt('metrics_random_walk_filaments_dst.csv', delimiter=',', skip_header=True)
 
         plt.figure();
-        plt.plot(alpha, g, 'w-')
+        plt.scatter(data[:, 0], data[:, 1], s=0.5, c=d, cmap='gray_r')
+    
+        setup_and_save_plot(fname + '.jpg')
+
+        #
+        fname = 'metrics_distance_to_boundary'
+        data = np.genfromtxt('metrics_distance_to_boundary.csv', delimiter=',', skip_header=True)
+        dist = np.genfromtxt('metrics_distance_to_boundary_dist.csv', delimiter=',', skip_header=True)
+        dist = dist / np.max(dist)
+        
+        plt.figure()
+        plt.scatter(data[:, 0], data[:, 1], s=dist * 30, c=dist, cmap='gray')
+    
+        setup_and_save_plot(fname + '.jpg')
+        
         
     plt.show()

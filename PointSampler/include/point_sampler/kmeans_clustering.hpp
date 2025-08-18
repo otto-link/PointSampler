@@ -28,13 +28,13 @@ namespace ps
  * @code std::vector<Point<float, 2>> pts = {
  *     {0.1f, 0.2f}, {0.15f, 0.22f}, {0.8f, 0.75f}
  * };
- * auto [centroids, labels] = kmeans_cluster(pts, 2);
+ * auto [centroids, labels] = kmeans_clustering(pts, 2);
  * // centroids.size() == 2
  * // labels.size() == pts.size()
  * @endcode
  */
 template <typename T, size_t N>
-std::pair<std::vector<Point<T, N>>, std::vector<size_t>> kmeans_cluster(
+std::pair<std::vector<Point<T, N>>, std::vector<size_t>> kmeans_clustering(
     const std::vector<Point<T, N>> &points,
     size_t                          k_clusters,
     bool                            normalize_data = true,

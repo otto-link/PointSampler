@@ -39,6 +39,7 @@
  *   - @ref gaussian_clusters.hpp
  *   - @ref importance_resampling.hpp
  *   - @ref rejection_sampling.hpp
+ *   - @ref random_walk_filaments.hpp
  * - Filtering Functions
  *   - @ref distance_rejection_filter.hpp
  *   - @ref function_rejection_filter.hpp
@@ -47,7 +48,7 @@
  *   - @ref relaxation.hpp
  * - Data
  *   - @ref metrics.hpp
- *   - @ref kmeans_cluster.hpp
+ *   - @ref kmeans_clustering.hpp
  * - Point representation
  *   - @ref point.hpp
  *
@@ -66,7 +67,7 @@
 #include "point_sampler/hammersley.hpp"
 #include "point_sampler/importance_resampling.hpp"
 #include "point_sampler/jittered_grid.hpp"
-#include "point_sampler/kmeans_cluster.hpp"
+#include "point_sampler/kmeans_clustering.hpp"
 #include "point_sampler/latin_hypercube_sampling.hpp"
 #include "point_sampler/metrics.hpp"
 #include "point_sampler/poisson_disk_sampling.hpp"
