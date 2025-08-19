@@ -17,6 +17,7 @@ Documentation is available here: [otto-link.github.io/PointSampler](https://otto
 - ✔️ Relaxation using k-nearest neighbors (with `nanoflann`)  
 - ✔️ Dimension-agnostic (supports any `N`)
 - ✔️ Utility wrappers for common spatial metrics (nearest neighbors, minimum distance, etc.)
+- ✔️ Utility wrappers for common clustering technics (k-means, DBSCAN, etc.)
 - ...
 
 ![visu](https://github.com/user-attachments/assets/b48e4344-f6a2-4e04-827b-2a3729a6a909)
