@@ -374,6 +374,7 @@ std::vector<Point<T, N>> poisson_disk_sampling_uniform(
  * @param n_points Number of points to generate.
  * @param axis_ranges Ranges for each axis, defining the sampling domain.
  * @param radius_gen Generator functor/lambda returning the next radius.
+ * @param  seed Optional RNG seed for reproducibility.
  * @param max_attempts Maximum attempts per point before giving up (controls density).
  * @return Vector of generated points satisfying the variable-radius exclusion rule.
  *
@@ -410,9 +411,10 @@ std::vector<Point<T, N>> poisson_disk_sampling_distance_distribution(
     size_t                                n_points,
     const std::array<std::pair<T, T>, N> &axis_ranges,
     RadiusGen                           &&radius_gen,
+    std::optional<unsigned int>           seed = std::nullopt,
     size_t                                max_attempts = 30)
 {
-  std::mt19937                      rng{std::random_device{}()};
+  std::mt19937                      gen(seed ? *seed : std::random_device{}());
   std::uniform_real_distribution<T> uniform01(0.0, 1.0);
 
   std::vector<Point<T, N>> points;
@@ -430,7 +432,7 @@ std::vector<Point<T, N>> poisson_disk_sampling_distance_distribution(
     for (size_t d = 0; d < N; ++d)
     {
       auto [a, b] = axis_ranges[d];
-      p[d] = a + uniform01(rng) * (b - a);
+      p[d] = a + uniform01(gen) * (b - a);
     }
     T r = radius_gen(); // draw radius
 
@@ -454,6 +456,75 @@ std::vector<Point<T, N>> poisson_disk_sampling_distance_distribution(
   }
 
   return points;
+}
+
+/**
+ * @brief Generate N-dimensional points using Poisson disk sampling with a power-law
+ * radius distribution.
+ *
+ * This function generates `n_points` in N-dimensional space such that each point is
+ * separated by a local radius sampled from a power-law distribution: \f[ p(r) \propto
+ * r^{-\alpha}, \quad r \in [\text{dist\_min}, \text{dist\_max}] \f] Smaller radii are
+ * more probable than larger ones, creating denser clusters with occasional larger gaps.
+ *
+ * The sampling respects the axis ranges specified in `axis_ranges` and can optionally use
+ * a fixed random seed.
+ *
+ * @tparam T Scalar type for coordinates (e.g., float, double).
+ * @tparam N Dimension of the space.
+ * @param n_points Number of points to generate.
+ * @param dist_min Minimum radius for the power-law distribution.
+ * @param dist_max Maximum radius for the power-law distribution.
+ * @param alpha Power-law exponent (\f$\alpha > 0\f$). Larger \f$\alpha\f$ favors smaller
+ * distances.
+ * @param axis_ranges Array of N pairs specifying min/max range along each axis.
+ * @param seed Optional random seed for reproducibility.
+ * @param max_attempts Maximum attempts to place a point before skipping (default 30).
+ * @return Vector of N-dimensional points satisfying the Poisson disk criteria with
+ * power-law distances.
+ *
+ * @note
+ * - Works in arbitrary dimension N.
+ * - Uses `poisson_disk_sampling_distance_distribution` internally with a dynamically
+ * sampled radius.
+ * - Smaller `alpha` produces more uniform spacing; larger `alpha` produces clustered
+ * patterns.
+ *
+ * @par Example
+ * @code {.cpp}
+ * std::array<std::pair<double,double>,3> ranges = {{{0,1},{0,1},{0,1}}};
+ * auto points = poisson_disk_sampling_power_law<double,3>(200, 0.01, 0.2, 1.2, ranges);
+ * @endcode
+ *
+ * @image html out_poisson_disk_sampling_power_law.csv.jpg
+ */
+
+template <typename T, size_t N>
+std::vector<Point<T, N>> poisson_disk_sampling_power_law(
+    size_t                                n_points,
+    T                                     dist_min,
+    T                                     dist_max,
+    T                                     alpha,
+    const std::array<std::pair<T, T>, N> &axis_ranges,
+    std::optional<unsigned int>           seed = std::nullopt,
+    size_t                                max_attempts = 30)
+{
+  std::mt19937                      gen(seed ? *seed : std::random_device{}());
+  std::uniform_real_distribution<T> uni(0.0, 1.0);
+
+  auto power_law_radius = [&]()
+  {
+    T u = uni(gen);
+    return std::pow(std::pow(dist_min, 1 - alpha) + u * (std::pow(dist_max, 1 - alpha) -
+                                                         std::pow(dist_min, 1 - alpha)),
+                    1.0 / (1 - alpha));
+  };
+
+  return poisson_disk_sampling_distance_distribution(n_points,
+                                                     axis_ranges,
+                                                     power_law_radius,
+                                                     seed,
+                                                     max_attempts = 30);
 }
 
 } // namespace ps

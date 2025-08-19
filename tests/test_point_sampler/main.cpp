@@ -91,15 +91,33 @@ int main()
     std::cout << "ps::poisson_disk_sampling_distance_distribution...\n";
 
     // Log-normal radius distribution
-    std::lognormal_distribution<float> logn(0.f, 3.f);
+    std::lognormal_distribution<float> logn(0.f, 4.f);
     std::mt19937                       rng{std::random_device{}()};
 
     auto points = ps::poisson_disk_sampling_distance_distribution<float, dim>(
         count,
         ranges,
-        [&]() { return logn(rng); });
+        [&]() { return logn(rng); },
+        seed);
 
     ps::save_points_to_csv("out_poisson_disk_sampling_distance_distribution.csv", points);
+  }
+
+  {
+    std::cout << "ps::poisson_disk_sampling_power_law...\n";
+
+    float dist_min = 0.01f;
+    float dist_max = 0.2f;
+    float alpha = 1.2f;
+
+    auto points = ps::poisson_disk_sampling_power_law<float, dim>(count,
+                                                                  dist_min,
+                                                                  dist_max,
+                                                                  alpha,
+                                                                  ranges,
+                                                                  seed);
+
+    ps::save_points_to_csv("out_poisson_disk_sampling_power_law.csv", points);
   }
 
   {
