@@ -527,4 +527,74 @@ std::vector<Point<T, N>> poisson_disk_sampling_power_law(
                                                      max_attempts = 30);
 }
 
+/**
+ * @brief Generate N-dimensional points using Poisson disk sampling with a
+ * Weibull-distributed radius.
+ *
+ * This function generates `n_points` in N-dimensional space such that each point is
+ * separated by a local radius sampled from a Weibull distribution: \f[ p(r; k, \lambda) =
+ * \frac{k}{\lambda} \left(\frac{r}{\lambda}\right)^{k-1}
+ * \exp\left[-\left(\frac{r}{\lambda}\right)^k\right], \quad r \geq 0
+ * \f]
+ *
+ * The Weibull distribution allows flexible control over radius distribution:
+ * - Shape parameter \f$k > 0\f$ controls skewness (e.g. \f$k < 1\f$ heavy-tail, \f$k >
+ * 1\f$ peaked).
+ * - Scale parameter \f$\lambda > 0\f$ sets the typical radius scale.
+ *
+ * The sampling respects the axis ranges specified in `axis_ranges` and can optionally use
+ * a fixed random seed.
+ *
+ * @tparam T Scalar type for coordinates (e.g., float, double).
+ * @tparam N Dimension of the space.
+ * @param n_points Number of points to generate.
+ * @param lambda Scale parameter of the Weibull distribution.
+ * @param k Shape parameter of the Weibull distribution.
+ * @param axis_ranges Array of N pairs specifying min/max range along each axis.
+ * @param seed Optional random seed for reproducibility.
+ * @param max_attempts Maximum attempts to place a point before skipping (default 30).
+ * @return Vector of N-dimensional points satisfying the Poisson disk criteria with
+ * Weibull-distributed distances.
+ *
+ * @note
+ * - Works in arbitrary dimension N.
+ * - Uses `poisson_disk_sampling_distance_distribution` internally with radii sampled from
+ * Weibull distribution.
+ * - Low shape (\f$k < 1\f$) produces heavy-tailed spacing with more small radii.
+ * - High shape (\f$k > 1\f$) produces more peaked, nearly Gaussian-like spacing.
+ *
+ * @par Example
+ * @code {.cpp}
+ * std::array<std::pair<double,double>,2> ranges = {{{0,10},{0,10}}};
+ * auto points = poisson_disk_sampling_weibull<double,2>(500, 1.0, 2.0, ranges);
+ * @endcode
+ *
+ * @image html out_poisson_disk_sampling_weibull.csv.jpg
+ */
+template <typename T, size_t N>
+std::vector<Point<T, N>> poisson_disk_sampling_weibull(
+    size_t                                n_points,
+    T                                     lambda,
+    T                                     k,
+    const std::array<std::pair<T, T>, N> &axis_ranges,
+    std::optional<unsigned int>           seed = std::nullopt,
+    size_t                                max_attempts = 30)
+{
+  std::mt19937                      gen(seed ? *seed : std::random_device{}());
+  std::uniform_real_distribution<T> uni(0.0, 1.0);
+
+  // Weibull radius generator via inverse CDF
+  auto weibull_radius = [&]()
+  {
+    T u = uni(gen);
+    return lambda * std::pow(-std::log(1.0 - u), T(1) / k);
+  };
+
+  return poisson_disk_sampling_distance_distribution(n_points,
+                                                     axis_ranges,
+                                                     weibull_radius,
+                                                     seed,
+                                                     max_attempts);
+}
+
 } // namespace ps
