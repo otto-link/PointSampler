@@ -20,7 +20,7 @@ Documentation is available here: [otto-link.github.io/PointSampler](https://otto
 - ✔️ Utility wrappers for common clustering technics (k-means, DBSCAN, etc.)
 - ...
 
-![visu](https://github.com/user-attachments/assets/b48e4344-f6a2-4e04-827b-2a3729a6a909)
+![visu](https://github.com/user-attachments/assets/90d21e6e-34e6-4354-9eba-b9f7a0dd5b56)
 
 ## Example
 
