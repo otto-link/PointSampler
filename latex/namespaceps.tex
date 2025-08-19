@@ -109,6 +109,8 @@ struct \mbox{\hyperlink{structps_1_1PointCloudAdaptor}{Point\+Cloud\+Adaptor}}
 \begin{DoxyCompactList}\small\item\em Generate random points with a variable-\/radius Poisson disk sampling. \end{DoxyCompactList}\item 
 {\footnotesize template$<$\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{typename}} \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}} , \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}, \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a0935f8e02f68dbf9667c6d544f7e3e2c}{poisson\+\_\+disk\+\_\+sampling\+\_\+power\+\_\+law}} (\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{size\+\_\+t}} \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{n\+\_\+points}}, \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}} \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{dist\+\_\+min}}, \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}} \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{dist\+\_\+max}}, \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}} \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{alpha}}, \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}, \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}} $>$, \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}} $>$ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{axis\+\_\+ranges}}, std\+::optional$<$ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{unsigned}} \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{int}} $>$ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{seed}}=std\+::nullopt, \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{size\+\_\+t}} \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{max\+\_\+attempts}}=30)
 \begin{DoxyCompactList}\small\item\em Generate N-\/dimensional points using Poisson disk sampling with a power-\/law radius distribution. \end{DoxyCompactList}\item 
+{\footnotesize template$<$\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{typename}} \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}} , \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{size\+\_\+t}} N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}, \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_a1bca24167c8ae5bcbb056c30a1c0866f}{poisson\+\_\+disk\+\_\+sampling\+\_\+weibull}} (\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{size\+\_\+t}} \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{n\+\_\+points}}, \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}} \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{lambda}}, \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}} \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{k}}, \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}, \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}} $>$, \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}} $>$ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{axis\+\_\+ranges}}, std\+::optional$<$ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{unsigned}} \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{int}} $>$ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{seed}}=std\+::nullopt, \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{size\+\_\+t}} \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{max\+\_\+attempts}}=30)
+\begin{DoxyCompactList}\small\item\em Generate N-\/dimensional points using Poisson disk sampling with a Weibull-\/distributed radius. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T , size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ T, N $>$ $>$ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{random}} (size\+\_\+t count, const std\+::array$<$ std\+::pair$<$ T, T $>$, N $>$ \&axis\+\_\+ranges, std\+::optional$<$ unsigned int $>$ seed=std\+::nullopt)
 \begin{DoxyCompactList}\small\item\em Generates a specified number of uniformly distributed random points in N-\/dimensional space. \end{DoxyCompactList}\item 
 {\footnotesize template$<$\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{typename}} \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}} , std\+::size\+\_\+t N$>$ }\\std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}, \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}} $>$ $>$ \mbox{\hyperlink{namespaceps_ab818126518017939773c8a43bd92fc42}{random\+\_\+rejection\+\_\+filter}} (\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{const}} std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}, \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}} $>$ $>$ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}, std\+::size\+\_\+t \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{target\+\_\+count}})
@@ -1693,7 +1695,75 @@ std\+::vector$<$\+Point$<$\+T, N$>$$>$ A vector of uniformly spaced sample point
 \end{DoxyCode}
  
 \end{DoxyParagraph}
-\Hypertarget{namespaceps_a8d80a56ea4774726e748b48e1ecf0a8d}\label{namespaceps_a8d80a56ea4774726e748b48e1ecf0a8d} 
+\Hypertarget{namespaceps_a1bca24167c8ae5bcbb056c30a1c0866f}\label{namespaceps_a1bca24167c8ae5bcbb056c30a1c0866f} 
+\index{ps@{ps}!poisson\_disk\_sampling\_weibull@{poisson\_disk\_sampling\_weibull}}
+\index{poisson\_disk\_sampling\_weibull@{poisson\_disk\_sampling\_weibull}!ps@{ps}}
+\doxysubsubsection{\texorpdfstring{poisson\_disk\_sampling\_weibull()}{poisson\_disk\_sampling\_weibull()}}
+{\footnotesize\ttfamily template$<$\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{typename}} \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}} , \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{size\+\_\+t}} N$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}, \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}} $>$ $>$ ps\+::poisson\+\_\+disk\+\_\+sampling\+\_\+weibull (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{size\+\_\+t}}}]{n\+\_\+points,  }\item[{\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}}]{lambda,  }\item[{\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}}]{k,  }\item[{\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{const}} std\+::array$<$ std\+::pair$<$ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}, \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}} $>$, \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}} $>$ \&}]{axis\+\_\+ranges,  }\item[{std\+::optional$<$ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{unsigned}} \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{int}} $>$}]{seed = {\ttfamily std\+:\+:nullopt},  }\item[{\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{size\+\_\+t}}}]{max\+\_\+attempts = {\ttfamily 30} }\end{DoxyParamCaption})}
+
+
+
+Generate N-\/dimensional points using Poisson disk sampling with a Weibull-\/distributed radius. 
+
+This function generates {\ttfamily n\+\_\+points} in N-\/dimensional space such that each point is separated by a local radius sampled from a Weibull distribution\+: \[ p(r; k, \lambda) =
+\frac{k}{\lambda} \left(\frac{r}{\lambda}\right)^{k-1}
+\exp\left[-\left(\frac{r}{\lambda}\right)^k\right], \quad r \geq 0
+\]
+
+The Weibull distribution allows flexible control over radius distribution\+:
+\begin{DoxyItemize}
+\item Shape parameter $k > 0$ controls skewness (e.\+g. $k < 1$ heavy-\/tail, $k >
+1$ peaked).
+\item Scale parameter $\lambda > 0$ sets the typical radius scale.
+\end{DoxyItemize}
+
+The sampling respects the axis ranges specified in {\ttfamily axis\+\_\+ranges} and can optionally use a fixed random seed.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Scalar type for coordinates (e.\+g., float, double). \\
+\hline
+{\em N} & Dimension of the space. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em n\+\_\+points} & Number of points to generate. \\
+\hline
+{\em lambda} & Scale parameter of the Weibull distribution. \\
+\hline
+{\em k} & Shape parameter of the Weibull distribution. \\
+\hline
+{\em axis\+\_\+ranges} & Array of N pairs specifying min/max range along each axis. \\
+\hline
+{\em seed} & Optional random seed for reproducibility. \\
+\hline
+{\em max\+\_\+attempts} & Maximum attempts to place a point before skipping (default 30). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of N-\/dimensional points satisfying the Poisson disk criteria with Weibull-\/distributed distances.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+
+\begin{DoxyItemize}
+\item Works in arbitrary dimension N.
+\item Uses {\ttfamily poisson\+\_\+disk\+\_\+sampling\+\_\+distance\+\_\+distribution} internally with radii sampled from Weibull distribution.
+\item Low shape ( $k < 1$) produces heavy-\/tailed spacing with more small radii.
+\item High shape ( $k > 1$) produces more peaked, nearly Gaussian-\/like spacing.
+\end{DoxyItemize}
+\end{DoxyNote}
+\begin{DoxyParagraph}{Example}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::array<std::pair<double,double>,2>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{ranges}}\ =\ \{\{\{0,10\},\{0,10\}\}\};}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{points}}\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{poisson\_disk\_sampling\_weibull<double,2>}}(500,\ 1.0,\ 2.0,\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{ranges}});}
+
+\end{DoxyCode}
+
+\end{DoxyParagraph}
+ \Hypertarget{namespaceps_a8d80a56ea4774726e748b48e1ecf0a8d}\label{namespaceps_a8d80a56ea4774726e748b48e1ecf0a8d} 
 \index{ps@{ps}!radial\_distribution@{radial\_distribution}}
 \index{radial\_distribution@{radial\_distribution}!ps@{ps}}
 \doxysubsubsection{\texorpdfstring{radial\_distribution()}{radial\_distribution()}}

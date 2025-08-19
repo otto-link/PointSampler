@@ -368,6 +368,32 @@
 \DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{max\_attempts}}\ =\ 30);}
 \DoxyCodeLine{00528\ \}}
 \DoxyCodeLine{00529\ }
-\DoxyCodeLine{00530\ \}\ \textcolor{comment}{//\ namespace\ ps}}
+\DoxyCodeLine{00574\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keywordtype}{size\_t}\ N>}
+\DoxyCodeLine{00575\ std::vector<Point<T,\ N>>\ \mbox{\hyperlink{namespaceps_a1bca24167c8ae5bcbb056c30a1c0866f}{poisson\_disk\_sampling\_weibull}}(}
+\DoxyCodeLine{00576\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{n\_points}},}
+\DoxyCodeLine{00577\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{lambda}},}
+\DoxyCodeLine{00578\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{k}},}
+\DoxyCodeLine{00579\ \ \ \ \ \textcolor{keyword}{const}\ std::array<std::pair<T,\ T>,\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{N}}>\ \&\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{axis\_ranges}},}
+\DoxyCodeLine{00580\ \ \ \ \ std::optional<unsigned\ int>\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{seed}}\ =\ std::nullopt,}
+\DoxyCodeLine{00581\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{max\_attempts}}\ =\ 30)}
+\DoxyCodeLine{00582\ \{}
+\DoxyCodeLine{00583\ \ \ std::mt19937\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{gen}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{seed}}\ ?\ *\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{seed}}\ :\ std::random\_device\{\}());}
+\DoxyCodeLine{00584\ \ \ std::uniform\_real\_distribution<T>\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{uni}}(0.0,\ 1.0);}
+\DoxyCodeLine{00585\ }
+\DoxyCodeLine{00586\ \ \ \textcolor{comment}{//\ Weibull\ radius\ generator\ via\ inverse\ CDF}}
+\DoxyCodeLine{00587\ \ \ \textcolor{keyword}{auto}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{weibull\_radius}}\ =\ [\&]()}
+\DoxyCodeLine{00588\ \ \ \{}
+\DoxyCodeLine{00589\ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{u}}\ =\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{uni}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{gen}});}
+\DoxyCodeLine{00590\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{lambda}}\ *\ std::pow(-\/std::log(1.0\ -\/\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{u}}),\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{T}}(1)\ /\ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{k}});}
+\DoxyCodeLine{00591\ \ \ \};}
+\DoxyCodeLine{00592\ }
+\DoxyCodeLine{00593\ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceps_a0dcc5685aa1520492658cb55fcd1a3dc}{poisson\_disk\_sampling\_distance\_distribution}}(\mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{n\_points}},}
+\DoxyCodeLine{00594\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{axis\_ranges}},}
+\DoxyCodeLine{00595\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{weibull\_radius}},}
+\DoxyCodeLine{00596\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{seed}},}
+\DoxyCodeLine{00597\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceps_a10763ef2a872aa9eddb48ea341cd6f69}{max\_attempts}});}
+\DoxyCodeLine{00598\ \}}
+\DoxyCodeLine{00599\ }
+\DoxyCodeLine{00600\ \}\ \textcolor{comment}{//\ namespace\ ps}}
 
 \end{DoxyCode}
