@@ -5,6 +5,7 @@ var searchData=
   ['point_5fto_5fgrid_2',['point_to_grid',['../structps_1_1GridND.html#ab64bb87b538321af8b8f219022cf08d5',1,'ps::GridND']]],
   ['pointcloudadaptor_3',['PointCloudAdaptor',['../structps_1_1PointCloudAdaptor.html#acbd72d60ac355bf20db1f248545e961c',1,'ps::PointCloudAdaptor']]],
   ['poisson_5fdisk_5fsampling_4',['poisson_disk_sampling',['../namespaceps.html#a5b1e932ba8a20e05cd8c113179aa77c8',1,'ps']]],
-  ['poisson_5fdisk_5fsampling_5fdistance_5fdistribution_5',['poisson_disk_sampling_distance_distribution',['../namespaceps.html#a733f4c50a2eb988509aca40d25e86a39',1,'ps']]],
-  ['poisson_5fdisk_5fsampling_5funiform_6',['poisson_disk_sampling_uniform',['../namespaceps.html#a6f7ab76c5d0a395aa78b85bad488e94e',1,'ps']]]
+  ['poisson_5fdisk_5fsampling_5fdistance_5fdistribution_5',['poisson_disk_sampling_distance_distribution',['../namespaceps.html#a0dcc5685aa1520492658cb55fcd1a3dc',1,'ps']]],
+  ['poisson_5fdisk_5fsampling_5fpower_5flaw_6',['poisson_disk_sampling_power_law',['../namespaceps.html#a0935f8e02f68dbf9667c6d544f7e3e2c',1,'ps']]],
+  ['poisson_5fdisk_5fsampling_5funiform_7',['poisson_disk_sampling_uniform',['../namespaceps.html#a6f7ab76c5d0a395aa78b85bad488e94e',1,'ps']]]
 ];
