@@ -56,6 +56,7 @@ var namespaceps =
     [ "poisson_disk_sampling_power_law", "namespaceps.html#a0935f8e02f68dbf9667c6d544f7e3e2c", null ],
     [ "poisson_disk_sampling_uniform", "namespaceps.html#a6f7ab76c5d0a395aa78b85bad488e94e", null ],
     [ "poisson_disk_sampling_weibull", "namespaceps.html#a1bca24167c8ae5bcbb056c30a1c0866f", null ],
+    [ "poisson_disk_sampling_weibull", "namespaceps.html#a2e070ffe5d2fcf926ceda2c0fec00e2d", null ],
     [ "radial_distribution", "namespaceps.html#a8d80a56ea4774726e748b48e1ecf0a8d", null ],
     [ "random", "namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69", null ],
     [ "random_rejection_filter", "namespaceps.html#a66183362443c104da098224df9bcd2a1", null ],

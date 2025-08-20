@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"structps_1_1PointCloudAdaptor.html#acbd72d60ac355bf20db1f248545e961c":[2,0,0,2,0],
+"structps_1_1PointCloudAdaptor.html#ad9019fcb2d338f1843242b8eb3f49e8b":[1,0,0,2,4],
 "structps_1_1PointCloudAdaptor.html#ad9019fcb2d338f1843242b8eb3f49e8b":[2,0,0,2,4],
 "utils_8hpp.html":[3,0,0,0,0,21],
 "utils_8hpp.html#a172358f05108b5cabdac4e43ab309ab2":[3,0,0,0,0,21,3],

@@ -8,5 +8,5 @@ var searchData=
   ['poisson_5fdisk_5fsampling_5fdistance_5fdistribution_5',['poisson_disk_sampling_distance_distribution',['../namespaceps.html#a0dcc5685aa1520492658cb55fcd1a3dc',1,'ps']]],
   ['poisson_5fdisk_5fsampling_5fpower_5flaw_6',['poisson_disk_sampling_power_law',['../namespaceps.html#a0935f8e02f68dbf9667c6d544f7e3e2c',1,'ps']]],
   ['poisson_5fdisk_5fsampling_5funiform_7',['poisson_disk_sampling_uniform',['../namespaceps.html#a6f7ab76c5d0a395aa78b85bad488e94e',1,'ps']]],
-  ['poisson_5fdisk_5fsampling_5fweibull_8',['poisson_disk_sampling_weibull',['../namespaceps.html#a1bca24167c8ae5bcbb056c30a1c0866f',1,'ps']]]
+  ['poisson_5fdisk_5fsampling_5fweibull_8',['poisson_disk_sampling_weibull',['../namespaceps.html#a1bca24167c8ae5bcbb056c30a1c0866f',1,'ps::poisson_disk_sampling_weibull(size_t n_points, T lambda, T k, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, std::optional&lt; unsigned int &gt; seed=std::nullopt, size_t max_attempts=30)'],['../namespaceps.html#a2e070ffe5d2fcf926ceda2c0fec00e2d',1,'ps::poisson_disk_sampling_weibull(size_t n_points, T lambda, T k, T dist_min, const std::array&lt; std::pair&lt; T, T &gt;, N &gt; &amp;axis_ranges, std::optional&lt; unsigned int &gt; seed=std::nullopt, size_t max_attempts=30)']]]
 ];
