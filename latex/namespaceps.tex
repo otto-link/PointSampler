@@ -1161,9 +1161,9 @@ Compute local point density based on k-\/nearest neighbors in N dimensions.
 
 The density at each point is estimated as\+:  \[
 \rho_i = \frac{k}{V_N r_i^N}
-\] where (r\+\_\+i) is the distance to the k-\/th nearest neighbor, (V\+\_\+N) is the volume of the unit N-\/ball\+:  \[
+\] where \[r_i\] is the distance to the k-\/th nearest neighbor, \[V_N\] is the volume of the unit N-\/ball\+:  \[
 V_N = \frac{\pi^{N/2}}{\Gamma(N/2 + 1)}
-\] and (\textbackslash{}\+Gamma) is the gamma function. This generalizes to any dimension.
+\] and \[\Gamma\] is the gamma function. This generalizes to any dimension.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
@@ -1604,7 +1604,7 @@ std\+::vector$<$ \mbox{\hyperlink{structps_1_1Point}{Point}}$<$ \mbox{\hyperlink
 Generate N-\/dimensional points using Poisson disk sampling with a power-\/law radius distribution. 
 
 This function generates {\ttfamily n\+\_\+points} in N-\/dimensional space such that each point is separated by a local radius sampled from a power-\/law distribution\+: \[ p(r) \propto
-r^{-\alpha}, \quad r \in [\text{dist\_min}, \text{dist\_max}] \] Smaller radii are more probable than larger ones, creating denser clusters with occasional larger gaps.
+r^{-\alpha}, \quad r \in [\text{dist_{min}}, \text{dist_{max}}] \] Smaller radii are more probable than larger ones, creating denser clusters with occasional larger gaps.
 
 The sampling respects the axis ranges specified in {\ttfamily axis\+\_\+ranges} and can optionally use a fixed random seed.
 

@@ -2053,12 +2053,21 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
 \rho_i = \frac{k}{V_N r_i^N}
 \]
 </p>
-<p> where (r_i) is the distance to the k-th nearest neighbor, (V_N) is the volume of the unit N-ball:  </p><p class="formulaDsp">
+<p> where </p><p class="formulaDsp">
+\[r_i\]
+</p>
+<p> is the distance to the k-th nearest neighbor, </p><p class="formulaDsp">
+\[V_N\]
+</p>
+<p> is the volume of the unit N-ball:  </p><p class="formulaDsp">
 \[
 V_N = \frac{\pi^{N/2}}{\Gamma(N/2 + 1)}
 \]
 </p>
-<p> and (\Gamma) is the gamma function. This generalizes to any dimension.</p>
+<p> and </p><p class="formulaDsp">
+\[\Gamma\]
+</p>
+<p> is the gamma function. This generalizes to any dimension.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>Scalar type (e.g., float, double). </td></tr>
@@ -2881,7 +2890,7 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
 <p>Generate N-dimensional points using Poisson disk sampling with a power-law radius distribution. </p>
 <p>This function generates <code>n_points</code> in N-dimensional space such that each point is separated by a local radius sampled from a power-law distribution: </p><p class="formulaDsp">
 \[ p(r) \propto
-r^{-\alpha}, \quad r \in [\text{dist\_min}, \text{dist\_max}] \]
+r^{-\alpha}, \quad r \in [\text{dist_{min}}, \text{dist_{max}}] \]
 </p>
 <p> Smaller radii are more probable than larger ones, creating denser clusters with occasional larger gaps.</p>
 <p>The sampling respects the axis ranges specified in <code>axis_ranges</code> and can optionally use a fixed random seed.</p>
