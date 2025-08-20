@@ -333,6 +333,8 @@ std::vector<Point<T, N>> poisson_disk_sampling(
  * auto ranges = std::array<std::pair<float, float>, 2>{{ {0.f, 1.f}, {0.f, 1.f} }};
  * auto points = poisson_disk_sampling_uniform<float, 2>(200, ranges, 0.03f, 1234);
  * @endcode
+ *
+ * @image html out_poisson_disk_sampling_uniform.csv.jpg
  */
 template <typename T, size_t N>
 std::vector<Point<T, N>> poisson_disk_sampling_uniform(
