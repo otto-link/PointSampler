@@ -2988,8 +2988,11 @@ template&lt;<a class="el" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f
 <dl class="section return"><dt>Returns</dt><dd>std::vector&lt;Point&lt;T, N&gt;&gt; A vector of uniformly spaced sample points.</dd></dl>
 <dl class="section user"><dt>Example</dt><dd><div class="fragment"><div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ranges</a> = std::array&lt;std::pair&lt;float, float&gt;, 2&gt;{{ {0.f, 1.f}, {0.f, 1.f} }};</div>
 <div class="line"><span class="keyword">auto</span> <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">points</a> = <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">poisson_disk_sampling_uniform&lt;float, 2&gt;</a>(200, <a class="code hl_function" href="namespaceps.html#a10763ef2a872aa9eddb48ea341cd6f69">ranges</a>, 0.03f, 1234);</div>
-</div><!-- fragment --> </dd></dl>
-
+</div><!-- fragment --></dd></dl>
+<div class="image">
+<img src="out_poisson_disk_sampling_uniform.csv.jpg" alt=""/>
+</div>
+ 
 </div>
 </div>
 <a id="a1bca24167c8ae5bcbb056c30a1c0866f" name="a1bca24167c8ae5bcbb056c30a1c0866f"></a>
