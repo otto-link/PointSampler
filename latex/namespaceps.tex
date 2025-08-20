@@ -1161,9 +1161,9 @@ Compute local point density based on k-\/nearest neighbors in N dimensions.
 
 The density at each point is estimated as\+:  \[
 \rho_i = \frac{k}{V_N r_i^N}
-\] where \[r_i\] is the distance to the k-\/th nearest neighbor, \[V_N\] is the volume of the unit N-\/ball\+:  \[
+\] where (r\+\_\+i) is the distance to the k-\/th nearest neighbor, (V\+\_\+N) is the volume of the unit N-\/ball\+:  \[
 V_N = \frac{\pi^{N/2}}{\Gamma(N/2 + 1)}
-\] and \[\Gamma\] is the gamma function. This generalizes to any dimension.
+\] and (\textbackslash{}\+Gamma) is the gamma function. This generalizes to any dimension.
 
 
 \begin{DoxyTemplParams}{Template Parameters}
@@ -1195,7 +1195,7 @@ Vector of local densities for each point.
 \begin{DoxyNote}{Note}
 
 \begin{DoxyItemize}
-\item Works in any dimension \[N\].
+\item Works in any dimension (N).
 \item High k gives smoother density estimates, low k captures local fluctuations.
 \item The resulting density units are “points per unit volume” in N dimensions.
 \end{DoxyItemize}
