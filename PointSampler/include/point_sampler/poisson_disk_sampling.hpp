@@ -597,4 +597,64 @@ std::vector<Point<T, N>> poisson_disk_sampling_weibull(
                                                      max_attempts);
 }
 
+/**
+ * @brief Poisson disk sampling in N dimensions with radii drawn from a Weibull
+ * distribution, enforcing a minimum exclusion distance.
+ *
+ * Each point has an exclusion radius r = max(r_weibull, min_dist).
+ * The Weibull distribution is parameterized by scale λ and shape k.
+ *
+ * @tparam T Floating-point scalar type.
+ * @tparam N Dimension of the space.
+ * @param n_points Maximum number of points to attempt to place.
+ * @param lambda Weibull scale parameter (>0).
+ * @param k Weibull shape parameter (>0).
+ * @param min_dist Minimum exclusion distance enforced globally.
+ * @param axis_ranges Axis-aligned bounding box for the domain.
+ * @param seed Optional random seed.
+ * @param max_attempts Max attempts to place each point.
+ * @return Vector of sampled points.
+ *
+ * @note
+ * - Each point is at least min_dist away from others.
+ * - Radii are Weibull-distributed, but truncated below by min_dist.
+ * - The effective distribution is Weibull(k, λ) left-truncated at min_dist.
+ *
+ * @par example
+ * @code {.cpp}
+ * std::array<std::pair<double,double>, 2> domain = {{{0.0, 1.0}, {0.0, 1.0}}};
+ * auto pts = poisson_disk_sampling_weibull<double,2>(
+ *                200, 0.2, 1.5, 0.05, domain, 42);
+ * @endcode
+ *
+ * @image html out_poisson_disk_sampling_weibull_min_dist.csv.jpg
+ */
+template <typename T, size_t N>
+std::vector<Point<T, N>> poisson_disk_sampling_weibull(
+    size_t                                n_points,
+    T                                     lambda,
+    T                                     k,
+    T                                     dist_min,
+    const std::array<std::pair<T, T>, N> &axis_ranges,
+    std::optional<unsigned int>           seed = std::nullopt,
+    size_t                                max_attempts = 30)
+{
+  std::mt19937                      gen(seed ? *seed : std::random_device{}());
+  std::uniform_real_distribution<T> uni(0.0, 1.0);
+
+  auto weibull_radius = [&]()
+  {
+    T u = uni(gen);
+    // Inverse CDF sampling: r = λ * (-ln(1 - u))^(1/k)
+    T r = lambda * std::pow(-std::log(1 - u), T(1) / k);
+    return std::max(r, dist_min);
+  };
+
+  return poisson_disk_sampling_distance_distribution(n_points,
+                                                     axis_ranges,
+                                                     weibull_radius,
+                                                     seed,
+                                                     max_attempts);
+}
+
 } // namespace ps

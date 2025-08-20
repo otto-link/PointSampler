@@ -136,6 +136,23 @@ int main()
   }
 
   {
+    std::cout << "ps::poisson_disk_sampling_weibull_min_dist...\n";
+
+    float lambda = 0.05f;
+    float k = 0.8f;
+    float dist_min = 0.025f;
+
+    auto points = ps::poisson_disk_sampling_weibull<float, dim>(count,
+                                                                lambda,
+                                                                k,
+                                                                dist_min,
+                                                                ranges,
+                                                                seed);
+
+    ps::save_points_to_csv("out_poisson_disk_sampling_weibull_min_dist.csv", points);
+  }
+
+  {
     std::cout << "ps::random_walk_filaments...\n";
 
     size_t n_filaments = 4;
