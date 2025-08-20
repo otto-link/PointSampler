@@ -284,7 +284,7 @@ std::vector<T> first_neighbor_distance_squared(std::vector<Point<T, N>> &points)
  * @endcode
  *
  * @note
- * - Works in any dimension \(N\).
+ * - Works in any dimension \f[N\f].
  * - High k gives smoother density estimates, low k captures local fluctuations.
  * - The resulting density units are “points per unit volume” in N dimensions.
  *
