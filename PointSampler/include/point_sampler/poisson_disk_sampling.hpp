@@ -466,7 +466,7 @@ std::vector<Point<T, N>> poisson_disk_sampling_distance_distribution(
  *
  * This function generates `n_points` in N-dimensional space such that each point is
  * separated by a local radius sampled from a power-law distribution: \f[ p(r) \propto
- * r^{-\alpha}, \quad r \in [\text{dist\_min}, \text{dist\_max}] \f] Smaller radii are
+ * r^{-\alpha}, \quad r \in [\text{dist_{min}}, \text{dist_{max}}] \f] Smaller radii are
  * more probable than larger ones, creating denser clusters with occasional larger gaps.
  *
  * The sampling respects the axis ranges specified in `axis_ranges` and can optionally use
