@@ -263,12 +263,12 @@ std::vector<T> first_neighbor_distance_squared(std::vector<Point<T, N>> &points)
  * \f[
  * \rho_i = \frac{k}{V_N r_i^N}
  * \f]
- * where \f[r_i\f] is the distance to the k-th nearest neighbor, \f[V_N\f] is the volume
+ * where \(r_i\) is the distance to the k-th nearest neighbor, \(V_N\) is the volume
  * of the unit N-ball:
  * \f[
  * V_N = \frac{\pi^{N/2}}{\Gamma(N/2 + 1)}
  * \f]
- * and \f[\Gamma\f] is the gamma function. This generalizes to any dimension.
+ * and \(\Gamma\) is the gamma function. This generalizes to any dimension.
  *
  * @tparam T Scalar type (e.g., float, double).
  * @tparam N Dimension of the points.
@@ -284,7 +284,7 @@ std::vector<T> first_neighbor_distance_squared(std::vector<Point<T, N>> &points)
  * @endcode
  *
  * @note
- * - Works in any dimension \f[N\f].
+ * - Works in any dimension \(N\).
  * - High k gives smoother density estimates, low k captures local fluctuations.
  * - The resulting density units are “points per unit volume” in N dimensions.
  *
