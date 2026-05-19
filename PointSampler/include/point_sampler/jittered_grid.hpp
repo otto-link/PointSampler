@@ -3,6 +3,7 @@
    this software. */
 #pragma once
 #include <optional>
+#include <random>
 
 #include "point_sampler/point.hpp"
 
